@@ -15,6 +15,9 @@ import {
     gettext as __,
 } from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
+import {AboutPage} from './aboutPrefs.js';
+import {StacksPage} from './stacksPrefs.js';
+
 const SCALE_UPDATE_TIMEOUT = 500;
 const DEFAULT_ICONS_SIZES = [128, 96, 64, 48, 32, 24, 16];
 
@@ -1182,16 +1185,29 @@ const DockSettings = GObject.registerClass({
             this._builder.get_object('show_overview_on_startup_switch'),
             'active', Gio.SettingsBindFlags.INVERT_BOOLEAN);
 
-        // About Panel
-
-        this._builder.get_object('extension_version').set_label(
-            `${this._extensionPreferences.metadata.version}`);
     }
 });
 
 export default class DockPreferences extends ExtensionPreferences {
     fillPreferencesWindow(window) {
         const settings = new DockSettings(this);
+        settings.page.set({name: 'dock', title: __('Dock'), icon_name: 'view-app-grid-symbolic'});
         window.add(settings.page);
+        const stackSettings = this.getSettings('org.gnome.shell.extensions.stackdock');
+        window.add(new StacksPage(stackSettings));
+        window.add(new AboutPage(this.metadata));
+
+        // The dock menu asks for a page by setting prefs-page, both when it
+        // opens the window and when the window is already open.
+        const showRequestedPage = () => {
+            const page = stackSettings.get_string('prefs-page');
+            if (!page)
+                return;
+            window.set_visible_page_name(page);
+            stackSettings.set_string('prefs-page', '');
+        };
+        showRequestedPage();
+        const id = stackSettings.connect('changed::prefs-page', showRequestedPage);
+        window.connect('close-request', () => stackSettings.disconnect(id));
     }
 }

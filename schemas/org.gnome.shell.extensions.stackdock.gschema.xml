@@ -640,5 +640,61 @@
       <summary>Wether the application-provioded counter via Unity API should override the notifications or be summed to it</summary>
       <description>If an application provides a counter through the Unity API, then such value will be used. Otherwise the counter will be summed with the unread notification numbers (if enabled)</description>
     </key>
+    <key name="stack-folders" type="as">
+      <default>[]</default>
+      <summary>Folder stacks</summary>
+      <description>Absolute paths of folders shown in the dock as stacks, in order.</description>
+    </key>
+    <key name="stack-app-folders" type="as">
+      <default>[]</default>
+      <summary>App folder stacks</summary>
+      <description>IDs of GNOME app-grid folders (org.gnome.desktop.app-folders) shown in the dock as stacks, right after the pinned apps.</description>
+    </key>
+    <key name="stack-drives" type="b">
+      <default>true</default>
+      <summary>Group drives into a stack</summary>
+      <description>Show mounted drives and volumes as one Drives stack instead of separate icons. Needs show-mounts.</description>
+    </key>
+    <key name="stack-view" type="s">
+      <choices>
+        <choice value="auto"/>
+        <choice value="fan"/>
+        <choice value="grid"/>
+      </choices>
+      <default>'auto'</default>
+      <summary>Stack view</summary>
+      <description>How stacks open: auto (fan for small stacks, grid for large ones), fan, or grid.</description>
+    </key>
+    <key name="stack-fan-max" type="i">
+      <range min="4" max="16"/>
+      <default>10</default>
+      <summary>Largest fan</summary>
+      <description>Most items a fan shows. In auto view, bigger stacks open as a grid.</description>
+    </key>
+    <key name="stack-sort" type="s">
+      <choices>
+        <choice value="modified"/>
+        <choice value="name"/>
+        <choice value="kind"/>
+      </choices>
+      <default>'modified'</default>
+      <summary>Sort folder stacks by</summary>
+      <description>Order of the files in folder stacks: modified (newest first), name, or kind.</description>
+    </key>
+    <key name="stacks-migrated" type="b">
+      <default>false</default>
+      <summary>Dock Stacks settings imported</summary>
+      <description>Internal: set once the folders from the Dock Stacks extension have been imported.</description>
+    </key>
+    <key name="prefs-page" type="s">
+      <default>''</default>
+      <summary>Preferences page to show</summary>
+      <description>Internal: set by the dock menu to open the preferences window on a given page, then cleared.</description>
+    </key>
+    <key name="dash-to-dock-imported" type="b">
+      <default>false</default>
+      <summary>Dash to Dock settings imported</summary>
+      <description>Internal: set once the settings of an existing Dash to Dock install have been imported.</description>
+    </key>
   </schema>
 </schemalist>

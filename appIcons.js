@@ -1578,11 +1578,14 @@ class DockShowAppsIconMenu extends DockAppIconMenu {
     _rebuildMenu() {
         this.removeAll();
 
-        this.addMenuItem(new PopupMenu.PopupSeparatorMenuItem(__('Dash to Dock')));
+        this.addMenuItem(new PopupMenu.PopupSeparatorMenuItem('StackDock'));
 
-        const item = this._appendMenuItem(_('Settings'));
-        item.connect('activate', () =>
-            Docking.DockManager.extension.openPreferences());
+        const openPage = page => {
+            Docking.DockManager.settings.set_string('prefs-page', page);
+            Docking.DockManager.extension.openPreferences();
+        };
+        this._appendMenuItem(_('Settings')).connect('activate', () => openPage('dock'));
+        this._appendMenuItem(__('About')).connect('activate', () => openPage('about'));
     }
 }
 

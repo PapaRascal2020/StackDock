@@ -10,6 +10,9 @@ BASE_MODULES = extension.js \
 EXTRA_MODULES = \
                 appSpread.js \
                 dash.js \
+                stacks.js \
+                stacksPrefs.js \
+                aboutPrefs.js \
                 docking.js \
                 appIcons.js \
                 appIconsDecorator.js \

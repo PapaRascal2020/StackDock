@@ -36,6 +36,7 @@ import {
     LauncherAPI,
     Locations,
     NotificationsMonitor,
+    Stacks,
     Theming,
     Utils,
 } from './imports.js';
@@ -1828,6 +1829,7 @@ export class DockManager {
         this._propertyInjections = new Utils.PropertyInjectionsHandler(this);
         this._settings = this._extension.getSettings(
             'org.gnome.shell.extensions.stackdock');
+        this._importDashToDockSettings();
         this._appSwitcherSettings = new Gio.Settings({schema_id: 'org.gnome.shell.app-switcher'});
         this._mapSettingsValues();
 
@@ -1883,6 +1885,8 @@ export class DockManager {
         this._bindSettingsChanges();
 
         this._ensureLocations();
+
+        this._stacks = new Stacks.StackManager();
 
         /* Array of all the docks created */
         this._allDocks = [];
@@ -1956,6 +1960,10 @@ export class DockManager {
 
     get trash() {
         return this._trash;
+    }
+
+    get stacks() {
+        return this._stacks;
     }
 
     get desktopIconsUsableArea() {
@@ -2105,6 +2113,45 @@ export class DockManager {
                 this.settings.emit('changed::%s'.format(mappedKey), mappedKey);
                 this._signalsHandler.unblockWithLabel(Labels.SETTINGS);
             });
+    }
+
+    /**
+     * On first run, bring over the settings of an existing Dash to Dock
+     * install, so switching to StackDock keeps the dock as it was.
+     */
+    _importDashToDockSettings() {
+        if (this._settings.get_boolean('dash-to-dock-imported'))
+            return;
+        this._settings.set_boolean('dash-to-dock-imported', true);
+
+        const schemaId = 'org.gnome.shell.extensions.dash-to-dock';
+        const uuid = 'dash-to-dock@micxgx.gmail.com';
+        const defaultSource = Gio.SettingsSchemaSource.get_default();
+        let schema = defaultSource?.lookup(schemaId, true);
+        for (const dataDir of [GLib.get_user_data_dir(), ...GLib.get_system_data_dirs()]) {
+            if (schema)
+                break;
+            const dir = GLib.build_filenamev([dataDir, 'gnome-shell', 'extensions', uuid, 'schemas']);
+            if (GLib.file_test(`${dir}/gschemas.compiled`, GLib.FileTest.EXISTS)) {
+                schema = Gio.SettingsSchemaSource.new_from_directory(dir, defaultSource, false)
+                    .lookup(schemaId, false);
+            }
+        }
+        if (!schema)
+            return;
+
+        try {
+            const oldSettings = new Gio.Settings({settings_schema: schema});
+            const ourSchema = this._settings.settings_schema;
+            for (const key of schema.list_keys()) {
+                const value = oldSettings.get_user_value(key);
+                if (value && ourSchema.has_key(key) &&
+                    ourSchema.get_key(key).get_value_type().equal(value.get_type()))
+                    this._settings.set_value(key, value);
+            }
+        } catch (e) {
+            logError(e, 'StackDock: could not import Dash to Dock settings');
+        }
     }
 
     _mapSettingsValues() {
@@ -2797,6 +2844,8 @@ export class DockManager {
         }
         this._restoreDash();
         this._deleteDocks();
+        this._stacks?.destroy();
+        this._stacks = null;
         this._revertPanelCorners();
         if (this._oldSelectorMargin)
             this.searchController.margin_bottom = this._oldSelectorMargin;

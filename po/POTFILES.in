@@ -5,3 +5,6 @@ appIconIndicators.js
 appIconsDecorator.js
 locations.js
 Settings.ui
+stacks.js
+stacksPrefs.js
+aboutPrefs.js

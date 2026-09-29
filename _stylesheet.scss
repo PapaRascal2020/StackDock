@@ -517,3 +517,164 @@ $dock_style_modes: null, shrink, extended, extended-shrink;
         background-size: contain;
     }
 }
+
+// ─── Stacks ─────────────────────────────────────────────────────────────────
+
+$stack_panel_color: rgba(36, 36, 38, 0.96);
+$stack_footer_color: rgb(48, 48, 51);
+$stack_radius: 16px;
+
+.dash-item-container .stackdock-stack:checked .overview-icon {
+    background-color: $remark_color;
+}
+
+.stackdock-app-folder-icon {
+    background-color: rgba(255, 255, 255, 0.14);
+}
+
+.stackdock-thumbnail {
+    border: 2px solid white;
+    border-radius: 3px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+
+// Fan
+
+.stackdock-fan-item {
+    padding: 0;
+    border-radius: 999px;
+}
+
+.stackdock-fan-item-box {
+    spacing: 10px;
+}
+
+.stackdock-fan-label {
+    color: white;
+    background-color: rgba(28, 28, 30, 0.86);
+    border-radius: 999px;
+    padding: 4px 11px;
+    max-width: 260px;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+.stackdock-fan-item:hover .stackdock-fan-label,
+.stackdock-fan-item:focus .stackdock-fan-label {
+    background-color: -st-accent-color;
+    color: -st-accent-fg-color;
+}
+
+.stackdock-fan-action .stackdock-fan-label {
+    font-weight: bold;
+}
+
+// Grid
+
+.stackdock-grid {
+    color: white;
+    background-color: $stack_panel_color;
+    border-radius: $stack_radius;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+.stackdock-grid-header {
+    padding: 14px 16px 6px;
+    spacing: 10px;
+}
+
+.stackdock-grid-title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.stackdock-grid-search {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 13px;
+
+    &:focus {
+        border-color: -st-accent-color;
+    }
+}
+
+.stackdock-grid-search-icon {
+    icon-size: 16px;
+    padding-right: 6px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.stackdock-grid-item {
+    color: white;
+    border-radius: 10px;
+    padding: 6px 4px;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &:focus {
+        background-color: rgba(255, 255, 255, 0.14);
+        box-shadow: inset 0 0 0 2px -st-accent-color;
+    }
+
+    &:active {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+.stackdock-grid-icon-bin {
+    padding-bottom: 6px;
+}
+
+.stackdock-grid-label {
+    font-size: 12px;
+    text-align: center;
+    max-height: 32px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.stackdock-grid-empty {
+    padding: 36px 24px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+// A solid bar under the grid, so its text never sits on top of items
+.stackdock-grid-footer {
+    background-color: $stack_footer_color;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0 0 $stack_radius $stack_radius;
+    padding: 8px 10px 8px 16px;
+    spacing: 12px;
+}
+
+.stackdock-grid-count {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.stackdock-grid-footer-button {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 13px;
+    font-weight: 600;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.18);
+    }
+
+    &:focus {
+        box-shadow: inset 0 0 0 2px -st-accent-color;
+    }
+
+    &:active {
+        background-color: rgba(255, 255, 255, 0.24);
+    }
+}

@@ -4,6 +4,7 @@ export * as AppFavorites from 'resource:///org/gnome/shell/ui/appFavorites.js';
 export * as BoxPointer from 'resource:///org/gnome/shell/ui/boxpointer.js';
 export * as DND from 'resource:///org/gnome/shell/ui/dnd.js';
 export * as Dash from 'resource:///org/gnome/shell/ui/dash.js';
+export * as IconGrid from 'resource:///org/gnome/shell/ui/iconGrid.js';
 export * as Layout from 'resource:///org/gnome/shell/ui/layout.js';
 export * as Main from 'resource:///org/gnome/shell/ui/main.js';
 export * as Overview from 'resource:///org/gnome/shell/ui/overview.js';

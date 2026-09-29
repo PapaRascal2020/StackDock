@@ -5,6 +5,7 @@ import {
     Gio,
     GLib,
     GObject,
+    Meta,
     Shell,
     St,
 } from './dependencies/gi.js';
@@ -24,6 +25,7 @@ import {
 import {
     AppIcons,
     Docking,
+    Stacks,
     Theming,
     Utils,
 } from './imports.js';
@@ -158,6 +160,7 @@ export const DockDash = GObject.registerClass({
         this._signalsHandler = new Utils.GlobalSignalsHandler(this);
 
         this._separator = null;
+        this._stackItems = new Map();
 
         this._monitorIndex = monitorIndex;
         this._position = Utils.getPosition();
@@ -280,6 +283,10 @@ export const DockDash = GObject.registerClass({
             },
         ], [
             AppFavorites.getAppFavorites(),
+            'changed',
+            this._queueRedisplay.bind(this),
+        ], [
+            Docking.DockManager.getDefault().stacks,
             'changed',
             this._queueRedisplay.bind(this),
         ], [
@@ -460,8 +467,46 @@ export const DockDash = GObject.registerClass({
         return ret;
     }
 
-    acceptDrop(...args) {
-        return Dash.Dash.prototype.acceptDrop.call(this, ...args);
+    // Upstream acceptDrop, but skipping dock items that are not apps (stacks)
+    acceptDrop(source, _actor, _x, _y, _time) {
+        const app = Dash.Dash.getAppFromSource(source);
+
+        // Don't allow favoriting of transient apps
+        if (!app || app.is_window_backed())
+            return false;
+
+        if (!global.settings.is_writable('favorite-apps'))
+            return false;
+
+        const id = app.get_id();
+        const favorites = AppFavorites.getAppFavorites().getFavoriteMap();
+        const srcIsFavorite = id in favorites;
+
+        let favPos = 0;
+        const children = this._box.get_children();
+        for (let i = 0; i < this._dragPlaceholderPos; i++) {
+            const childId = children[i].child?._delegate?.app?.get_id();
+            if (!childId || childId === id)
+                continue;
+            if (childId in favorites)
+                favPos++;
+        }
+
+        // No drag placeholder means we don't want to favorite the app
+        // and we are dragging it to its original position
+        if (!this._dragPlaceholder)
+            return true;
+
+        global.compositor.get_laters().add(Meta.LaterType.BEFORE_REDRAW, () => {
+            const appFavorites = AppFavorites.getAppFavorites();
+            if (srcIsFavorite)
+                appFavorites.moveFavoriteToPos(id, favPos);
+            else
+                appFavorites.addFavoriteAtPos(id, favPos);
+            return GLib.SOURCE_REMOVE;
+        });
+
+        return true;
     }
 
     _onWindowDragBegin(...args) {
@@ -596,6 +641,92 @@ export const DockDash = GObject.registerClass({
         return item;
     }
 
+    _createStackItem(source) {
+        const stackIcon = new Stacks.StackIcon(source, this);
+        const item = new DockDashItemContainer(this._position);
+        item.setChild(stackIcon);
+        item.setLabelText(source.name);
+        stackIcon.icon.setIconSize(this.iconSize);
+
+        stackIcon.connectObject(
+            'menu-state-changed', (_, opened) => this._itemMenuStateChanged(item, opened),
+            'notify::hover', a => this._ensureItemVisibility(a), this);
+        source.connectObject('changed', () => item.setLabelText(source.name), item);
+        this._hookUpLabel(item);
+
+        return item;
+    }
+
+    /**
+     * Add and remove stack items to match the stack manager, and park them at
+     * the end of the box so the app diff in _redisplay() only sees apps.
+     * They get their real place from _placeStackItems().
+     */
+    _syncStackItems() {
+        const {stacks} = Docking.DockManager.getDefault();
+        const wanted = [...stacks.pinnedStacks, ...stacks.endStacks].filter(s => !s.isEmpty);
+        const added = [];
+
+        for (const [source, item] of this._stackItems) {
+            if (wanted.includes(source))
+                continue;
+            this._stackItems.delete(source);
+            this._box.set_child_above_sibling(item, null);
+            if (Main.overview.animationInProgress)
+                item.destroy();
+            else
+                item.animateOutAndDestroy();
+        }
+
+        for (const source of wanted) {
+            let item = this._stackItems.get(source);
+            if (!item) {
+                item = this._createStackItem(source);
+                this._stackItems.set(source, item);
+                this._box.add_child(item);
+                added.push(item);
+            }
+            this._box.set_child_above_sibling(item, null);
+        }
+
+        return added;
+    }
+
+    /**
+     * App-folder stacks go right after the pinned apps; the other stacks
+     * (drives and folders) go at the end, before the trash.
+     */
+    _placeStackItems() {
+        const {stacks} = Docking.DockManager.getDefault();
+        const favorites = AppFavorites.getAppFavorites().getFavoriteMap();
+        const children = this._box.get_children();
+        const appOf = child => child.child?._delegate?.app;
+
+        let anchor = children.findLast(c =>
+            !c.animatingOut && appOf(c) && appOf(c).get_id() in favorites);
+        for (const source of stacks.pinnedStacks) {
+            const item = this._stackItems.get(source);
+            if (!item)
+                continue;
+            if (anchor)
+                this._box.set_child_above_sibling(item, anchor);
+            else
+                this._box.set_child_below_sibling(item, null);
+            anchor = item;
+        }
+
+        const trash = children.find(c => !c.animatingOut && appOf(c)?.isTrash);
+        for (const source of stacks.endStacks) {
+            const item = this._stackItems.get(source);
+            if (!item)
+                continue;
+            if (trash)
+                this._box.set_child_below_sibling(item, trash);
+            else
+                this._box.set_child_above_sibling(item, null);
+        }
+    }
+
     _requireVisibility() {
         this.requiresVisibility = true;
 
@@ -620,6 +751,7 @@ export const DockDash = GObject.registerClass({
         const iconChildren = this._box.get_children().filter(actor => {
             return actor.child &&
                    !!actor.child.icon &&
+                   !(actor.child instanceof Stacks.StackIcon) &&
                    !actor.animatingOut;
         });
 
@@ -849,10 +981,12 @@ export const DockDash = GObject.registerClass({
         if (dockManager.removables) {
             this._signalsHandler.addWithLabel(Labels.SHOW_MOUNTS,
                 dockManager.removables, 'changed', this._queueRedisplay.bind(this));
-            dockManager.removables.getApps().forEach(removable => {
-                if (!newApps.includes(removable))
-                    newApps.push(removable);
-            });
+            if (!dockManager.stacks.groupsDrives) {
+                dockManager.removables.getApps().forEach(removable => {
+                    if (!newApps.includes(removable))
+                        newApps.push(removable);
+                });
+            }
         } else {
             oldApps = oldApps.filter(app => !app.location || app.isTrash);
         }
@@ -864,6 +998,8 @@ export const DockDash = GObject.registerClass({
         } else {
             oldApps = oldApps.filter(app => !app.isTrash);
         }
+
+        const addedStacks = this._syncStackItems();
 
         // Temporary remove the separator so that we don't compute to position icons
         const oldSeparatorPos = this._box.get_children().indexOf(this._separator);
@@ -963,7 +1099,9 @@ export const DockDash = GObject.registerClass({
         // Update separator
         const nFavorites = Object.keys(favorites).length;
         const nIcons = children.length + addedItems.length - removedActors.length;
-        if (nFavorites > 0 && nFavorites < nIcons) {
+        const nPinnedStacks = dockManager.stacks.pinnedStacks.filter(s => this._stackItems.has(s)).length;
+        const nEndStacks = this._stackItems.size - nPinnedStacks;
+        if (nFavorites + nPinnedStacks > 0 && nFavorites < nIcons + nEndStacks) {
             if (!this._separator) {
                 this._separator = new St.Widget({
                     style_class: 'dash-separator',
@@ -990,6 +1128,7 @@ export const DockDash = GObject.registerClass({
             this._separator = null;
         }
 
+        this._placeStackItems();
         this._adjustIconSize();
 
         // Skip animations on first run when adding the initial set
@@ -1001,6 +1140,7 @@ export const DockDash = GObject.registerClass({
             this._shownInitially = true;
 
         addedItems.forEach(({item}) => item.show(animate));
+        addedStacks.forEach(item => item.show(animate));
 
         // This will update the size, and the corresponding number for each icon
         this._updateNumberOverlay();
@@ -1063,7 +1203,8 @@ export const DockDash = GObject.registerClass({
     resetAppIcons() {
         const children = this._box.get_children().filter(actor => {
             return actor.child &&
-                   !!actor.child.icon;
+                   !!actor.child.icon &&
+                   !(actor.child instanceof Stacks.StackIcon);
         });
         for (let i = 0; i < children.length; i++) {
             const item = children[i];
