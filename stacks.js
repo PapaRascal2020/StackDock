@@ -1009,7 +1009,11 @@ const StackPopup = GObject.registerClass({
         this._isOpen = false;
         this._drag = null;
 
-        this.connect('button-press-event', () => {
+        // Close only on presses on the backdrop itself. Claiming a press that
+        // bubbled up from an item would cancel the item's click gesture.
+        this.connect('button-press-event', (_actor, event) => {
+            if (global.stage.get_event_actor(event) !== this)
+                return Clutter.EVENT_PROPAGATE;
             this.close();
             return Clutter.EVENT_STOP;
         });
@@ -1515,8 +1519,6 @@ class StackGrid extends StackPopup {
             orientation: Clutter.Orientation.VERTICAL,
             reactive: true,
         });
-        // Clicks on the panel background must not close the popup
-        this._panel.connect('button-press-event', () => Clutter.EVENT_STOP);
 
         this._buildHeader();
 
