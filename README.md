@@ -21,18 +21,19 @@ So I stopped waiting. StackDock is one extension that does all of it, built for 
 - right-click for Open With, Show in Files and Move to Trash
 - drag a file out onto a Files window to move it there (hold Ctrl to copy), onto an app to open it in that app, or onto the desktop
 
-**App folder stacks.** Your app grid folders can live in the dock, right after your pinned apps, with a little preview of the apps inside.
+**App folder stacks.** Your app grid folders can live in the dock, right after your pinned apps, with a little preview of the apps inside. They work like folders on macOS:
+
+- drag one app onto the middle of another in the dock to put them both in a new folder
+- drag an app onto a folder stack to add it
+- click the folder's name at the top of the grid to rename it (or right-click the stack and choose Rename Folder)
+- drag an app out of the folder to take it out. Drop it on the dock to pin it there
+- when the last app leaves, the folder is deleted
 
 **A Drives stack.** USB sticks, memory cards and other drives are grouped into one Drives stack instead of each taking up a spot in the dock. Right-click a drive to eject or unmount it. The stack hides itself when nothing is plugged in.
 
 **Easy to set up.** Everything is in one settings window, and you can right-click any stack to change how it opens or how it is sorted.
 
 **Keyboard friendly.** In an open stack, the arrow keys move between items, Enter opens, Space previews, typing searches and Escape closes.
-
-### Coming soon
-
-- Drag one app onto another in the dock to make a folder
-- Click a folder's title to rename it
 
 ## Requirements
 
@@ -99,7 +100,7 @@ Open the settings:
 Go to the **Stacks** tab, then:
 
 - press **+** under Folder Stacks to add a folder
-- switch on any app folders you want under App Folder Stacks. To make an app folder, open Activities and drag one app onto another.
+- switch on any app folders you want under App Folder Stacks. To make a new one, drag one app onto another in the dock.
 
 If you used Dock Stacks before, StackDock brings your folders over automatically the first time it starts.
 

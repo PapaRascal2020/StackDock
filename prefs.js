@@ -202,10 +202,8 @@ const DockSettings = GObject.registerClass({
         this.page = new Adw.PreferencesPage();
         this.page.add(group);
 
-        // Set a reasonable initial window height
         this.page.connect('realize', () => {
             const rootWindow = this.page.get_root();
-            rootWindow.set_default_size(-1, 850);
             rootWindow.connect('close-request', () => this._onWindowsClosed());
         });
 
@@ -1188,8 +1186,32 @@ const DockSettings = GObject.registerClass({
     }
 });
 
+const WINDOW_MIN_WIDTH = 720;
+const WINDOW_MIN_HEIGHT = 600;
+
+/**
+ * Open the window at a size where every page fits without resizing: about
+ * half the screen wide and most of its height, never below the minimum.
+ *
+ * @param {Gtk.Window} window the preferences window
+ */
+function sizeWindow(window) {
+    let width = 900, height = 860;
+    const monitor = Gdk.Display.get_default()?.get_monitors().get_item(0);
+    if (monitor) {
+        const {width: screenWidth, height: screenHeight} = monitor.get_geometry();
+        width = Math.min(Math.max(WINDOW_MIN_WIDTH, Math.round(screenWidth * 0.5)),
+            1000, screenWidth);
+        height = Math.min(Math.max(WINDOW_MIN_HEIGHT, Math.round(screenHeight * 0.85)),
+            1000, screenHeight);
+    }
+    window.set_size_request(Math.min(WINDOW_MIN_WIDTH, width), Math.min(WINDOW_MIN_HEIGHT, height));
+    window.set_default_size(width, height);
+}
+
 export default class DockPreferences extends ExtensionPreferences {
     fillPreferencesWindow(window) {
+        sizeWindow(window);
         const settings = new DockSettings(this);
         settings.page.set({name: 'dock', title: __('Dock'), icon_name: 'view-app-grid-symbolic'});
         window.add(settings.page);

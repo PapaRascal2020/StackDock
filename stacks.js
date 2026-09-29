@@ -21,7 +21,10 @@ import {
 } from './dependencies/gi.js';
 
 import {
+    AppFavorites,
     BoxPointer,
+    Dash,
+    DND,
     IconGrid,
     Main,
     PopupMenu,
@@ -59,8 +62,10 @@ const FILE_ATTRIBUTES = [
 const MAX_ENUMERATED = 5000;
 const MAX_SHOWN = 500;
 
-const FAN_ICON_SIZE = 48;
-const FAN_PITCH = FAN_ICON_SIZE + 14;
+const FAN_ICON_SIZE = 36;
+// Space between a fan card's edge and its icon: padding plus border
+const FAN_CARD_INSET = 6;
+const FAN_PITCH = FAN_ICON_SIZE + 2 * FAN_CARD_INSET + 8;
 const GRID_ICON_SIZE = 64;
 const GRID_CELL_WIDTH = 96;
 const GRID_CELL_HEIGHT = 112;
@@ -215,6 +220,205 @@ function appFolderApps(settings) {
         .map(id => appSystem.lookup_app(id))
         .filter(app => app)
         .sort((a, b) => collator.compare(a.get_name(), b.get_name()));
+}
+
+/**
+ * A name for a new folder from a category all its apps share, like the app
+ * grid does, e.g. "Office" or "Games".
+ *
+ * @param {Shell.App[]} apps the apps going into the folder
+ */
+function bestFolderName(apps) {
+    const categoryLists = apps.map(app =>
+        (app.get_app_info()?.get_categories() ?? '').split(';').filter(c => c));
+    const [first = [], ...rest] = categoryLists;
+    for (const category of first) {
+        if (!rest.every(list => list.includes(category)))
+            continue;
+        const name = Shell.util_get_translated_folder_name(`${category}.directory`);
+        if (name)
+            return name;
+    }
+    return __('Unnamed Folder');
+}
+
+/**
+ * Make a new app-grid folder holding `apps` and show it as a stack in the
+ * dock, in place of those apps.
+ *
+ * @param {Shell.App[]} apps the apps to put in the folder
+ */
+export function createAppFolder(apps) {
+    const folderId = GLib.uuid_string_random();
+    const folders = new Gio.Settings({schema_id: 'org.gnome.desktop.app-folders'});
+
+    const settings = appFolderSettings(folderId);
+    settings.delay();
+    settings.set_string('name', bestFolderName(apps));
+    settings.set_strv('apps', apps.map(app => app.get_id()));
+    settings.apply();
+    Gio.Settings.sync();
+
+    folders.set_strv('folder-children', [...folders.get_strv('folder-children'), folderId]);
+
+    const dockSettings = Docking.DockManager.settings;
+    dockSettings.set_strv('stack-app-folders',
+        [...dockSettings.get_strv('stack-app-folders'), folderId]);
+
+    unfavorite(apps);
+    return folderId;
+}
+
+/**
+ * Add an app to an app-grid folder.
+ *
+ * @param {string} folderId the folder
+ * @param {Shell.App} app the app to add
+ */
+export function addAppToFolder(folderId, app) {
+    const id = app.get_id();
+    const settings = appFolderSettings(folderId);
+    const apps = settings.get_strv('apps');
+    if (!apps.includes(id))
+        settings.set_strv('apps', [...apps, id]);
+    // Apps in category-based folders can be excluded; undo that
+    const excluded = settings.get_strv('excluded-apps');
+    if (excluded.includes(id))
+        settings.set_strv('excluded-apps', excluded.filter(e => e !== id));
+}
+
+/**
+ * Take an app out of an app-grid folder. The folder is deleted, and its
+ * stack removed from the dock, when that was its last app.
+ *
+ * @param {string} folderId the folder
+ * @param {Shell.App} app the app to remove
+ */
+export function removeAppFromFolder(folderId, app) {
+    const id = app.get_id();
+    const settings = appFolderSettings(folderId);
+    const remaining = appFolderApps(settings).filter(a => a.get_id() !== id);
+    if (!remaining.length) {
+        deleteAppFolder(folderId);
+        return;
+    }
+
+    settings.set_strv('apps', settings.get_strv('apps').filter(a => a !== id));
+    // A category-based folder would still pick the app up by its category
+    if (settings.get_strv('categories').length &&
+        !settings.get_strv('excluded-apps').includes(id))
+        settings.set_strv('excluded-apps', [...settings.get_strv('excluded-apps'), id]);
+}
+
+/**
+ * Delete an app-grid folder and remove its stack from the dock.
+ *
+ * @param {string} folderId the folder
+ */
+export function deleteAppFolder(folderId) {
+    const dockSettings = Docking.DockManager.settings;
+    dockSettings.set_strv('stack-app-folders',
+        dockSettings.get_strv('stack-app-folders').filter(id => id !== folderId));
+
+    // Resetting all keys deletes the relocatable settings
+    const settings = appFolderSettings(folderId);
+    for (const key of settings.settings_schema.list_keys())
+        settings.reset(key);
+
+    const folders = new Gio.Settings({schema_id: 'org.gnome.desktop.app-folders'});
+    folders.set_strv('folder-children',
+        folders.get_strv('folder-children').filter(id => id !== folderId));
+}
+
+/**
+ * Rename an app-grid folder.
+ *
+ * @param {string} folderId the folder
+ * @param {string} name the new name
+ */
+export function renameAppFolder(folderId, name) {
+    const settings = appFolderSettings(folderId);
+    settings.delay();
+    settings.set_string('name', name);
+    settings.set_boolean('translate', false);
+    settings.apply();
+}
+
+// Moving apps between the dock and folders is not worth a notification, so
+// use the quiet versions of the favourites calls when there are any
+function unfavorite(apps) {
+    const appFavorites = AppFavorites.getAppFavorites();
+    const remove = appFavorites._removeFavorite ?? appFavorites.removeFavorite;
+    for (const app of apps) {
+        if (appFavorites.isFavorite(app.get_id()))
+            remove.call(appFavorites, app.get_id());
+    }
+}
+
+/**
+ * Remove an app dragged from the dock from the pinned apps, as it has moved
+ * into a folder. Apps dragged from the app grid keep their place.
+ *
+ * @param {Shell.App} app the app
+ * @param {object} dragSource the drag source
+ */
+export function unfavoriteDraggedApp(app, dragSource) {
+    if (dragSource?._isDockAppIcon)
+        unfavorite([app]);
+}
+
+/**
+ * The app being dragged, if it is one that can go in an app folder: not a
+ * window-backed app, a location or the trash.
+ *
+ * @param {object} source the drag source
+ */
+export function draggedFolderApp(source) {
+    const app = Dash.Dash.getAppFromSource(source);
+    if (!app || app.is_window_backed() || app.location || app.isTrash)
+        return null;
+    return app.get_app_info()?.get_id() ? app : null;
+}
+
+/**
+ * Tracks whether a drag is hovering a folder drop target: it styles the
+ * target with `:drop` and stops when the pointer leaves or the drag ends.
+ */
+export class DropHover {
+    constructor(actor) {
+        this._actor = actor;
+        this._monitor = null;
+        actor.connect('destroy', () => this.set(false));
+    }
+
+    get active() {
+        return !!this._monitor;
+    }
+
+    set(hovering) {
+        if (hovering === this.active)
+            return;
+
+        if (hovering) {
+            this._monitor = {
+                dragMotion: event => {
+                    if (!this._actor.contains(event.targetActor))
+                        this.set(false);
+                    return DND.DragMotionResult.CONTINUE;
+                },
+            };
+            DND.addDragMonitor(this._monitor);
+            Main.overview.connectObject(
+                'item-drag-end', () => this.set(false),
+                'item-drag-cancelled', () => this.set(false), this);
+            this._actor.add_style_pseudo_class('drop');
+        } else {
+            DND.removeDragMonitor(this._monitor);
+            this._monitor = null;
+            Main.overview.disconnectObject(this);
+            this._actor.remove_style_pseudo_class('drop');
+        }
+    }
 }
 
 // ─── Stack sources ──────────────────────────────────────────────────────────
@@ -730,6 +934,35 @@ async function dropFile(item, x, y, copy) {
         openUri(item.uri);
 }
 
+/**
+ * Pin an app to the dock at the drop point (x, y), among the pinned apps.
+ *
+ * @param {object} dash the dock's dash
+ * @param {Shell.App} app the app
+ * @param {number} x drop x, in stage coordinates
+ * @param {number} y drop y, in stage coordinates
+ * @param {boolean} isVertical whether the dock is vertical
+ */
+function pinAppAt(dash, app, x, y, isVertical) {
+    const appFavorites = AppFavorites.getAppFavorites();
+    const id = app.get_id();
+    if (appFavorites.isFavorite(id) || !global.settings.is_writable('favorite-apps'))
+        return;
+
+    let pos = 0;
+    for (const child of dash._box.get_children()) {
+        const childApp = child.child?._delegate?.app;
+        if (!childApp || !appFavorites.isFavorite(childApp.get_id()))
+            continue;
+        const [cx, cy] = child.get_transformed_position();
+        const [cw, ch] = child.get_transformed_size();
+        if (isVertical ? y > cy + ch / 2 : x > cx + cw / 2)
+            pos++;
+    }
+    const add = appFavorites._addFavorite ?? appFavorites.addFavoriteAtPos;
+    add.call(appFavorites, id, pos);
+}
+
 // ─── Popups ─────────────────────────────────────────────────────────────────
 
 const clamp = (v, min, max) => Math.max(min, Math.min(v, max));
@@ -863,7 +1096,7 @@ const StackPopup = GObject.registerClass({
                 this._openItemMenu(button, item);
                 return Clutter.EVENT_STOP;
             }
-            if (event.get_button() === Clutter.BUTTON_PRIMARY && item.file)
+            if (event.get_button() === Clutter.BUTTON_PRIMARY && this._canDragOut(item))
                 this._drag = {button, item, start: event.get_coords(), clone: null};
             return Clutter.EVENT_PROPAGATE;
         });
@@ -883,6 +1116,30 @@ const StackPopup = GObject.registerClass({
             return Clutter.EVENT_PROPAGATE;
         });
         button._stackItem = item;
+    }
+
+    /** Files can be dragged out anywhere; apps can be dragged out of folders. */
+    _canDragOut(item) {
+        return !!item.file || (!!item.app && this._source instanceof AppFolderStackSource);
+    }
+
+    /** Whether the pointer is over the popup's own content, not the backdrop. */
+    _isOverContent(x, y) {
+        const actor = global.stage.get_actor_at_pos(Clutter.PickMode.REACTIVE, x, y);
+        return this._itemButtons().some(b => b.contains(actor));
+    }
+
+    /**
+     * An app dragged out of a folder stack leaves the folder. Dropped on the
+     * dock, it is also pinned where it was dropped.
+     */
+    _dropAppOutside(item, x, y) {
+        const {dash} = this._stackIcon;
+        const [dx, dy] = dash.get_transformed_position();
+        const [dw, dh] = dash.get_transformed_size();
+        if (x >= dx && x < dx + dw && y >= dy && y < dy + dh)
+            pinAppAt(dash, item.app, x, y, this._anchor.isVertical);
+        removeAppFromFolder(this._source.folderId, item.app);
     }
 
     _startDrag(x, y) {
@@ -913,6 +1170,16 @@ const StackPopup = GObject.registerClass({
             }
             if (type === Clutter.EventType.BUTTON_RELEASE) {
                 const {item} = this._drag;
+                if (item.app) {
+                    this._endDrag();
+                    if (this._isOverContent(x, y)) {
+                        this.ease({opacity: 255, duration: 100});
+                    } else {
+                        this.close();
+                        this._dropAppOutside(item, x, y);
+                    }
+                    return Clutter.EVENT_STOP;
+                }
                 const copy = (event.get_state() & Clutter.ModifierType.CONTROL_MASK) !== 0;
                 this._endDrag();
                 this.close();
@@ -995,6 +1262,12 @@ const StackPopup = GObject.registerClass({
             menu.addAction(__('Move to Trash'), async () => {
                 if (await moveToTrash(item))
                     this._removeItem(button, item);
+            });
+        } else if (item.app && this._source instanceof AppFolderStackSource) {
+            menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
+            menu.addAction(__('Remove from Folder'), () => {
+                removeAppFromFolder(this._source.folderId, item.app);
+                this._removeItem(button, item);
             });
         } else if (item.isDrive) {
             const appInfo = item.app.appInfo;
@@ -1113,6 +1386,8 @@ class StackFan extends StackPopup {
             can_focus: true,
             track_hover: true,
         });
+        if (!iconFirst)
+            button.add_style_class_name('stackdock-fan-item-end');
         if (isAction) {
             button.add_style_class_name('stackdock-fan-action');
             button.connect('clicked', () => {
@@ -1137,7 +1412,8 @@ class StackFan extends StackPopup {
             const [, width] = button.get_preferred_width(-1);
             const [, height] = button.get_preferred_height(width);
             // Offset from the button's edge to the middle of its icon
-            const iconOffset = button._iconFirst ? FAN_ICON_SIZE / 2 : width - FAN_ICON_SIZE / 2;
+            const iconOffset = FAN_CARD_INSET + FAN_ICON_SIZE / 2;
+            const iconCentre = button._iconFirst ? iconOffset : width - iconOffset;
 
             let x, y, angle = 0;
             if (isVertical) {
@@ -1149,16 +1425,16 @@ class StackFan extends StackPopup {
                     : edge - POPUP_GAP - width - bow;
             } else {
                 const bow = i ** 1.8 * 2.5;
-                x = iconX + bow - iconOffset;
+                x = iconX + bow - iconCentre;
                 y = side === St.Side.BOTTOM
                     ? edge - POPUP_GAP - (i + 1) * FAN_PITCH
                     : edge + POPUP_GAP + i * FAN_PITCH;
                 angle = side === St.Side.BOTTOM ? i * 2.5 : -i * 2.5;
             }
 
-            button.set_pivot_point(iconOffset / width, 0.5);
+            button.set_pivot_point(iconCentre / width, 0.5);
             button._home = {x, y, angle};
-            button._start = {x: iconX - iconOffset, y: iconY - height / 2};
+            button._start = {x: iconX - iconCentre, y: iconY - height / 2};
         });
     }
 
@@ -1216,6 +1492,14 @@ class StackGrid extends StackPopup {
     constructor(stackIcon, items) {
         super(stackIcon, items);
         this._buttons = [];
+        // The entry loses focus as it is destroyed; ignore that
+        this.connect('destroy', () => (this._renameEntry = null));
+    }
+
+    close() {
+        // Clicking outside, or opening an item, keeps a name being typed
+        this._finishRename(true);
+        super.close();
     }
 
     _itemButtons() {
@@ -1287,7 +1571,33 @@ class StackGrid extends StackPopup {
             x_align: Clutter.ActorAlign.CENTER,
         });
         title.clutter_text.ellipsize = Pango.EllipsizeMode.END;
-        header.add_child(title);
+        this._title = title;
+
+        if (this._source instanceof AppFolderStackSource) {
+            // Click the name of an app folder to rename it
+            this._titleButton = new St.Button({
+                style_class: 'stackdock-grid-title-button',
+                child: title,
+                can_focus: true,
+                track_hover: true,
+                x_align: Clutter.ActorAlign.CENTER,
+                accessible_name: __('Rename Folder'),
+            });
+            this._titleButton.connect('clicked', () => this.startRename());
+            header.add_child(this._titleButton);
+
+            this._renameEntry = new St.Entry({
+                style_class: 'stackdock-grid-rename',
+                can_focus: true,
+                x_expand: true,
+                visible: false,
+            });
+            this._renameEntry.clutter_text.connect('activate', () => this._finishRename(true));
+            this._renameEntry.clutter_text.connect('key-focus-out', () => this._finishRename(true));
+            header.add_child(this._renameEntry);
+        } else {
+            header.add_child(title);
+        }
 
         if (this._items.length >= GRID_SEARCH_MIN_ITEMS) {
             this._search = new St.Entry({
@@ -1312,6 +1622,36 @@ class StackGrid extends StackPopup {
             header.add_child(this._search);
         }
         this._panel.add_child(header);
+    }
+
+    /** Swap the title for a text field to rename the app folder. */
+    startRename() {
+        if (!this._renameEntry || this._renameEntry.visible)
+            return;
+        this._titleButton.hide();
+        this._renameEntry.show();
+        this._renameEntry.set_text(this._source.name);
+        this._renameEntry.grab_key_focus();
+        this._renameEntry.clutter_text.set_selection(0, -1);
+    }
+
+    _finishRename(save) {
+        if (!this._renameEntry?.visible)
+            return;
+        const name = this._renameEntry.get_text().trim();
+        this._renameEntry.hide();
+        this._titleButton.show();
+        if (save && name && name !== this._source.name) {
+            renameAppFolder(this._source.folderId, name);
+            this._title.text = name;
+        }
+        if (this._isOpen)
+            this._titleButton.grab_key_focus();
+    }
+
+    _isOverContent(x, y) {
+        const actor = global.stage.get_actor_at_pos(Clutter.PickMode.REACTIVE, x, y);
+        return this._panel.contains(actor);
     }
 
     _buildFooter() {
@@ -1512,6 +1852,14 @@ class StackGrid extends StackPopup {
         const focus = global.stage.key_focus;
         const inSearch = this._search && focus === this._search.clutter_text;
 
+        if (this._renameEntry?.visible && focus === this._renameEntry.clutter_text) {
+            if (symbol === Clutter.KEY_Escape) {
+                this._finishRename(false);
+                return Clutter.EVENT_STOP;
+            }
+            return Clutter.EVENT_PROPAGATE;
+        }
+
         if (symbol === Clutter.KEY_Escape && inSearch && this._search.get_text()) {
             this._search.set_text('');
             return Clutter.EVENT_STOP;
@@ -1643,6 +1991,31 @@ export const StackIcon = GObject.registerClass({
         });
     }
 
+    /** An app dragged onto an app-folder stack goes into the folder. */
+    _folderDropApp(source) {
+        if (!(this.source instanceof AppFolderStackSource))
+            return null;
+        const app = draggedFolderApp(source);
+        return app && !this.source.apps.includes(app) ? app : null;
+    }
+
+    handleDragOver(source) {
+        const app = this._folderDropApp(source);
+        this._dropHover ??= new DropHover(this);
+        this._dropHover.set(!!app);
+        return app ? DND.DragMotionResult.MOVE_DROP : DND.DragMotionResult.CONTINUE;
+    }
+
+    acceptDrop(source) {
+        const app = this._folderDropApp(source);
+        this._dropHover?.set(false);
+        if (!app)
+            return false;
+        addAppToFolder(this.source.folderId, app);
+        unfavoriteDraggedApp(app, source);
+        return true;
+    }
+
     vfunc_clicked(button) {
         if (button === Clutter.BUTTON_SECONDARY)
             this._openMenu();
@@ -1661,7 +2034,12 @@ export const StackIcon = GObject.registerClass({
             this.open().catch(e => logError(e, 'StackDock: could not open stack'));
     }
 
-    async open() {
+    /**
+     * @param {object} [params]
+     * @param {boolean} [params.rename] open the grid with the folder name
+     *   ready to edit
+     */
+    async open({rename = false} = {}) {
         if (this.isOpen)
             return;
 
@@ -1684,7 +2062,7 @@ export const StackIcon = GObject.registerClass({
         const {settings} = Docking.DockManager;
         const stackView = settings.get_string('stack-view');
         const {stackFanMax} = settings;
-        const useFan = items.length > 0 &&
+        const useFan = !rename && items.length > 0 &&
             (stackView === 'fan' || (stackView === 'auto' && items.length <= stackFanMax));
         const popup = useFan ? new StackFan(this, items) : new StackGrid(this, items);
         popup.connect('closed', () => {
@@ -1698,6 +2076,8 @@ export const StackIcon = GObject.registerClass({
         this.add_style_pseudo_class('checked');
         this.emit('menu-state-changed', true);
         popup.open();
+        if (rename)
+            popup.startRename();
     }
 
     _openMenu() {
@@ -1751,6 +2131,10 @@ export const StackIcon = GObject.registerClass({
         }
 
         menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
+        if (this.source instanceof AppFolderStackSource) {
+            menu.addAction(__('Rename Folder…'), () =>
+                this.open({rename: true}).catch(e => logError(e, 'StackDock: could not open stack')));
+        }
         if (this.source.removable) {
             menu.addAction(__('Remove from Dock'),
                 () => Docking.DockManager.getDefault().stacks.removeStack(this.source));

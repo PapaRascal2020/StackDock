@@ -8,6 +8,7 @@
     "name": "StackDock",
     "description": "A dock for GNOME Shell with built-in macOS-style stacks and app folders. Drag one icon onto another to make a folder. Forked from Dash to Dock, and includes code from Dock Stacks.",
     "gettext-domain": "stackdock",
-    "version": 1,
+    "version": 2,
+    "version-name": "1.1",
     "url": "https://github.com/PapaRascal2020/StackDock"
 }

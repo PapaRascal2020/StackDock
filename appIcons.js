@@ -16,6 +16,7 @@ import {
     AppFavorites,
     BoxPointer,
     Dash,
+    DND,
     Main,
     PopupMenu,
 } from './dependencies/shell/ui.js';
@@ -30,6 +31,7 @@ import {
     DBusMenuUtils,
     Docking,
     Locations,
+    Stacks,
     Theming,
     Utils,
     WindowPreview,
@@ -119,6 +121,7 @@ export const DockAbstractAppIcon = GObject.registerClass({
     // settings are required inside.
     _init(app, monitorIndex, iconAnimator) {
         super._init(app);
+        this._isDockAppIcon = true;
 
         // a prefix is required to avoid conflicting with the parent class variable
         this.monitorIndex = monitorIndex;
@@ -979,6 +982,59 @@ const DockAppIcon = GObject.registerClass({
         const {windowTracker} = Docking.DockManager;
         this._signalsHandler.add(windowTracker, 'notify::focus-app',
             () => this._updateFocusState());
+        this._dropHover = new Stacks.DropHover(this);
+    }
+
+    /**
+     * Whether a drag at (x, y) is over the middle of the icon, where dropping
+     * an app makes a folder. Near the ends, the dash places the app between
+     * icons instead. Once hovering, the whole icon counts, so the dash moving
+     * its placeholder away does not flicker between the two.
+     */
+    _isFolderDropZone(x, y) {
+        if (this._dropHover.active)
+            return true;
+        const vertical = [St.Side.LEFT, St.Side.RIGHT].includes(Utils.getPosition());
+        const [pos, size] = vertical ? [y, this.height] : [x, this.width];
+        return pos > size * 0.25 && pos < size * 0.75;
+    }
+
+    _folderDropApp(source, x, y) {
+        if (source === this)
+            return null;
+        const app = Stacks.draggedFolderApp(source);
+        if (!app || app === this.app || !Stacks.draggedFolderApp(this))
+            return null;
+        return this._isFolderDropZone(x, y) ? app : null;
+    }
+
+    handleDragOver(source, _actor, x, y) {
+        const app = this._folderDropApp(source, x, y);
+        if (!app) {
+            this._dropHover.set(false);
+            return DND.DragMotionResult.CONTINUE;
+        }
+        if (!this._dropHover.active) {
+            this._dropHover.set(true);
+            this._findDash()?._clearDragPlaceholder();
+        }
+        return DND.DragMotionResult.MOVE_DROP;
+    }
+
+    acceptDrop(source, _actor, x, y) {
+        const app = this._folderDropApp(source, x, y);
+        this._dropHover.set(false);
+        if (!app)
+            return false;
+        Stacks.createAppFolder([this.app, app]);
+        return true;
+    }
+
+    _findDash() {
+        let actor = this.get_parent();
+        while (actor && !actor._clearDragPlaceholder)
+            actor = actor.get_parent();
+        return actor;
     }
 });
 
