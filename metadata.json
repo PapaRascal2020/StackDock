@@ -1,18 +1,12 @@
 {
-"shell-version": [
-    "45",
-    "46",
-    "47",
-    "48",
-    "49",
-    "50",
-    "51"
-],
-"uuid": "dash-to-dock@micxgx.gmail.com",
-"name": "Dash to Dock",
-"description": "A dock for the Gnome Shell. This extension moves the dash out of the overview transforming it in a dock for an easier launching of applications and a faster switching between windows and desktops. Side and bottom placement options are available.",
-"original-author": "micxgx@gmail.com",
-"url": "https://micheleg.github.io/dash-to-dock/",
-"gettext-domain": "dashtodock",
-"version": 109
+    "shell-version": [
+        "49",
+        "50",
+        "51"
+    ],
+    "uuid": "stackdock@ashleyj",
+    "name": "StackDock",
+    "description": "A dock for GNOME Shell with built-in macOS-style stacks and app folders. Drag one icon onto another to make a folder. Forked from Dash to Dock, and includes code from Dock Stacks.",
+    "gettext-domain": "stackdock",
+    "version": 1
 }

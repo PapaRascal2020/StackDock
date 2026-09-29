@@ -1,9 +1,9 @@
 .~
 *~
 gschemas.compiled
-dash-to-dock@micxgx.gmail.com.zip
+stackdock@ashleyj.zip
 *.mo
-po/dashtodock.pot
+po/stackdock.pot
 stylesheet.css
 Settings.ui.h
 _build
