@@ -1,72 +1,116 @@
 # StackDock
 
-One dock for GNOME with stacks, app folders and drives built in.
+[![GNOME Shell 49 to 51](https://img.shields.io/badge/GNOME%20Shell-49%20%7C%2050%20%7C%2051-4a86cf)](https://www.gnome.org/)
+[![Licence: GPL v2 or later](https://img.shields.io/badge/licence-GPL--2.0--or--later-blue)](COPYING)
+
+A dock for GNOME Shell with folder stacks, app folders and drives built in.
 
 ![An app folder stack fanned out from the dock](media/screenshots/app-folder-stack.png)
 
-## Why I made this
+## Overview
 
-Every time GNOME released a new version, my desktop fell apart. The dock I relied on, the stacks extension I liked and the little tweaks I had collected were all made by different people, all on their own release schedules. After an update I would open the Extensions app and see the same message over and over: "not compatible with the current version of GNOME". Then I would wait, sometimes for weeks, for each one to catch up.
+A typical GNOME desktop relies on several separate extensions for its dock, stacks and related tweaks. Each is maintained on its own schedule, so a new GNOME release often leaves some of them marked as incompatible for weeks. Running them together can also cause conflicts, as more than one extension tries to control the same dock.
 
-Even when everything did work, no single extension gave me what I wanted. I was running several at once, all poking at the same dock, sometimes fighting each other over it. One put the dock where I wanted it, another added stacks, and nothing grouped my drives or let me keep my app folders in the dock.
+StackDock brings these features together in a single extension. It is based on [Dash to Dock](https://github.com/micheleg/dash-to-dock), includes stacks adapted from [Dock Stacks](https://github.com/dragosol/dock-stacks), and targets current GNOME Shell releases.
 
-So I stopped waiting. StackDock is one extension that does all of it, built for the GNOME versions I actually use and kept up to date because I use it every day.
+## Features
 
-## What it does
+### Dock
 
-**A complete dock.** StackDock is built on [Dash to Dock](https://github.com/micheleg/dash-to-dock), so you get everything you would expect: left, right, top or bottom placement, autohide and intellihide, multi-monitor support, running app indicators, window previews and a full set of appearance options.
+StackDock includes the full Dash to Dock feature set:
 
-**Optional extras.** These are all off until you switch them on in the settings:
+- placement on the left, right, top or bottom of the screen
+- autohide and intellihide
+- multi-monitor support
+- running app indicators and window previews
+- a comprehensive set of appearance options
 
-- **Hover previews.** Rest the pointer on a running app and its window previews appear, then close again when you move away. You can set how long the dock waits first.
-- **Launch bounce.** An app's icon bounces while it starts, and stops once its window appears.
-- **Match the top bar.** Give the top bar the same colour and opacity as the dock.
+### Folder stacks
 
-**Folder stacks.** Pin any folder (Downloads, Documents, a project folder) to the dock. Click it and your newest files fan out beside the dock. Big folders open as a grid you can scroll and search instead. From a stack you can:
+Any folder, such as Downloads or a project directory, can be pinned to the dock. Clicking it fans out the most recent files beside the dock, and larger folders open as a scrollable, searchable grid. From an open stack you can:
 
-- open a file with a click
-- press Space to preview it (needs GNOME's previewer, Sushi)
-- right-click for Open With, Show in Files and Move to Trash
-- drag a file out onto a Files window to move it there (hold Ctrl to copy), onto an app to open it in that app, or onto the desktop
+- open a file with a single click
+- preview a file with Space (requires GNOME's previewer, Sushi)
+- right-click a file for Open With, Show in Files and Move to Trash
+- drag a file to a Files window to move it (hold Ctrl to copy), to an app to open it there, or to the desktop
 
-A folder can show in the dock as a plain folder icon, or as a stack that shows the icon of its newest file, so you can see at a glance what just landed in Downloads. Choose Display as from the stack's right-click menu or in the settings.
+Each folder stack can be displayed as a standard folder icon or as a stack showing the icon of its newest file. Change this with **Display as** in the stack's context menu or in the settings.
 
-**App folder stacks.** Your app grid folders can live in the dock, right after your pinned apps, with a little preview of the apps inside. They work like folders on macOS:
+### App folder stacks
 
-- drag one app onto the middle of another in the dock to put them both in a new folder
-- drag an app onto a folder stack to add it
-- click the folder's name at the top of the grid to rename it (or right-click the stack and choose Rename Folder)
-- drag an app out of the folder to take it out. Drop it on the dock to pin it there
-- when the last app leaves, the folder is deleted
+App grid folders can be kept in the dock, directly after the pinned apps, with a preview of their contents. They behave much like folders on macOS:
 
-**A Drives stack.** USB sticks, memory cards and other drives are grouped into one Drives stack instead of each taking up a spot in the dock. Right-click a drive to eject or unmount it. The stack hides itself when nothing is plugged in.
+- drop one app onto the centre of another to create a folder containing both
+- drop an app onto a folder stack to add it
+- rename a folder by clicking its title in the grid, or with **Rename Folder** in the context menu
+- drag an app out of a folder to remove it, or drop it on the dock to pin it
+- a folder is deleted automatically when its last app is removed
 
-**Easy to set up.** Everything is in one settings window, and you can right-click any stack to change how it opens or how it is sorted.
+### Drives stack
 
-**Keyboard friendly.** In an open stack, the arrow keys move between items, Enter opens, Space previews, typing searches and Escape closes.
+Removable drives, such as USB sticks and memory cards, are grouped into a single Drives stack instead of each occupying a place in the dock. Drives can be ejected or unmounted from the context menu. The stack is hidden when no drives are connected.
+
+### Optional features
+
+These features are disabled by default and can be enabled in the settings:
+
+| Feature | Description |
+|---|---|
+| Hover previews | Shows a running app's window previews when the pointer rests on its icon, and hides them when the pointer moves away. The delay is configurable. |
+| Launch bounce | Animates an app's icon while it starts, stopping once its window appears. |
+| Match the top bar | Gives the top bar the same colour and opacity as the dock. |
+
+### Stack options
+
+| Option | Choices |
+|---|---|
+| View | **Automatic** (a fan for small stacks and a grid for larger ones), **Fan** or **Grid** |
+| Fan size | The maximum number of items a fan shows, from 4 to 16. In automatic view, larger stacks open as a grid. |
+| Sort order | **Date modified** (newest first), **Name** or **Kind** |
+
+These can be set in the settings or changed from any stack's context menu.
+
+### Configuration
+
+All options are available in a single settings window, which can be opened directly from the dock's context menu along with an About page.
+
+If you are switching from Dash to Dock or Dock Stacks, your existing dock settings and stack folders are imported automatically the first time StackDock starts.
+
+### Keyboard control
+
+Open stacks are fully keyboard accessible:
+
+| Key | Action |
+|---|---|
+| Arrow keys | Move between items |
+| Enter | Open the selected item |
+| Space | Preview the selected item |
+| Typing | Search |
+| Escape | Close the stack |
 
 ## Screenshots
 
 | | |
 |---|---|
 | ![App folder stack](media/screenshots/app-folder-stack.png) | ![Drives stack](media/screenshots/drives-stack.png) |
-| An app folder fanned out from the dock | Every drive grouped into one Drives stack |
+| An app folder stack | The Drives stack |
 | ![Dock menu](media/screenshots/dock-menu.png) | ![Dock settings](media/screenshots/settings-dock.png) |
-| Settings and About, straight from the dock | All the Dash to Dock options you know |
+| Settings and About, available from the dock | Dock settings |
 | ![Stacks settings](media/screenshots/settings-stacks.png) | ![About page](media/screenshots/settings-about.png) |
-| Folder, app folder and drive stacks in one place | The About page |
+| Stacks settings | The About page |
 
 ## Requirements
 
-GNOME Shell 49, 50 or 51.
+- GNOME Shell 49, 50 or 51
+- `git`, `make`, `gettext`, `sassc` and `glib-compile-schemas` to build from source
 
-## Installing from GitHub
+## Installation
 
-### 1. Install the build tools
+### 1. Install the build dependencies
 
-You only need to do this once.
+This step is only needed once.
 
-Ubuntu, Debian, Pop!_OS, PikaOS and similar:
+Ubuntu, Debian, Pop!_OS, PikaOS and derivatives:
 
     sudo apt install git make gettext sassc libglib2.0-bin
 
@@ -74,7 +118,7 @@ Fedora:
 
     sudo dnf install git make gettext sassc glib2
 
-Arch and Manjaro:
+Arch Linux and Manjaro:
 
     sudo pacman -S git make gettext sassc glib2
 
@@ -82,21 +126,21 @@ openSUSE:
 
     sudo zypper install git make gettext-tools sassc glib2-tools
 
-### 2. Download and install StackDock
+### 2. Build and install
 
     git clone https://github.com/PapaRascal2020/StackDock.git
     cd StackDock
     make install
 
-This installs StackDock for your user only, into `~/.local/share/gnome-shell/extensions/stackdock@ashleyj`. You do not need `sudo`.
+StackDock is installed for the current user in `~/.local/share/gnome-shell/extensions/stackdock@ashleyj`. Root privileges are not required.
 
-### 3. Turn off any other dock
+### 3. Disable other docks
 
-StackDock replaces other docks, and two docks at once will fight. Check what you have enabled:
+StackDock replaces other dock extensions, and running more than one dock at a time causes conflicts. To list the enabled extensions:
 
     gnome-extensions list --enabled
 
-Then turn off any of these that appear:
+Disable any of the following that appear:
 
     gnome-extensions disable dash-to-dock@micxgx.gmail.com
     gnome-extensions disable ubuntu-dock@ubuntu.com
@@ -104,26 +148,26 @@ Then turn off any of these that appear:
 
 ### 4. Restart GNOME Shell
 
-GNOME only notices new extensions after a restart, so log out and log back in.
+GNOME Shell only detects newly installed extensions after a restart. Log out and log back in.
 
-### 5. Turn StackDock on
+### 5. Enable StackDock
 
     gnome-extensions enable stackdock@ashleyj
 
-You can also switch it on in the Extensions app.
+Alternatively, enable it in the Extensions app.
 
-### 6. Set up your stacks
+### 6. Configure stacks
 
 Open the settings:
 
     gnome-extensions prefs stackdock@ashleyj
 
-Go to the **Stacks** tab, then:
+On the **Stacks** page:
 
-- press **+** under Folder Stacks to add a folder
-- switch on any app folders you want under App Folder Stacks. To make a new one, drag one app onto another in the dock.
+- select **+** under Folder Stacks to add a folder
+- enable any app folders you want in the dock under App Folder Stacks. New app folders can be created by dropping one app onto another in the dock.
 
-If you used Dock Stacks before, StackDock brings your folders over automatically the first time it starts.
+Existing Dash to Dock settings and Dock Stacks folders are imported automatically the first time StackDock starts.
 
 ## Updating
 
@@ -131,26 +175,28 @@ If you used Dock Stacks before, StackDock brings your folders over automatically
     git pull
     make install
 
-Then log out and back in.
+Log out and back in to load the new version.
 
 ## Uninstalling
 
     gnome-extensions disable stackdock@ashleyj
     rm -rf ~/.local/share/gnome-shell/extensions/stackdock@ashleyj
 
-Then log out and back in.
+Log out and back in to complete the removal.
 
-## Something not working?
+## Troubleshooting
 
-Look for errors from GNOME Shell:
+To check the GNOME Shell log for errors:
 
     journalctl --user -b | grep -i stackdock
 
-Please [open an issue](https://github.com/PapaRascal2020/StackDock/issues) with what you were doing, your GNOME version (`gnome-shell --version`) and anything that command shows.
+If you find a problem, please [open an issue](https://github.com/PapaRascal2020/StackDock/issues) with a description of what you were doing, your GNOME Shell version (`gnome-shell --version`) and any relevant log output.
 
-## Credits and licence
+## Credits
 
-StackDock is released under the GNU General Public Licence, version 2 or later. See [COPYING](COPYING).
-
-- Built on [Dash to Dock](https://github.com/micheleg/dash-to-dock) by Michele Gaio and contributors. Their original README is kept in [README.upstream.md](README.upstream.md).
+- Based on [Dash to Dock](https://github.com/micheleg/dash-to-dock) by Michele Gaio and contributors. The original README is preserved in [README.upstream.md](README.upstream.md).
 - Stacks code adapted from [Dock Stacks](https://github.com/dragosol/dock-stacks) by dragosol.
+
+## Licence
+
+StackDock is released under the GNU General Public Licence, version 2 or later. See [COPYING](COPYING) for details.
