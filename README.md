@@ -2,6 +2,8 @@
 
 One dock for GNOME with stacks, app folders and drives built in.
 
+![An app folder stack fanned out from the dock](media/screenshots/app-folder-stack.png)
+
 ## Why I made this
 
 Every time GNOME released a new version, my desktop fell apart. The dock I relied on, the stacks extension I liked and the little tweaks I had collected were all made by different people, all on their own release schedules. After an update I would open the Extensions app and see the same message over and over: "not compatible with the current version of GNOME". Then I would wait, sometimes for weeks, for each one to catch up.
@@ -34,6 +36,17 @@ So I stopped waiting. StackDock is one extension that does all of it, built for 
 **Easy to set up.** Everything is in one settings window, and you can right-click any stack to change how it opens or how it is sorted.
 
 **Keyboard friendly.** In an open stack, the arrow keys move between items, Enter opens, Space previews, typing searches and Escape closes.
+
+## Screenshots
+
+| | |
+|---|---|
+| ![App folder stack](media/screenshots/app-folder-stack.png) | ![Drives stack](media/screenshots/drives-stack.png) |
+| An app folder fanned out from the dock | Every drive grouped into one Drives stack |
+| ![Dock menu](media/screenshots/dock-menu.png) | ![Dock settings](media/screenshots/settings-dock.png) |
+| Settings and About, straight from the dock | All the Dash to Dock options you know |
+| ![Stacks settings](media/screenshots/settings-stacks.png) | ![About page](media/screenshots/settings-about.png) |
+| Folder, app folder and drive stacks in one place | The About page |
 
 ## Requirements
 
