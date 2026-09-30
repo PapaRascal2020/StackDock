@@ -16,12 +16,20 @@ So I stopped waiting. StackDock is one extension that does all of it, built for 
 
 **A complete dock.** StackDock is built on [Dash to Dock](https://github.com/micheleg/dash-to-dock), so you get everything you would expect: left, right, top or bottom placement, autohide and intellihide, multi-monitor support, running app indicators, window previews and a full set of appearance options.
 
+**Optional extras.** These are all off until you switch them on in the settings:
+
+- **Hover previews.** Rest the pointer on a running app and its window previews appear, then close again when you move away. You can set how long the dock waits first.
+- **Launch bounce.** An app's icon bounces while it starts, and stops once its window appears.
+- **Match the top bar.** Give the top bar the same colour and opacity as the dock.
+
 **Folder stacks.** Pin any folder (Downloads, Documents, a project folder) to the dock. Click it and your newest files fan out beside the dock. Big folders open as a grid you can scroll and search instead. From a stack you can:
 
 - open a file with a click
 - press Space to preview it (needs GNOME's previewer, Sushi)
 - right-click for Open With, Show in Files and Move to Trash
 - drag a file out onto a Files window to move it there (hold Ctrl to copy), onto an app to open it in that app, or onto the desktop
+
+A folder can show in the dock as a plain folder icon, or as a stack that shows the icon of its newest file, so you can see at a glance what just landed in Downloads. Choose Display as from the stack's right-click menu or in the settings.
 
 **App folder stacks.** Your app grid folders can live in the dock, right after your pinned apps, with a little preview of the apps inside. They work like folders on macOS:
 

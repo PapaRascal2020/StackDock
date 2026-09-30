@@ -714,3 +714,9 @@ $stack_radius: 16px;
         background-color: rgba(255, 255, 255, 0.24);
     }
 }
+
+// "Match the top bar to the dock": the dock colour is painted on the box
+// behind the top bar, so the bar itself has to be see-through.
+#panel.stackdock-panel-match {
+    background-color: transparent;
+}

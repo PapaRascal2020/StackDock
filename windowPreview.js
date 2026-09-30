@@ -73,12 +73,13 @@ export class WindowPreviewMenu extends PopupMenu.PopupMenu {
         this._previewBox._redisplay();
     }
 
-    popup() {
+    popup({focus = true} = {}) {
         const windows = this._source.getInterestingWindows();
         if (windows.length > 0) {
             this._redisplay();
             this.open(BoxPointer.PopupAnimation.FULL);
-            this.actor.navigate_focus(null, St.DirectionType.TAB_FORWARD, false);
+            if (focus)
+                this.actor.navigate_focus(null, St.DirectionType.TAB_FORWARD, false);
             this._source.emit('sync-tooltip');
         }
     }

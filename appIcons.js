@@ -73,6 +73,22 @@ const scrollAction = Object.freeze({
 });
 
 // module "Dash" did not export DASH_ITEM_LABEL_SHOW_TIME, so let's define it.
+// How long the pointer can be away from both the icon and its hover preview
+// before the preview closes, and how quickly a neighbouring icon's preview
+// replaces one that is already showing.
+const HOVER_PREVIEW_CLOSE_DELAY = 300;
+const HOVER_PREVIEW_SWITCH_DELAY = 80;
+
+// The icon whose hover preview is currently open, so only one shows at a time
+let hoverPreviewOwner = null;
+
+// Launch bounce: how high the icon jumps (as a fraction of its size), how long
+// each rise and fall takes, and when to give up on an app that never shows a
+// window.
+const LAUNCH_BOUNCE_HEIGHT = 0.6;
+const LAUNCH_BOUNCE_TIME = 330;
+const LAUNCH_BOUNCE_TIMEOUT = 15;
+
 const DASH_ITEM_LABEL_SHOW_TIME = Dash.DASH_ITEM_LABEL_SHOW_TIME ?? 150;
 
 let recentlyClickedAppLoopId = 0;
@@ -138,7 +154,10 @@ export const DockAbstractAppIcon = GObject.registerClass({
         }
 
         this._signalsHandler.add(this.app, 'windows-changed', () => this._updateWindows());
-        this._signalsHandler.add(this.app, 'notify::state', () => this._updateRunningState());
+        this._signalsHandler.add(this.app, 'notify::state', () => {
+            this._updateRunningState();
+            this._syncLaunchBounce();
+        });
         this._signalsHandler.add(global.display, 'window-demands-attention', (_dpy, window) =>
             this._onWindowDemandsAttention(window));
         this._signalsHandler.add(global.display, 'window-marked-urgent', (_dpy, window) =>
@@ -236,6 +255,17 @@ export const DockAbstractAppIcon = GObject.registerClass({
         this._previewMenuManager = null;
         this._previewMenu = null;
 
+        this._launchBounce = null;
+        if (this.app.state === Shell.AppState.STARTING)
+            this._startLaunchBounce();
+
+        this._hoverPreviewMenu = null;
+        this._hoverPreviewOpenId = 0;
+        this._hoverPreviewCloseId = 0;
+        this.connect('notify::hover', () => this._syncHoverPreview());
+        this._signalsHandler.add(Main.overview, 'item-drag-begin',
+            () => this._closeHoverPreview());
+
         // This requires GNOME 49
         if (Clutter.ClickGesture) {
             const doubleClickGesture = new Clutter.ClickGesture({nClicksRequired: 2});
@@ -255,6 +285,12 @@ export const DockAbstractAppIcon = GObject.registerClass({
         super._onDestroy();
 
         delete this._menu;
+
+        this._clearHoverPreviewTimeouts();
+        if (hoverPreviewOwner === this)
+            hoverPreviewOwner = null;
+
+        this._stopLaunchBounce(true);
 
         this._doubleClickGesture?.cancel();
         delete this._doubleClickGesture;
@@ -333,6 +369,7 @@ export const DockAbstractAppIcon = GObject.registerClass({
 
         this._updateState();
         this.updateIconGeometry();
+        this._syncLaunchBounce();
     }
 
     _updateState() {
@@ -454,6 +491,7 @@ export const DockAbstractAppIcon = GObject.registerClass({
     }
 
     popupMenu() {
+        this._closeHoverPreview();
         this._removeMenuTimeout?.();
         this.fake_release();
         this._draggable.fakeRelease?.();
@@ -511,6 +549,9 @@ export const DockAbstractAppIcon = GObject.registerClass({
     }
 
     activate(button) {
+        if (this.app.get_n_windows() === 0)
+            this._startLaunchBounce();
+
         const event = Clutter.get_current_event();
         this._activate({
             button,
@@ -520,6 +561,8 @@ export const DockAbstractAppIcon = GObject.registerClass({
     }
 
     _activate({button, modifiers, clickCount = 1}) {
+        this._closeHoverPreview();
+
         // Only consider SHIFT and CONTROL as modifiers (exclude SUPER, CAPS-LOCK, etc.)
         modifiers &= Clutter.ModifierType.SHIFT_MASK | Clutter.ModifierType.CONTROL_MASK;
 
@@ -745,10 +788,116 @@ export const DockAbstractAppIcon = GObject.registerClass({
 
     shouldShowTooltip() {
         return super.shouldShowTooltip() && !this._previewMenu?.isOpen &&
+            !this._hoverPreviewMenu?.isOpen &&
             !Docking.DockManager.settings.hideTooltip;
     }
 
+    _clearHoverPreviewTimeouts() {
+        if (this._hoverPreviewOpenId) {
+            GLib.source_remove(this._hoverPreviewOpenId);
+            this._hoverPreviewOpenId = 0;
+        }
+        if (this._hoverPreviewCloseId) {
+            GLib.source_remove(this._hoverPreviewCloseId);
+            this._hoverPreviewCloseId = 0;
+        }
+    }
+
+    _syncHoverPreview() {
+        const menu = this._hoverPreviewMenu;
+        if (this.hover || (menu?.isOpen && menu.actor.hover)) {
+            if (this._hoverPreviewCloseId) {
+                GLib.source_remove(this._hoverPreviewCloseId);
+                this._hoverPreviewCloseId = 0;
+            }
+            if (!this.hover || menu?.isOpen || this._hoverPreviewOpenId)
+                return;
+
+            const {settings} = Docking.DockManager;
+            if (!settings.hoverPreviews || !this.running)
+                return;
+
+            // Once a preview is showing, sliding along the dock swaps to the
+            // next app's previews almost straight away
+            const switching = hoverPreviewOwner && hoverPreviewOwner !== this &&
+                hoverPreviewOwner._hoverPreviewMenu?.isOpen;
+            const delay = switching ? HOVER_PREVIEW_SWITCH_DELAY : settings.hoverPreviewsDelay;
+            this._hoverPreviewOpenId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, delay, () => {
+                this._hoverPreviewOpenId = 0;
+                this._openHoverPreview();
+                return GLib.SOURCE_REMOVE;
+            });
+        } else {
+            if (this._hoverPreviewOpenId) {
+                GLib.source_remove(this._hoverPreviewOpenId);
+                this._hoverPreviewOpenId = 0;
+            }
+            if (!menu?.isOpen || this._hoverPreviewCloseId)
+                return;
+            this._hoverPreviewCloseId = GLib.timeout_add(GLib.PRIORITY_DEFAULT,
+                HOVER_PREVIEW_CLOSE_DELAY, () => {
+                    this._hoverPreviewCloseId = 0;
+                    this._closeHoverPreview();
+                    return GLib.SOURCE_REMOVE;
+                });
+        }
+    }
+
+    _openHoverPreview() {
+        if (!this.hover || !this.mapped || this._menu?.isOpen || this._previewMenu?.isOpen)
+            return;
+
+        // Not while a button is held, e.g. at the start of a drag
+        const [, , mods] = global.get_pointer();
+        const buttons = Clutter.ModifierType.BUTTON1_MASK |
+            Clutter.ModifierType.BUTTON2_MASK | Clutter.ModifierType.BUTTON3_MASK;
+        if (mods & buttons)
+            return;
+
+        if (!this._hoverPreviewMenu) {
+            // Deliberately not added to a PopupMenuManager: that would take a
+            // modal grab, and the preview has to close when the pointer leaves.
+            const menu = new WindowPreview.WindowPreviewMenu(this);
+            menu.actor.reactive = true;
+            menu.actor.track_hover = true;
+            menu.actor.connect('notify::hover', () => this._syncHoverPreview());
+            menu.connect('open-state-changed', (_menu, isOpen) => {
+                if (isOpen) {
+                    this.emit('menu-state-changed', true);
+                } else {
+                    if (hoverPreviewOwner === this)
+                        hoverPreviewOwner = null;
+                    this._onMenuPoppedDown();
+                }
+            });
+            const id = Main.overview.connect('hiding', () => menu.close());
+            menu.actor.connect('destroy', () => {
+                Main.overview.disconnect(id);
+                if (this._hoverPreviewMenu === menu)
+                    this._hoverPreviewMenu = null;
+            });
+            this._hoverPreviewMenu = menu;
+        }
+
+        if (hoverPreviewOwner && hoverPreviewOwner !== this)
+            hoverPreviewOwner._closeHoverPreview(false);
+        hoverPreviewOwner = this;
+
+        this._hoverPreviewMenu.popup({focus: false});
+        if (!this._hoverPreviewMenu.isOpen && hoverPreviewOwner === this)
+            hoverPreviewOwner = null;
+    }
+
+    _closeHoverPreview(animate = true) {
+        this._clearHoverPreviewTimeouts();
+        if (this._hoverPreviewMenu?.isOpen) {
+            this._hoverPreviewMenu.close(animate
+                ? BoxPointer.PopupAnimation.FULL : BoxPointer.PopupAnimation.NONE);
+        }
+    }
+
     _windowPreviews() {
+        this._closeHoverPreview();
         if (!this._previewMenu) {
             this._previewMenuManager = new PopupMenu.PopupMenuManager(this);
 
@@ -803,6 +952,137 @@ export const DockAbstractAppIcon = GObject.registerClass({
                 this.animateLaunch();
             }
         }
+    }
+
+    _syncLaunchBounce() {
+        if (!this._launchBounce)
+            return;
+
+        if (this.app.get_n_windows() > 0 ||
+            this.app.state === Shell.AppState.STOPPED && this._launchBounce.started)
+            this._stopLaunchBounce();
+        else if (this.app.state !== Shell.AppState.STOPPED)
+            this._launchBounce.started = true;
+    }
+
+    // Bounce the icon away from the screen edge while the app starts up. The
+    // dock clips its contents, so a clone of the icon bounces on the ui group
+    // while the real one is hidden.
+    _startLaunchBounce() {
+        if (this._launchBounce ||
+            !Docking.DockManager.settings.bounceLaunchingApplications ||
+            !St.Settings.get().enable_animations)
+            return;
+
+        const iconBin = this.icon._iconBin;
+        const clone = new Clutter.Clone({source: iconBin, reactive: false});
+        Main.layoutManager.uiGroup.add_child(clone);
+
+        const bounce = {
+            clone,
+            started: this.app.state !== Shell.AppState.STOPPED,
+            stopping: false,
+            timeoutId: GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT,
+                LAUNCH_BOUNCE_TIMEOUT, () => {
+                    bounce.timeoutId = 0;
+                    this._stopLaunchBounce();
+                    return GLib.SOURCE_REMOVE;
+                }),
+        };
+        this._launchBounce = bounce;
+
+        const rise = () => {
+            if (bounce.stopping || !iconBin.mapped) {
+                this._stopLaunchBounce(true);
+                return;
+            }
+
+            const [x, y] = iconBin.get_transformed_position();
+            const [width, height] = iconBin.get_transformed_size();
+            clone.set_position(x, y);
+            clone.set_size(width, height);
+            iconBin.opacity = 0;
+
+            const distance = Math.round(Math.max(width, height) * LAUNCH_BOUNCE_HEIGHT);
+            let [dx, dy] = [0, 0];
+            switch (Utils.getPosition()) {
+            case St.Side.TOP:
+                dy = distance;
+                break;
+            case St.Side.LEFT:
+                dx = distance;
+                break;
+            case St.Side.RIGHT:
+                dx = -distance;
+                break;
+            default:
+                dy = -distance;
+            }
+
+            clone.ease({
+                translation_x: dx,
+                translation_y: dy,
+                duration: LAUNCH_BOUNCE_TIME,
+                mode: Clutter.AnimationMode.EASE_OUT_QUAD,
+                onStopped: finished => {
+                    if (!finished) {
+                        this._stopLaunchBounce(true);
+                        return;
+                    }
+                    clone.ease({
+                        translation_x: 0,
+                        translation_y: 0,
+                        duration: LAUNCH_BOUNCE_TIME,
+                        mode: Clutter.AnimationMode.EASE_IN_QUAD,
+                        onStopped: landed => {
+                            if (landed)
+                                rise();
+                            else
+                                this._stopLaunchBounce(true);
+                        },
+                    });
+                },
+            });
+        };
+
+        if (iconBin.mapped) {
+            rise();
+        } else {
+            // A freshly added icon may not be on screen yet
+            const mappedId = iconBin.connect('notify::mapped', () => {
+                iconBin.disconnect(mappedId);
+                bounce.mappedId = 0;
+                if (this._launchBounce === bounce)
+                    rise();
+            });
+            bounce.mappedId = mappedId;
+        }
+    }
+
+    // Let the current bounce land, or end it straight away when `now` is set
+    _stopLaunchBounce(now = false) {
+        const bounce = this._launchBounce;
+        if (!bounce)
+            return;
+
+        if (bounce.timeoutId) {
+            GLib.source_remove(bounce.timeoutId);
+            bounce.timeoutId = 0;
+        }
+
+        if (!now && bounce.clone.get_transition('translation-x') ||
+            !now && bounce.clone.get_transition('translation-y')) {
+            bounce.stopping = true;
+            return;
+        }
+
+        this._launchBounce = null;
+        if (bounce.mappedId && this.icon._iconBin)
+            this.icon._iconBin.disconnect(bounce.mappedId);
+        bounce.clone.remove_all_transitions();
+        bounce.clone.destroy();
+        if (this.icon._iconBin)
+            this.icon._iconBin.opacity = 255;
     }
 
     _numberOverlay() {

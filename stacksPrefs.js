@@ -158,6 +158,29 @@ class StacksPage extends Adw.PreferencesPage {
         });
         row.add_prefix(new Gtk.Image({icon_name: 'folder-symbolic'}));
 
+        // "Display as", as on macOS: the folder's icon, or its newest file
+        const display = Gtk.DropDown.new_from_strings([__('Folder'), __('Stack')]);
+        display.set({
+            valign: Gtk.Align.CENTER,
+            tooltip_text: __('Show the folder icon, or the newest file in the folder'),
+        });
+        const key = 'stack-display-as-stack';
+        const syncDisplay = () => {
+            display.selected = this._settings.get_strv(key).includes(path) ? 1 : 0;
+        };
+        syncDisplay();
+        const displayId = this._settings.connect(`changed::${key}`, syncDisplay);
+        display.connect('destroy', () => this._settings.disconnect(displayId));
+        display.connect('notify::selected', () => {
+            const paths = this._settings.get_strv(key);
+            const asStack = display.selected === 1;
+            if (asStack === paths.includes(path))
+                return;
+            this._settings.set_strv(key, asStack
+                ? [...paths, path] : paths.filter(p => p !== path));
+        });
+        row.add_suffix(display);
+
         const remove = new Gtk.Button({
             icon_name: 'user-trash-symbolic',
             tooltip_text: __('Remove from Dock'),

@@ -600,3 +600,87 @@ class Transparency {
     }
 }
 Signals.addSignalMethods(Transparency.prototype);
+
+/**
+ * Paint the top bar with the same background as the main dock, following it
+ * through fixed, dynamic and custom colour changes. GNOME keeps setting the
+ * top bar's own inline style during the overview, so the colour goes on the
+ * box behind it and the bar is made see-through. In the overview both are
+ * left clear, so GNOME's own transparent look is kept there.
+ */
+export class PanelTheme {
+    constructor() {
+        this._signalsHandler = new Utils.GlobalSignalsHandler();
+        this._panelBox = Main.layoutManager.panelBox;
+        this._settings = Docking.DockManager.settings;
+        this._inOverview = Main.overview.visible;
+
+        this._signalsHandler.add(
+            [this._settings, 'changed::panel-match-dock', () => this._sync()],
+            [Main.overview, 'showing', () => this._setInOverview(true)],
+            [Main.overview, 'hiding', () => this._setInOverview(false)],
+            // At shell shutdown the top bar can go before the extension is disabled
+            [this._panelBox, 'destroy', () => {
+                this._panelGone = true;
+            }]);
+    }
+
+    setDock(dock) {
+        if (this._background) {
+            this._background.disconnect(this._styleChangedId);
+            this._background.disconnect(this._backgroundDestroyId);
+        }
+        this._styleChangedId = 0;
+        this._backgroundDestroyId = 0;
+        this._background = dock?.dash?._background ?? null;
+
+        if (this._background) {
+            this._styleChangedId = this._background.connect('style-changed',
+                () => this._sync());
+            this._backgroundDestroyId = this._background.connect('destroy', () => {
+                this._background = null;
+                this._sync();
+            });
+        }
+        this._sync();
+    }
+
+    _setInOverview(inOverview) {
+        this._inOverview = inOverview;
+        this._sync();
+    }
+
+    _sync() {
+        if (this._panelGone)
+            return;
+
+        const enabled = this._settings.panelMatchDock && this._background;
+        if (enabled)
+            Main.panel.add_style_class_name('stackdock-panel-match');
+        else
+            Main.panel.remove_style_class_name('stackdock-panel-match');
+
+        // Before the dock is on the stage it has no style yet. It emits
+        // style-changed once it has one, and we try again then.
+        const themeNode = enabled ? this._background.peek_theme_node() : null;
+        if (!themeNode || this._inOverview) {
+            this._panelBox.set_style(enabled ? 'transition-duration: 250ms;' : null);
+            return;
+        }
+
+        const color = themeNode.get_background_color();
+        const alpha = Math.round(color.alpha / 2.55) / 100;
+        this._panelBox.set_style(
+            `background-color: rgba(${color.red},${color.green},${color.blue},${alpha});` +
+            'transition-duration: 250ms;');
+    }
+
+    destroy() {
+        this.setDock(null);
+        this._signalsHandler.destroy();
+        if (this._panelGone)
+            return;
+        Main.panel.remove_style_class_name('stackdock-panel-match');
+        this._panelBox.set_style(null);
+    }
+}

@@ -633,6 +633,10 @@ const DockSettings = GObject.registerClass({
             'sensitive',
             Gio.SettingsBindFlags.DEFAULT);
 
+        this._settings.bind('hover-previews',
+            this._builder.get_object('hover_previews_button'),
+            'active',
+            Gio.SettingsBindFlags.DEFAULT);
         this._settings.bind('multi-monitor',
             this._builder.get_object('dock_monitor_combo'),
             'sensitive',
@@ -730,6 +734,10 @@ const DockSettings = GObject.registerClass({
             'notify::active', () => updateIsolateLocations()));
         this._settings.bind('dance-urgent-applications',
             this._builder.get_object('wiggle_urgent_applications_switch'),
+            'active',
+            Gio.SettingsBindFlags.DEFAULT);
+        this._settings.bind('bounce-launching-applications',
+            this._builder.get_object('bounce_launching_applications_switch'),
             'active',
             Gio.SettingsBindFlags.DEFAULT);
         this._settings.bind('hide-tooltip',
@@ -1175,6 +1183,10 @@ const DockSettings = GObject.registerClass({
             Gio.SettingsBindFlags.DEFAULT
         );
 
+        this._settings.bind('panel-match-dock',
+            this._builder.get_object('panel_match_dock_switch'),
+            'active', Gio.SettingsBindFlags.DEFAULT);
+
         this._settings.bind('force-straight-corner',
             this._builder.get_object('force_straight_corner_switch'),
             'active', Gio.SettingsBindFlags.DEFAULT);
@@ -1182,7 +1194,6 @@ const DockSettings = GObject.registerClass({
         this._settings.bind('disable-overview-on-startup',
             this._builder.get_object('show_overview_on_startup_switch'),
             'active', Gio.SettingsBindFlags.INVERT_BOOLEAN);
-
     }
 });
 

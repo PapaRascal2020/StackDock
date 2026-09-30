@@ -246,6 +246,17 @@
       <summary>Show preview of the open windows</summary>
       <description>Replace open windows list with windows previews</description>
     </key>
+    <key type="b" name="hover-previews">
+      <default>false</default>
+      <summary>Show window previews on hover</summary>
+      <description>Show previews of an application's open windows when hovering over its dock icon</description>
+    </key>
+    <key type="i" name="hover-previews-delay">
+      <range min="0" max="2000"/>
+      <default>500</default>
+      <summary>Hover preview delay</summary>
+      <description>How long in milliseconds to hover over an icon before its window previews appear</description>
+    </key>
     <key type="b" name="default-windows-preview-to-open">
       <default>false</default>
       <summary>Open windows preview by default</summary>
@@ -285,6 +296,11 @@
       <default>true</default>
       <summary>Wiggle urgent applications</summary>
       <description>Wiggle urgent application icons in the dash</description>
+    </key>
+    <key type="b" name="bounce-launching-applications">
+      <default>false</default>
+      <summary>Bounce launching applications</summary>
+      <description>Bounce an application's dock icon while it is starting, until its first window appears</description>
     </key>
     <key type="b" name="show-show-apps-button">
       <default>true</default>
@@ -605,6 +621,11 @@
         Keybinding to either show or launch the 10th application in the dash.
       </description>
     </key>
+    <key name="panel-match-dock" type="b">
+      <default>false</default>
+      <summary>Give the top bar the dock background</summary>
+      <description>Paint the top bar with the same background colour and opacity as the dock</description>
+    </key>
     <key name="force-straight-corner" type="b">
       <default>false</default>
       <summary>Force straight corners in dash</summary>
@@ -654,6 +675,11 @@
       <default>true</default>
       <summary>Group drives into a stack</summary>
       <description>Show mounted drives and volumes as one Drives stack instead of separate icons. Needs show-mounts.</description>
+    </key>
+    <key name="stack-display-as-stack" type="as">
+      <default>[]</default>
+      <summary>Folder stacks shown as their newest file</summary>
+      <description>Paths of folder stacks whose dock icon shows the most recently modified file inside, rather than a folder icon.</description>
     </key>
     <key name="stack-view" type="s">
       <choices>

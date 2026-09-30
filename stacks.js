@@ -62,6 +62,11 @@ const FILE_ATTRIBUTES = [
 const MAX_ENUMERATED = 5000;
 const MAX_SHOWN = 500;
 
+// Wait for a burst of file changes to settle before finding the newest file
+const NEWEST_FILE_REFRESH_DELAY = 500;
+// Unfinished downloads, which should not become the stack's icon
+const PARTIAL_DOWNLOAD_SUFFIXES = ['.part', '.crdownload', '.download', '.partial'];
+
 const FAN_ICON_SIZE = 36;
 // Space between a fan card's edge and its icon: padding plus border
 const FAN_CARD_INSET = 6;
@@ -425,7 +430,10 @@ export class DropHover {
 
 const StackSource = GObject.registerClass({
     GTypeFlags: GObject.TypeFlags.ABSTRACT,
-    Signals: {'changed': {}},
+    Signals: {
+        'changed': {},
+        'icon-changed': {},
+    },
 }, class StackSource extends GObject.Object {
     /** Stable ID, used to keep the same dock item across setting changes. */
     get id() {
@@ -469,6 +477,13 @@ class FolderStackSource extends StackSource {
         super();
         this.path = path;
         this._file = Gio.File.new_for_path(path);
+        this._newest = null;
+        this._monitor = null;
+        this._refreshId = 0;
+
+        Docking.DockManager.settings.connectObject('changed::stack-display-as-stack',
+            () => this._syncDisplay(), this);
+        this._syncDisplay();
     }
 
     get id() {
@@ -485,14 +500,128 @@ class FolderStackSource extends StackSource {
         return this._file;
     }
 
+    /** Whether the dock icon shows the newest file rather than the folder. */
+    get displayAsStack() {
+        return Docking.DockManager.settings.get_strv('stack-display-as-stack')
+            .includes(this.path);
+    }
+
+    set displayAsStack(value) {
+        const {settings} = Docking.DockManager;
+        const paths = settings.get_strv('stack-display-as-stack').filter(p => p !== this.path);
+        if (value)
+            paths.push(this.path);
+        settings.set_strv('stack-display-as-stack', paths);
+    }
+
+    _syncDisplay() {
+        if (!this.displayAsStack) {
+            this._stopWatching();
+            if (this._newest) {
+                this._newest = null;
+                this.emit('icon-changed');
+            }
+            return;
+        }
+
+        if (!this._monitor) {
+            try {
+                this._monitor = this._file.monitor_directory(
+                    Gio.FileMonitorFlags.WATCH_MOVES, null);
+                this._monitor.connect('changed', () => this._queueNewestRefresh());
+            } catch (e) {
+                logError(e, `StackDock: could not watch ${this.path}`);
+            }
+        }
+        this._refreshNewest();
+    }
+
+    _stopWatching() {
+        this._monitor?.cancel();
+        this._monitor = null;
+        this._newestCancellable?.cancel();
+        this._newestCancellable = null;
+        if (this._refreshId) {
+            GLib.source_remove(this._refreshId);
+            this._refreshId = 0;
+        }
+    }
+
+    _queueNewestRefresh() {
+        if (this._refreshId)
+            GLib.source_remove(this._refreshId);
+        this._refreshId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, NEWEST_FILE_REFRESH_DELAY, () => {
+            this._refreshId = 0;
+            this._refreshNewest();
+            return GLib.SOURCE_REMOVE;
+        });
+    }
+
+    async _refreshNewest() {
+        this._newestCancellable?.cancel();
+        const cancellable = new Gio.Cancellable();
+        this._newestCancellable = cancellable;
+
+        let newest = null;
+        try {
+            const items = await this._enumerate(cancellable);
+            for (const item of items) {
+                const lower = item.name.toLowerCase();
+                if (PARTIAL_DOWNLOAD_SUFFIXES.some(suffix => lower.endsWith(suffix)))
+                    continue;
+                if (!newest || item.modified > newest.modified)
+                    newest = item;
+            }
+        } catch (e) {
+            if (e.matches?.(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                return;
+            logError(e, `StackDock: could not read ${this.path}`);
+        }
+        if (cancellable.is_cancelled())
+            return;
+        this._newestCancellable = null;
+
+        if (newest?.uri === this._newest?.uri && newest?.modified === this._newest?.modified)
+            return;
+        this._newest = newest;
+        this.emit('icon-changed');
+    }
+
     createIcon(size) {
+        if (this._newest) {
+            // A framed thumbnail is drawn a little smaller so it sits inside
+            // the same space as an ordinary icon
+            const {isThumbnail} = this._newest;
+            return new St.Icon({
+                gicon: this._newest.gicon,
+                icon_size: isThumbnail ? Math.round(size * 0.85) : size,
+                style_class: isThumbnail ? 'stackdock-thumbnail' : null,
+                x_align: Clutter.ActorAlign.CENTER,
+                y_align: Clutter.ActorAlign.CENTER,
+            });
+        }
         return new St.Icon({
             gicon: new Gio.ThemedIcon({name: folderIconName(this._file)}),
             icon_size: size,
         });
     }
 
+    destroy() {
+        this._stopWatching();
+        Docking.DockManager.settings.disconnectObject(this);
+        super.destroy();
+    }
+
     async getItems(cancellable) {
+        const items = await this._enumerate(cancellable);
+
+        // Read string keys directly: the settings wrapper maps keys with
+        // <choices> to numbers, as if they were enums
+        const sortBy = Docking.DockManager.settings.get_string('stack-sort');
+        return sortFileItems(items, sortBy).slice(0, MAX_SHOWN);
+    }
+
+    async _enumerate(cancellable) {
         const enumerator = await this._file.enumerate_children_async(FILE_ATTRIBUTES,
             Gio.FileQueryInfoFlags.NONE, GLib.PRIORITY_DEFAULT, cancellable);
 
@@ -512,11 +641,7 @@ class FolderStackSource extends StackSource {
         } finally {
             enumerator.close_async(GLib.PRIORITY_DEFAULT, null).catch(() => {});
         }
-
-        // Read string keys directly: the settings wrapper maps keys with
-        // <choices> to numbers, as if they were enums
-        const sortBy = Docking.DockManager.settings.get_string('stack-sort');
-        return sortFileItems(items, sortBy).slice(0, MAX_SHOWN);
+        return items;
     }
 });
 
@@ -1984,7 +2109,10 @@ export const StackIcon = GObject.registerClass({
         iconContainer.add_child(this.icon);
         this.set_child(iconContainer);
 
-        source.connectObject('changed', () => this.icon.update(), this);
+        source.connectObject(
+            'changed', () => this.icon.update(),
+            'icon-changed', () => this.icon.update(),
+            this);
         this.connect('popup-menu', () => this._openMenu());
         this.connect('destroy', () => {
             this._cancellable?.cancel();
@@ -2117,6 +2245,21 @@ export const StackIcon = GObject.registerClass({
                 ? PopupMenu.Ornament.CHECK : PopupMenu.Ornament.NONE);
         }
         menu.addMenuItem(viewItem);
+
+        if (this.source instanceof FolderStackSource) {
+            const displayItem = new PopupMenu.PopupSubMenuMenuItem(__('Display as'));
+            for (const [value, label] of [
+                [false, __('Folder')],
+                [true, __('Stack')],
+            ]) {
+                const item = displayItem.menu.addAction(label, () => {
+                    this.source.displayAsStack = value;
+                });
+                item.setOrnament(this.source.displayAsStack === value
+                    ? PopupMenu.Ornament.CHECK : PopupMenu.Ornament.NONE);
+            }
+            menu.addMenuItem(displayItem);
+        }
 
         if (location) {
             const sortItem = new PopupMenu.PopupSubMenuMenuItem(__('Sort by'));

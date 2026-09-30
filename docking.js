@@ -1887,6 +1887,7 @@ export class DockManager {
         this._ensureLocations();
 
         this._stacks = new Stacks.StackManager();
+        this._panelTheme = new Theming.PanelTheme();
 
         /* Array of all the docks created */
         this._allDocks = [];
@@ -2283,6 +2284,8 @@ export class DockManager {
 
         // Make the necessary changes to Main.overview.dash
         this._prepareMainDash();
+
+        this._panelTheme?.setDock(this.mainDock);
 
         // Adjust corners if necessary
         this._adjustPanelCorners();
@@ -2758,6 +2761,8 @@ export class DockManager {
     }
 
     _deleteDocks() {
+        this._panelTheme?.setDock(null);
+
         // Remove extra features
         this._workspaceIsolation?.destroy();
         this._keyboardShortcuts?.destroy();
@@ -2846,6 +2851,8 @@ export class DockManager {
         this._deleteDocks();
         this._stacks?.destroy();
         this._stacks = null;
+        this._panelTheme?.destroy();
+        this._panelTheme = null;
         this._revertPanelCorners();
         if (this._oldSelectorMargin)
             this.searchController.margin_bottom = this._oldSelectorMargin;
