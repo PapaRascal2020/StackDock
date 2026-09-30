@@ -146,96 +146,80 @@ msgid "Failed to launch “%s”"
 msgstr "Avvio di \"%s\" fallito"
 
 #: dockPrefs.js:27
-#, fuzzy
 msgid "Focus the Window"
-msgstr "Nuova finestra"
+msgstr "Attiva la finestra"
 
 #: dockPrefs.js:28
-#, fuzzy
 msgid "Focus or Minimise"
-msgstr "Metti in primo piano o mostra le finestre dell'applicazione"
+msgstr "Attiva o minimizza"
 
 #: dockPrefs.js:29
-#, fuzzy
 msgid "Open a New Window"
-msgstr "Finestre aperte"
+msgstr "Apri una nuova finestra"
 
 #: dockPrefs.js:30 dockPrefs.js:43
-#, fuzzy
 msgid "Cycle Through Windows"
-msgstr "Passa attraverso le finestre"
+msgstr "Scorri tra le finestre"
 
 #: dockPrefs.js:31
-#, fuzzy
 msgid "Minimise or Show in Overview"
-msgstr "Minimizza o mostra attività"
+msgstr "Minimizza o mostra nella panoramica"
 
 #: dockPrefs.js:32
-#, fuzzy
 msgid "Show Window Previews"
-msgstr "Mostra anteprime finestra"
+msgstr "Mostra le anteprime delle finestre"
 
 #: dockPrefs.js:33
-#, fuzzy
 msgid "Minimise or Show Previews"
 msgstr "Minimizza o mostra anteprime"
 
 #: dockPrefs.js:34
-#, fuzzy
 msgid "Focus or Show Previews"
-msgstr "Metti in primo piano o mostra anteprime"
+msgstr "Attiva o mostra anteprime"
 
 #: dockPrefs.js:35
-#, fuzzy
 msgid "Focus or Spread Out Windows"
-msgstr "Metti in primo piano o mostra anteprime"
+msgstr "Attiva o disponi le finestre"
 
 #: dockPrefs.js:36
-#, fuzzy
 msgid "Focus, Minimise or Show Previews"
-msgstr "Metti in primo piano, minimizza o mostra anteprime"
+msgstr "Attiva, minimizza o mostra anteprime"
 
 #: dockPrefs.js:37
-#, fuzzy
 msgid "Focus, Minimise or Spread Out Windows"
-msgstr "Metti in primo piano, minimizza o mostra le finestre dell'applicazione"
+msgstr "Attiva, minimizza o disponi le finestre"
 
 #: dockPrefs.js:38
 msgid "Quit the App"
-msgstr ""
+msgstr "Chiudi l'applicazione"
 
 #: dockPrefs.js:42
-#, fuzzy
 msgid "Do Nothing"
 msgstr "Non fare nulla"
 
 #: dockPrefs.js:44
-#, fuzzy
 msgid "Switch Workspace"
 msgstr "Cambia spazio di lavoro"
 
 #: dockPrefs.js:48
-#, fuzzy
 msgid "Any Window"
-msgstr "Tutte le finestre"
+msgstr "Qualsiasi finestra"
 
 #: dockPrefs.js:49
 msgid "Windows of the Focused App"
-msgstr ""
+msgstr "Finestre dell'applicazione attiva"
 
 #: dockPrefs.js:50
-#, fuzzy
 msgid "Maximised Windows Only"
-msgstr "Solo le finestre massimizzate"
+msgstr "Solo finestre massimizzate"
 
 #: dockPrefs.js:51
 msgid "Never, Stay on Top"
-msgstr ""
+msgstr "Mai, resta in primo piano"
 
 #: dockPrefs.js:55 dockPrefs.js:61
-#, fuzzy
 msgid "Theme Default"
-msgstr "Predefinito"
+msgstr "Predefinito del tema"
 
 #: dockPrefs.js:56
 msgid "Fixed"
@@ -258,40 +242,36 @@ msgid "Dashes"
 msgstr "Trattini"
 
 #: dockPrefs.js:65
-#, fuzzy
 msgid "Segmented Line"
-msgstr "Segmenti"
+msgstr "Linea segmentata"
 
 #: dockPrefs.js:66
-#, fuzzy
 msgid "Solid Line"
-msgstr "Solido"
+msgstr "Linea continua"
 
 #: dockPrefs.js:67
 msgid "Line and Dots"
-msgstr ""
+msgstr "Linea e punti"
 
 #: dockPrefs.js:68
 msgid "Full-Width Bar"
-msgstr ""
+msgstr "Barra a tutta larghezza"
 
 #: dockPrefs.js:69
-#, fuzzy
 msgid "Binary Count"
-msgstr "Binario"
+msgstr "Conteggio binario"
 
 #: dockPrefs.js:70
 msgid "Single Dot"
-msgstr ""
+msgstr "Punto singolo"
 
 #: dockPrefs.js:360
-#, fuzzy
 msgid "Position"
-msgstr "Posizione e dimensione"
+msgstr "Posizione"
 
 #: dockPrefs.js:373
 msgid "Placement"
-msgstr ""
+msgstr "Collocazione"
 
 #: dockPrefs.js:380 dockPrefs.js:383
 msgid "Right"
@@ -311,482 +291,501 @@ msgstr "Alto"
 
 #: dockPrefs.js:387
 msgid "Screen Edge"
-msgstr ""
+msgstr "Bordo dello schermo"
 
 #: dockPrefs.js:391
-#, fuzzy
 msgid "Show on All Monitors"
-msgstr "Mostra su tutti gli schermi"
+msgstr "Mostra su tutti i monitor"
 
 #: dockPrefs.js:394
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: dockPrefs.js:395
 msgid "The monitor the dock appears on"
-msgstr ""
+msgstr "Il monitor su cui appare la dock"
 
 #. Translators: followed by the monitor's name and connector
 #: dockPrefs.js:427
 msgid "Primary"
-msgstr ""
+msgstr "Principale"
 
 #: dockPrefs.js:442
 msgid "Size"
-msgstr ""
+msgstr "Dimensione"
 
 #: dockPrefs.js:444
-#, fuzzy
 msgid "Icon Size"
-msgstr "Limite dimensione icone"
+msgstr "Dimensione icone"
 
 #: dockPrefs.js:445
 msgid "The largest the icons can be. They shrink to fit when the dock is full."
 msgstr ""
+"La dimensione massima delle icone. Si rimpiccioliscono quando la dock è "
+"piena."
 
 #: dockPrefs.js:450
 msgid "Keep Icons at Full Size"
-msgstr ""
+msgstr "Mantieni le icone a dimensione piena"
 
 #: dockPrefs.js:451
 msgid ""
 "Scroll the dock to reach icons that do not fit, instead of shrinking them"
 msgstr ""
+"Scorre la dock per raggiungere le icone che non ci stanno, invece di "
+"rimpicciolirle"
 
 #: dockPrefs.js:454
-#, fuzzy
 msgid "Maximum Length"
-msgstr "Opacità massima"
+msgstr "Lunghezza massima"
 
 #: dockPrefs.js:455
 msgid "How much of the screen edge the dock may use"
-msgstr ""
+msgstr "Quanta parte del bordo dello schermo può usare la dock"
 
 #: dockPrefs.js:462
 msgid "Stretch to Fill the Edge"
-msgstr ""
+msgstr "Estendi su tutto il bordo"
 
 #: dockPrefs.js:463
 msgid "The dock runs the full length of the screen edge, like a panel"
 msgstr ""
+"La dock occupa tutta la lunghezza del bordo dello schermo, come un pannello"
 
 #: dockPrefs.js:464
 msgid "Centre the Icons"
-msgstr ""
+msgstr "Centra le icone"
 
 #: dockPrefs.js:465
 msgid "Keep the icons in the middle of the screen rather than at the start"
-msgstr ""
+msgstr "Mantiene le icone al centro dello schermo invece che all'inizio"
 
 #: dockPrefs.js:467
 msgid "Show Apps Button at the Edge"
-msgstr ""
+msgstr "Pulsante Mostra applicazioni sul bordo"
 
 #: dockPrefs.js:468
 msgid ""
 "Keep the Show Apps button at the end of the dock when the icons are centred"
 msgstr ""
+"Mantiene il pulsante Mostra applicazioni alla fine della dock quando le "
+"icone sono centrate"
 
 #: dockPrefs.js:479
 msgid "Visibility"
-msgstr ""
+msgstr "Visibilità"
 
 #: dockPrefs.js:481
 msgid ""
 "When the dock hides, it comes back when you move the pointer to its edge of "
 "the screen."
 msgstr ""
+"Quando la dock si nasconde, ritorna portando il puntatore sul suo bordo "
+"dello schermo."
 
 #: dockPrefs.js:485
 msgid "Always Visible"
-msgstr ""
+msgstr "Sempre visibile"
 
 #: dockPrefs.js:486
 msgid ""
 "Keep the dock on screen and fit windows around it. Turn off to let the dock "
 "hide."
 msgstr ""
+"Mantiene la dock sullo schermo e adatta le finestre intorno. Disattivare per "
+"lasciare che la dock si nasconda."
 
 #: dockPrefs.js:489
 msgid "Hide When Windows Overlap"
-msgstr ""
+msgstr "Nascondi quando le finestre si sovrappongono"
 
 #: dockPrefs.js:490
 msgid "The dock steps aside when a window would cover it"
-msgstr ""
+msgstr "La dock si sposta quando una finestra la coprirebbe"
 
 #: dockPrefs.js:491
 msgid "Windows That Hide the Dock"
-msgstr ""
+msgstr "Finestre che nascondono la dock"
 
 #: dockPrefs.js:496
 msgid "Show When Pointer Reaches the Edge"
-msgstr ""
+msgstr "Mostra quando il puntatore raggiunge il bordo"
 
 #: dockPrefs.js:497
-#, fuzzy
 msgid "Reveal the hidden dock by moving the pointer to the screen edge"
-msgstr "Mostra la dock passando con il mouse sul bordo dello schermo."
+msgstr "Mostra la dock nascosta portando il puntatore sul bordo dello schermo"
 
 #: dockPrefs.js:498
 msgid "Push to Reveal"
-msgstr ""
+msgstr "Spingi per mostrare"
 
 #: dockPrefs.js:499
 msgid ""
 "Only show the dock when you push the pointer against the edge, to avoid "
 "showing it by accident"
 msgstr ""
+"Mostra la dock solo spingendo il puntatore contro il bordo, per evitare di "
+"mostrarla per sbaglio"
 
 #: dockPrefs.js:502
 msgid "Push Strength"
-msgstr ""
+msgstr "Forza della spinta"
 
 #: dockPrefs.js:503
 msgid "How hard you need to push, in pixels of pointer movement"
-msgstr ""
+msgstr "Quanto spingere, in pixel di movimento del puntatore"
 
 #: dockPrefs.js:506
 msgid "Show Delay"
-msgstr ""
+msgstr "Ritardo di comparsa"
 
 #: dockPrefs.js:507
 msgid "Seconds to wait at the edge before the dock appears"
-msgstr ""
+msgstr "Secondi di attesa sul bordo prima che appaia la dock"
 
 #: dockPrefs.js:510
 msgid "Also in Full-Screen Apps"
-msgstr ""
+msgstr "Anche nelle applicazioni a schermo intero"
 
 #: dockPrefs.js:511
 msgid "Allow the dock to appear over full-screen windows"
-msgstr ""
+msgstr "Consente alla dock di apparire sopra le finestre a schermo intero"
 
 #: dockPrefs.js:513
 msgid "Show for Apps That Need Attention"
-msgstr ""
+msgstr "Mostra per le applicazioni che richiedono attenzione"
 
 #: dockPrefs.js:514
 msgid "Briefly show the dock when an app asks for your attention"
-msgstr ""
+msgstr "Mostra brevemente la dock quando un'applicazione richiede attenzione"
 
 #: dockPrefs.js:518
 msgid "Hide Delay"
-msgstr ""
+msgstr "Ritardo di nascondimento"
 
 #: dockPrefs.js:519
 msgid "Seconds to wait after the pointer leaves before the dock hides"
 msgstr ""
+"Secondi di attesa dopo l'uscita del puntatore prima che la dock si nasconda"
 
 #: dockPrefs.js:523
-#, fuzzy
 msgid "Animation Duration"
-msgstr "Durata animazione (s)"
+msgstr "Durata dell'animazione"
 
 #: dockPrefs.js:524
 msgid "Seconds the dock takes to slide in and out"
-msgstr ""
+msgstr "Secondi impiegati dalla dock per entrare e uscire"
 
 #: dockPrefs.js:537
-#, fuzzy
 msgid "Behaviour"
 msgstr "Comportamento"
 
 #: dockPrefs.js:556
 msgid "StackDock Extras"
-msgstr ""
+msgstr "Extra di StackDock"
 
 #: dockPrefs.js:557
 msgid "Optional features added by StackDock."
-msgstr ""
+msgstr "Funzionalità facoltative aggiunte da StackDock."
 
 #: dockPrefs.js:560
 msgid "Previews on Hover"
-msgstr ""
+msgstr "Anteprime al passaggio"
 
 #: dockPrefs.js:561
 msgid "Show an app's windows when the pointer rests on its icon"
 msgstr ""
+"Mostra le finestre di un'applicazione quando il puntatore si ferma sulla sua "
+"icona"
 
 #: dockPrefs.js:562
 msgid "Delay"
-msgstr ""
+msgstr "Ritardo"
 
 #: dockPrefs.js:563
 msgid "Milliseconds to wait before the previews appear"
-msgstr ""
+msgstr "Millisecondi di attesa prima che appaiano le anteprime"
 
 #: dockPrefs.js:566
 msgid "Bounce While Launching"
-msgstr ""
+msgstr "Rimbalza all'avvio"
 
 #: dockPrefs.js:567
 msgid "Bounce an app's icon while it starts, until its window appears"
 msgstr ""
+"Fa rimbalzare l'icona di un'applicazione durante l'avvio, finché non appare "
+"la sua finestra"
 
 #: dockPrefs.js:569
 msgid "Match the Top Bar"
-msgstr ""
+msgstr "Uniforma la barra superiore"
 
 #: dockPrefs.js:570
 msgid "Give the top bar the same colour and opacity as the dock"
 msgstr ""
+"Dà alla barra superiore lo stesso colore e la stessa opacità della dock"
 
 #: dockPrefs.js:579
 msgid "Dock Contents"
-msgstr ""
+msgstr "Contenuto della dock"
 
 #: dockPrefs.js:581
 msgid "Pinned Apps"
-msgstr ""
+msgstr "Applicazioni fissate"
 
 #: dockPrefs.js:582
 msgid "Running Apps"
-msgstr ""
+msgstr "Applicazioni aperte"
 
 #: dockPrefs.js:583
 msgid "Apps that are open but not pinned"
-msgstr ""
+msgstr "Applicazioni aperte ma non fissate"
 
 #: dockPrefs.js:586
 msgid "Show Apps Button"
-msgstr ""
+msgstr "Pulsante Mostra applicazioni"
 
 #: dockPrefs.js:587
 msgid "Opens the app grid"
-msgstr ""
+msgstr "Apre la griglia delle applicazioni"
 
 #: dockPrefs.js:588
-#, fuzzy
 msgid "Place at the Start"
-msgstr "Centra le icone"
+msgstr "Posiziona all'inizio"
 
 #: dockPrefs.js:589
 msgid "Put the button before the apps instead of after them"
-msgstr ""
+msgstr "Posiziona il pulsante prima delle applicazioni invece che dopo"
 
 #: dockPrefs.js:598
 msgid "Workspaces and Monitors"
-msgstr ""
+msgstr "Spazi di lavoro e monitor"
 
 #: dockPrefs.js:604
 msgid "Only Apps on the Current Workspace"
-msgstr ""
+msgstr "Solo applicazioni dello spazio di lavoro attuale"
 
 #: dockPrefs.js:615
 msgid "Show running apps only on the workspace they are on"
-msgstr ""
+msgstr "Mostra le applicazioni aperte solo nel loro spazio di lavoro"
 
 #: dockPrefs.js:616
 msgid "Follows the Multitasking setting in GNOME Settings"
-msgstr ""
+msgstr "Segue l'impostazione Multitasking delle Impostazioni di GNOME"
 
 #: dockPrefs.js:632
 msgid "Show Apps Needing Attention Everywhere"
-msgstr ""
+msgstr "Mostra ovunque le applicazioni che richiedono attenzione"
 
 #: dockPrefs.js:633
 msgid "Apps asking for attention appear on every workspace"
 msgstr ""
+"Le applicazioni che richiedono attenzione appaiono in ogni spazio di lavoro"
 
 #: dockPrefs.js:635
 msgid "Only Apps on the Same Monitor"
-msgstr ""
+msgstr "Solo applicazioni dello stesso monitor"
 
 #: dockPrefs.js:636
 msgid "With a dock on each monitor, each shows only the apps on its monitor"
 msgstr ""
+"Con una dock su ogni monitor, ciascuna mostra solo le applicazioni del "
+"proprio monitor"
 
 #: dockPrefs.js:639
 msgid "Separate Trash and Drive Windows"
-msgstr ""
+msgstr "Separa le finestre del cestino e delle unità"
 
 #: dockPrefs.js:640
 msgid "Treat Files windows showing the trash or a drive as their own icons"
 msgstr ""
+"Tratta le finestre di File che mostrano il cestino o un'unità come icone "
+"separate"
 
 #: dockPrefs.js:652
 msgid "Clicking and Scrolling"
-msgstr ""
+msgstr "Clic e scorrimento"
 
 #: dockPrefs.js:653
 msgid "What happens when you click an app that is already open."
-msgstr ""
+msgstr "Cosa succede quando si fa clic su un'applicazione già aperta."
 
 #: dockPrefs.js:658
 msgid "Click"
-msgstr ""
+msgstr "Clic"
 
 #: dockPrefs.js:662
 msgid "Other Clicks"
-msgstr ""
+msgstr "Altri clic"
 
 #: dockPrefs.js:663
 msgid "Shift+click, middle-click and Shift+middle-click"
-msgstr ""
+msgstr "Maiusc+clic, clic centrale e Maiusc+clic centrale"
 
 #: dockPrefs.js:665
-#, fuzzy
 msgid "Shift+Click"
-msgstr "Azione Maiusc+Clic"
+msgstr "Maiusc+clic"
 
 #: dockPrefs.js:666
-#, fuzzy
 msgid "Middle-Click"
-msgstr "Azione clic-centrale"
+msgstr "Clic centrale"
 
 #: dockPrefs.js:667
-#, fuzzy
 msgid "Shift+Middle-Click"
-msgstr "Azione Maiusc+Clic-centrale"
+msgstr "Maiusc+clic centrale"
 
 #: dockPrefs.js:671
-#, fuzzy
 msgid "Scroll"
-msgstr "Azione scorrimento"
+msgstr "Scorrimento"
 
 #: dockPrefs.js:674
 msgid ""
 "Only works between icons, because Keep Icons at Full Size scrolls the dock"
 msgstr ""
+"Funziona solo tra le icone, perché «Mantieni le icone a dimensione piena» fa "
+"scorrere la dock"
 
 #: dockPrefs.js:675
 msgid "Scrolling over an app's icon"
-msgstr ""
+msgstr "Scorrimento sull'icona di un'applicazione"
 
 #: dockPrefs.js:684
-#, fuzzy
 msgid "Window Previews"
-msgstr "Mostra anteprime finestra"
+msgstr "Anteprime delle finestre"
 
 #: dockPrefs.js:686
 msgid "Previews in App Menus"
-msgstr ""
+msgstr "Anteprime nei menu delle applicazioni"
 
 #: dockPrefs.js:687
 msgid "Show pictures of the open windows instead of a list of their names"
 msgstr ""
+"Mostra immagini delle finestre aperte invece di un elenco dei loro nomi"
 
 #: dockPrefs.js:689
-#, fuzzy
 msgid "Preview Size"
-msgstr "Tasso di ridimensionamento delle anteprime"
+msgstr "Dimensione anteprime"
 
 #: dockPrefs.js:690
 msgid "Leave at Automatic to fit the screen"
-msgstr ""
+msgstr "Lasciare su Automatica per adattarsi allo schermo"
 
 #: dockPrefs.js:692 stacks.js:2239 stacksPrefs.js:105
 msgid "Automatic"
-msgstr ""
+msgstr "Automatica"
 
 #: dockPrefs.js:700
 msgid "Icons"
-msgstr ""
+msgstr "Icone"
 
 #: dockPrefs.js:702
 msgid "Wiggle Apps Needing Attention"
-msgstr ""
+msgstr "Fai oscillare le applicazioni che richiedono attenzione"
 
 #: dockPrefs.js:703
-#, fuzzy
 msgid "Hide Name Tooltips"
-msgstr "Nascondi suggerimento dell'applicazione"
+msgstr "Nascondi i suggerimenti con il nome"
 
 #: dockPrefs.js:704
 msgid "Don't show the app's name when the pointer rests on its icon"
 msgstr ""
+"Non mostrare il nome dell'applicazione quando il puntatore si ferma sulla "
+"sua icona"
 
 #: dockPrefs.js:705
 msgid "Keep the Focused App in View"
-msgstr ""
+msgstr "Mantieni visibile l'applicazione attiva"
 
 #: dockPrefs.js:706
 msgid "Scroll the dock so the icon of the focused app is always visible"
 msgstr ""
+"Scorre la dock in modo che l'icona dell'applicazione attiva sia sempre "
+"visibile"
 
 #: dockPrefs.js:708
 msgid "Badges"
-msgstr ""
+msgstr "Contrassegni"
 
 #: dockPrefs.js:709
 msgid "Counters and progress bars on app icons"
-msgstr ""
+msgstr "Contatori e barre di avanzamento sulle icone delle applicazioni"
 
 #: dockPrefs.js:711
-#, fuzzy
 msgid "Unread Notification Count"
-msgstr "%s, %d notifica non letta"
+msgstr "Numero di notifiche non lette"
 
 #: dockPrefs.js:714
 msgid "Prefer the App's Own Count"
-msgstr ""
+msgstr "Preferisci il contatore dell'applicazione"
 
 #: dockPrefs.js:715
 msgid "Apps that set their own badge show it instead of the notification count"
 msgstr ""
+"Le applicazioni con un proprio contatore lo mostrano al posto del numero di "
+"notifiche"
 
 #: dockPrefs.js:725
 msgid "Keyboard"
-msgstr ""
+msgstr "Tastiera"
 
 #: dockPrefs.js:727
 msgid "Open Apps with Super+Number"
-msgstr ""
+msgstr "Apri le applicazioni con Super+numero"
 
 #: dockPrefs.js:728
 msgid ""
 "Super+1 to Super+0 open the first ten apps. Add Shift or Ctrl for more "
 "actions."
 msgstr ""
+"Da Super+1 a Super+0 si aprono le prime dieci applicazioni. Aggiungere "
+"Maiusc o Ctrl per altre azioni."
 
 #: dockPrefs.js:729
-#, fuzzy
 msgid "Show Numbers on Icons"
-msgstr "Mostra volumi e dispositivi"
+msgstr "Mostra i numeri sulle icone"
 
 #: dockPrefs.js:730
 msgid "Show each app's number while the shortcut below is held"
 msgstr ""
+"Mostra il numero di ogni applicazione mentre si tiene premuta la scorciatoia "
+"qui sotto"
 
 #: dockPrefs.js:731
-#, fuzzy
 msgid "Show the Dock"
-msgstr "Mostra dock su"
+msgstr "Mostra la dock"
 
 #: dockPrefs.js:732
 msgid "Briefly show a hidden dock when the shortcut below is pressed"
 msgstr ""
+"Mostra brevemente una dock nascosta quando si preme la scorciatoia qui sotto"
 
 #: dockPrefs.js:735
 msgid "Shortcut to Show Numbers"
-msgstr ""
+msgstr "Scorciatoia per mostrare i numeri"
 
 #: dockPrefs.js:744
 msgid "For example &lt;Super&gt;q"
-msgstr ""
+msgstr "Per esempio &lt;Super&gt;q"
 
 #: dockPrefs.js:751
-#, fuzzy
 msgid "Numbers Stay For"
-msgstr "Indicatore numerico in sovraimpressione"
+msgstr "Durata dei numeri"
 
 #: dockPrefs.js:752
 msgid "Seconds the numbers and dock stay visible"
-msgstr ""
+msgstr "Secondi in cui i numeri e la dock restano visibili"
 
 #: dockPrefs.js:759
 msgid "Startup"
-msgstr ""
+msgstr "Avvio"
 
 #: dockPrefs.js:761
-#, fuzzy
 msgid "Show the Overview at Login"
-msgstr "Mostra la panoramica all'avvio"
+msgstr "Mostra la panoramica all'accesso"
 
 #: dockPrefs.js:762
 msgid "Open Activities when you log in, as GNOME does by default"
-msgstr ""
+msgstr "Apre Attività all'accesso, come fa GNOME in modo predefinito"
 
 #: dockPrefs.js:773
 msgid "Appearance"
@@ -794,60 +793,61 @@ msgstr "Aspetto"
 
 #: dockPrefs.js:786 dockPrefs.js:856
 msgid "Style"
-msgstr ""
+msgstr "Stile"
 
 #: dockPrefs.js:788
-#, fuzzy
 msgid "Use the Built-in Style"
-msgstr "Usa tema integrato"
+msgstr "Usa lo stile integrato"
 
 #: dockPrefs.js:789
 msgid ""
 "A ready-made look that suits the default GNOME theme. Turn off to choose the "
 "colours, opacity and indicators yourself."
 msgstr ""
+"Un aspetto già pronto, adatto al tema predefinito di GNOME. Disattivarlo per "
+"scegliere personalmente colori, opacità e indicatori."
 
 #: dockPrefs.js:791
 msgid "Compact"
-msgstr ""
+msgstr "Compatta"
 
 #: dockPrefs.js:792
 msgid "Less padding and smaller rounded corners"
-msgstr ""
+msgstr "Meno spaziatura e angoli meno arrotondati"
 
 #: dockPrefs.js:793
-#, fuzzy
 msgid "Square Corners"
-msgstr "Quadrati"
+msgstr "Angoli squadrati"
 
 #: dockPrefs.js:795
 msgid "Coloured Icon Backgrounds"
-msgstr ""
+msgstr "Sfondi colorati delle icone"
 
 #: dockPrefs.js:796
 msgid "Light each running app with its icon's main colour, as Unity did"
 msgstr ""
+"Illumina ogni applicazione aperta con il colore principale della sua icona, "
+"come faceva Unity"
 
 #: dockPrefs.js:797
 msgid "Glossy Finish"
-msgstr ""
+msgstr "Finitura lucida"
 
 #: dockPrefs.js:805
 msgid "Background"
-msgstr ""
+msgstr "Sfondo"
 
 #: dockPrefs.js:809
 msgid "Custom Colour"
-msgstr ""
+msgstr "Colore personalizzato"
 
 #: dockPrefs.js:810
 msgid "Use your own background colour instead of the theme's"
-msgstr ""
+msgstr "Usa un colore di sfondo personale invece di quello del tema"
 
 #: dockPrefs.js:812
-#, fuzzy
 msgid "Dock Colour"
-msgstr "Colore"
+msgstr "Colore della dock"
 
 #: dockPrefs.js:822
 msgid "Opacity"
@@ -856,371 +856,371 @@ msgstr "Opacità"
 #: dockPrefs.js:823
 msgid "Adaptive makes the dock more solid when a window is next to it"
 msgstr ""
+"L'opacità adattiva rende la dock più solida quando una finestra è accanto"
 
 #: dockPrefs.js:828
-#, fuzzy
 msgid "Fixed Opacity"
-msgstr "Opacità"
+msgstr "Opacità fissa"
 
 #: dockPrefs.js:834
 msgid "Custom Adaptive Range"
-msgstr ""
+msgstr "Intervallo adattivo personalizzato"
 
 #: dockPrefs.js:835
 msgid "Choose how see-through the dock is with and without a window next to it"
-msgstr ""
+msgstr "Sceglie quanto è trasparente la dock con e senza una finestra accanto"
 
 #: dockPrefs.js:836
-#, fuzzy
 msgid "No Window Nearby"
-msgstr "Nuova finestra"
+msgstr "Nessuna finestra vicina"
 
 #: dockPrefs.js:839
 msgid "Window Nearby"
-msgstr ""
+msgstr "Finestra vicina"
 
 #: dockPrefs.js:851
-#, fuzzy
 msgid "Running App Indicators"
-msgstr "Personalizza indicatori in esecuzione"
+msgstr "Indicatori delle applicazioni aperte"
 
 #: dockPrefs.js:852
 msgid ""
 "The marks under the icons of open apps. Most styles show one mark per window."
 msgstr ""
+"I segni sotto le icone delle applicazioni aperte. La maggior parte degli "
+"stili mostra un segno per finestra."
 
 #: dockPrefs.js:861
 msgid "Match Each App's Icon"
-msgstr ""
+msgstr "Come l'icona di ogni applicazione"
 
 #: dockPrefs.js:861
 msgid "Colour the indicators with the icon's main colour"
-msgstr ""
+msgstr "Colora gli indicatori con il colore principale dell'icona"
 
 #: dockPrefs.js:866
 msgid "Custom Colours"
-msgstr ""
+msgstr "Colori personalizzati"
 
 #: dockPrefs.js:866
 msgid "Use the same colours for every app"
-msgstr ""
+msgstr "Usa gli stessi colori per ogni applicazione"
 
 #: dockPrefs.js:867
-#, fuzzy
 msgid "Colour"
 msgstr "Colore"
 
 #: dockPrefs.js:869
-#, fuzzy
 msgid "Border Colour"
-msgstr "Colore bordo"
+msgstr "Colore del bordo"
 
 #: dockPrefs.js:871
-#, fuzzy
 msgid "Border Width"
-msgstr "Larghezza bordo"
+msgstr "Spessore del bordo"
 
 #: dockPrefs.js:871
 msgid "In pixels"
-msgstr ""
+msgstr "In pixel"
 
 #: stacks.js:247
 msgid "Unnamed Folder"
-msgstr ""
+msgstr "Cartella senza nome"
 
 #: stacks.js:495
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: stacks.js:733 stacksPrefs.js:257
 msgid "Drives"
-msgstr ""
+msgstr "Unità"
 
 #: stacks.js:909 stacks.js:2183
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Could not open “%s”"
-msgstr "Impossibile montare “%s”"
+msgstr "Impossibile aprire «%s»"
 
 #: stacks.js:971
 #, javascript-format
 msgid "Could not move “%s” to the trash"
-msgstr ""
+msgstr "Impossibile spostare «%s» nel cestino"
 
 #: stacks.js:998
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Could not copy “%s”"
-msgstr "Impossibile montare “%s”"
+msgstr "Impossibile copiare «%s»"
 
 #: stacks.js:999
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Could not move “%s”"
-msgstr "Impossibile montare “%s”"
+msgstr "Impossibile spostare «%s»"
 
 #: stacks.js:1385
 msgid "Open"
-msgstr ""
+msgstr "Apri"
 
 #: stacks.js:1388
 msgid "Open With…"
-msgstr ""
+msgstr "Apri con…"
 
 #: stacks.js:1389
-#, fuzzy
 msgid "Show in Files"
-msgstr "Mostra emblemi sulle icone"
+msgstr "Mostra in File"
 
 #: stacks.js:1391
 msgid "Move to Trash"
-msgstr ""
+msgstr "Sposta nel cestino"
 
 #: stacks.js:1397
 msgid "Remove from Folder"
-msgstr ""
+msgstr "Rimuovi dalla cartella"
 
 #: stacks.js:1477 stacks.js:1483 stacks.js:1797 stacks.js:2232
-#, fuzzy
 msgid "Open in Files"
-msgstr "Finestre aperte"
+msgstr "Apri in File"
 
 #: stacks.js:1482
 #, javascript-format
 msgid "%d more in Files"
 msgid_plural "%d more in Files"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Altro %d in File"
+msgstr[1] "Altri %d in File"
 
 #: stacks.js:1665
 msgid "No matches"
-msgstr ""
+msgstr "Nessun risultato"
 
 #: stacks.js:1666
 msgid "This folder is empty"
-msgstr ""
+msgstr "Questa cartella è vuota"
 
 #: stacks.js:1666
 msgid "Nothing here"
-msgstr ""
+msgstr "Non c'è niente qui"
 
 #: stacks.js:1711
 msgid "Rename Folder"
-msgstr ""
+msgstr "Rinomina cartella"
 
 #: stacks.js:1732
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
 #: stacks.js:1873
 #, javascript-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d elemento"
+msgstr[1] "%d elementi"
 
 #: stacks.js:1874
 #, javascript-format
 msgid "%d of %d"
-msgstr ""
+msgstr "%d di %d"
 
 #: stacks.js:2237
 msgid "View as"
-msgstr ""
+msgstr "Visualizza come"
 
 #: stacks.js:2240 stacksPrefs.js:105
 msgid "Fan"
-msgstr ""
+msgstr "Ventaglio"
 
 #: stacks.js:2241 stacksPrefs.js:105
 msgid "Grid"
-msgstr ""
+msgstr "Griglia"
 
 #: stacks.js:2250
 msgid "Display as"
-msgstr ""
+msgstr "Mostra come"
 
 #: stacks.js:2252 stacksPrefs.js:164
 msgid "Folder"
-msgstr ""
+msgstr "Cartella"
 
 #: stacks.js:2253 stacksPrefs.js:164
 msgid "Stack"
-msgstr ""
+msgstr "Pila"
 
 #: stacks.js:2265
 msgid "Sort by"
-msgstr ""
+msgstr "Ordina per"
 
 #: stacks.js:2267 stacksPrefs.js:120
 msgid "Date Modified"
-msgstr ""
+msgstr "Data di modifica"
 
 #: stacks.js:2268 stacksPrefs.js:120
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: stacks.js:2269 stacksPrefs.js:120
 msgid "Kind"
-msgstr ""
+msgstr "Tipo"
 
 #: stacks.js:2280
 msgid "Rename Folder…"
-msgstr ""
+msgstr "Rinomina cartella…"
 
 #: stacks.js:2284 stacksPrefs.js:188
 msgid "Remove from Dock"
-msgstr ""
+msgstr "Rimuovi dalla dock"
 
 #: stacks.js:2287
-#, fuzzy
 msgid "Stack Settings…"
-msgstr "Impostazioni"
+msgstr "Impostazioni della pila…"
 
 #: stacksPrefs.js:83
 msgid "Stacks"
-msgstr ""
+msgstr "Pile"
 
 #: stacksPrefs.js:97
 msgid "Opening Stacks"
-msgstr ""
+msgstr "Apertura delle pile"
 
 #: stacksPrefs.js:99
 msgid ""
 "Small stacks fan out from the dock; bigger ones open as a grid you can "
 "search. Right-click a stack in the dock for the same options."
 msgstr ""
+"Le pile piccole si aprono a ventaglio dalla dock; quelle più grandi si "
+"aprono come una griglia in cui cercare. Fare clic destro su una pila nella "
+"dock per le stesse opzioni."
 
 #: stacksPrefs.js:104
 msgid "View As"
-msgstr ""
+msgstr "Visualizza come"
 
 #: stacksPrefs.js:112
 msgid "Largest Fan"
-msgstr ""
+msgstr "Ventaglio più grande"
 
 #: stacksPrefs.js:113
 msgid "In automatic view, stacks with more items open as a grid"
 msgstr ""
+"Nella vista automatica, le pile con più elementi si aprono come griglia"
 
 #: stacksPrefs.js:119
 msgid "Sort Files By"
-msgstr ""
+msgstr "Ordina i file per"
 
 #: stacksPrefs.js:131
 msgid "Add Folder…"
-msgstr ""
+msgstr "Aggiungi cartella…"
 
 #: stacksPrefs.js:138
 msgid "Folder Stacks"
-msgstr ""
+msgstr "Pile di cartelle"
 
 #: stacksPrefs.js:139
 msgid "Folders shown near the end of the dock, such as Downloads or Documents."
 msgstr ""
+"Cartelle mostrate verso la fine della dock, come Scaricati o Documenti."
 
 #: stacksPrefs.js:147
 msgid "No folders yet. Press + to add one."
-msgstr ""
+msgstr "Nessuna cartella. Premere + per aggiungerne una."
 
 #: stacksPrefs.js:167
 msgid "Show the folder icon, or the newest file in the folder"
-msgstr ""
+msgstr "Mostra l'icona della cartella o il file più recente della cartella"
 
 #: stacksPrefs.js:202
 msgid "Add a Folder Stack"
-msgstr ""
+msgstr "Aggiungi una pila di cartella"
 
 #: stacksPrefs.js:203
 msgid "Add"
-msgstr ""
+msgstr "Aggiungi"
 
 #: stacksPrefs.js:222
 msgid "App Folder Stacks"
-msgstr ""
+msgstr "Pile di cartelle di applicazioni"
 
 #: stacksPrefs.js:224
 msgid ""
 "App grid folders shown right after your pinned apps. To make a folder, open "
 "Activities and drag one app onto another."
 msgstr ""
+"Cartelle della griglia delle applicazioni, mostrate subito dopo le "
+"applicazioni fissate. Per creare una cartella, aprire Attività e trascinare "
+"un'applicazione su un'altra."
 
 #: stacksPrefs.js:232
 msgid "You have no app folders yet."
-msgstr ""
+msgstr "Non ci sono ancora cartelle di applicazioni."
 
 #: stacksPrefs.js:260
-#, fuzzy
 msgid "Show Drives in the Dock"
-msgstr "Mostra dock su"
+msgstr "Mostra le unità nella dock"
 
 #: stacksPrefs.js:261
 msgid "USB drives, memory cards, and other mounted volumes"
-msgstr ""
+msgstr "Unità USB, schede di memoria e altri volumi montati"
 
 #: stacksPrefs.js:267
 msgid "Group Drives into a Stack"
-msgstr ""
+msgstr "Raggruppa le unità in una pila"
 
 #: stacksPrefs.js:268
 msgid "Show all drives as one Drives stack instead of separate icons"
 msgstr ""
+"Mostra tutte le unità come un'unica pila Unità invece di icone separate"
 
 #: stacksPrefs.js:275
-#, fuzzy
 msgid "Only Mounted Drives"
-msgstr "Solo se montati"
+msgstr "Solo unità montate"
 
 #: stacksPrefs.js:276
 msgid "Hide drives that are plugged in but not mounted"
-msgstr ""
+msgstr "Nasconde le unità collegate ma non montate"
 
 #: stacksPrefs.js:284
-#, fuzzy
 msgid "Include Network Drives"
-msgstr "Includi volumi di rete"
+msgstr "Includi unità di rete"
 
 #: stacksPrefs.js:285
 msgid "Also show mounted network shares"
-msgstr ""
+msgstr "Mostra anche le condivisioni di rete montate"
 
 #: aboutPrefs.js:62
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Version %s"
-msgstr "versione: "
+msgstr "Versione %s"
 
 #: aboutPrefs.js:81
 msgid "Source code"
-msgstr ""
+msgstr "Codice sorgente"
 
 #: aboutPrefs.js:82
 msgid "Report a problem"
-msgstr ""
+msgstr "Segnala un problema"
 
 #: aboutPrefs.js:82
 msgid "Open an issue on GitHub"
-msgstr ""
+msgstr "Segnala un problema su GitHub"
 
 #: aboutPrefs.js:88
 msgid "Credits"
-msgstr ""
+msgstr "Riconoscimenti"
 
 #: aboutPrefs.js:91
 msgid "StackDock"
-msgstr ""
+msgstr "StackDock"
 
 #: aboutPrefs.js:94
 msgid "The dock StackDock is built on, by Michele Gaio and contributors"
-msgstr ""
+msgstr "La dock su cui si basa StackDock, di Michele Gaio e collaboratori"
 
 #: aboutPrefs.js:97
 msgid "The original stacks code, by dragosol"
-msgstr ""
+msgstr "Il codice originale delle pile, di dragosol"
 
 #: aboutPrefs.js:104
 msgid "GNU General Public Licence, version 2 or later"
-msgstr ""
+msgstr "GNU General Public License, versione 2 o successiva"
 
 #: aboutPrefs.js:105
 msgid "This program comes with absolutely no warranty"
-msgstr ""
+msgstr "Questo programma è fornito senza alcuna garanzia"
 
 #~ msgid "Primary monitor: "
 #~ msgstr "Monitor primario: "

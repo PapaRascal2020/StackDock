@@ -204,7 +204,11 @@ If you find a problem, please [open an issue](https://github.com/PapaRascal2020/
 
 ## Translations
 
-Translation files are in the [po](po) directory, with the template in `po/stackdock.pot`. Many translations were inherited from Dash to Dock, but the settings pages were rewritten for StackDock, so most of their text still needs translating. To refresh the files after changing the source, run:
+Translation files are in the [po](po) directory, with the template in `po/stackdock.pot`.
+
+StackDock is fully translated into Brazilian Portuguese, Chinese (Simplified), Dutch, French, German, Italian, Japanese, Polish, Russian and Spanish. These translations were machine-assisted, so corrections from native speakers are very welcome. The other languages were inherited from Dash to Dock and are only partly translated.
+
+To refresh the files after changing the source, run:
 
     make mergepo
 

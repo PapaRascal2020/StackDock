@@ -26,22 +26,21 @@ msgstr "Dash"
 
 #: docking.js:2839 appIcons.js:1544
 msgid "Unpin"
-msgstr ""
+msgstr "固定を解除"
 
 #: docking.js:2839 appIcons.js:1550
-#, fuzzy
 msgid "Pin to Dock"
-msgstr "Dash to Dock の%s"
+msgstr "ドックに固定"
 
 #: appIcons.js:490
 #, javascript-format
 msgid "%s is updating, try again later"
-msgstr ""
+msgstr "%s は更新中です。しばらくしてからもう一度お試しください"
 
 #: appIcons.js:1454
 #, javascript-format
 msgid "%s is being updated…"
-msgstr ""
+msgstr "%s を更新しています…"
 
 #: appIcons.js:1465
 msgid "All Windows"
@@ -49,40 +48,35 @@ msgstr "ウィンドウプレビューの表示"
 
 #. Translators: This is the heading of a list of open windows
 #: appIcons.js:1477
-#, fuzzy
 msgid "Open Windows"
-msgstr "新しいウィンドウ"
+msgstr "開いているウィンドウ"
 
 #: appIcons.js:1497
 msgid "New Window"
 msgstr "新しいウィンドウ"
 
 #: appIcons.js:1516
-#, fuzzy
 msgid "Launch using Integrated Graphics Card"
-msgstr "専用のグラフィックカードを使用して起動"
+msgstr "内蔵グラフィックカードを使用して起動"
 
 #: appIcons.js:1517
-#, fuzzy
 msgid "Launch using Discrete Graphics Card"
-msgstr "専用のグラフィックカードを使用して起動"
+msgstr "専用グラフィックカードを使用して起動"
 
 #: appIcons.js:1562 appIcons.js:1588
-#, fuzzy
 msgid "App Details"
-msgstr "詳細を表示"
+msgstr "アプリの詳細"
 
 # ここの翻訳は GNOME Shell の訳が優先される様子
 #: appIcons.js:1617 appIcons.js:1629
 msgid "Quit"
 msgstr "終了"
 
-# ここの「Quit」は GNOME Shell の訳に合わせた方が良さげ
 #: appIcons.js:1632
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Quit %d Window"
 msgid_plural "Quit %d Windows"
-msgstr[0] "%d 個のウィンドウを終了"
+msgstr[0] "%d 個のウィンドウを閉じる"
 
 #: appIcons.js:1923
 msgid "Settings"
@@ -96,7 +90,7 @@ msgstr "情報"
 #, javascript-format
 msgid "%s, %d unread notification"
 msgid_plural "%s, %d unread notifications"
-msgstr[0] ""
+msgstr[0] "%s、未読の通知 %d 件"
 
 #: locations.js:540
 msgid "Mount"
@@ -113,29 +107,29 @@ msgstr "取り出す"
 #: locations.js:604
 #, javascript-format
 msgid "Failed to mount “%s”"
-msgstr ""
+msgstr "“%s”をマウントできませんでした"
 
 #: locations.js:609
 #, javascript-format
 msgid "Failed to unmount “%s”"
-msgstr ""
+msgstr "“%s”をアンマウントできませんでした"
 
 #: locations.js:614
 #, javascript-format
 msgid "Failed to eject “%s”"
-msgstr ""
+msgstr "“%s”を取り出せませんでした"
 
 #: locations.js:627
 msgid "Mount operation already in progress"
-msgstr ""
+msgstr "マウント処理はすでに実行中です"
 
 #: locations.js:632
 msgid "Unmount operation already in progress"
-msgstr ""
+msgstr "アンマウント処理はすでに実行中です"
 
 #: locations.js:637
 msgid "Eject operation already in progress"
-msgstr ""
+msgstr "取り出し処理はすでに実行中です"
 
 #: locations.js:763 dockPrefs.js:584
 msgid "Trash"
@@ -148,97 +142,83 @@ msgstr "ゴミ箱を空にする"
 #: locations.js:1074
 #, javascript-format
 msgid "Failed to launch “%s”"
-msgstr ""
+msgstr "“%s”を起動できませんでした"
 
 #: dockPrefs.js:27
-#, fuzzy
 msgid "Focus the Window"
-msgstr "新しいウィンドウ"
+msgstr "ウィンドウにフォーカス"
 
 #: dockPrefs.js:28
 msgid "Focus or Minimise"
-msgstr ""
+msgstr "フォーカスまたは最小化"
 
 #: dockPrefs.js:29
-#, fuzzy
 msgid "Open a New Window"
-msgstr "新しいウィンドウ"
+msgstr "新しいウィンドウを開く"
 
 #: dockPrefs.js:30 dockPrefs.js:43
-#, fuzzy
 msgid "Cycle Through Windows"
-msgstr "ウィンドウの切り替え"
+msgstr "ウィンドウを順に切り替え"
 
 #: dockPrefs.js:31
-#, fuzzy
 msgid "Minimise or Show in Overview"
-msgstr "ウィンドウの最小化またはオーバービュー"
+msgstr "最小化またはアクティビティ画面で表示"
 
 #: dockPrefs.js:32
-#, fuzzy
 msgid "Show Window Previews"
-msgstr "ウィンドウのプレビュー表示"
+msgstr "ウィンドウのプレビューを表示"
 
 #: dockPrefs.js:33
-#, fuzzy
 msgid "Minimise or Show Previews"
-msgstr "ウィンドウの最小化またはプレビュー表示"
+msgstr "最小化またはプレビューを表示"
 
 #: dockPrefs.js:34
-#, fuzzy
 msgid "Focus or Show Previews"
-msgstr "フォーカスまたはプレビュー表示"
+msgstr "フォーカスまたはプレビューを表示"
 
 #: dockPrefs.js:35
-#, fuzzy
 msgid "Focus or Spread Out Windows"
-msgstr "フォーカスまたはプレビュー表示"
+msgstr "フォーカスまたはウィンドウを並べる"
 
 #: dockPrefs.js:36
-#, fuzzy
 msgid "Focus, Minimise or Show Previews"
-msgstr "ウィンドウの最小化またはプレビュー表示"
+msgstr "フォーカス、最小化、またはプレビューを表示"
 
 #: dockPrefs.js:37
 msgid "Focus, Minimise or Spread Out Windows"
-msgstr ""
+msgstr "フォーカス、最小化、またはウィンドウを並べる"
 
 #: dockPrefs.js:38
 msgid "Quit the App"
-msgstr ""
+msgstr "アプリを終了"
 
 #: dockPrefs.js:42
-#, fuzzy
 msgid "Do Nothing"
 msgstr "何もしない"
 
 #: dockPrefs.js:44
-#, fuzzy
 msgid "Switch Workspace"
-msgstr "ワークスペースの切り替え"
+msgstr "ワークスペースを切り替え"
 
 #: dockPrefs.js:48
-#, fuzzy
 msgid "Any Window"
-msgstr "ウィンドウプレビューの表示"
+msgstr "すべてのウィンドウ"
 
 #: dockPrefs.js:49
 msgid "Windows of the Focused App"
-msgstr ""
+msgstr "フォーカス中のアプリのウィンドウ"
 
 #: dockPrefs.js:50
-#, fuzzy
 msgid "Maximised Windows Only"
-msgstr "最大化されたウィンドウが対象"
+msgstr "最大化したウィンドウのみ"
 
 #: dockPrefs.js:51
 msgid "Never, Stay on Top"
-msgstr ""
+msgstr "しない (常に手前に表示)"
 
 #: dockPrefs.js:55 dockPrefs.js:61
-#, fuzzy
 msgid "Theme Default"
-msgstr "デフォルト"
+msgstr "テーマの既定"
 
 #: dockPrefs.js:56
 msgid "Fixed"
@@ -246,52 +226,51 @@ msgstr "固定"
 
 #: dockPrefs.js:57
 msgid "Adaptive"
-msgstr ""
+msgstr "アダプティブ"
 
 #: dockPrefs.js:62
 msgid "Dots"
-msgstr ""
+msgstr "ドット"
 
 #: dockPrefs.js:63
 msgid "Squares"
-msgstr ""
+msgstr "四角"
 
 #: dockPrefs.js:64
 msgid "Dashes"
-msgstr ""
+msgstr "ダッシュ"
 
 #: dockPrefs.js:65
 msgid "Segmented Line"
-msgstr ""
+msgstr "区切り線"
 
 #: dockPrefs.js:66
 msgid "Solid Line"
-msgstr ""
+msgstr "実線"
 
 #: dockPrefs.js:67
 msgid "Line and Dots"
-msgstr ""
+msgstr "線とドット"
 
 #: dockPrefs.js:68
 msgid "Full-Width Bar"
-msgstr ""
+msgstr "全幅バー"
 
 #: dockPrefs.js:69
 msgid "Binary Count"
-msgstr ""
+msgstr "2進数カウント"
 
 #: dockPrefs.js:70
 msgid "Single Dot"
-msgstr ""
+msgstr "ドット 1 つ"
 
 #: dockPrefs.js:360
-#, fuzzy
 msgid "Position"
-msgstr "位置とサイズ"
+msgstr "位置"
 
 #: dockPrefs.js:373
 msgid "Placement"
-msgstr ""
+msgstr "配置"
 
 #: dockPrefs.js:380 dockPrefs.js:383
 msgid "Right"
@@ -311,479 +290,479 @@ msgstr "上"
 
 #: dockPrefs.js:387
 msgid "Screen Edge"
-msgstr ""
+msgstr "画面の辺"
 
 #: dockPrefs.js:391
-#, fuzzy
 msgid "Show on All Monitors"
-msgstr "すべてのモニターで表示"
+msgstr "すべてのモニターに表示"
 
 #: dockPrefs.js:394
 msgid "Monitor"
-msgstr ""
+msgstr "モニター"
 
 #: dockPrefs.js:395
 msgid "The monitor the dock appears on"
-msgstr ""
+msgstr "ドックを表示するモニター"
 
 #. Translators: followed by the monitor's name and connector
 #: dockPrefs.js:427
-#, fuzzy
 msgid "Primary"
-msgstr "プライマリーモニター"
+msgstr "プライマリ"
 
 #: dockPrefs.js:442
 msgid "Size"
-msgstr ""
+msgstr "サイズ"
 
 #: dockPrefs.js:444
-#, fuzzy
 msgid "Icon Size"
-msgstr "アイコンサイズの上限"
+msgstr "アイコンサイズ"
 
 #: dockPrefs.js:445
 msgid "The largest the icons can be. They shrink to fit when the dock is full."
-msgstr ""
+msgstr "アイコンの最大サイズです。ドックがいっぱいになると縮小します。"
 
 #: dockPrefs.js:450
 msgid "Keep Icons at Full Size"
-msgstr ""
+msgstr "アイコンを原寸のままにする"
 
 #: dockPrefs.js:451
 msgid ""
 "Scroll the dock to reach icons that do not fit, instead of shrinking them"
-msgstr ""
+msgstr "収まらないアイコンを縮小せず、ドックをスクロールして表示します"
 
 #: dockPrefs.js:454
-#, fuzzy
 msgid "Maximum Length"
-msgstr "最大不透明度"
+msgstr "最大の長さ"
 
 #: dockPrefs.js:455
 msgid "How much of the screen edge the dock may use"
-msgstr ""
+msgstr "ドックが使える画面の辺の長さ"
 
 #: dockPrefs.js:462
 msgid "Stretch to Fill the Edge"
-msgstr ""
+msgstr "辺いっぱいに広げる"
 
 #: dockPrefs.js:463
 msgid "The dock runs the full length of the screen edge, like a panel"
-msgstr ""
+msgstr "パネルのように、ドックが画面の辺の全長に広がります"
 
 #: dockPrefs.js:464
 msgid "Centre the Icons"
-msgstr ""
+msgstr "アイコンを中央に配置"
 
 #: dockPrefs.js:465
 msgid "Keep the icons in the middle of the screen rather than at the start"
-msgstr ""
+msgstr "アイコンを先頭ではなく画面の中央に配置します"
 
 #: dockPrefs.js:467
 msgid "Show Apps Button at the Edge"
-msgstr ""
+msgstr "「アプリを表示」ボタンを端に置く"
 
 #: dockPrefs.js:468
 msgid ""
 "Keep the Show Apps button at the end of the dock when the icons are centred"
 msgstr ""
+"アイコンを中央に配置したとき、「アプリを表示」ボタンをドックの端に置きます"
 
 #: dockPrefs.js:479
 msgid "Visibility"
-msgstr ""
+msgstr "表示"
 
 #: dockPrefs.js:481
 msgid ""
 "When the dock hides, it comes back when you move the pointer to its edge of "
 "the screen."
 msgstr ""
+"ドックが隠れているときは、ポインターをドックのある画面の端に動かすと戻ってき"
+"ます。"
 
 #: dockPrefs.js:485
 msgid "Always Visible"
-msgstr ""
+msgstr "常に表示"
 
 #: dockPrefs.js:486
 msgid ""
 "Keep the dock on screen and fit windows around it. Turn off to let the dock "
 "hide."
 msgstr ""
+"ドックを常に表示し、ウィンドウをその周りに合わせます。オフにするとドックが隠"
+"れるようになります。"
 
 #: dockPrefs.js:489
 msgid "Hide When Windows Overlap"
-msgstr ""
+msgstr "ウィンドウと重なったら隠す"
 
 #: dockPrefs.js:490
 msgid "The dock steps aside when a window would cover it"
-msgstr ""
+msgstr "ウィンドウに覆われそうになるとドックがよけます"
 
 #: dockPrefs.js:491
 msgid "Windows That Hide the Dock"
-msgstr ""
+msgstr "ドックを隠すウィンドウ"
 
 #: dockPrefs.js:496
 msgid "Show When Pointer Reaches the Edge"
-msgstr ""
+msgstr "ポインターが端に来たら表示"
 
 #: dockPrefs.js:497
-#, fuzzy
 msgid "Reveal the hidden dock by moving the pointer to the screen edge"
-msgstr ""
-"ドックを表示したいとき、ポインターを画面端に移動するとドックが表示されます。"
+msgstr "ポインターを画面の端に動かすと、隠れているドックを表示します"
 
 #: dockPrefs.js:498
 msgid "Push to Reveal"
-msgstr ""
+msgstr "押し込んで表示"
 
 #: dockPrefs.js:499
 msgid ""
 "Only show the dock when you push the pointer against the edge, to avoid "
 "showing it by accident"
 msgstr ""
+"ポインターを画面の端に押し付けたときだけドックを表示し、誤って表示されるのを"
+"防ぎます"
 
 #: dockPrefs.js:502
 msgid "Push Strength"
-msgstr ""
+msgstr "押し込む強さ"
 
 #: dockPrefs.js:503
 msgid "How hard you need to push, in pixels of pointer movement"
-msgstr ""
+msgstr "押し込む強さ (ポインターの移動ピクセル数)"
 
 #: dockPrefs.js:506
-#, fuzzy
 msgid "Show Delay"
-msgstr "詳細を表示"
+msgstr "表示までの遅延"
 
 #: dockPrefs.js:507
 msgid "Seconds to wait at the edge before the dock appears"
-msgstr ""
+msgstr "画面の端に来てからドックを表示するまでの秒数"
 
 #: dockPrefs.js:510
 msgid "Also in Full-Screen Apps"
-msgstr ""
+msgstr "フルスクリーンのアプリでも表示"
 
 #: dockPrefs.js:511
 msgid "Allow the dock to appear over full-screen windows"
-msgstr ""
+msgstr "フルスクリーンのウィンドウの上にドックを表示できるようにします"
 
 #: dockPrefs.js:513
 msgid "Show for Apps That Need Attention"
-msgstr ""
+msgstr "注意を要求しているアプリのときに表示"
 
 #: dockPrefs.js:514
 msgid "Briefly show the dock when an app asks for your attention"
-msgstr ""
+msgstr "アプリが注意を要求したときに、ドックを短時間表示します"
 
 #: dockPrefs.js:518
 msgid "Hide Delay"
-msgstr ""
+msgstr "隠すまでの遅延"
 
 #: dockPrefs.js:519
 msgid "Seconds to wait after the pointer leaves before the dock hides"
-msgstr ""
+msgstr "ポインターが離れてからドックを隠すまでの秒数"
 
 #: dockPrefs.js:523
-#, fuzzy
 msgid "Animation Duration"
-msgstr "アニメーション表示時間 (秒)"
+msgstr "アニメーションの長さ"
 
 #: dockPrefs.js:524
 msgid "Seconds the dock takes to slide in and out"
-msgstr ""
+msgstr "ドックが出入りするのにかかる秒数"
 
 #: dockPrefs.js:537
-#, fuzzy
 msgid "Behaviour"
 msgstr "動作"
 
 #: dockPrefs.js:556
 msgid "StackDock Extras"
-msgstr ""
+msgstr "StackDock の追加機能"
 
 #: dockPrefs.js:557
 msgid "Optional features added by StackDock."
-msgstr ""
+msgstr "StackDock で追加されたオプション機能です。"
 
 #: dockPrefs.js:560
 msgid "Previews on Hover"
-msgstr ""
+msgstr "ホバー時のプレビュー"
 
 #: dockPrefs.js:561
 msgid "Show an app's windows when the pointer rests on its icon"
-msgstr ""
+msgstr "ポインターがアイコンの上にあるとき、アプリのウィンドウを表示します"
 
 #: dockPrefs.js:562
 msgid "Delay"
-msgstr ""
+msgstr "遅延"
 
 #: dockPrefs.js:563
 msgid "Milliseconds to wait before the previews appear"
-msgstr ""
+msgstr "プレビューが表示されるまでの待ち時間 (ミリ秒)"
 
 #: dockPrefs.js:566
 msgid "Bounce While Launching"
-msgstr ""
+msgstr "起動中にバウンド"
 
 #: dockPrefs.js:567
 msgid "Bounce an app's icon while it starts, until its window appears"
-msgstr ""
+msgstr "アプリの起動中、ウィンドウが表示されるまでアイコンを弾ませます"
 
 #: dockPrefs.js:569
 msgid "Match the Top Bar"
-msgstr ""
+msgstr "トップバーをそろえる"
 
 #: dockPrefs.js:570
 msgid "Give the top bar the same colour and opacity as the dock"
-msgstr ""
+msgstr "トップバーの色と不透明度をドックと同じにします"
 
 #: dockPrefs.js:579
 msgid "Dock Contents"
-msgstr ""
+msgstr "ドックの内容"
 
 #: dockPrefs.js:581
 msgid "Pinned Apps"
-msgstr ""
+msgstr "固定したアプリ"
 
 #: dockPrefs.js:582
 msgid "Running Apps"
-msgstr ""
+msgstr "実行中のアプリ"
 
 #: dockPrefs.js:583
 msgid "Apps that are open but not pinned"
-msgstr ""
+msgstr "開いているが固定されていないアプリ"
 
 #: dockPrefs.js:586
 msgid "Show Apps Button"
-msgstr ""
+msgstr "「アプリを表示」ボタン"
 
 #: dockPrefs.js:587
 msgid "Opens the app grid"
-msgstr ""
+msgstr "アプリグリッドを開きます"
 
 #: dockPrefs.js:588
 msgid "Place at the Start"
-msgstr ""
+msgstr "先頭に配置"
 
 #: dockPrefs.js:589
 msgid "Put the button before the apps instead of after them"
-msgstr ""
+msgstr "ボタンをアプリの後ろではなく前に置きます"
 
 #: dockPrefs.js:598
 msgid "Workspaces and Monitors"
-msgstr ""
+msgstr "ワークスペースとモニター"
 
 #: dockPrefs.js:604
 msgid "Only Apps on the Current Workspace"
-msgstr ""
+msgstr "現在のワークスペースのアプリのみ"
 
 #: dockPrefs.js:615
 msgid "Show running apps only on the workspace they are on"
-msgstr ""
+msgstr "実行中のアプリを、それがあるワークスペースでのみ表示します"
 
 #: dockPrefs.js:616
 msgid "Follows the Multitasking setting in GNOME Settings"
-msgstr ""
+msgstr "GNOME 設定のマルチタスクの設定に従います"
 
 #: dockPrefs.js:632
 msgid "Show Apps Needing Attention Everywhere"
-msgstr ""
+msgstr "注意を要求しているアプリをどこでも表示"
 
 #: dockPrefs.js:633
 msgid "Apps asking for attention appear on every workspace"
-msgstr ""
+msgstr "注意を要求しているアプリをすべてのワークスペースに表示します"
 
 #: dockPrefs.js:635
 msgid "Only Apps on the Same Monitor"
-msgstr ""
+msgstr "同じモニターのアプリのみ"
 
 #: dockPrefs.js:636
 msgid "With a dock on each monitor, each shows only the apps on its monitor"
 msgstr ""
+"モニターごとにドックがある場合、各ドックはそのモニターのアプリだけを表示しま"
+"す"
 
 #: dockPrefs.js:639
 msgid "Separate Trash and Drive Windows"
-msgstr ""
+msgstr "ゴミ箱とドライブのウィンドウを分ける"
 
 #: dockPrefs.js:640
 msgid "Treat Files windows showing the trash or a drive as their own icons"
 msgstr ""
+"ゴミ箱やドライブを表示している「ファイル」のウィンドウを別のアイコンとして扱"
+"います"
 
 #: dockPrefs.js:652
 msgid "Clicking and Scrolling"
-msgstr ""
+msgstr "クリックとスクロール"
 
 #: dockPrefs.js:653
 msgid "What happens when you click an app that is already open."
-msgstr ""
+msgstr "すでに開いているアプリをクリックしたときの動作です。"
 
 #: dockPrefs.js:658
 msgid "Click"
-msgstr ""
+msgstr "クリック"
 
 #: dockPrefs.js:662
 msgid "Other Clicks"
-msgstr ""
+msgstr "その他のクリック"
 
 #: dockPrefs.js:663
 msgid "Shift+click, middle-click and Shift+middle-click"
-msgstr ""
+msgstr "Shift+クリック、中クリック、Shift+中クリック"
 
 #: dockPrefs.js:665
-#, fuzzy
 msgid "Shift+Click"
-msgstr "Shift + クリック時のアクション"
+msgstr "Shift+クリック"
 
 #: dockPrefs.js:666
-#, fuzzy
 msgid "Middle-Click"
-msgstr "中ボタンクリック時のアクション"
+msgstr "中クリック"
 
 #: dockPrefs.js:667
-#, fuzzy
 msgid "Shift+Middle-Click"
-msgstr "Shift + 中ボタンクリック時のアクション"
+msgstr "Shift+中クリック"
 
 #: dockPrefs.js:671
-#, fuzzy
 msgid "Scroll"
-msgstr "スクロール時のアクション"
+msgstr "スクロール"
 
 #: dockPrefs.js:674
 msgid ""
 "Only works between icons, because Keep Icons at Full Size scrolls the dock"
 msgstr ""
+"「アイコンを原寸のままにする」がドックをスクロールするため、アイコンの間での"
+"み機能します"
 
 #: dockPrefs.js:675
 msgid "Scrolling over an app's icon"
-msgstr ""
+msgstr "アプリのアイコン上でのスクロール"
 
 #: dockPrefs.js:684
-#, fuzzy
 msgid "Window Previews"
-msgstr "ウィンドウのプレビュー表示"
+msgstr "ウィンドウのプレビュー"
 
 #: dockPrefs.js:686
 msgid "Previews in App Menus"
-msgstr ""
+msgstr "アプリメニューにプレビューを表示"
 
 #: dockPrefs.js:687
 msgid "Show pictures of the open windows instead of a list of their names"
-msgstr ""
+msgstr "開いているウィンドウを名前の一覧ではなく画像で表示します"
 
 #: dockPrefs.js:689
 msgid "Preview Size"
-msgstr ""
+msgstr "プレビューのサイズ"
 
 #: dockPrefs.js:690
 msgid "Leave at Automatic to fit the screen"
-msgstr ""
+msgstr "「自動」のままにすると画面に合わせます"
 
 #: dockPrefs.js:692 stacks.js:2239 stacksPrefs.js:105
 msgid "Automatic"
-msgstr ""
+msgstr "自動"
 
 #: dockPrefs.js:700
 msgid "Icons"
-msgstr ""
+msgstr "アイコン"
 
 #: dockPrefs.js:702
 msgid "Wiggle Apps Needing Attention"
-msgstr ""
+msgstr "注意を要求しているアプリを揺らす"
 
 #: dockPrefs.js:703
 msgid "Hide Name Tooltips"
-msgstr ""
+msgstr "名前のツールチップを隠す"
 
 #: dockPrefs.js:704
 msgid "Don't show the app's name when the pointer rests on its icon"
-msgstr ""
+msgstr "ポインターがアイコンの上にあるとき、アプリ名を表示しません"
 
 #: dockPrefs.js:705
 msgid "Keep the Focused App in View"
-msgstr ""
+msgstr "フォーカス中のアプリを常に表示"
 
 #: dockPrefs.js:706
 msgid "Scroll the dock so the icon of the focused app is always visible"
 msgstr ""
+"フォーカス中のアプリのアイコンが常に見えるようにドックをスクロールします"
 
 #: dockPrefs.js:708
 msgid "Badges"
-msgstr ""
+msgstr "バッジ"
 
 #: dockPrefs.js:709
 msgid "Counters and progress bars on app icons"
-msgstr ""
+msgstr "アプリアイコン上のカウンターと進行状況バー"
 
 #: dockPrefs.js:711
 msgid "Unread Notification Count"
-msgstr ""
+msgstr "未読の通知数"
 
 #: dockPrefs.js:714
 msgid "Prefer the App's Own Count"
-msgstr ""
+msgstr "アプリ独自のカウントを優先"
 
 #: dockPrefs.js:715
 msgid "Apps that set their own badge show it instead of the notification count"
-msgstr ""
+msgstr "独自のバッジを持つアプリは、通知数の代わりにそれを表示します"
 
 #: dockPrefs.js:725
 msgid "Keyboard"
-msgstr ""
+msgstr "キーボード"
 
 #: dockPrefs.js:727
 msgid "Open Apps with Super+Number"
-msgstr ""
+msgstr "Super+数字キーでアプリを開く"
 
 #: dockPrefs.js:728
 msgid ""
 "Super+1 to Super+0 open the first ten apps. Add Shift or Ctrl for more "
 "actions."
 msgstr ""
+"Super+1〜Super+0 で最初の 10 個のアプリを開きます。Shift や Ctrl を加えると他"
+"の操作もできます。"
 
 #: dockPrefs.js:729
 msgid "Show Numbers on Icons"
-msgstr ""
+msgstr "アイコンに番号を表示"
 
 #: dockPrefs.js:730
 msgid "Show each app's number while the shortcut below is held"
-msgstr ""
+msgstr "下のショートカットを押している間、各アプリの番号を表示します"
 
 #: dockPrefs.js:731
-#, fuzzy
 msgid "Show the Dock"
-msgstr "ドックを表示するモニター"
+msgstr "ドックを表示"
 
 #: dockPrefs.js:732
 msgid "Briefly show a hidden dock when the shortcut below is pressed"
-msgstr ""
+msgstr "下のショートカットを押すと、隠れているドックを短時間表示します"
 
 #: dockPrefs.js:735
 msgid "Shortcut to Show Numbers"
-msgstr ""
+msgstr "番号を表示するショートカット"
 
 #: dockPrefs.js:744
 msgid "For example &lt;Super&gt;q"
-msgstr ""
+msgstr "例: &lt;Super&gt;q"
 
 #: dockPrefs.js:751
-#, fuzzy
 msgid "Numbers Stay For"
-msgstr "番号の表示"
+msgstr "番号の表示時間"
 
 #: dockPrefs.js:752
 msgid "Seconds the numbers and dock stay visible"
-msgstr ""
+msgstr "番号とドックを表示しておく秒数"
 
 #: dockPrefs.js:759
 msgid "Startup"
-msgstr ""
+msgstr "起動"
 
 #: dockPrefs.js:761
 msgid "Show the Overview at Login"
-msgstr ""
+msgstr "ログイン時にアクティビティ画面を表示"
 
 #: dockPrefs.js:762
 msgid "Open Activities when you log in, as GNOME does by default"
-msgstr ""
+msgstr "GNOME の既定と同じく、ログイン時にアクティビティを開きます"
 
 #: dockPrefs.js:773
 msgid "Appearance"
@@ -791,59 +770,59 @@ msgstr "外観"
 
 #: dockPrefs.js:786 dockPrefs.js:856
 msgid "Style"
-msgstr ""
+msgstr "スタイル"
 
 #: dockPrefs.js:788
-#, fuzzy
 msgid "Use the Built-in Style"
-msgstr "ビルトインテーマの使用"
+msgstr "内蔵スタイルを使用"
 
 #: dockPrefs.js:789
 msgid ""
 "A ready-made look that suits the default GNOME theme. Turn off to choose the "
 "colours, opacity and indicators yourself."
 msgstr ""
+"GNOME の標準テーマに合う既製の外観です。オフにすると、色、不透明度、インジ"
+"ケーターを自分で選べます。"
 
 #: dockPrefs.js:791
 msgid "Compact"
-msgstr ""
+msgstr "コンパクト"
 
 #: dockPrefs.js:792
 msgid "Less padding and smaller rounded corners"
-msgstr ""
+msgstr "余白を減らし、角の丸みを小さくします"
 
 #: dockPrefs.js:793
 msgid "Square Corners"
-msgstr ""
+msgstr "角を直角にする"
 
 #: dockPrefs.js:795
 msgid "Coloured Icon Backgrounds"
-msgstr ""
+msgstr "アイコン背景に色を付ける"
 
 #: dockPrefs.js:796
 msgid "Light each running app with its icon's main colour, as Unity did"
-msgstr ""
+msgstr "Unity のように、実行中のアプリをアイコンの主な色で照らします"
 
 #: dockPrefs.js:797
 msgid "Glossy Finish"
-msgstr ""
+msgstr "光沢仕上げ"
 
 #: dockPrefs.js:805
 msgid "Background"
-msgstr ""
+msgstr "背景"
 
 #: dockPrefs.js:809
 msgid "Custom Colour"
-msgstr ""
+msgstr "カスタムの色"
 
 #: dockPrefs.js:810
 msgid "Use your own background colour instead of the theme's"
-msgstr ""
+msgstr "テーマの色の代わりに独自の背景色を使います"
 
 #: dockPrefs.js:812
-#, fuzzy
 msgid "Dock Colour"
-msgstr "ボディ色"
+msgstr "ドックの色"
 
 #: dockPrefs.js:822
 msgid "Opacity"
@@ -851,369 +830,367 @@ msgstr "不透明度"
 
 #: dockPrefs.js:823
 msgid "Adaptive makes the dock more solid when a window is next to it"
-msgstr ""
+msgstr "アダプティブでは、隣にウィンドウがあるとドックの不透明度が上がります"
 
 #: dockPrefs.js:828
-#, fuzzy
 msgid "Fixed Opacity"
-msgstr "不透明度"
+msgstr "固定の不透明度"
 
 #: dockPrefs.js:834
 msgid "Custom Adaptive Range"
-msgstr ""
+msgstr "アダプティブの範囲を指定"
 
 #: dockPrefs.js:835
 msgid "Choose how see-through the dock is with and without a window next to it"
-msgstr ""
+msgstr "隣にウィンドウがあるときとないときのドックの透明度を選びます"
 
 #: dockPrefs.js:836
-#, fuzzy
 msgid "No Window Nearby"
-msgstr "新しいウィンドウ"
+msgstr "近くにウィンドウがないとき"
 
 #: dockPrefs.js:839
 msgid "Window Nearby"
-msgstr ""
+msgstr "近くにウィンドウがあるとき"
 
 #: dockPrefs.js:851
-#, fuzzy
 msgid "Running App Indicators"
-msgstr "インジケーターの表示設定"
+msgstr "実行中アプリのインジケーター"
 
 #: dockPrefs.js:852
 msgid ""
 "The marks under the icons of open apps. Most styles show one mark per window."
 msgstr ""
+"開いているアプリのアイコンの下に付く印です。ほとんどのスタイルはウィンドウご"
+"とに 1 つ表示します。"
 
 #: dockPrefs.js:861
 msgid "Match Each App's Icon"
-msgstr ""
+msgstr "各アプリのアイコンに合わせる"
 
 #: dockPrefs.js:861
 msgid "Colour the indicators with the icon's main colour"
-msgstr ""
+msgstr "インジケーターをアイコンの主な色で塗ります"
 
 #: dockPrefs.js:866
 msgid "Custom Colours"
-msgstr ""
+msgstr "カスタムの色"
 
 #: dockPrefs.js:866
 msgid "Use the same colours for every app"
-msgstr ""
+msgstr "すべてのアプリで同じ色を使います"
 
 #: dockPrefs.js:867
-#, fuzzy
 msgid "Colour"
-msgstr "ボディ色"
+msgstr "色"
 
 #: dockPrefs.js:869
-#, fuzzy
 msgid "Border Colour"
-msgstr "縁取り色"
+msgstr "枠線の色"
 
 #: dockPrefs.js:871
-#, fuzzy
 msgid "Border Width"
-msgstr "縁取り幅"
+msgstr "枠線の幅"
 
 #: dockPrefs.js:871
 msgid "In pixels"
-msgstr ""
+msgstr "ピクセル単位"
 
 #: stacks.js:247
 msgid "Unnamed Folder"
-msgstr ""
+msgstr "名前のないフォルダー"
 
 #: stacks.js:495
 msgid "Home"
-msgstr ""
+msgstr "ホーム"
 
 #: stacks.js:733 stacksPrefs.js:257
 msgid "Drives"
-msgstr ""
+msgstr "ドライブ"
 
 #: stacks.js:909 stacks.js:2183
 #, javascript-format
 msgid "Could not open “%s”"
-msgstr ""
+msgstr "“%s”を開けませんでした"
 
 #: stacks.js:971
 #, javascript-format
 msgid "Could not move “%s” to the trash"
-msgstr ""
+msgstr "“%s”をゴミ箱に移動できませんでした"
 
 #: stacks.js:998
 #, javascript-format
 msgid "Could not copy “%s”"
-msgstr ""
+msgstr "“%s”をコピーできませんでした"
 
 #: stacks.js:999
 #, javascript-format
 msgid "Could not move “%s”"
-msgstr ""
+msgstr "“%s”を移動できませんでした"
 
 #: stacks.js:1385
 msgid "Open"
-msgstr ""
+msgstr "開く"
 
 #: stacks.js:1388
 msgid "Open With…"
-msgstr ""
+msgstr "別のアプリで開く…"
 
 #: stacks.js:1389
-#, fuzzy
 msgid "Show in Files"
-msgstr "ウィンドウのプレビュー表示"
+msgstr "「ファイル」で表示"
 
 #: stacks.js:1391
 msgid "Move to Trash"
-msgstr ""
+msgstr "ゴミ箱へ移動"
 
 #: stacks.js:1397
-#, fuzzy
 msgid "Remove from Folder"
-msgstr "お気に入りから削除"
+msgstr "フォルダーから削除"
 
 #: stacks.js:1477 stacks.js:1483 stacks.js:1797 stacks.js:2232
 msgid "Open in Files"
-msgstr ""
+msgstr "「ファイル」で開く"
 
 #: stacks.js:1482
 #, javascript-format
 msgid "%d more in Files"
 msgid_plural "%d more in Files"
-msgstr[0] ""
+msgstr[0] "ほか %d 件は「ファイル」で表示"
 
 #: stacks.js:1665
 msgid "No matches"
-msgstr ""
+msgstr "一致するものがありません"
 
 #: stacks.js:1666
 msgid "This folder is empty"
-msgstr ""
+msgstr "このフォルダーは空です"
 
 #: stacks.js:1666
 msgid "Nothing here"
-msgstr ""
+msgstr "何もありません"
 
 #: stacks.js:1711
 msgid "Rename Folder"
-msgstr ""
+msgstr "フォルダー名を変更"
 
 #: stacks.js:1732
 msgid "Search"
-msgstr ""
+msgstr "検索"
 
 #: stacks.js:1873
 #, javascript-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] ""
+msgstr[0] "%d 項目"
 
 #: stacks.js:1874
 #, javascript-format
 msgid "%d of %d"
-msgstr ""
+msgstr "%d / %d"
 
 #: stacks.js:2237
 msgid "View as"
-msgstr ""
+msgstr "表示方法"
 
 #: stacks.js:2240 stacksPrefs.js:105
 msgid "Fan"
-msgstr ""
+msgstr "扇形"
 
 #: stacks.js:2241 stacksPrefs.js:105
 msgid "Grid"
-msgstr ""
+msgstr "グリッド"
 
 #: stacks.js:2250
 msgid "Display as"
-msgstr ""
+msgstr "表示方法"
 
 #: stacks.js:2252 stacksPrefs.js:164
 msgid "Folder"
-msgstr ""
+msgstr "フォルダー"
 
 #: stacks.js:2253 stacksPrefs.js:164
 msgid "Stack"
-msgstr ""
+msgstr "スタック"
 
 #: stacks.js:2265
 msgid "Sort by"
-msgstr ""
+msgstr "並べ替え"
 
 #: stacks.js:2267 stacksPrefs.js:120
 msgid "Date Modified"
-msgstr ""
+msgstr "更新日時"
 
 #: stacks.js:2268 stacksPrefs.js:120
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 #: stacks.js:2269 stacksPrefs.js:120
 msgid "Kind"
-msgstr ""
+msgstr "種類"
 
 #: stacks.js:2280
 msgid "Rename Folder…"
-msgstr ""
+msgstr "フォルダー名を変更…"
 
 #: stacks.js:2284 stacksPrefs.js:188
-#, fuzzy
 msgid "Remove from Dock"
-msgstr "お気に入りから削除"
+msgstr "ドックから削除"
 
 #: stacks.js:2287
-#, fuzzy
 msgid "Stack Settings…"
-msgstr "設定"
+msgstr "スタックの設定…"
 
 #: stacksPrefs.js:83
 msgid "Stacks"
-msgstr ""
+msgstr "スタック"
 
 #: stacksPrefs.js:97
 msgid "Opening Stacks"
-msgstr ""
+msgstr "スタックの開き方"
 
 #: stacksPrefs.js:99
 msgid ""
 "Small stacks fan out from the dock; bigger ones open as a grid you can "
 "search. Right-click a stack in the dock for the same options."
 msgstr ""
+"小さなスタックはドックから扇形に開き、大きなスタックは検索できるグリッドで開"
+"きます。ドック上のスタックを右クリックしても同じ設定ができます。"
 
 #: stacksPrefs.js:104
 msgid "View As"
-msgstr ""
+msgstr "表示方法"
 
 #: stacksPrefs.js:112
 msgid "Largest Fan"
-msgstr ""
+msgstr "扇形の最大項目数"
 
 #: stacksPrefs.js:113
 msgid "In automatic view, stacks with more items open as a grid"
-msgstr ""
+msgstr "自動表示では、項目が多いスタックはグリッドで開きます"
 
 #: stacksPrefs.js:119
 msgid "Sort Files By"
-msgstr ""
+msgstr "ファイルの並べ替え"
 
 #: stacksPrefs.js:131
 msgid "Add Folder…"
-msgstr ""
+msgstr "フォルダーを追加…"
 
 #: stacksPrefs.js:138
 msgid "Folder Stacks"
-msgstr ""
+msgstr "フォルダースタック"
 
 #: stacksPrefs.js:139
 msgid "Folders shown near the end of the dock, such as Downloads or Documents."
 msgstr ""
+"「ダウンロード」や「ドキュメント」など、ドックの終わり近くに表示するフォル"
+"ダー。"
 
 #: stacksPrefs.js:147
 msgid "No folders yet. Press + to add one."
-msgstr ""
+msgstr "フォルダーはまだありません。+ を押して追加してください。"
 
 #: stacksPrefs.js:167
 msgid "Show the folder icon, or the newest file in the folder"
-msgstr ""
+msgstr "フォルダーのアイコン、またはフォルダー内の最新ファイルを表示します"
 
 #: stacksPrefs.js:202
 msgid "Add a Folder Stack"
-msgstr ""
+msgstr "フォルダースタックを追加"
 
 #: stacksPrefs.js:203
 msgid "Add"
-msgstr ""
+msgstr "追加"
 
 #: stacksPrefs.js:222
 msgid "App Folder Stacks"
-msgstr ""
+msgstr "アプリフォルダースタック"
 
 #: stacksPrefs.js:224
 msgid ""
 "App grid folders shown right after your pinned apps. To make a folder, open "
 "Activities and drag one app onto another."
 msgstr ""
+"アプリグリッドのフォルダーを、固定したアプリのすぐ後ろに表示します。フォル"
+"ダーを作るには、アクティビティを開いてアプリを別のアプリにドラッグします。"
 
 #: stacksPrefs.js:232
 msgid "You have no app folders yet."
-msgstr ""
+msgstr "アプリフォルダーはまだありません。"
 
 #: stacksPrefs.js:260
-#, fuzzy
 msgid "Show Drives in the Dock"
-msgstr "ドックを表示するモニター"
+msgstr "ドックにドライブを表示"
 
 #: stacksPrefs.js:261
 msgid "USB drives, memory cards, and other mounted volumes"
-msgstr ""
+msgstr "USB ドライブ、メモリーカード、その他のマウントされたボリューム"
 
 #: stacksPrefs.js:267
 msgid "Group Drives into a Stack"
-msgstr ""
+msgstr "ドライブをスタックにまとめる"
 
 #: stacksPrefs.js:268
 msgid "Show all drives as one Drives stack instead of separate icons"
 msgstr ""
+"ドライブを個別のアイコンではなく 1 つの「ドライブ」スタックとして表示します"
 
 #: stacksPrefs.js:275
 msgid "Only Mounted Drives"
-msgstr ""
+msgstr "マウントされたドライブのみ"
 
 #: stacksPrefs.js:276
 msgid "Hide drives that are plugged in but not mounted"
-msgstr ""
+msgstr "接続されていてもマウントされていないドライブを隠します"
 
 #: stacksPrefs.js:284
 msgid "Include Network Drives"
-msgstr ""
+msgstr "ネットワークドライブも含める"
 
 #: stacksPrefs.js:285
 msgid "Also show mounted network shares"
-msgstr ""
+msgstr "マウントされたネットワーク共有も表示します"
 
 #: aboutPrefs.js:62
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Version %s"
-msgstr "バージョン: "
+msgstr "バージョン %s"
 
 #: aboutPrefs.js:81
 msgid "Source code"
-msgstr ""
+msgstr "ソースコード"
 
 #: aboutPrefs.js:82
 msgid "Report a problem"
-msgstr ""
+msgstr "問題を報告"
 
 #: aboutPrefs.js:82
 msgid "Open an issue on GitHub"
-msgstr ""
+msgstr "GitHub で Issue を作成"
 
 #: aboutPrefs.js:88
 msgid "Credits"
-msgstr ""
+msgstr "クレジット"
 
 #: aboutPrefs.js:91
 msgid "StackDock"
-msgstr ""
+msgstr "StackDock"
 
 #: aboutPrefs.js:94
 msgid "The dock StackDock is built on, by Michele Gaio and contributors"
-msgstr ""
+msgstr "StackDock のベースとなったドック (Michele Gaio と貢献者)"
 
 #: aboutPrefs.js:97
 msgid "The original stacks code, by dragosol"
-msgstr ""
+msgstr "元のスタックのコード (dragosol)"
 
 #: aboutPrefs.js:104
 msgid "GNU General Public Licence, version 2 or later"
-msgstr ""
+msgstr "GNU 一般公衆利用許諾書 バージョン 2 以降"
 
 #: aboutPrefs.js:105
 msgid "This program comes with absolutely no warranty"
-msgstr ""
+msgstr "このプログラムは完全に無保証です"
 
 #~ msgid "Add to Favorites"
 #~ msgstr "お気に入りに追加"

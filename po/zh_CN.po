@@ -23,13 +23,12 @@ msgstr ""
 "X-Generator: Poedit 3.3.1\n"
 
 #: docking.js:1426
-#, fuzzy
 msgid "Dash"
-msgstr "破折号"
+msgstr "Dash"
 
 #: docking.js:2839 appIcons.js:1544
 msgid "Unpin"
-msgstr ""
+msgstr "取消固定"
 
 #: docking.js:2839 appIcons.js:1550
 msgid "Pin to Dock"
@@ -38,12 +37,12 @@ msgstr "固定到 Dock"
 #: appIcons.js:490
 #, javascript-format
 msgid "%s is updating, try again later"
-msgstr ""
+msgstr "%s 正在更新，请稍后再试"
 
 #: appIcons.js:1454
 #, javascript-format
 msgid "%s is being updated…"
-msgstr ""
+msgstr "%s 正在更新…"
 
 #: appIcons.js:1465
 msgid "All Windows"
@@ -51,51 +50,48 @@ msgstr "所有窗口"
 
 #. Translators: This is the heading of a list of open windows
 #: appIcons.js:1477
-#, fuzzy
 msgid "Open Windows"
-msgstr "所有窗口"
+msgstr "打开的窗口"
 
 #: appIcons.js:1497
-#, fuzzy
 msgid "New Window"
-msgstr "所有窗口"
+msgstr "新建窗口"
 
 #: appIcons.js:1516
 msgid "Launch using Integrated Graphics Card"
-msgstr ""
+msgstr "使用集成显卡启动"
 
 #: appIcons.js:1517
 msgid "Launch using Discrete Graphics Card"
-msgstr ""
+msgstr "使用独立显卡启动"
 
 #: appIcons.js:1562 appIcons.js:1588
 msgid "App Details"
-msgstr ""
+msgstr "应用详情"
 
 #: appIcons.js:1617 appIcons.js:1629
 msgid "Quit"
 msgstr "退出"
 
 #: appIcons.js:1632
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Quit %d Window"
 msgid_plural "Quit %d Windows"
-msgstr[0] "退出 %d 个窗口"
+msgstr[0] "关闭 %d 个窗口"
 
 #: appIcons.js:1923
-#, fuzzy
 msgid "Settings"
-msgstr "主设置"
+msgstr "设置"
 
 #: appIcons.js:1924 aboutPrefs.js:35
 msgid "About"
 msgstr "关于"
 
 #: appIconIndicators.js:918
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "%s, %d unread notification"
 msgid_plural "%s, %d unread notifications"
-msgstr[0] "显示未读通知数量"
+msgstr[0] "%s，%d 条未读通知"
 
 #: locations.js:540
 msgid "Mount"
@@ -145,99 +141,85 @@ msgid "Empty Trash"
 msgstr "清空回收站"
 
 #: locations.js:1074
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Failed to launch “%s”"
-msgstr "挂载“%s”失败"
+msgstr "无法启动“%s”"
 
 #: dockPrefs.js:27
 msgid "Focus the Window"
-msgstr ""
+msgstr "聚焦窗口"
 
 #: dockPrefs.js:28
-#, fuzzy
 msgid "Focus or Minimise"
-msgstr "聚焦或显示应用分览"
+msgstr "聚焦或最小化"
 
 #: dockPrefs.js:29
 msgid "Open a New Window"
-msgstr ""
+msgstr "打开新窗口"
 
 #: dockPrefs.js:30 dockPrefs.js:43
-#, fuzzy
 msgid "Cycle Through Windows"
-msgstr "在窗口间循环"
+msgstr "循环切换窗口"
 
 #: dockPrefs.js:31
-#, fuzzy
 msgid "Minimise or Show in Overview"
-msgstr "最小化或概览"
+msgstr "最小化或在概览中显示"
 
 #: dockPrefs.js:32
-#, fuzzy
 msgid "Show Window Previews"
-msgstr "显示打开窗口预览"
+msgstr "显示窗口预览"
 
 #: dockPrefs.js:33
-#, fuzzy
 msgid "Minimise or Show Previews"
 msgstr "最小化或显示预览"
 
 #: dockPrefs.js:34
-#, fuzzy
 msgid "Focus or Show Previews"
 msgstr "聚焦或显示预览"
 
 #: dockPrefs.js:35
-#, fuzzy
 msgid "Focus or Spread Out Windows"
-msgstr "聚焦或显示预览"
+msgstr "聚焦或展开窗口"
 
 #: dockPrefs.js:36
-#, fuzzy
 msgid "Focus, Minimise or Show Previews"
 msgstr "聚焦、最小化或显示预览"
 
 #: dockPrefs.js:37
-#, fuzzy
 msgid "Focus, Minimise or Spread Out Windows"
-msgstr "聚焦、最小化或显示应用分览"
+msgstr "聚焦、最小化或展开窗口"
 
 #: dockPrefs.js:38
 msgid "Quit the App"
-msgstr ""
+msgstr "退出应用"
 
 #: dockPrefs.js:42
-#, fuzzy
 msgid "Do Nothing"
-msgstr "无动作"
+msgstr "无操作"
 
 #: dockPrefs.js:44
-#, fuzzy
 msgid "Switch Workspace"
 msgstr "切换工作区"
 
 #: dockPrefs.js:48
-#, fuzzy
 msgid "Any Window"
-msgstr "所有窗口"
+msgstr "任意窗口"
 
 #: dockPrefs.js:49
 msgid "Windows of the Focused App"
-msgstr ""
+msgstr "聚焦应用的窗口"
 
 #: dockPrefs.js:50
-#, fuzzy
 msgid "Maximised Windows Only"
-msgstr "仅最大化窗口"
+msgstr "仅最大化的窗口"
 
 #: dockPrefs.js:51
 msgid "Never, Stay on Top"
-msgstr ""
+msgstr "从不，保持在最上层"
 
 #: dockPrefs.js:55 dockPrefs.js:61
-#, fuzzy
 msgid "Theme Default"
-msgstr "默认"
+msgstr "主题默认"
 
 #: dockPrefs.js:56
 msgid "Fixed"
@@ -245,7 +227,7 @@ msgstr "固定"
 
 #: dockPrefs.js:57
 msgid "Adaptive"
-msgstr ""
+msgstr "自适应"
 
 #: dockPrefs.js:62
 msgid "Dots"
@@ -260,40 +242,36 @@ msgid "Dashes"
 msgstr "破折号"
 
 #: dockPrefs.js:65
-#, fuzzy
 msgid "Segmented Line"
-msgstr "分段"
+msgstr "分段线"
 
 #: dockPrefs.js:66
-#, fuzzy
 msgid "Solid Line"
-msgstr "实心"
+msgstr "实线"
 
 #: dockPrefs.js:67
 msgid "Line and Dots"
-msgstr ""
+msgstr "线条和圆点"
 
 #: dockPrefs.js:68
 msgid "Full-Width Bar"
-msgstr ""
+msgstr "全宽条"
 
 #: dockPrefs.js:69
-#, fuzzy
 msgid "Binary Count"
-msgstr "二进制"
+msgstr "二进制计数"
 
 #: dockPrefs.js:70
 msgid "Single Dot"
-msgstr ""
+msgstr "单个圆点"
 
 #: dockPrefs.js:360
-#, fuzzy
 msgid "Position"
-msgstr "位置和大小"
+msgstr "位置"
 
 #: dockPrefs.js:373
 msgid "Placement"
-msgstr ""
+msgstr "放置"
 
 #: dockPrefs.js:380 dockPrefs.js:383
 msgid "Right"
@@ -313,484 +291,463 @@ msgstr "顶部"
 
 #: dockPrefs.js:387
 msgid "Screen Edge"
-msgstr ""
+msgstr "屏幕边缘"
 
 #: dockPrefs.js:391
-#, fuzzy
 msgid "Show on All Monitors"
-msgstr "所有显示器上都显示"
+msgstr "在所有显示器上显示"
 
 #: dockPrefs.js:394
 msgid "Monitor"
-msgstr ""
+msgstr "显示器"
 
 #: dockPrefs.js:395
 msgid "The monitor the dock appears on"
-msgstr ""
+msgstr "显示程序坞的显示器"
 
 #. Translators: followed by the monitor's name and connector
 #: dockPrefs.js:427
 msgid "Primary"
-msgstr ""
+msgstr "主显示器"
 
 #: dockPrefs.js:442
 msgid "Size"
-msgstr ""
+msgstr "大小"
 
 #: dockPrefs.js:444
-#, fuzzy
 msgid "Icon Size"
-msgstr "图标大小限制"
+msgstr "图标大小"
 
 #: dockPrefs.js:445
 msgid "The largest the icons can be. They shrink to fit when the dock is full."
-msgstr ""
+msgstr "图标的最大尺寸。程序坞放满时图标会缩小。"
 
 #: dockPrefs.js:450
 msgid "Keep Icons at Full Size"
-msgstr ""
+msgstr "保持图标原始大小"
 
 #: dockPrefs.js:451
 msgid ""
 "Scroll the dock to reach icons that do not fit, instead of shrinking them"
-msgstr ""
+msgstr "滚动程序坞以查看放不下的图标，而不是缩小它们"
 
 #: dockPrefs.js:454
-#, fuzzy
 msgid "Maximum Length"
-msgstr "最大化不透明度"
+msgstr "最大长度"
 
 #: dockPrefs.js:455
 msgid "How much of the screen edge the dock may use"
-msgstr ""
+msgstr "程序坞可以占用的屏幕边缘长度"
 
 #: dockPrefs.js:462
 msgid "Stretch to Fill the Edge"
-msgstr ""
+msgstr "拉伸以填满边缘"
 
 #: dockPrefs.js:463
 msgid "The dock runs the full length of the screen edge, like a panel"
-msgstr ""
+msgstr "程序坞像面板一样占满整个屏幕边缘"
 
 #: dockPrefs.js:464
 msgid "Centre the Icons"
-msgstr ""
+msgstr "图标居中"
 
 #: dockPrefs.js:465
 msgid "Keep the icons in the middle of the screen rather than at the start"
-msgstr ""
+msgstr "将图标保持在屏幕中间，而不是开头"
 
 #: dockPrefs.js:467
 msgid "Show Apps Button at the Edge"
-msgstr ""
+msgstr "“显示应用”按钮位于边缘"
 
 #: dockPrefs.js:468
 msgid ""
 "Keep the Show Apps button at the end of the dock when the icons are centred"
-msgstr ""
+msgstr "图标居中时，将“显示应用”按钮保持在程序坞末端"
 
 #: dockPrefs.js:479
 msgid "Visibility"
-msgstr ""
+msgstr "可见性"
 
 #: dockPrefs.js:481
 msgid ""
 "When the dock hides, it comes back when you move the pointer to its edge of "
 "the screen."
-msgstr ""
+msgstr "程序坞隐藏后，将指针移到其所在的屏幕边缘即可让它回来。"
 
 #: dockPrefs.js:485
 msgid "Always Visible"
-msgstr ""
+msgstr "始终可见"
 
 #: dockPrefs.js:486
 msgid ""
 "Keep the dock on screen and fit windows around it. Turn off to let the dock "
 "hide."
-msgstr ""
+msgstr "让程序坞保持在屏幕上，窗口围绕它调整。关闭后程序坞可以隐藏。"
 
 #: dockPrefs.js:489
 msgid "Hide When Windows Overlap"
-msgstr ""
+msgstr "窗口重叠时隐藏"
 
 #: dockPrefs.js:490
 msgid "The dock steps aside when a window would cover it"
-msgstr ""
+msgstr "当窗口会遮住程序坞时，程序坞会让开"
 
 #: dockPrefs.js:491
 msgid "Windows That Hide the Dock"
-msgstr ""
+msgstr "会隐藏程序坞的窗口"
 
 #: dockPrefs.js:496
 msgid "Show When Pointer Reaches the Edge"
-msgstr ""
+msgstr "指针到达边缘时显示"
 
 #: dockPrefs.js:497
-#, fuzzy
 msgid "Reveal the hidden dock by moving the pointer to the screen edge"
-msgstr "鼠标移至屏幕边缘时显示 Dock。"
+msgstr "将指针移到屏幕边缘时显示隐藏的程序坞"
 
 #: dockPrefs.js:498
 msgid "Push to Reveal"
-msgstr ""
+msgstr "推动以显示"
 
 #: dockPrefs.js:499
 msgid ""
 "Only show the dock when you push the pointer against the edge, to avoid "
 "showing it by accident"
-msgstr ""
+msgstr "只有将指针推向边缘时才显示程序坞，避免意外显示"
 
 #: dockPrefs.js:502
 msgid "Push Strength"
-msgstr ""
+msgstr "推动力度"
 
 #: dockPrefs.js:503
 msgid "How hard you need to push, in pixels of pointer movement"
-msgstr ""
+msgstr "需要推动的力度，以指针移动的像素计"
 
 #: dockPrefs.js:506
-#, fuzzy
 msgid "Show Delay"
-msgstr "显示延迟(毫秒)"
+msgstr "显示延迟"
 
 #: dockPrefs.js:507
 msgid "Seconds to wait at the edge before the dock appears"
-msgstr ""
+msgstr "指针到达边缘后程序坞出现前等待的秒数"
 
 #: dockPrefs.js:510
 msgid "Also in Full-Screen Apps"
-msgstr ""
+msgstr "全屏应用中也显示"
 
 #: dockPrefs.js:511
 msgid "Allow the dock to appear over full-screen windows"
-msgstr ""
+msgstr "允许程序坞显示在全屏窗口上方"
 
 #: dockPrefs.js:513
 msgid "Show for Apps That Need Attention"
-msgstr ""
+msgstr "为需要关注的应用显示"
 
 #: dockPrefs.js:514
 msgid "Briefly show the dock when an app asks for your attention"
-msgstr ""
+msgstr "应用需要关注时短暂显示程序坞"
 
 #: dockPrefs.js:518
-#, fuzzy
 msgid "Hide Delay"
-msgstr "隐藏延迟(毫秒)"
+msgstr "隐藏延迟"
 
 #: dockPrefs.js:519
 msgid "Seconds to wait after the pointer leaves before the dock hides"
-msgstr ""
+msgstr "指针离开后程序坞隐藏前等待的秒数"
 
 #: dockPrefs.js:523
-#, fuzzy
 msgid "Animation Duration"
-msgstr "动画持续时间（秒）"
+msgstr "动画时长"
 
 #: dockPrefs.js:524
 msgid "Seconds the dock takes to slide in and out"
-msgstr ""
+msgstr "程序坞滑入滑出所需的秒数"
 
 #: dockPrefs.js:537
-#, fuzzy
 msgid "Behaviour"
 msgstr "行为"
 
 #: dockPrefs.js:556
 msgid "StackDock Extras"
-msgstr ""
+msgstr "StackDock 附加功能"
 
 #: dockPrefs.js:557
-#, fuzzy
 msgid "Optional features added by StackDock."
-msgstr "可选功能"
+msgstr "StackDock 添加的可选功能。"
 
 #: dockPrefs.js:560
 msgid "Previews on Hover"
-msgstr ""
+msgstr "悬停预览"
 
 #: dockPrefs.js:561
 msgid "Show an app's windows when the pointer rests on its icon"
-msgstr ""
+msgstr "指针停留在图标上时显示应用的窗口"
 
 #: dockPrefs.js:562
 msgid "Delay"
-msgstr ""
+msgstr "延迟"
 
 #: dockPrefs.js:563
 msgid "Milliseconds to wait before the previews appear"
-msgstr ""
+msgstr "显示预览前等待的毫秒数"
 
 #: dockPrefs.js:566
 msgid "Bounce While Launching"
-msgstr ""
+msgstr "启动时弹跳"
 
 #: dockPrefs.js:567
 msgid "Bounce an app's icon while it starts, until its window appears"
-msgstr ""
+msgstr "应用启动时让其图标弹跳，直到窗口出现"
 
 #: dockPrefs.js:569
 msgid "Match the Top Bar"
-msgstr ""
+msgstr "匹配顶栏"
 
 #: dockPrefs.js:570
 msgid "Give the top bar the same colour and opacity as the dock"
-msgstr ""
+msgstr "让顶栏与程序坞使用相同的颜色和不透明度"
 
 #: dockPrefs.js:579
 msgid "Dock Contents"
-msgstr ""
+msgstr "程序坞内容"
 
 #: dockPrefs.js:581
 msgid "Pinned Apps"
-msgstr ""
+msgstr "已固定的应用"
 
 #: dockPrefs.js:582
 msgid "Running Apps"
-msgstr ""
+msgstr "运行中的应用"
 
 #: dockPrefs.js:583
 msgid "Apps that are open but not pinned"
-msgstr ""
+msgstr "已打开但未固定的应用"
 
 #: dockPrefs.js:586
 msgid "Show Apps Button"
-msgstr ""
+msgstr "“显示应用”按钮"
 
 #: dockPrefs.js:587
 msgid "Opens the app grid"
-msgstr ""
+msgstr "打开应用网格"
 
 #: dockPrefs.js:588
-#, fuzzy
 msgid "Place at the Start"
-msgstr "将图标居中"
+msgstr "放在开头"
 
 #: dockPrefs.js:589
 msgid "Put the button before the apps instead of after them"
-msgstr ""
+msgstr "将按钮放在应用之前而不是之后"
 
 #: dockPrefs.js:598
 msgid "Workspaces and Monitors"
-msgstr ""
+msgstr "工作区和显示器"
 
 #: dockPrefs.js:604
 msgid "Only Apps on the Current Workspace"
-msgstr ""
+msgstr "仅当前工作区的应用"
 
 #: dockPrefs.js:615
 msgid "Show running apps only on the workspace they are on"
-msgstr ""
+msgstr "仅在应用所在的工作区显示运行中的应用"
 
 #: dockPrefs.js:616
 msgid "Follows the Multitasking setting in GNOME Settings"
-msgstr ""
+msgstr "跟随 GNOME 设置中的多任务设置"
 
 #: dockPrefs.js:632
 msgid "Show Apps Needing Attention Everywhere"
-msgstr ""
+msgstr "在所有位置显示需要关注的应用"
 
 #: dockPrefs.js:633
 msgid "Apps asking for attention appear on every workspace"
-msgstr ""
+msgstr "需要关注的应用会出现在每个工作区"
 
 #: dockPrefs.js:635
 msgid "Only Apps on the Same Monitor"
-msgstr ""
+msgstr "仅同一显示器上的应用"
 
 #: dockPrefs.js:636
 msgid "With a dock on each monitor, each shows only the apps on its monitor"
-msgstr ""
+msgstr "每个显示器都有程序坞时，每个程序坞只显示所在显示器上的应用"
 
 #: dockPrefs.js:639
 msgid "Separate Trash and Drive Windows"
-msgstr ""
+msgstr "分开回收站和驱动器窗口"
 
 #: dockPrefs.js:640
 msgid "Treat Files windows showing the trash or a drive as their own icons"
-msgstr ""
+msgstr "将显示回收站或驱动器的“文件”窗口视为单独的图标"
 
 #: dockPrefs.js:652
 msgid "Clicking and Scrolling"
-msgstr ""
+msgstr "单击和滚动"
 
 #: dockPrefs.js:653
 msgid "What happens when you click an app that is already open."
-msgstr ""
+msgstr "单击已打开的应用时的操作。"
 
 #: dockPrefs.js:658
 msgid "Click"
-msgstr ""
+msgstr "单击"
 
 #: dockPrefs.js:662
 msgid "Other Clicks"
-msgstr ""
+msgstr "其他单击"
 
 #: dockPrefs.js:663
 msgid "Shift+click, middle-click and Shift+middle-click"
-msgstr ""
+msgstr "Shift+单击、中键单击和 Shift+中键单击"
 
 #: dockPrefs.js:665
-#, fuzzy
 msgid "Shift+Click"
-msgstr "Shift+点击动作"
+msgstr "Shift+单击"
 
 #: dockPrefs.js:666
-#, fuzzy
 msgid "Middle-Click"
-msgstr "中键点击动作"
+msgstr "中键单击"
 
 #: dockPrefs.js:667
-#, fuzzy
 msgid "Shift+Middle-Click"
-msgstr "Shift+中键点击动作"
+msgstr "Shift+中键单击"
 
 #: dockPrefs.js:671
-#, fuzzy
 msgid "Scroll"
-msgstr "滚动动作"
+msgstr "滚动"
 
 #: dockPrefs.js:674
 msgid ""
 "Only works between icons, because Keep Icons at Full Size scrolls the dock"
-msgstr ""
+msgstr "仅在图标之间有效，因为“保持图标原始大小”会滚动程序坞"
 
 #: dockPrefs.js:675
 msgid "Scrolling over an app's icon"
-msgstr ""
+msgstr "在应用图标上滚动"
 
 #: dockPrefs.js:684
-#, fuzzy
 msgid "Window Previews"
-msgstr "显示打开窗口预览"
+msgstr "窗口预览"
 
 #: dockPrefs.js:686
 msgid "Previews in App Menus"
-msgstr ""
+msgstr "应用菜单中的预览"
 
 #: dockPrefs.js:687
 msgid "Show pictures of the open windows instead of a list of their names"
-msgstr ""
+msgstr "显示打开窗口的图像，而不是名称列表"
 
 #: dockPrefs.js:689
-#, fuzzy
 msgid "Preview Size"
-msgstr "预览大小比例"
+msgstr "预览大小"
 
 #: dockPrefs.js:690
 msgid "Leave at Automatic to fit the screen"
-msgstr ""
+msgstr "保持“自动”以适应屏幕"
 
 #: dockPrefs.js:692 stacks.js:2239 stacksPrefs.js:105
 msgid "Automatic"
-msgstr ""
+msgstr "自动"
 
 #: dockPrefs.js:700
 msgid "Icons"
-msgstr ""
+msgstr "图标"
 
 #: dockPrefs.js:702
 msgid "Wiggle Apps Needing Attention"
-msgstr ""
+msgstr "摇动需要关注的应用"
 
 #: dockPrefs.js:703
-#, fuzzy
 msgid "Hide Name Tooltips"
-msgstr "隐藏应用工具提示"
+msgstr "隐藏名称提示"
 
 #: dockPrefs.js:704
 msgid "Don't show the app's name when the pointer rests on its icon"
-msgstr ""
+msgstr "指针停留在图标上时不显示应用名称"
 
 #: dockPrefs.js:705
 msgid "Keep the Focused App in View"
-msgstr ""
+msgstr "保持聚焦的应用可见"
 
 #: dockPrefs.js:706
 msgid "Scroll the dock so the icon of the focused app is always visible"
-msgstr ""
+msgstr "滚动程序坞，使聚焦应用的图标始终可见"
 
 #: dockPrefs.js:708
 msgid "Badges"
-msgstr ""
+msgstr "徽章"
 
 #: dockPrefs.js:709
 msgid "Counters and progress bars on app icons"
-msgstr ""
+msgstr "应用图标上的计数和进度条"
 
 #: dockPrefs.js:711
 msgid "Unread Notification Count"
-msgstr ""
+msgstr "未读通知数"
 
 #: dockPrefs.js:714
 msgid "Prefer the App's Own Count"
-msgstr ""
+msgstr "优先使用应用自己的计数"
 
 #: dockPrefs.js:715
 msgid "Apps that set their own badge show it instead of the notification count"
-msgstr ""
+msgstr "有自己徽章的应用将显示其徽章，而不是通知数"
 
 #: dockPrefs.js:725
 msgid "Keyboard"
-msgstr ""
+msgstr "键盘"
 
 #: dockPrefs.js:727
 msgid "Open Apps with Super+Number"
-msgstr ""
+msgstr "用 Super+数字键打开应用"
 
 #: dockPrefs.js:728
 msgid ""
 "Super+1 to Super+0 open the first ten apps. Add Shift or Ctrl for more "
 "actions."
-msgstr ""
+msgstr "Super+1 到 Super+0 打开前十个应用。加上 Shift 或 Ctrl 可执行更多操作。"
 
 #: dockPrefs.js:729
-#, fuzzy
 msgid "Show Numbers on Icons"
-msgstr "显示宗卷和设备"
+msgstr "在图标上显示数字"
 
 #: dockPrefs.js:730
 msgid "Show each app's number while the shortcut below is held"
-msgstr ""
+msgstr "按住下方快捷键时显示每个应用的数字"
 
 #: dockPrefs.js:731
-#, fuzzy
 msgid "Show the Dock"
-msgstr "显示 Dock 于"
+msgstr "显示程序坞"
 
 #: dockPrefs.js:732
 msgid "Briefly show a hidden dock when the shortcut below is pressed"
-msgstr ""
+msgstr "按下下方快捷键时短暂显示隐藏的程序坞"
 
 #: dockPrefs.js:735
 msgid "Shortcut to Show Numbers"
-msgstr ""
+msgstr "显示数字的快捷键"
 
 #: dockPrefs.js:744
 msgid "For example &lt;Super&gt;q"
-msgstr ""
+msgstr "例如 &lt;Super&gt;q"
 
 #: dockPrefs.js:751
-#, fuzzy
 msgid "Numbers Stay For"
-msgstr "编号覆盖"
+msgstr "数字显示时长"
 
 #: dockPrefs.js:752
 msgid "Seconds the numbers and dock stay visible"
-msgstr ""
+msgstr "数字和程序坞保持可见的秒数"
 
 #: dockPrefs.js:759
 msgid "Startup"
-msgstr ""
+msgstr "启动"
 
 #: dockPrefs.js:761
-#, fuzzy
 msgid "Show the Overview at Login"
-msgstr "启动时显示概览"
+msgstr "登录时显示概览"
 
 #: dockPrefs.js:762
 msgid "Open Activities when you log in, as GNOME does by default"
-msgstr ""
+msgstr "像 GNOME 默认那样，登录时打开活动概览"
 
 #: dockPrefs.js:773
 msgid "Appearance"
@@ -798,60 +755,58 @@ msgstr "外观"
 
 #: dockPrefs.js:786 dockPrefs.js:856
 msgid "Style"
-msgstr ""
+msgstr "样式"
 
 #: dockPrefs.js:788
-#, fuzzy
 msgid "Use the Built-in Style"
-msgstr "使用内置主题"
+msgstr "使用内置样式"
 
 #: dockPrefs.js:789
 msgid ""
 "A ready-made look that suits the default GNOME theme. Turn off to choose the "
 "colours, opacity and indicators yourself."
 msgstr ""
+"适合 GNOME 默认主题的现成外观。关闭后可自行选择颜色、不透明度和指示器。"
 
 #: dockPrefs.js:791
 msgid "Compact"
-msgstr ""
+msgstr "紧凑"
 
 #: dockPrefs.js:792
 msgid "Less padding and smaller rounded corners"
-msgstr ""
+msgstr "更少的内边距和更小的圆角"
 
 #: dockPrefs.js:793
-#, fuzzy
 msgid "Square Corners"
-msgstr "正方形"
+msgstr "直角"
 
 #: dockPrefs.js:795
 msgid "Coloured Icon Backgrounds"
-msgstr ""
+msgstr "彩色图标背景"
 
 #: dockPrefs.js:796
 msgid "Light each running app with its icon's main colour, as Unity did"
-msgstr ""
+msgstr "像 Unity 一样，用图标的主色照亮每个运行中的应用"
 
 #: dockPrefs.js:797
 msgid "Glossy Finish"
-msgstr ""
+msgstr "光泽效果"
 
 #: dockPrefs.js:805
 msgid "Background"
-msgstr ""
+msgstr "背景"
 
 #: dockPrefs.js:809
 msgid "Custom Colour"
-msgstr ""
+msgstr "自定义颜色"
 
 #: dockPrefs.js:810
 msgid "Use your own background colour instead of the theme's"
-msgstr ""
+msgstr "使用自己的背景颜色，而不是主题的颜色"
 
 #: dockPrefs.js:812
-#, fuzzy
 msgid "Dock Colour"
-msgstr "颜色"
+msgstr "程序坞颜色"
 
 #: dockPrefs.js:822
 msgid "Opacity"
@@ -859,368 +814,362 @@ msgstr "不透明度"
 
 #: dockPrefs.js:823
 msgid "Adaptive makes the dock more solid when a window is next to it"
-msgstr ""
+msgstr "自适应模式下，旁边有窗口时程序坞会更不透明"
 
 #: dockPrefs.js:828
-#, fuzzy
 msgid "Fixed Opacity"
-msgstr "不透明度"
+msgstr "固定不透明度"
 
 #: dockPrefs.js:834
 msgid "Custom Adaptive Range"
-msgstr ""
+msgstr "自定义自适应范围"
 
 #: dockPrefs.js:835
 msgid "Choose how see-through the dock is with and without a window next to it"
-msgstr ""
+msgstr "选择旁边有窗口和没有窗口时程序坞的透明程度"
 
 #: dockPrefs.js:836
 msgid "No Window Nearby"
-msgstr ""
+msgstr "附近无窗口"
 
 #: dockPrefs.js:839
 msgid "Window Nearby"
-msgstr ""
+msgstr "附近有窗口"
 
 #: dockPrefs.js:851
-#, fuzzy
 msgid "Running App Indicators"
-msgstr "自定义“运行中”指示器"
+msgstr "运行中应用的指示器"
 
 #: dockPrefs.js:852
 msgid ""
 "The marks under the icons of open apps. Most styles show one mark per window."
-msgstr ""
+msgstr "打开的应用图标下方的标记。大多数样式每个窗口显示一个标记。"
 
 #: dockPrefs.js:861
 msgid "Match Each App's Icon"
-msgstr ""
+msgstr "匹配各应用图标"
 
 #: dockPrefs.js:861
 msgid "Colour the indicators with the icon's main colour"
-msgstr ""
+msgstr "用图标的主色为指示器着色"
 
 #: dockPrefs.js:866
 msgid "Custom Colours"
-msgstr ""
+msgstr "自定义颜色"
 
 #: dockPrefs.js:866
 msgid "Use the same colours for every app"
-msgstr ""
+msgstr "所有应用使用相同颜色"
 
 #: dockPrefs.js:867
-#, fuzzy
 msgid "Colour"
 msgstr "颜色"
 
 #: dockPrefs.js:869
-#, fuzzy
 msgid "Border Colour"
 msgstr "边框颜色"
 
 #: dockPrefs.js:871
-#, fuzzy
 msgid "Border Width"
 msgstr "边框宽度"
 
 #: dockPrefs.js:871
 msgid "In pixels"
-msgstr ""
+msgstr "单位为像素"
 
 #: stacks.js:247
 msgid "Unnamed Folder"
-msgstr ""
+msgstr "未命名文件夹"
 
 #: stacks.js:495
 msgid "Home"
-msgstr ""
+msgstr "主文件夹"
 
 #: stacks.js:733 stacksPrefs.js:257
 msgid "Drives"
-msgstr ""
+msgstr "驱动器"
 
 #: stacks.js:909 stacks.js:2183
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Could not open “%s”"
-msgstr "挂载“%s”失败"
+msgstr "无法打开“%s”"
 
 #: stacks.js:971
 #, javascript-format
 msgid "Could not move “%s” to the trash"
-msgstr ""
+msgstr "无法将“%s”移到回收站"
 
 #: stacks.js:998
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Could not copy “%s”"
-msgstr "挂载“%s”失败"
+msgstr "无法复制“%s”"
 
 #: stacks.js:999
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Could not move “%s”"
-msgstr "挂载“%s”失败"
+msgstr "无法移动“%s”"
 
 #: stacks.js:1385
 msgid "Open"
-msgstr ""
+msgstr "打开"
 
 #: stacks.js:1388
 msgid "Open With…"
-msgstr ""
+msgstr "打开方式…"
 
 #: stacks.js:1389
-#, fuzzy
 msgid "Show in Files"
-msgstr "显示图标角标"
+msgstr "在“文件”中显示"
 
 #: stacks.js:1391
 msgid "Move to Trash"
-msgstr ""
+msgstr "移到回收站"
 
 #: stacks.js:1397
 msgid "Remove from Folder"
-msgstr ""
+msgstr "从文件夹中移除"
 
 #: stacks.js:1477 stacks.js:1483 stacks.js:1797 stacks.js:2232
 msgid "Open in Files"
-msgstr ""
+msgstr "在“文件”中打开"
 
 #: stacks.js:1482
 #, javascript-format
 msgid "%d more in Files"
 msgid_plural "%d more in Files"
-msgstr[0] ""
+msgstr[0] "“文件”中还有 %d 项"
 
 #: stacks.js:1665
 msgid "No matches"
-msgstr ""
+msgstr "无匹配项"
 
 #: stacks.js:1666
 msgid "This folder is empty"
-msgstr ""
+msgstr "此文件夹为空"
 
 #: stacks.js:1666
 msgid "Nothing here"
-msgstr ""
+msgstr "这里什么都没有"
 
 #: stacks.js:1711
 msgid "Rename Folder"
-msgstr ""
+msgstr "重命名文件夹"
 
 #: stacks.js:1732
 msgid "Search"
-msgstr ""
+msgstr "搜索"
 
 #: stacks.js:1873
 #, javascript-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] ""
+msgstr[0] "%d 项"
 
 #: stacks.js:1874
 #, javascript-format
 msgid "%d of %d"
-msgstr ""
+msgstr "%d / %d"
 
 #: stacks.js:2237
 msgid "View as"
-msgstr ""
+msgstr "查看方式"
 
 #: stacks.js:2240 stacksPrefs.js:105
 msgid "Fan"
-msgstr ""
+msgstr "扇形"
 
 #: stacks.js:2241 stacksPrefs.js:105
 msgid "Grid"
-msgstr ""
+msgstr "网格"
 
 #: stacks.js:2250
 msgid "Display as"
-msgstr ""
+msgstr "显示为"
 
 #: stacks.js:2252 stacksPrefs.js:164
 msgid "Folder"
-msgstr ""
+msgstr "文件夹"
 
 #: stacks.js:2253 stacksPrefs.js:164
 msgid "Stack"
-msgstr ""
+msgstr "堆栈"
 
 #: stacks.js:2265
 msgid "Sort by"
-msgstr ""
+msgstr "排序方式"
 
 #: stacks.js:2267 stacksPrefs.js:120
 msgid "Date Modified"
-msgstr ""
+msgstr "修改日期"
 
 #: stacks.js:2268 stacksPrefs.js:120
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 #: stacks.js:2269 stacksPrefs.js:120
 msgid "Kind"
-msgstr ""
+msgstr "类型"
 
 #: stacks.js:2280
 msgid "Rename Folder…"
-msgstr ""
+msgstr "重命名文件夹…"
 
 #: stacks.js:2284 stacksPrefs.js:188
 msgid "Remove from Dock"
-msgstr ""
+msgstr "从程序坞中移除"
 
 #: stacks.js:2287
-#, fuzzy
 msgid "Stack Settings…"
-msgstr "主设置"
+msgstr "堆栈设置…"
 
 #: stacksPrefs.js:83
 msgid "Stacks"
-msgstr ""
+msgstr "堆栈"
 
 #: stacksPrefs.js:97
 msgid "Opening Stacks"
-msgstr ""
+msgstr "打开堆栈"
 
 #: stacksPrefs.js:99
 msgid ""
 "Small stacks fan out from the dock; bigger ones open as a grid you can "
 "search. Right-click a stack in the dock for the same options."
 msgstr ""
+"小堆栈从程序坞以扇形展开；大堆栈以可搜索的网格打开。右键单击程序坞中的堆栈可"
+"使用相同选项。"
 
 #: stacksPrefs.js:104
 msgid "View As"
-msgstr ""
+msgstr "查看方式"
 
 #: stacksPrefs.js:112
 msgid "Largest Fan"
-msgstr ""
+msgstr "最大扇形"
 
 #: stacksPrefs.js:113
 msgid "In automatic view, stacks with more items open as a grid"
-msgstr ""
+msgstr "在自动视图中，项目较多的堆栈以网格打开"
 
 #: stacksPrefs.js:119
 msgid "Sort Files By"
-msgstr ""
+msgstr "文件排序方式"
 
 #: stacksPrefs.js:131
 msgid "Add Folder…"
-msgstr ""
+msgstr "添加文件夹…"
 
 #: stacksPrefs.js:138
 msgid "Folder Stacks"
-msgstr ""
+msgstr "文件夹堆栈"
 
 #: stacksPrefs.js:139
 msgid "Folders shown near the end of the dock, such as Downloads or Documents."
-msgstr ""
+msgstr "显示在程序坞末尾附近的文件夹，例如“下载”或“文档”。"
 
 #: stacksPrefs.js:147
 msgid "No folders yet. Press + to add one."
-msgstr ""
+msgstr "还没有文件夹。按 + 添加一个。"
 
 #: stacksPrefs.js:167
 msgid "Show the folder icon, or the newest file in the folder"
-msgstr ""
+msgstr "显示文件夹图标或文件夹中最新的文件"
 
 #: stacksPrefs.js:202
 msgid "Add a Folder Stack"
-msgstr ""
+msgstr "添加文件夹堆栈"
 
 #: stacksPrefs.js:203
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: stacksPrefs.js:222
 msgid "App Folder Stacks"
-msgstr ""
+msgstr "应用文件夹堆栈"
 
 #: stacksPrefs.js:224
 msgid ""
 "App grid folders shown right after your pinned apps. To make a folder, open "
 "Activities and drag one app onto another."
 msgstr ""
+"应用网格中的文件夹，显示在已固定应用之后。要创建文件夹，请打开活动概览并将一"
+"个应用拖到另一个应用上。"
 
 #: stacksPrefs.js:232
 msgid "You have no app folders yet."
-msgstr ""
+msgstr "还没有应用文件夹。"
 
 #: stacksPrefs.js:260
-#, fuzzy
 msgid "Show Drives in the Dock"
-msgstr "显示 Dock 于"
+msgstr "在程序坞中显示驱动器"
 
 #: stacksPrefs.js:261
 msgid "USB drives, memory cards, and other mounted volumes"
-msgstr ""
+msgstr "U 盘、存储卡和其他已挂载的卷"
 
 #: stacksPrefs.js:267
 msgid "Group Drives into a Stack"
-msgstr ""
+msgstr "将驱动器归入一个堆栈"
 
 #: stacksPrefs.js:268
 msgid "Show all drives as one Drives stack instead of separate icons"
-msgstr ""
+msgstr "将所有驱动器显示为一个“驱动器”堆栈，而不是单独的图标"
 
 #: stacksPrefs.js:275
-#, fuzzy
 msgid "Only Mounted Drives"
-msgstr "仅显示已挂载"
+msgstr "仅已挂载的驱动器"
 
 #: stacksPrefs.js:276
 msgid "Hide drives that are plugged in but not mounted"
-msgstr ""
+msgstr "隐藏已插入但未挂载的驱动器"
 
 #: stacksPrefs.js:284
-#, fuzzy
 msgid "Include Network Drives"
-msgstr "包括网络宗卷"
+msgstr "包括网络驱动器"
 
 #: stacksPrefs.js:285
 msgid "Also show mounted network shares"
-msgstr ""
+msgstr "同时显示已挂载的网络共享"
 
 #: aboutPrefs.js:62
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Version %s"
-msgstr "版本："
+msgstr "版本 %s"
 
 #: aboutPrefs.js:81
 msgid "Source code"
-msgstr ""
+msgstr "源代码"
 
 #: aboutPrefs.js:82
 msgid "Report a problem"
-msgstr ""
+msgstr "报告问题"
 
 #: aboutPrefs.js:82
 msgid "Open an issue on GitHub"
-msgstr ""
+msgstr "在 GitHub 上提交问题"
 
 #: aboutPrefs.js:88
 msgid "Credits"
-msgstr ""
+msgstr "致谢"
 
 #: aboutPrefs.js:91
 msgid "StackDock"
-msgstr ""
+msgstr "StackDock"
 
 #: aboutPrefs.js:94
 msgid "The dock StackDock is built on, by Michele Gaio and contributors"
-msgstr ""
+msgstr "StackDock 所基于的程序坞，由 Michele Gaio 及贡献者开发"
 
 #: aboutPrefs.js:97
 msgid "The original stacks code, by dragosol"
-msgstr ""
+msgstr "最初的堆栈代码，由 dragosol 编写"
 
 #: aboutPrefs.js:104
 msgid "GNU General Public Licence, version 2 or later"
-msgstr ""
+msgstr "GNU 通用公共许可证第 2 版或更高版本"
 
 #: aboutPrefs.js:105
 msgid "This program comes with absolutely no warranty"
-msgstr ""
+msgstr "本程序不提供任何担保"
 
 #~ msgid "Show favorite applications"
 #~ msgstr "显示收藏的应用程序"
