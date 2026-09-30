@@ -72,7 +72,17 @@ These can be set in the settings or changed from any stack's context menu.
 
 ### Configuration
 
-All options are available in a single settings window, which can be opened directly from the dock's context menu along with an About page.
+All options are available in a single settings window, which can be opened directly from the dock's context menu. It is built with the standard GNOME (libadwaita) controls and is organised into five pages:
+
+| Page | Contents |
+|---|---|
+| Position | Screen edge, monitor, icon size, dock length and when the dock hides |
+| Behaviour | StackDock's optional features, dock contents, click and scroll actions, window previews, badges and keyboard shortcuts |
+| Appearance | Built-in style, background colour and opacity, and running app indicators |
+| Stacks | Folder stacks, app folder stacks and drives |
+| About | Version, links and credits |
+
+Every option can be found with the search button, and options that depend on another setting only appear, or become available, once that setting is on.
 
 If you are switching from Dash to Dock or Dock Stacks, your existing dock settings and stack folders are imported automatically the first time StackDock starts.
 
@@ -94,8 +104,8 @@ Open stacks are fully keyboard accessible:
 |---|---|
 | ![App folder stack](media/screenshots/app-folder-stack.png) | ![Drives stack](media/screenshots/drives-stack.png) |
 | An app folder stack | The Drives stack |
-| ![Dock menu](media/screenshots/dock-menu.png) | ![Dock settings](media/screenshots/settings-dock.png) |
-| Settings and About, available from the dock | Dock settings |
+| ![Dock menu](media/screenshots/dock-menu.png) | ![Position settings](media/screenshots/settings-position.png) |
+| Settings and About, available from the dock | Position settings |
 | ![Stacks settings](media/screenshots/settings-stacks.png) | ![About page](media/screenshots/settings-about.png) |
 | Stacks settings | The About page |
 
@@ -191,6 +201,14 @@ To check the GNOME Shell log for errors:
     journalctl --user -b | grep -i stackdock
 
 If you find a problem, please [open an issue](https://github.com/PapaRascal2020/StackDock/issues) with a description of what you were doing, your GNOME Shell version (`gnome-shell --version`) and any relevant log output.
+
+## Translations
+
+Translation files are in the [po](po) directory, with the template in `po/stackdock.pot`. Many translations were inherited from Dash to Dock, but the settings pages were rewritten for StackDock, so most of their text still needs translating. To refresh the files after changing the source, run:
+
+    make mergepo
+
+Contributions are welcome as pull requests.
 
 ## Credits
 

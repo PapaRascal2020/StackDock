@@ -23,7 +23,7 @@ const SORTS = ['modified', 'name', 'kind'];
  * @param {Adw.ComboRow} row the row to bind
  * @param {string[]} values the setting value of each row choice, in order
  */
-function bindChoice(settings, key, row, values) {
+export function bindChoice(settings, key, row, values) {
     const sync = () => {
         row.selected = Math.max(0, values.indexOf(settings.get_string(key)));
     };
@@ -95,7 +95,9 @@ class StacksPage extends Adw.PreferencesPage {
     _addBehaviourGroup() {
         const group = new Adw.PreferencesGroup({
             title: __('Opening Stacks'),
-            description: __('Small stacks fan out from the dock; bigger ones open as a grid you can search. Right-click a stack in the dock for the same options.'),
+            description:
+                __('Small stacks fan out from the dock; bigger ones open as a grid ' +
+                    'you can search. Right-click a stack in the dock for the same options.'),
         });
 
         const view = new Adw.ComboRow({
@@ -218,7 +220,9 @@ class StacksPage extends Adw.PreferencesPage {
     _addAppFoldersGroup() {
         const group = new Adw.PreferencesGroup({
             title: __('App Folder Stacks'),
-            description: __('App grid folders shown right after your pinned apps. To make a folder, open Activities and drag one app onto another.'),
+            description:
+                __('App grid folders shown right after your pinned apps. To ' +
+                    'make a folder, open Activities and drag one app onto another.'),
         });
 
         const rows = [];
@@ -266,6 +270,24 @@ class StacksPage extends Adw.PreferencesPage {
         this._settings.bind('stack-drives', stackDrives, 'active', Gio.SettingsBindFlags.DEFAULT);
         this._settings.bind('show-mounts', stackDrives, 'sensitive', Gio.SettingsBindFlags.GET);
         group.add(stackDrives);
+
+        const onlyMounted = new Adw.SwitchRow({
+            title: __('Only Mounted Drives'),
+            subtitle: __('Hide drives that are plugged in but not mounted'),
+        });
+        this._settings.bind('show-mounts-only-mounted', onlyMounted, 'active',
+            Gio.SettingsBindFlags.DEFAULT);
+        this._settings.bind('show-mounts', onlyMounted, 'sensitive', Gio.SettingsBindFlags.GET);
+        group.add(onlyMounted);
+
+        const network = new Adw.SwitchRow({
+            title: __('Include Network Drives'),
+            subtitle: __('Also show mounted network shares'),
+        });
+        this._settings.bind('show-mounts-network', network, 'active',
+            Gio.SettingsBindFlags.DEFAULT);
+        this._settings.bind('show-mounts', network, 'sensitive', Gio.SettingsBindFlags.GET);
+        group.add(network);
 
         this.add(group);
     }

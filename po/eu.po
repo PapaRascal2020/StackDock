@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dash To Dock\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-13 21:49+0200\n"
+"POT-Creation-Date: 2026-09-30 09:33+0100\n"
 "PO-Revision-Date: 2026-05-13 22:19+0200\n"
 "Last-Translator: Ibai Oihanguren Sala <ibaios@disroot.org>\n"
 "Language-Team: Basque\n"
@@ -17,120 +17,78 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Gtranslator 50.0\n"
 
-#. Translators: This will be followed by Display Name - Connector.
-#: prefs.js:382
-msgid "Primary monitor: "
-msgstr "Monitore nagusia:"
-
-#. Translators: Followed by monitor index, Display Name - Connector.
-#: prefs.js:388
-msgid "Secondary monitor "
-msgstr "Bigarren monitorea "
-
-#: prefs.js:434 Settings.ui:597
-msgid "Right"
-msgstr "Eskuinean"
-
-#: prefs.js:435 Settings.ui:569
-msgid "Left"
-msgstr "Ezkerrean"
-
-#: prefs.js:490
-msgid "Intelligent autohide customization"
-msgstr "Ezkutatze adimentsuaren pertsonalizazioa"
-
-#: prefs.js:498 prefs.js:816 prefs.js:875
-msgid "Reset to defaults"
-msgstr "Berrezarri balio lehenetsiak"
-
-#: prefs.js:649
-msgid "Managed by GNOME Multitasking's Application Switching setting."
-msgstr ""
-"GNOMEren aldi bereko zereginen \"Aplikazioen txandakatzea\" ezarpenak "
-"kudeatua."
-
-#: prefs.js:808
-msgid "Show dock and application numbers"
-msgstr "Erakutsi atrakea eta aplikazioen zenbakiak"
-
-#: prefs.js:867
-msgid "Customize middle-click behavior"
-msgstr "Pertsonalizatu erdiko klikaren portaera"
-
-#: prefs.js:964
-msgid "Customize running indicators"
-msgstr "Pertsonalizatu martxan egotearen adierazleak"
-
-#: prefs.js:1079 Settings.ui:2197
-msgid "Customize opacity"
-msgstr "Pertsonalizatu opakutasuna"
-
-#: docking.js:1307
+#: docking.js:1426
 msgid "Dash"
 msgstr "Abiarazle-panela"
 
-#: docking.js:2567 appIcons.js:1187
+#: docking.js:2839 appIcons.js:1544
 msgid "Unpin"
 msgstr "Askatu"
 
-#: docking.js:2567 appIcons.js:1193
+#: docking.js:2839 appIcons.js:1550
 msgid "Pin to Dock"
 msgstr "Ainguratu atrakean"
 
-#: appIcons.js:438
+#: appIcons.js:490
 #, javascript-format
 msgid "%s is updating, try again later"
 msgstr "%s eguneratzen ari da, saiatu berriro geroago"
 
-#: appIcons.js:1097
+#: appIcons.js:1454
 #, javascript-format
 msgid "%s is being updated…"
 msgstr "%s eguneratzen ari da…"
 
-#: appIcons.js:1108
+#: appIcons.js:1465
 msgid "All Windows"
 msgstr "Leiho guztiak"
 
 #. Translators: This is the heading of a list of open windows
-#: appIcons.js:1120
+#: appIcons.js:1477
 msgid "Open Windows"
 msgstr "Irekitako leihoak"
 
-#: appIcons.js:1140
+#: appIcons.js:1497
 msgid "New Window"
 msgstr "Leiho berria"
 
-#: appIcons.js:1159
+#: appIcons.js:1516
 msgid "Launch using Integrated Graphics Card"
 msgstr "Abiarazi txartel grafiko integratua erabiliz"
 
-#: appIcons.js:1160
+#: appIcons.js:1517
 msgid "Launch using Discrete Graphics Card"
 msgstr "Abiarazi txartel grafiko diskretua erabiliz"
 
-#: appIcons.js:1205 appIcons.js:1231
+#: appIcons.js:1562 appIcons.js:1588
 msgid "App Details"
 msgstr "Aplikazioaren xehetasunak"
 
-#: appIcons.js:1260 appIcons.js:1272 Settings.ui:84 Settings.ui:156
-#: Settings.ui:228
+#: appIcons.js:1617 appIcons.js:1629
 msgid "Quit"
 msgstr "Irten"
 
-#: appIcons.js:1275
+#: appIcons.js:1632
 #, javascript-format
 msgid "Quit %d Window"
 msgid_plural "Quit %d Windows"
 msgstr[0] "Itxi leihoa"
 msgstr[1] "Itxi %d leihoak"
 
-#: appIcons.js:1560
-msgid "Dash to Dock"
-msgstr "Dash to Dock"
-
-#: appIcons.js:1562
+#: appIcons.js:1923
 msgid "Settings"
 msgstr "Ezarpenak"
+
+#: appIcons.js:1924 aboutPrefs.js:35
+msgid "About"
+msgstr "Honi buruz"
+
+#: appIconIndicators.js:918
+#, fuzzy, javascript-format
+msgid "%s, %d unread notification"
+msgid_plural "%s, %d unread notifications"
+msgstr[0] "Erakutsi irakurri gabeko jakinarazpenen kopurua"
+msgstr[1] "Erakutsi irakurri gabeko jakinarazpenen kopurua"
 
 #: locations.js:540
 msgid "Mount"
@@ -171,7 +129,7 @@ msgstr "Dagoeneko martxan dago desmuntatze eragiketa"
 msgid "Eject operation already in progress"
 msgstr "Dagoeneko martxan dago egozte eragiketa"
 
-#: locations.js:763
+#: locations.js:763 dockPrefs.js:584
 msgid "Trash"
 msgstr "Zakarrontzia"
 
@@ -184,555 +142,1383 @@ msgstr "Hustu zakarrontzia"
 msgid "Failed to launch “%s”"
 msgstr "Huts egin du “%s” abiarazteak"
 
-#: Settings.ui:41
-msgid ""
-"When set to minimize, double clicking minimizes all the windows of the "
-"application."
-msgstr ""
-"Minimizatzea hautatuz gero, klik bikoitzak aplikazioaren leiho guztiak "
-"minimizatzen ditu."
+#: dockPrefs.js:27
+#, fuzzy
+msgid "Focus the Window"
+msgstr "Leiho berria"
 
-#: Settings.ui:59
-msgid "Shift+Click action"
-msgstr "Maius+Klik ekintza"
-
-#: Settings.ui:73 Settings.ui:145 Settings.ui:217 Settings.ui:1684
-msgid "Raise window"
-msgstr "Goratu leihoa"
-
-#: Settings.ui:74 Settings.ui:146 Settings.ui:218
-msgid "Minimize window"
-msgstr "Minimizatu leihoa"
-
-#: Settings.ui:75 Settings.ui:147 Settings.ui:219 Settings.ui:1686
-msgid "Launch new instance"
-msgstr "Abiarazi instantzia berria"
-
-#: Settings.ui:76 Settings.ui:148 Settings.ui:220 Settings.ui:1687
-#: Settings.ui:1775
-msgid "Cycle through windows"
-msgstr "Txandakatu leihoak"
-
-#: Settings.ui:77 Settings.ui:149 Settings.ui:221 Settings.ui:1688
-msgid "Minimize or overview"
-msgstr "Minimizatu edo ikuspegi orokorra"
-
-#: Settings.ui:78 Settings.ui:150 Settings.ui:222 Settings.ui:1689
-msgid "Show window previews"
-msgstr "Erakutsi leihoen aurrebistak"
-
-#: Settings.ui:79 Settings.ui:151 Settings.ui:223 Settings.ui:1690
-msgid "Minimize or show previews"
-msgstr "Minimizatu edo erakutsi aurrebistak"
-
-#: Settings.ui:80 Settings.ui:152 Settings.ui:224 Settings.ui:1691
-msgid "Focus or show previews"
-msgstr "Fokuratu edo erakutsi aurrebistak"
-
-#: Settings.ui:81 Settings.ui:153 Settings.ui:225 Settings.ui:1692
-msgid "Focus or app spread"
+#: dockPrefs.js:28
+#, fuzzy
+msgid "Focus or Minimise"
 msgstr "Fokuratu edo erakutsi aplikazioaren leihoak"
 
-#: Settings.ui:82 Settings.ui:154 Settings.ui:226 Settings.ui:1693
-msgid "Focus, minimize or show previews"
+#: dockPrefs.js:29
+#, fuzzy
+msgid "Open a New Window"
+msgstr "Irekitako leihoak"
+
+#: dockPrefs.js:30 dockPrefs.js:43
+#, fuzzy
+msgid "Cycle Through Windows"
+msgstr "Txandakatu leihoak"
+
+#: dockPrefs.js:31
+#, fuzzy
+msgid "Minimise or Show in Overview"
+msgstr "Minimizatu edo ikuspegi orokorra"
+
+#: dockPrefs.js:32
+#, fuzzy
+msgid "Show Window Previews"
+msgstr "Erakutsi leihoen aurrebistak"
+
+#: dockPrefs.js:33
+#, fuzzy
+msgid "Minimise or Show Previews"
+msgstr "Minimizatu edo erakutsi aurrebistak"
+
+#: dockPrefs.js:34
+#, fuzzy
+msgid "Focus or Show Previews"
+msgstr "Fokuratu edo erakutsi aurrebistak"
+
+#: dockPrefs.js:35
+#, fuzzy
+msgid "Focus or Spread Out Windows"
+msgstr "Fokuratu edo erakutsi aurrebistak"
+
+#: dockPrefs.js:36
+#, fuzzy
+msgid "Focus, Minimise or Show Previews"
 msgstr "Fokuratu, minimizatu edo erakutsi aurrebistak"
 
-#: Settings.ui:83 Settings.ui:155 Settings.ui:227 Settings.ui:1694
-msgid "Focus, minimize or app spread"
+#: dockPrefs.js:37
+#, fuzzy
+msgid "Focus, Minimise or Spread Out Windows"
 msgstr "Fokuratu, minimizatu edo erakutsi aplikazioaren leihoak"
 
-#: Settings.ui:113
-msgid "Behavior for Middle-Click."
-msgstr "Erdiko klikaren portaera"
-
-#: Settings.ui:131
-msgid "Middle-Click action"
-msgstr "Erdiko klikaren ekintza"
-
-#: Settings.ui:185
-msgid "Behavior for Shift+Middle-Click."
-msgstr "Maius+Erdiko klikaren portaera"
-
-#: Settings.ui:203
-msgid "Shift+Middle-Click action"
-msgstr "Maius+Erdiko klikaren ekintza"
-
-#: Settings.ui:305
-msgid "Enable Unity7 like glossy backlit items"
-msgstr "Gaitu Unity7 erako  atzeko argidun elementu distiratsuak"
-
-#: Settings.ui:318
-msgid "Apply glossy effect."
-msgstr "Aplikatu efektu distiratsua."
-
-#: Settings.ui:330
-msgid "Use dominant color"
-msgstr "Erabili kolore nagusia"
-
-#: Settings.ui:355
-msgid "Customize indicator style"
-msgstr "Pertsonalizatu adierazleen estiloa"
-
-#: Settings.ui:381
-msgid "Color"
-msgstr "Kolorea"
-
-#: Settings.ui:401
-msgid "Border color"
-msgstr "Ertzaren kolorea"
-
-#: Settings.ui:421
-msgid "Border width"
-msgstr "Ertzaren zabalera"
-
-#: Settings.ui:502
-msgid "Show the dock on"
-msgstr "Erakutsi atrakea hemen"
-
-#: Settings.ui:523
-msgid "Show on all monitors"
-msgstr "Erakutsi monitore guztietan"
-
-#: Settings.ui:559
-msgid "Position on screen"
-msgstr "Pantailako posizioa"
-
-#: Settings.ui:578
-msgid "Bottom"
-msgstr "Behean"
-
-#: Settings.ui:587
-msgid "Top"
-msgstr "Goian"
-
-#: Settings.ui:642
-msgid ""
-"Hide the dock when it obstructs a window of the current application. More "
-"refined settings are available."
+#: dockPrefs.js:38
+msgid "Quit the App"
 msgstr ""
-"Ezkutatu atrakea uneko aplikazioaren leiho bat eragozten duenean. Ezarpen "
-"zehatzagoak erabilgarri daude."
 
-#: Settings.ui:659
-msgid "Intelligent autohide"
-msgstr "Ezkutatze adimentsua"
-
-#: Settings.ui:735
-msgid "Dock size limit"
-msgstr "Atrakearen tamaina-muga"
-
-#: Settings.ui:757
-msgid "Panel mode: extend to the screen edge"
-msgstr "Panel modua: hedatu pantailaren ertzetara"
-
-#: Settings.ui:769
-msgid "Place icons to the center"
-msgstr "Lerrokatu ikonoak erdian"
-
-#: Settings.ui:794
-msgid "Icon size limit"
-msgstr "Ikonoen tamaina-muga"
-
-#: Settings.ui:820
-msgid "Fixed icon size: scroll to reveal other icons"
-msgstr "Ikono-tamaina finkoa: korritu beste ikonoak erakusteko"
-
-#: Settings.ui:848
-msgid "Preview size scale"
-msgstr "Aurrebistaren eskala"
-
-#: Settings.ui:890
-msgid "Position and size"
-msgstr "Posizioa eta tamaina"
-
-#: Settings.ui:940
-msgid "Show pinned applications"
-msgstr "Erakutsi ainguratutako aplikazioak"
-
-#: Settings.ui:977
-msgid "Show running applications"
-msgstr "Erakutsi martxan dauden aplikazioak"
-
-#: Settings.ui:987
-msgid "Isolate workspaces"
-msgstr "Isolatu laneako areak"
-
-#: Settings.ui:1000
-msgid "Show urgent windows despite current workspace"
-msgstr "Erakutsi beste laneko areetako presazko leihoak ere"
-
-#: Settings.ui:1013
-msgid "Isolate monitors"
-msgstr "Isolatu monitoreak"
-
-#: Settings.ui:1027
-msgid "Show open windows' previews"
-msgstr "Erakutsi irekitako leihoen aurrebistak"
-
-#: Settings.ui:1064
-msgid "Keep the focused application always visible in the dash"
-msgstr "Mantendu fokudun aplikazioa beti bistan abiarazle-panelean"
-
-#: Settings.ui:1101
-msgid ""
-"If disabled, these settings are accessible from gnome-tweak-tool or the "
-"extension website."
-msgstr ""
-"Desgaituz gero, ezarpen hauek gnome-tweak-tool aplikazioan edo hedapenen "
-"webgunean daude erabilgarri."
-
-#: Settings.ui:1118
-msgid "Show <i>Applications</i> icon"
-msgstr "Erakutsi <i>Aplikazioak</i> ikonoa"
-
-#: Settings.ui:1129
-msgid "Move at beginning of the dock"
-msgstr "Eraman atrakearen hasierara"
-
-#: Settings.ui:1150
-msgid "Animate <i>Show Applications</i>"
-msgstr "Animatu <i>Erakutsi aplikazioak</i> ekintza"
-
-#: Settings.ui:1171
-msgid "Put <i>Show Applications</i> in a dock edge when using Panel mode"
-msgstr ""
-"Panel modua erabiltzean, jarri <i>Erakutsi aplikazioak</i> botoia atrakearen "
-"ertz batean"
-
-#: Settings.ui:1211
-msgid "Show trash can"
-msgstr "Erakutsi zakarrontzia"
-
-#: Settings.ui:1248
-msgid "Show volumes and devices"
-msgstr "Erakutsi bolumenak eta gailuak"
-
-#: Settings.ui:1258
-msgid "Only if mounted"
-msgstr "Muntatuta badaude soilik"
-
-#: Settings.ui:1271
-msgid "Include network volumes"
-msgstr "Erakutsi sareko bolumenak"
-
-#: Settings.ui:1311
-msgid "Isolate volumes, devices and trash windows from file manager"
-msgstr ""
-"Bereizi bolumen, gailu eta zakarrontziaren leihoak eta fitxategi-kudeatzailea"
-
-#: Settings.ui:1348
-msgid "Wiggle urgent applications"
-msgstr "Dardara egin presazko aplikazioetan"
-
-#: Settings.ui:1385
-msgid "Hide application tooltip"
-msgstr "Ezkutatu aplikazioen argibideak"
-
-#: Settings.ui:1422
-msgid "Show icons emblems"
-msgstr "Erakutsi enblemak ikonoetan"
-
-#: Settings.ui:1435
-msgid ""
-"When enabled application icons will show notification counters and progress-"
-"bars (if Unity API is used)."
-msgstr ""
-"Gaituta badago, aplikazioen ikonoetan jakinarazpen kontagailuak eta "
-"aurrerapen-barrak erakutsiko dira (Unity APIa erabiltzen bada)."
-
-#: Settings.ui:1450
-msgid "Show the number of unread notifications"
-msgstr "Erakutsi irakurri gabeko jakinarazpenen kopurua"
-
-#: Settings.ui:1471
-msgid "Application-provided counter overrides the notifications counter"
-msgstr ""
-"Aplikazioak eskainitako kontagailuak jakinarazpenen kontagailuari "
-"gainjartzen zaizkio"
-
-#: Settings.ui:1498
-msgid "Launchers"
-msgstr "Abiarazleak"
-
-#: Settings.ui:1538
-msgid ""
-"Enable Super+(0-9) as shortcuts to activate apps. It can also be used "
-"together with Shift and Ctrl."
-msgstr ""
-"Gaitu Super+(0-9) aplikazioak aktibatzeko laster-tekla gisa. Maius eta Ktrl "
-"teklekin batera ere erabil daiteke."
-
-#: Settings.ui:1557
-msgid "Use keyboard shortcuts to activate apps"
-msgstr "Erabili laster-teklak aplikazioak aktibatzeko"
-
-#: Settings.ui:1633
-msgid "Behaviour when clicking on the icon of a running application."
-msgstr "Martxan dagoen aplikazio baten ikonoak klik egitean duen portaera."
-
-#: Settings.ui:1651
-msgid "Click action"
-msgstr "Klik ekintza"
-
-#: Settings.ui:1685
-msgid "Minimize"
-msgstr "Minimizatu"
-
-#: Settings.ui:1739
-msgid "Behaviour when scrolling on the icon of an application."
-msgstr "Aplikazio baten ikonoaren gainean sagua korritzean duen portaera."
-
-#: Settings.ui:1757
-msgid "Scroll action"
-msgstr "Korritze-ekintza"
-
-#: Settings.ui:1774
-msgid "Do nothing"
+#: dockPrefs.js:42
+#, fuzzy
+msgid "Do Nothing"
 msgstr "Ez egin ezer"
 
-#: Settings.ui:1776
-msgid "Switch workspace"
+#: dockPrefs.js:44
+#, fuzzy
+msgid "Switch Workspace"
 msgstr "Aldatu laneko areaz"
 
-#: Settings.ui:1804
-msgid "Behavior"
-msgstr "Portaera"
+#: dockPrefs.js:48
+#, fuzzy
+msgid "Any Window"
+msgstr "Leiho guztiak"
 
-#: Settings.ui:1854
-msgid "Save space reducing padding and border radius."
-msgstr "Hartu leku gutxiago betegarria eta ertzen erradioa txikituz."
-
-#: Settings.ui:1870
-msgid "Shrink the dash"
-msgstr "Txikiagotu abiarazle-panela"
-
-#: Settings.ui:1900
-msgid "Force straight corner"
-msgstr "Behartu erpin zuzena"
-
-#: Settings.ui:1930
-msgid "Show overview on startup"
-msgstr "Erakutsi ikuspegi orokorra abioan"
-
-#: Settings.ui:1972
-msgid ""
-"Few customizations meant to integrate the dock with the default GNOME theme. "
-"Alternatively, specific options can be enabled below."
+#: dockPrefs.js:49
+msgid "Windows of the Focused App"
 msgstr ""
-"Atrakea GNOMEren gai lehenetsiarekin integratzeko ezarritako pertsonalizazio "
-"txikiak. Honen ordez aukera zehatzak gaitu daitezke jarraian."
 
-#: Settings.ui:1990
-msgid "Use built-in theme"
-msgstr "Erabili integrazio gaia"
+#: dockPrefs.js:50
+#, fuzzy
+msgid "Maximised Windows Only"
+msgstr "Maximizatutako leihoetan soilik"
 
-#: Settings.ui:2032
-msgid "Customize windows counter indicators"
-msgstr "Pertsonalizatu leiho kopuruen adierazleak"
+#: dockPrefs.js:51
+msgid "Never, Stay on Top"
+msgstr ""
 
-#: Settings.ui:2065 Settings.ui:2230
-msgid "Default"
+#: dockPrefs.js:55 dockPrefs.js:61
+#, fuzzy
+msgid "Theme Default"
 msgstr "Lehenetsia"
 
-#: Settings.ui:2066
-msgid "Dots"
-msgstr "Puntuak"
-
-#: Settings.ui:2067
-msgid "Squares"
-msgstr "Laukiak"
-
-#: Settings.ui:2068
-msgid "Dashes"
-msgstr "Marrak"
-
-#: Settings.ui:2069
-msgid "Segmented"
-msgstr "Zatikatua"
-
-#: Settings.ui:2070
-msgid "Solid"
-msgstr "Solidoa"
-
-#: Settings.ui:2071
-msgid "Ciliora"
-msgstr "Ciliora"
-
-#: Settings.ui:2072
-msgid "Metro"
-msgstr "Metro"
-
-#: Settings.ui:2073
-msgid "Binary"
-msgstr "Bitarra"
-
-#: Settings.ui:2074
-msgid "Dot"
-msgstr "Puntua"
-
-#: Settings.ui:2107
-msgid "Set the background color for the dash."
-msgstr "Ezarri abiarazle-panelaren atzeko planoko kolorea"
-
-#: Settings.ui:2125
-msgid "Customize the dash color"
-msgstr "Personalizatu abiarazle-panelaren kolorea"
-
-#: Settings.ui:2181
-msgid "Tune the dash background opacity."
-msgstr "Doitu abiarazle-panelaren atzeko planoaren opakutasuna."
-
-#: Settings.ui:2231
+#: dockPrefs.js:56
 msgid "Fixed"
 msgstr "Finkoa"
 
-#: Settings.ui:2232
-msgid "Dynamic"
-msgstr "Dinamikoa"
+#: dockPrefs.js:57
+msgid "Adaptive"
+msgstr ""
 
-#: Settings.ui:2256
-msgid "Opacity"
-msgstr "Opakutasuna"
+#: dockPrefs.js:62
+msgid "Dots"
+msgstr "Puntuak"
 
-#: Settings.ui:2293
+#: dockPrefs.js:63
+msgid "Squares"
+msgstr "Laukiak"
+
+#: dockPrefs.js:64
+msgid "Dashes"
+msgstr "Marrak"
+
+#: dockPrefs.js:65
+#, fuzzy
+msgid "Segmented Line"
+msgstr "Zatikatua"
+
+#: dockPrefs.js:66
+#, fuzzy
+msgid "Solid Line"
+msgstr "Solidoa"
+
+#: dockPrefs.js:67
+msgid "Line and Dots"
+msgstr ""
+
+#: dockPrefs.js:68
+msgid "Full-Width Bar"
+msgstr ""
+
+#: dockPrefs.js:69
+#, fuzzy
+msgid "Binary Count"
+msgstr "Bitarra"
+
+#: dockPrefs.js:70
+msgid "Single Dot"
+msgstr ""
+
+#: dockPrefs.js:360
+#, fuzzy
+msgid "Position"
+msgstr "Posizioa eta tamaina"
+
+#: dockPrefs.js:373
+msgid "Placement"
+msgstr ""
+
+#: dockPrefs.js:380 dockPrefs.js:383
+msgid "Right"
+msgstr "Eskuinean"
+
+#: dockPrefs.js:380 dockPrefs.js:383
+msgid "Left"
+msgstr "Ezkerrean"
+
+#: dockPrefs.js:381
+msgid "Bottom"
+msgstr "Behean"
+
+#: dockPrefs.js:382
+msgid "Top"
+msgstr "Goian"
+
+#: dockPrefs.js:387
+msgid "Screen Edge"
+msgstr ""
+
+#: dockPrefs.js:391
+#, fuzzy
+msgid "Show on All Monitors"
+msgstr "Erakutsi monitore guztietan"
+
+#: dockPrefs.js:394
+msgid "Monitor"
+msgstr ""
+
+#: dockPrefs.js:395
+msgid "The monitor the dock appears on"
+msgstr ""
+
+#. Translators: followed by the monitor's name and connector
+#: dockPrefs.js:427
+msgid "Primary"
+msgstr ""
+
+#: dockPrefs.js:442
+msgid "Size"
+msgstr ""
+
+#: dockPrefs.js:444
+#, fuzzy
+msgid "Icon Size"
+msgstr "Ikonoen tamaina-muga"
+
+#: dockPrefs.js:445
+msgid "The largest the icons can be. They shrink to fit when the dock is full."
+msgstr ""
+
+#: dockPrefs.js:450
+msgid "Keep Icons at Full Size"
+msgstr ""
+
+#: dockPrefs.js:451
+msgid ""
+"Scroll the dock to reach icons that do not fit, instead of shrinking them"
+msgstr ""
+
+#: dockPrefs.js:454
+#, fuzzy
+msgid "Maximum Length"
+msgstr "Opakutasun maximoa"
+
+#: dockPrefs.js:455
+msgid "How much of the screen edge the dock may use"
+msgstr ""
+
+#: dockPrefs.js:462
+msgid "Stretch to Fill the Edge"
+msgstr ""
+
+#: dockPrefs.js:463
+msgid "The dock runs the full length of the screen edge, like a panel"
+msgstr ""
+
+#: dockPrefs.js:464
+msgid "Centre the Icons"
+msgstr ""
+
+#: dockPrefs.js:465
+msgid "Keep the icons in the middle of the screen rather than at the start"
+msgstr ""
+
+#: dockPrefs.js:467
+msgid "Show Apps Button at the Edge"
+msgstr ""
+
+#: dockPrefs.js:468
+msgid ""
+"Keep the Show Apps button at the end of the dock when the icons are centred"
+msgstr ""
+
+#: dockPrefs.js:479
+msgid "Visibility"
+msgstr ""
+
+#: dockPrefs.js:481
+msgid ""
+"When the dock hides, it comes back when you move the pointer to its edge of "
+"the screen."
+msgstr ""
+
+#: dockPrefs.js:485
+msgid "Always Visible"
+msgstr ""
+
+#: dockPrefs.js:486
+msgid ""
+"Keep the dock on screen and fit windows around it. Turn off to let the dock "
+"hide."
+msgstr ""
+
+#: dockPrefs.js:489
+msgid "Hide When Windows Overlap"
+msgstr ""
+
+#: dockPrefs.js:490
+msgid "The dock steps aside when a window would cover it"
+msgstr ""
+
+#: dockPrefs.js:491
+msgid "Windows That Hide the Dock"
+msgstr ""
+
+#: dockPrefs.js:496
+msgid "Show When Pointer Reaches the Edge"
+msgstr ""
+
+#: dockPrefs.js:497
+#, fuzzy
+msgid "Reveal the hidden dock by moving the pointer to the screen edge"
+msgstr "Erakutsi atrakea sagua pantailaren ertzera eramatean."
+
+#: dockPrefs.js:498
+msgid "Push to Reveal"
+msgstr ""
+
+#: dockPrefs.js:499
+msgid ""
+"Only show the dock when you push the pointer against the edge, to avoid "
+"showing it by accident"
+msgstr ""
+
+#: dockPrefs.js:502
+msgid "Push Strength"
+msgstr ""
+
+#: dockPrefs.js:503
+msgid "How hard you need to push, in pixels of pointer movement"
+msgstr ""
+
+#: dockPrefs.js:506
+msgid "Show Delay"
+msgstr ""
+
+#: dockPrefs.js:507
+msgid "Seconds to wait at the edge before the dock appears"
+msgstr ""
+
+#: dockPrefs.js:510
+msgid "Also in Full-Screen Apps"
+msgstr ""
+
+#: dockPrefs.js:511
+msgid "Allow the dock to appear over full-screen windows"
+msgstr ""
+
+#: dockPrefs.js:513
+msgid "Show for Apps That Need Attention"
+msgstr ""
+
+#: dockPrefs.js:514
+msgid "Briefly show the dock when an app asks for your attention"
+msgstr ""
+
+#: dockPrefs.js:518
+msgid "Hide Delay"
+msgstr ""
+
+#: dockPrefs.js:519
+msgid "Seconds to wait after the pointer leaves before the dock hides"
+msgstr ""
+
+#: dockPrefs.js:523
+#, fuzzy
+msgid "Animation Duration"
+msgstr "Animazioaren iraupena (s)"
+
+#: dockPrefs.js:524
+msgid "Seconds the dock takes to slide in and out"
+msgstr ""
+
+#: dockPrefs.js:537
+#, fuzzy
+msgid "Behaviour"
+msgstr "Portaera"
+
+#: dockPrefs.js:556
+msgid "StackDock Extras"
+msgstr ""
+
+#: dockPrefs.js:557
+msgid "Optional features added by StackDock."
+msgstr ""
+
+#: dockPrefs.js:560
+msgid "Previews on Hover"
+msgstr ""
+
+#: dockPrefs.js:561
+msgid "Show an app's windows when the pointer rests on its icon"
+msgstr ""
+
+#: dockPrefs.js:562
+msgid "Delay"
+msgstr ""
+
+#: dockPrefs.js:563
+msgid "Milliseconds to wait before the previews appear"
+msgstr ""
+
+#: dockPrefs.js:566
+msgid "Bounce While Launching"
+msgstr ""
+
+#: dockPrefs.js:567
+msgid "Bounce an app's icon while it starts, until its window appears"
+msgstr ""
+
+#: dockPrefs.js:569
+msgid "Match the Top Bar"
+msgstr ""
+
+#: dockPrefs.js:570
+msgid "Give the top bar the same colour and opacity as the dock"
+msgstr ""
+
+#: dockPrefs.js:579
+msgid "Dock Contents"
+msgstr ""
+
+#: dockPrefs.js:581
+msgid "Pinned Apps"
+msgstr ""
+
+#: dockPrefs.js:582
+msgid "Running Apps"
+msgstr ""
+
+#: dockPrefs.js:583
+msgid "Apps that are open but not pinned"
+msgstr ""
+
+#: dockPrefs.js:586
+msgid "Show Apps Button"
+msgstr ""
+
+#: dockPrefs.js:587
+msgid "Opens the app grid"
+msgstr ""
+
+#: dockPrefs.js:588
+#, fuzzy
+msgid "Place at the Start"
+msgstr "Lerrokatu ikonoak erdian"
+
+#: dockPrefs.js:589
+msgid "Put the button before the apps instead of after them"
+msgstr ""
+
+#: dockPrefs.js:598
+msgid "Workspaces and Monitors"
+msgstr ""
+
+#: dockPrefs.js:604
+msgid "Only Apps on the Current Workspace"
+msgstr ""
+
+#: dockPrefs.js:615
+msgid "Show running apps only on the workspace they are on"
+msgstr ""
+
+#: dockPrefs.js:616
+msgid "Follows the Multitasking setting in GNOME Settings"
+msgstr ""
+
+#: dockPrefs.js:632
+msgid "Show Apps Needing Attention Everywhere"
+msgstr ""
+
+#: dockPrefs.js:633
+msgid "Apps asking for attention appear on every workspace"
+msgstr ""
+
+#: dockPrefs.js:635
+msgid "Only Apps on the Same Monitor"
+msgstr ""
+
+#: dockPrefs.js:636
+msgid "With a dock on each monitor, each shows only the apps on its monitor"
+msgstr ""
+
+#: dockPrefs.js:639
+msgid "Separate Trash and Drive Windows"
+msgstr ""
+
+#: dockPrefs.js:640
+msgid "Treat Files windows showing the trash or a drive as their own icons"
+msgstr ""
+
+#: dockPrefs.js:652
+msgid "Clicking and Scrolling"
+msgstr ""
+
+#: dockPrefs.js:653
+msgid "What happens when you click an app that is already open."
+msgstr ""
+
+#: dockPrefs.js:658
+msgid "Click"
+msgstr ""
+
+#: dockPrefs.js:662
+msgid "Other Clicks"
+msgstr ""
+
+#: dockPrefs.js:663
+msgid "Shift+click, middle-click and Shift+middle-click"
+msgstr ""
+
+#: dockPrefs.js:665
+#, fuzzy
+msgid "Shift+Click"
+msgstr "Maius+Klik ekintza"
+
+#: dockPrefs.js:666
+#, fuzzy
+msgid "Middle-Click"
+msgstr "Erdiko klikaren ekintza"
+
+#: dockPrefs.js:667
+#, fuzzy
+msgid "Shift+Middle-Click"
+msgstr "Maius+Erdiko klikaren ekintza"
+
+#: dockPrefs.js:671
+#, fuzzy
+msgid "Scroll"
+msgstr "Korritze-ekintza"
+
+#: dockPrefs.js:674
+msgid ""
+"Only works between icons, because Keep Icons at Full Size scrolls the dock"
+msgstr ""
+
+#: dockPrefs.js:675
+msgid "Scrolling over an app's icon"
+msgstr ""
+
+#: dockPrefs.js:684
+#, fuzzy
+msgid "Window Previews"
+msgstr "Erakutsi leihoen aurrebistak"
+
+#: dockPrefs.js:686
+msgid "Previews in App Menus"
+msgstr ""
+
+#: dockPrefs.js:687
+msgid "Show pictures of the open windows instead of a list of their names"
+msgstr ""
+
+#: dockPrefs.js:689
+#, fuzzy
+msgid "Preview Size"
+msgstr "Aurrebistaren eskala"
+
+#: dockPrefs.js:690
+msgid "Leave at Automatic to fit the screen"
+msgstr ""
+
+#: dockPrefs.js:692 stacks.js:2239 stacksPrefs.js:105
+msgid "Automatic"
+msgstr ""
+
+#: dockPrefs.js:700
+msgid "Icons"
+msgstr ""
+
+#: dockPrefs.js:702
+msgid "Wiggle Apps Needing Attention"
+msgstr ""
+
+#: dockPrefs.js:703
+#, fuzzy
+msgid "Hide Name Tooltips"
+msgstr "Ezkutatu aplikazioen argibideak"
+
+#: dockPrefs.js:704
+msgid "Don't show the app's name when the pointer rests on its icon"
+msgstr ""
+
+#: dockPrefs.js:705
+msgid "Keep the Focused App in View"
+msgstr ""
+
+#: dockPrefs.js:706
+msgid "Scroll the dock so the icon of the focused app is always visible"
+msgstr ""
+
+#: dockPrefs.js:708
+msgid "Badges"
+msgstr ""
+
+#: dockPrefs.js:709
+msgid "Counters and progress bars on app icons"
+msgstr ""
+
+#: dockPrefs.js:711
+msgid "Unread Notification Count"
+msgstr ""
+
+#: dockPrefs.js:714
+msgid "Prefer the App's Own Count"
+msgstr ""
+
+#: dockPrefs.js:715
+msgid "Apps that set their own badge show it instead of the notification count"
+msgstr ""
+
+#: dockPrefs.js:725
+msgid "Keyboard"
+msgstr ""
+
+#: dockPrefs.js:727
+msgid "Open Apps with Super+Number"
+msgstr ""
+
+#: dockPrefs.js:728
+msgid ""
+"Super+1 to Super+0 open the first ten apps. Add Shift or Ctrl for more "
+"actions."
+msgstr ""
+
+#: dockPrefs.js:729
+#, fuzzy
+msgid "Show Numbers on Icons"
+msgstr "Erakutsi bolumenak eta gailuak"
+
+#: dockPrefs.js:730
+msgid "Show each app's number while the shortcut below is held"
+msgstr ""
+
+#: dockPrefs.js:731
+#, fuzzy
+msgid "Show the Dock"
+msgstr "Erakutsi atrakea hemen"
+
+#: dockPrefs.js:732
+msgid "Briefly show a hidden dock when the shortcut below is pressed"
+msgstr ""
+
+#: dockPrefs.js:735
+msgid "Shortcut to Show Numbers"
+msgstr ""
+
+#: dockPrefs.js:744
+msgid "For example &lt;Super&gt;q"
+msgstr ""
+
+#: dockPrefs.js:751
+#, fuzzy
+msgid "Numbers Stay For"
+msgstr "Gainjarritako zenbakiak"
+
+#: dockPrefs.js:752
+msgid "Seconds the numbers and dock stay visible"
+msgstr ""
+
+#: dockPrefs.js:759
+msgid "Startup"
+msgstr ""
+
+#: dockPrefs.js:761
+#, fuzzy
+msgid "Show the Overview at Login"
+msgstr "Erakutsi ikuspegi orokorra abioan"
+
+#: dockPrefs.js:762
+msgid "Open Activities when you log in, as GNOME does by default"
+msgstr ""
+
+#: dockPrefs.js:773
 msgid "Appearance"
 msgstr "Itxura"
 
-#: Settings.ui:2332
-msgid "version: "
+#: dockPrefs.js:786 dockPrefs.js:856
+msgid "Style"
+msgstr ""
+
+#: dockPrefs.js:788
+#, fuzzy
+msgid "Use the Built-in Style"
+msgstr "Erabili integrazio gaia"
+
+#: dockPrefs.js:789
+msgid ""
+"A ready-made look that suits the default GNOME theme. Turn off to choose the "
+"colours, opacity and indicators yourself."
+msgstr ""
+
+#: dockPrefs.js:791
+msgid "Compact"
+msgstr ""
+
+#: dockPrefs.js:792
+msgid "Less padding and smaller rounded corners"
+msgstr ""
+
+#: dockPrefs.js:793
+#, fuzzy
+msgid "Square Corners"
+msgstr "Laukiak"
+
+#: dockPrefs.js:795
+msgid "Coloured Icon Backgrounds"
+msgstr ""
+
+#: dockPrefs.js:796
+msgid "Light each running app with its icon's main colour, as Unity did"
+msgstr ""
+
+#: dockPrefs.js:797
+msgid "Glossy Finish"
+msgstr ""
+
+#: dockPrefs.js:805
+msgid "Background"
+msgstr ""
+
+#: dockPrefs.js:809
+msgid "Custom Colour"
+msgstr ""
+
+#: dockPrefs.js:810
+msgid "Use your own background colour instead of the theme's"
+msgstr ""
+
+#: dockPrefs.js:812
+#, fuzzy
+msgid "Dock Colour"
+msgstr "Kolorea"
+
+#: dockPrefs.js:822
+msgid "Opacity"
+msgstr "Opakutasuna"
+
+#: dockPrefs.js:823
+msgid "Adaptive makes the dock more solid when a window is next to it"
+msgstr ""
+
+#: dockPrefs.js:828
+#, fuzzy
+msgid "Fixed Opacity"
+msgstr "Opakutasuna"
+
+#: dockPrefs.js:834
+msgid "Custom Adaptive Range"
+msgstr ""
+
+#: dockPrefs.js:835
+msgid "Choose how see-through the dock is with and without a window next to it"
+msgstr ""
+
+#: dockPrefs.js:836
+#, fuzzy
+msgid "No Window Nearby"
+msgstr "Leiho berria"
+
+#: dockPrefs.js:839
+msgid "Window Nearby"
+msgstr ""
+
+#: dockPrefs.js:851
+#, fuzzy
+msgid "Running App Indicators"
+msgstr "Pertsonalizatu martxan egotearen adierazleak"
+
+#: dockPrefs.js:852
+msgid ""
+"The marks under the icons of open apps. Most styles show one mark per window."
+msgstr ""
+
+#: dockPrefs.js:861
+msgid "Match Each App's Icon"
+msgstr ""
+
+#: dockPrefs.js:861
+msgid "Colour the indicators with the icon's main colour"
+msgstr ""
+
+#: dockPrefs.js:866
+msgid "Custom Colours"
+msgstr ""
+
+#: dockPrefs.js:866
+msgid "Use the same colours for every app"
+msgstr ""
+
+#: dockPrefs.js:867
+#, fuzzy
+msgid "Colour"
+msgstr "Kolorea"
+
+#: dockPrefs.js:869
+#, fuzzy
+msgid "Border Colour"
+msgstr "Ertzaren kolorea"
+
+#: dockPrefs.js:871
+#, fuzzy
+msgid "Border Width"
+msgstr "Ertzaren zabalera"
+
+#: dockPrefs.js:871
+msgid "In pixels"
+msgstr ""
+
+#: stacks.js:247
+msgid "Unnamed Folder"
+msgstr ""
+
+#: stacks.js:495
+msgid "Home"
+msgstr ""
+
+#: stacks.js:733 stacksPrefs.js:257
+msgid "Drives"
+msgstr ""
+
+#: stacks.js:909 stacks.js:2183
+#, fuzzy, javascript-format
+msgid "Could not open “%s”"
+msgstr "Ezin izan da “%s” muntatu"
+
+#: stacks.js:971
+#, javascript-format
+msgid "Could not move “%s” to the trash"
+msgstr ""
+
+#: stacks.js:998
+#, fuzzy, javascript-format
+msgid "Could not copy “%s”"
+msgstr "Ezin izan da “%s” muntatu"
+
+#: stacks.js:999
+#, fuzzy, javascript-format
+msgid "Could not move “%s”"
+msgstr "Ezin izan da “%s” muntatu"
+
+#: stacks.js:1385
+msgid "Open"
+msgstr ""
+
+#: stacks.js:1388
+msgid "Open With…"
+msgstr ""
+
+#: stacks.js:1389
+#, fuzzy
+msgid "Show in Files"
+msgstr "Erakutsi enblemak ikonoetan"
+
+#: stacks.js:1391
+msgid "Move to Trash"
+msgstr ""
+
+#: stacks.js:1397
+msgid "Remove from Folder"
+msgstr ""
+
+#: stacks.js:1477 stacks.js:1483 stacks.js:1797 stacks.js:2232
+#, fuzzy
+msgid "Open in Files"
+msgstr "Irekitako leihoak"
+
+#: stacks.js:1482
+#, javascript-format
+msgid "%d more in Files"
+msgid_plural "%d more in Files"
+msgstr[0] ""
+msgstr[1] ""
+
+#: stacks.js:1665
+msgid "No matches"
+msgstr ""
+
+#: stacks.js:1666
+msgid "This folder is empty"
+msgstr ""
+
+#: stacks.js:1666
+msgid "Nothing here"
+msgstr ""
+
+#: stacks.js:1711
+msgid "Rename Folder"
+msgstr ""
+
+#: stacks.js:1732
+msgid "Search"
+msgstr ""
+
+#: stacks.js:1873
+#, javascript-format
+msgid "%d item"
+msgid_plural "%d items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: stacks.js:1874
+#, javascript-format
+msgid "%d of %d"
+msgstr ""
+
+#: stacks.js:2237
+msgid "View as"
+msgstr ""
+
+#: stacks.js:2240 stacksPrefs.js:105
+msgid "Fan"
+msgstr ""
+
+#: stacks.js:2241 stacksPrefs.js:105
+msgid "Grid"
+msgstr ""
+
+#: stacks.js:2250
+msgid "Display as"
+msgstr ""
+
+#: stacks.js:2252 stacksPrefs.js:164
+msgid "Folder"
+msgstr ""
+
+#: stacks.js:2253 stacksPrefs.js:164
+msgid "Stack"
+msgstr ""
+
+#: stacks.js:2265
+msgid "Sort by"
+msgstr ""
+
+#: stacks.js:2267 stacksPrefs.js:120
+msgid "Date Modified"
+msgstr ""
+
+#: stacks.js:2268 stacksPrefs.js:120
+msgid "Name"
+msgstr ""
+
+#: stacks.js:2269 stacksPrefs.js:120
+msgid "Kind"
+msgstr ""
+
+#: stacks.js:2280
+msgid "Rename Folder…"
+msgstr ""
+
+#: stacks.js:2284 stacksPrefs.js:188
+msgid "Remove from Dock"
+msgstr ""
+
+#: stacks.js:2287
+#, fuzzy
+msgid "Stack Settings…"
+msgstr "Ezarpenak"
+
+#: stacksPrefs.js:83
+msgid "Stacks"
+msgstr ""
+
+#: stacksPrefs.js:97
+msgid "Opening Stacks"
+msgstr ""
+
+#: stacksPrefs.js:99
+msgid ""
+"Small stacks fan out from the dock; bigger ones open as a grid you can "
+"search. Right-click a stack in the dock for the same options."
+msgstr ""
+
+#: stacksPrefs.js:104
+msgid "View As"
+msgstr ""
+
+#: stacksPrefs.js:112
+msgid "Largest Fan"
+msgstr ""
+
+#: stacksPrefs.js:113
+msgid "In automatic view, stacks with more items open as a grid"
+msgstr ""
+
+#: stacksPrefs.js:119
+msgid "Sort Files By"
+msgstr ""
+
+#: stacksPrefs.js:131
+msgid "Add Folder…"
+msgstr ""
+
+#: stacksPrefs.js:138
+msgid "Folder Stacks"
+msgstr ""
+
+#: stacksPrefs.js:139
+msgid "Folders shown near the end of the dock, such as Downloads or Documents."
+msgstr ""
+
+#: stacksPrefs.js:147
+msgid "No folders yet. Press + to add one."
+msgstr ""
+
+#: stacksPrefs.js:167
+msgid "Show the folder icon, or the newest file in the folder"
+msgstr ""
+
+#: stacksPrefs.js:202
+msgid "Add a Folder Stack"
+msgstr ""
+
+#: stacksPrefs.js:203
+msgid "Add"
+msgstr ""
+
+#: stacksPrefs.js:222
+msgid "App Folder Stacks"
+msgstr ""
+
+#: stacksPrefs.js:224
+msgid ""
+"App grid folders shown right after your pinned apps. To make a folder, open "
+"Activities and drag one app onto another."
+msgstr ""
+
+#: stacksPrefs.js:232
+msgid "You have no app folders yet."
+msgstr ""
+
+#: stacksPrefs.js:260
+#, fuzzy
+msgid "Show Drives in the Dock"
+msgstr "Erakutsi atrakea hemen"
+
+#: stacksPrefs.js:261
+msgid "USB drives, memory cards, and other mounted volumes"
+msgstr ""
+
+#: stacksPrefs.js:267
+msgid "Group Drives into a Stack"
+msgstr ""
+
+#: stacksPrefs.js:268
+msgid "Show all drives as one Drives stack instead of separate icons"
+msgstr ""
+
+#: stacksPrefs.js:275
+#, fuzzy
+msgid "Only Mounted Drives"
+msgstr "Muntatuta badaude soilik"
+
+#: stacksPrefs.js:276
+msgid "Hide drives that are plugged in but not mounted"
+msgstr ""
+
+#: stacksPrefs.js:284
+#, fuzzy
+msgid "Include Network Drives"
+msgstr "Erakutsi sareko bolumenak"
+
+#: stacksPrefs.js:285
+msgid "Also show mounted network shares"
+msgstr ""
+
+#: aboutPrefs.js:62
+#, fuzzy, javascript-format
+msgid "Version %s"
 msgstr "bertsioa: "
 
-#: Settings.ui:2347
-msgid "Moves the dash out of the overview transforming it in a dock"
-msgstr "Abiarazle-panela ikuspegi orokorretik ateratzen du, atrake bihurtuz"
-
-#: Settings.ui:2361
-msgid "Created by"
-msgstr "Sortzaileak"
-
-#: Settings.ui:2374
-msgid "Webpage"
-msgstr "Webgunea"
-
-#: Settings.ui:2385
-msgid ""
-"<span size=\"small\">This program comes with ABSOLUTELY NO WARRANTY.\n"
-"See the <a href=\"https://www.gnu.org/licenses/old-licenses/"
-"gpl-2.0.html\">GNU General Public License, version 2 or later</a> for "
-"details.</span>"
+#: aboutPrefs.js:81
+msgid "Source code"
 msgstr ""
-"<span size=\"small\">Programa honek ez du inolako bermerik.\n"
-"Xehetasun gehiagorako, ikusi <a href=\"https://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.html\">GNUren Lizentzia Publiko Orokorra, 2. bertsioa edo "
-"berriagoa</a></span>"
 
-#: Settings.ui:2398
-msgid "About"
-msgstr "Honi buruz"
-
-#: Settings.ui:2456
-msgid "Customize minimum and maximum opacity values"
-msgstr "Pertsonalizatu opakutasun minimo eta maximoa"
-
-#: Settings.ui:2478
-msgid "Minimum opacity"
-msgstr "Opakutasun minimoa"
-
-#: Settings.ui:2508
-msgid "Maximum opacity"
-msgstr "Opakutasun maximoa"
-
-#: Settings.ui:2589
-msgid "Number overlay"
-msgstr "Gainjarritako zenbakiak"
-
-#: Settings.ui:2600
-msgid ""
-"Temporarily show the application numbers over the icons, corresponding to "
-"the shortcut."
+#: aboutPrefs.js:82
+msgid "Report a problem"
 msgstr ""
-"Erakutsi une batez laster-teklei dagozkien aplikazio-zenbakiak ikonoen "
-"gainean."
 
-#: Settings.ui:2646
-msgid "Show the dock if it is hidden"
-msgstr "Erakutsi atrakea ezkutatua badago"
-
-#: Settings.ui:2657
-msgid ""
-"If using autohide, the dock will appear for a short time when triggering the "
-"shortcut."
+#: aboutPrefs.js:82
+msgid "Open an issue on GitHub"
 msgstr ""
-"Ezkutatze automatikoa erabiltzean, laster-tekla sakatuz atrakea une baterako "
-"azalduko da."
 
-#: Settings.ui:2700
-msgid "Shortcut for the options above"
-msgstr "Goiko aukeretarako laster-teklak"
+#: aboutPrefs.js:88
+msgid "Credits"
+msgstr ""
 
-#: Settings.ui:2711
-msgid "Syntax: <Shift>, <Ctrl>, <Alt>, <Super>"
-msgstr "Sintaxia: <Shift>, <Ctrl>, <Alt>, <Super>"
+#: aboutPrefs.js:91
+msgid "StackDock"
+msgstr ""
 
-#: Settings.ui:2758 Settings.ui:3056
-msgid "Hide timeout (s)"
-msgstr "Ezkutatzeko denbora-muga (s)"
+#: aboutPrefs.js:94
+msgid "The dock StackDock is built on, by Michele Gaio and contributors"
+msgstr ""
 
-#: Settings.ui:2815
-msgid "Show the dock by mouse hover on the screen edge."
-msgstr "Erakutsi atrakea sagua pantailaren ertzera eramatean."
+#: aboutPrefs.js:97
+msgid "The original stacks code, by dragosol"
+msgstr ""
 
-#: Settings.ui:2832
-msgid "Autohide"
-msgstr "Ezkutatze automatikoa"
+#: aboutPrefs.js:104
+msgid "GNU General Public Licence, version 2 or later"
+msgstr ""
 
-#: Settings.ui:2853
-msgid "Push to show: require pressure to show the dock"
-msgstr "Bultzatu erakusteko: presio pixka bat egin behar da atrakea erakusteko"
+#: aboutPrefs.js:105
+msgid "This program comes with absolutely no warranty"
+msgstr ""
 
-#: Settings.ui:2864
-msgid "Enable in fullscreen mode"
-msgstr "Gaitu pantaila osoko moduan"
+#~ msgid "Primary monitor: "
+#~ msgstr "Monitore nagusia:"
 
-#: Settings.ui:2876
-msgid "Show dock for urgent notifications"
-msgstr "Erakutsi atrakea presazko jakinarazpenak daudenean"
+#~ msgid "Secondary monitor "
+#~ msgstr "Bigarren monitorea "
 
-#: Settings.ui:2905
-msgid "Show the dock when it doesn't obstruct application windows."
-msgstr "Erakutsi atrakea aplikazioaren leihoak eragozten ez dituenean."
+#~ msgid "Intelligent autohide customization"
+#~ msgstr "Ezkutatze adimentsuaren pertsonalizazioa"
 
-#: Settings.ui:2922
-msgid "Dodge windows"
-msgstr "Saihestu leihoak"
+#~ msgid "Reset to defaults"
+#~ msgstr "Berrezarri balio lehenetsiak"
 
-#: Settings.ui:2947
-msgid "All windows"
-msgstr "Leiho guztiak"
+#~ msgid "Managed by GNOME Multitasking's Application Switching setting."
+#~ msgstr ""
+#~ "GNOMEren aldi bereko zereginen \"Aplikazioen txandakatzea\" ezarpenak "
+#~ "kudeatua."
 
-#: Settings.ui:2955
-msgid "Only focused application's windows"
-msgstr "Fokuratutako aplikazioen leihoetan soilik"
+#~ msgid "Show dock and application numbers"
+#~ msgstr "Erakutsi atrakea eta aplikazioen zenbakiak"
 
-#: Settings.ui:2962
-msgid "Only maximized windows"
-msgstr "Maximizatutako leihoetan soilik"
+#~ msgid "Customize middle-click behavior"
+#~ msgstr "Pertsonalizatu erdiko klikaren portaera"
 
-#: Settings.ui:2969
-msgid "Always on top"
-msgstr "Beti gainean"
+#~ msgid "Customize opacity"
+#~ msgstr "Pertsonalizatu opakutasuna"
 
-#: Settings.ui:3012
-msgid "Animation duration (s)"
-msgstr "Animazioaren iraupena (s)"
+#~ msgid "Dash to Dock"
+#~ msgstr "Dash to Dock"
 
-#: Settings.ui:3068
-msgid "Show timeout (s)"
-msgstr "Erakusteko denbora-muga (s)"
+#~ msgid ""
+#~ "When set to minimize, double clicking minimizes all the windows of the "
+#~ "application."
+#~ msgstr ""
+#~ "Minimizatzea hautatuz gero, klik bikoitzak aplikazioaren leiho guztiak "
+#~ "minimizatzen ditu."
 
-#: Settings.ui:3080
-msgid "Pressure threshold"
-msgstr "Presio-atalasea"
+#~ msgid "Raise window"
+#~ msgstr "Goratu leihoa"
+
+#~ msgid "Minimize window"
+#~ msgstr "Minimizatu leihoa"
+
+#~ msgid "Launch new instance"
+#~ msgstr "Abiarazi instantzia berria"
+
+#~ msgid "Behavior for Middle-Click."
+#~ msgstr "Erdiko klikaren portaera"
+
+#~ msgid "Behavior for Shift+Middle-Click."
+#~ msgstr "Maius+Erdiko klikaren portaera"
+
+#~ msgid "Enable Unity7 like glossy backlit items"
+#~ msgstr "Gaitu Unity7 erako  atzeko argidun elementu distiratsuak"
+
+#~ msgid "Apply glossy effect."
+#~ msgstr "Aplikatu efektu distiratsua."
+
+#~ msgid "Use dominant color"
+#~ msgstr "Erabili kolore nagusia"
+
+#~ msgid "Customize indicator style"
+#~ msgstr "Pertsonalizatu adierazleen estiloa"
+
+#~ msgid "Position on screen"
+#~ msgstr "Pantailako posizioa"
+
+#~ msgid ""
+#~ "Hide the dock when it obstructs a window of the current application. More "
+#~ "refined settings are available."
+#~ msgstr ""
+#~ "Ezkutatu atrakea uneko aplikazioaren leiho bat eragozten duenean. Ezarpen "
+#~ "zehatzagoak erabilgarri daude."
+
+#~ msgid "Intelligent autohide"
+#~ msgstr "Ezkutatze adimentsua"
+
+#~ msgid "Dock size limit"
+#~ msgstr "Atrakearen tamaina-muga"
+
+#~ msgid "Panel mode: extend to the screen edge"
+#~ msgstr "Panel modua: hedatu pantailaren ertzetara"
+
+#~ msgid "Fixed icon size: scroll to reveal other icons"
+#~ msgstr "Ikono-tamaina finkoa: korritu beste ikonoak erakusteko"
+
+#~ msgid "Show pinned applications"
+#~ msgstr "Erakutsi ainguratutako aplikazioak"
+
+#~ msgid "Show running applications"
+#~ msgstr "Erakutsi martxan dauden aplikazioak"
+
+#~ msgid "Isolate workspaces"
+#~ msgstr "Isolatu laneako areak"
+
+#~ msgid "Show urgent windows despite current workspace"
+#~ msgstr "Erakutsi beste laneko areetako presazko leihoak ere"
+
+#~ msgid "Isolate monitors"
+#~ msgstr "Isolatu monitoreak"
+
+#~ msgid "Show open windows' previews"
+#~ msgstr "Erakutsi irekitako leihoen aurrebistak"
+
+#~ msgid "Keep the focused application always visible in the dash"
+#~ msgstr "Mantendu fokudun aplikazioa beti bistan abiarazle-panelean"
+
+#~ msgid ""
+#~ "If disabled, these settings are accessible from gnome-tweak-tool or the "
+#~ "extension website."
+#~ msgstr ""
+#~ "Desgaituz gero, ezarpen hauek gnome-tweak-tool aplikazioan edo hedapenen "
+#~ "webgunean daude erabilgarri."
+
+#~ msgid "Show <i>Applications</i> icon"
+#~ msgstr "Erakutsi <i>Aplikazioak</i> ikonoa"
+
+#~ msgid "Move at beginning of the dock"
+#~ msgstr "Eraman atrakearen hasierara"
+
+#~ msgid "Animate <i>Show Applications</i>"
+#~ msgstr "Animatu <i>Erakutsi aplikazioak</i> ekintza"
+
+#~ msgid "Put <i>Show Applications</i> in a dock edge when using Panel mode"
+#~ msgstr ""
+#~ "Panel modua erabiltzean, jarri <i>Erakutsi aplikazioak</i> botoia "
+#~ "atrakearen ertz batean"
+
+#~ msgid "Show trash can"
+#~ msgstr "Erakutsi zakarrontzia"
+
+#~ msgid "Isolate volumes, devices and trash windows from file manager"
+#~ msgstr ""
+#~ "Bereizi bolumen, gailu eta zakarrontziaren leihoak eta fitxategi-"
+#~ "kudeatzailea"
+
+#~ msgid "Wiggle urgent applications"
+#~ msgstr "Dardara egin presazko aplikazioetan"
+
+#~ msgid ""
+#~ "When enabled application icons will show notification counters and "
+#~ "progress-bars (if Unity API is used)."
+#~ msgstr ""
+#~ "Gaituta badago, aplikazioen ikonoetan jakinarazpen kontagailuak eta "
+#~ "aurrerapen-barrak erakutsiko dira (Unity APIa erabiltzen bada)."
+
+#~ msgid "Application-provided counter overrides the notifications counter"
+#~ msgstr ""
+#~ "Aplikazioak eskainitako kontagailuak jakinarazpenen kontagailuari "
+#~ "gainjartzen zaizkio"
+
+#~ msgid "Launchers"
+#~ msgstr "Abiarazleak"
+
+#~ msgid ""
+#~ "Enable Super+(0-9) as shortcuts to activate apps. It can also be used "
+#~ "together with Shift and Ctrl."
+#~ msgstr ""
+#~ "Gaitu Super+(0-9) aplikazioak aktibatzeko laster-tekla gisa. Maius eta "
+#~ "Ktrl teklekin batera ere erabil daiteke."
+
+#~ msgid "Use keyboard shortcuts to activate apps"
+#~ msgstr "Erabili laster-teklak aplikazioak aktibatzeko"
+
+#~ msgid "Behaviour when clicking on the icon of a running application."
+#~ msgstr "Martxan dagoen aplikazio baten ikonoak klik egitean duen portaera."
+
+#~ msgid "Click action"
+#~ msgstr "Klik ekintza"
+
+#~ msgid "Minimize"
+#~ msgstr "Minimizatu"
+
+#~ msgid "Behaviour when scrolling on the icon of an application."
+#~ msgstr "Aplikazio baten ikonoaren gainean sagua korritzean duen portaera."
+
+#~ msgid "Save space reducing padding and border radius."
+#~ msgstr "Hartu leku gutxiago betegarria eta ertzen erradioa txikituz."
+
+#~ msgid "Shrink the dash"
+#~ msgstr "Txikiagotu abiarazle-panela"
+
+#~ msgid "Force straight corner"
+#~ msgstr "Behartu erpin zuzena"
+
+#~ msgid ""
+#~ "Few customizations meant to integrate the dock with the default GNOME "
+#~ "theme. Alternatively, specific options can be enabled below."
+#~ msgstr ""
+#~ "Atrakea GNOMEren gai lehenetsiarekin integratzeko ezarritako "
+#~ "pertsonalizazio txikiak. Honen ordez aukera zehatzak gaitu daitezke "
+#~ "jarraian."
+
+#~ msgid "Customize windows counter indicators"
+#~ msgstr "Pertsonalizatu leiho kopuruen adierazleak"
+
+#~ msgid "Ciliora"
+#~ msgstr "Ciliora"
+
+#~ msgid "Metro"
+#~ msgstr "Metro"
+
+#~ msgid "Dot"
+#~ msgstr "Puntua"
+
+#~ msgid "Set the background color for the dash."
+#~ msgstr "Ezarri abiarazle-panelaren atzeko planoko kolorea"
+
+#~ msgid "Customize the dash color"
+#~ msgstr "Personalizatu abiarazle-panelaren kolorea"
+
+#~ msgid "Tune the dash background opacity."
+#~ msgstr "Doitu abiarazle-panelaren atzeko planoaren opakutasuna."
+
+#~ msgid "Dynamic"
+#~ msgstr "Dinamikoa"
+
+#~ msgid "Moves the dash out of the overview transforming it in a dock"
+#~ msgstr "Abiarazle-panela ikuspegi orokorretik ateratzen du, atrake bihurtuz"
+
+#~ msgid "Created by"
+#~ msgstr "Sortzaileak"
+
+#~ msgid "Webpage"
+#~ msgstr "Webgunea"
+
+#~ msgid ""
+#~ "<span size=\"small\">This program comes with ABSOLUTELY NO WARRANTY.\n"
+#~ "See the <a href=\"https://www.gnu.org/licenses/old-licenses/"
+#~ "gpl-2.0.html\">GNU General Public License, version 2 or later</a> for "
+#~ "details.</span>"
+#~ msgstr ""
+#~ "<span size=\"small\">Programa honek ez du inolako bermerik.\n"
+#~ "Xehetasun gehiagorako, ikusi <a href=\"https://www.gnu.org/licenses/old-"
+#~ "licenses/gpl-2.0.html\">GNUren Lizentzia Publiko Orokorra, 2. bertsioa "
+#~ "edo berriagoa</a></span>"
+
+#~ msgid "Customize minimum and maximum opacity values"
+#~ msgstr "Pertsonalizatu opakutasun minimo eta maximoa"
+
+#~ msgid "Minimum opacity"
+#~ msgstr "Opakutasun minimoa"
+
+#~ msgid ""
+#~ "Temporarily show the application numbers over the icons, corresponding to "
+#~ "the shortcut."
+#~ msgstr ""
+#~ "Erakutsi une batez laster-teklei dagozkien aplikazio-zenbakiak ikonoen "
+#~ "gainean."
+
+#~ msgid "Show the dock if it is hidden"
+#~ msgstr "Erakutsi atrakea ezkutatua badago"
+
+#~ msgid ""
+#~ "If using autohide, the dock will appear for a short time when triggering "
+#~ "the shortcut."
+#~ msgstr ""
+#~ "Ezkutatze automatikoa erabiltzean, laster-tekla sakatuz atrakea une "
+#~ "baterako azalduko da."
+
+#~ msgid "Shortcut for the options above"
+#~ msgstr "Goiko aukeretarako laster-teklak"
+
+#~ msgid "Syntax: <Shift>, <Ctrl>, <Alt>, <Super>"
+#~ msgstr "Sintaxia: <Shift>, <Ctrl>, <Alt>, <Super>"
+
+#~ msgid "Hide timeout (s)"
+#~ msgstr "Ezkutatzeko denbora-muga (s)"
+
+#~ msgid "Autohide"
+#~ msgstr "Ezkutatze automatikoa"
+
+#~ msgid "Push to show: require pressure to show the dock"
+#~ msgstr ""
+#~ "Bultzatu erakusteko: presio pixka bat egin behar da atrakea erakusteko"
+
+#~ msgid "Enable in fullscreen mode"
+#~ msgstr "Gaitu pantaila osoko moduan"
+
+#~ msgid "Show dock for urgent notifications"
+#~ msgstr "Erakutsi atrakea presazko jakinarazpenak daudenean"
+
+#~ msgid "Show the dock when it doesn't obstruct application windows."
+#~ msgstr "Erakutsi atrakea aplikazioaren leihoak eragozten ez dituenean."
+
+#~ msgid "Dodge windows"
+#~ msgstr "Saihestu leihoak"
+
+#~ msgid "All windows"
+#~ msgstr "Leiho guztiak"
+
+#~ msgid "Only focused application's windows"
+#~ msgstr "Fokuratutako aplikazioen leihoetan soilik"
+
+#~ msgid "Always on top"
+#~ msgstr "Beti gainean"
+
+#~ msgid "Show timeout (s)"
+#~ msgstr "Erakusteko denbora-muga (s)"
+
+#~ msgid "Pressure threshold"
+#~ msgstr "Presio-atalasea"
 
 #~ msgid "Show favorite applications"
 #~ msgstr "Erakutsi gogoko aplikazioak"

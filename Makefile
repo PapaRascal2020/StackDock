@@ -12,6 +12,7 @@ EXTRA_MODULES = \
                 dash.js \
                 stacks.js \
                 stacksPrefs.js \
+                dockPrefs.js \
                 aboutPrefs.js \
                 docking.js \
                 appIcons.js \
@@ -31,7 +32,6 @@ EXTRA_MODULES = \
                 utils.js \
                 dbusmenuUtils.js \
                 desktopIconsIntegration.js \
-                Settings.ui \
                 $(NULL)
 
 EXTRA_MEDIA = logo.svg \

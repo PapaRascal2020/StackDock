@@ -1920,7 +1920,7 @@ class DockShowAppsIconMenu extends DockAppIconMenu {
             Docking.DockManager.settings.set_string('prefs-page', page);
             Docking.DockManager.extension.openPreferences();
         };
-        this._appendMenuItem(_('Settings')).connect('activate', () => openPage('dock'));
+        this._appendMenuItem(_('Settings')).connect('activate', () => openPage('position'));
         this._appendMenuItem(__('About')).connect('activate', () => openPage('about'));
     }
 }

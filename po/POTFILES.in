@@ -4,7 +4,7 @@ appIcons.js
 appIconIndicators.js
 appIconsDecorator.js
 locations.js
-Settings.ui
+dockPrefs.js
 stacks.js
 stacksPrefs.js
 aboutPrefs.js

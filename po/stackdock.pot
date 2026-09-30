@@ -1,22 +1,22 @@
-# Slovak translation of dash-to-dock.
-# Copyright (C) 2016 Dušan Kazik
-# This file is distributed under the same license as the PACKAGE package.
-# Dušan Kazik <prescott66@gmail.com>, 2015, 2016.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the StackDock package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: StackDock\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-30 09:33+0100\n"
-"PO-Revision-Date: 2019-09-23 10:49+0200\n"
-"Last-Translator: Jose Riha <jose1711@gmail.com>\n"
-"Language-Team: \n"
-"Language: sk\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: docking.js:1426
 msgid "Dash"
@@ -42,18 +42,16 @@ msgstr ""
 
 #: appIcons.js:1465
 msgid "All Windows"
-msgstr "Všetky okná"
+msgstr ""
 
 #. Translators: This is the heading of a list of open windows
 #: appIcons.js:1477
-#, fuzzy
 msgid "Open Windows"
-msgstr "Všetky okná"
+msgstr ""
 
 #: appIcons.js:1497
-#, fuzzy
 msgid "New Window"
-msgstr "Všetky okná"
+msgstr ""
 
 #: appIcons.js:1516
 msgid "Launch using Integrated Graphics Card"
@@ -69,7 +67,7 @@ msgstr ""
 
 #: appIcons.js:1617 appIcons.js:1629
 msgid "Quit"
-msgstr "Ukončiť"
+msgstr ""
 
 #: appIcons.js:1632
 #, javascript-format
@@ -77,7 +75,6 @@ msgid "Quit %d Window"
 msgid_plural "Quit %d Windows"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
 
 #: appIcons.js:1923
 msgid "Settings"
@@ -85,7 +82,7 @@ msgstr ""
 
 #: appIcons.js:1924 aboutPrefs.js:35
 msgid "About"
-msgstr "O rozšírení"
+msgstr ""
 
 #: appIconIndicators.js:918
 #, javascript-format
@@ -93,7 +90,6 @@ msgid "%s, %d unread notification"
 msgid_plural "%s, %d unread notifications"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
 
 #: locations.js:540
 msgid "Mount"
@@ -160,24 +156,20 @@ msgid "Open a New Window"
 msgstr ""
 
 #: dockPrefs.js:30 dockPrefs.js:43
-#, fuzzy
 msgid "Cycle Through Windows"
-msgstr "Striedať okná"
+msgstr ""
 
 #: dockPrefs.js:31
-#, fuzzy
 msgid "Minimise or Show in Overview"
-msgstr "Minimalizovať okno alebo zobraziť prehľad"
+msgstr ""
 
 #: dockPrefs.js:32
-#, fuzzy
 msgid "Show Window Previews"
-msgstr "Zobraziť náhľady otvorených okien"
+msgstr ""
 
 #: dockPrefs.js:33
-#, fuzzy
 msgid "Minimise or Show Previews"
-msgstr "Minimalizovať okno alebo zobraziť prehľad"
+msgstr ""
 
 #: dockPrefs.js:34
 msgid "Focus or Show Previews"
@@ -188,9 +180,8 @@ msgid "Focus or Spread Out Windows"
 msgstr ""
 
 #: dockPrefs.js:36
-#, fuzzy
 msgid "Focus, Minimise or Show Previews"
-msgstr "Minimalizovať okno alebo zobraziť prehľad"
+msgstr ""
 
 #: dockPrefs.js:37
 msgid "Focus, Minimise or Spread Out Windows"
@@ -201,37 +192,32 @@ msgid "Quit the App"
 msgstr ""
 
 #: dockPrefs.js:42
-#, fuzzy
 msgid "Do Nothing"
-msgstr "Nevykonať nič"
+msgstr ""
 
 #: dockPrefs.js:44
-#, fuzzy
 msgid "Switch Workspace"
-msgstr "Prepnúť pracovnú plochu"
+msgstr ""
 
 #: dockPrefs.js:48
-#, fuzzy
 msgid "Any Window"
-msgstr "Všetky okná"
+msgstr ""
 
 #: dockPrefs.js:49
 msgid "Windows of the Focused App"
 msgstr ""
 
 #: dockPrefs.js:50
-#, fuzzy
 msgid "Maximised Windows Only"
-msgstr "Iba maximalizované okná"
+msgstr ""
 
 #: dockPrefs.js:51
 msgid "Never, Stay on Top"
 msgstr ""
 
 #: dockPrefs.js:55 dockPrefs.js:61
-#, fuzzy
 msgid "Theme Default"
-msgstr "Obnoviť pôvodné"
+msgstr ""
 
 #: dockPrefs.js:56
 msgid "Fixed"
@@ -278,9 +264,8 @@ msgid "Single Dot"
 msgstr ""
 
 #: dockPrefs.js:360
-#, fuzzy
 msgid "Position"
-msgstr "Pozícia a veľkosť"
+msgstr ""
 
 #: dockPrefs.js:373
 msgid "Placement"
@@ -288,28 +273,27 @@ msgstr ""
 
 #: dockPrefs.js:380 dockPrefs.js:383
 msgid "Right"
-msgstr "Vpravo"
+msgstr ""
 
 #: dockPrefs.js:380 dockPrefs.js:383
 msgid "Left"
-msgstr "Vľavo"
+msgstr ""
 
 #: dockPrefs.js:381
 msgid "Bottom"
-msgstr "Na spodku"
+msgstr ""
 
 #: dockPrefs.js:382
 msgid "Top"
-msgstr "Na vrchu"
+msgstr ""
 
 #: dockPrefs.js:387
 msgid "Screen Edge"
 msgstr ""
 
 #: dockPrefs.js:391
-#, fuzzy
 msgid "Show on All Monitors"
-msgstr "Zobraziť na všetkých monitoroch"
+msgstr ""
 
 #: dockPrefs.js:394
 msgid "Monitor"
@@ -321,18 +305,16 @@ msgstr ""
 
 #. Translators: followed by the monitor's name and connector
 #: dockPrefs.js:427
-#, fuzzy
 msgid "Primary"
-msgstr "Hlavnom monitore"
+msgstr ""
 
 #: dockPrefs.js:442
 msgid "Size"
 msgstr ""
 
 #: dockPrefs.js:444
-#, fuzzy
 msgid "Icon Size"
-msgstr "Limit veľkosti ikon"
+msgstr ""
 
 #: dockPrefs.js:445
 msgid "The largest the icons can be. They shrink to fit when the dock is full."
@@ -417,9 +399,8 @@ msgid "Show When Pointer Reaches the Edge"
 msgstr ""
 
 #: dockPrefs.js:497
-#, fuzzy
 msgid "Reveal the hidden dock by moving the pointer to the screen edge"
-msgstr "Zobrazí dok prejdením myši na hranu obrazovky."
+msgstr ""
 
 #: dockPrefs.js:498
 msgid "Push to Reveal"
@@ -472,18 +453,16 @@ msgid "Seconds to wait after the pointer leaves before the dock hides"
 msgstr ""
 
 #: dockPrefs.js:523
-#, fuzzy
 msgid "Animation Duration"
-msgstr "Trvanie animácie (s)"
+msgstr ""
 
 #: dockPrefs.js:524
 msgid "Seconds the dock takes to slide in and out"
 msgstr ""
 
 #: dockPrefs.js:537
-#, fuzzy
 msgid "Behaviour"
-msgstr "Správanie"
+msgstr ""
 
 #: dockPrefs.js:556
 msgid "StackDock Extras"
@@ -618,24 +597,20 @@ msgid "Shift+click, middle-click and Shift+middle-click"
 msgstr ""
 
 #: dockPrefs.js:665
-#, fuzzy
 msgid "Shift+Click"
-msgstr "Akcia Shift+Kliknutie"
+msgstr ""
 
 #: dockPrefs.js:666
-#, fuzzy
 msgid "Middle-Click"
-msgstr "Akcia po kliknutí stredným tlačidlom"
+msgstr ""
 
 #: dockPrefs.js:667
-#, fuzzy
 msgid "Shift+Middle-Click"
-msgstr "Akcia pri Shift+Klik stredným tlačidlom myši"
+msgstr ""
 
 #: dockPrefs.js:671
-#, fuzzy
 msgid "Scroll"
-msgstr "Akcia pri použití kolieska myši"
+msgstr ""
 
 #: dockPrefs.js:674
 msgid ""
@@ -647,9 +622,8 @@ msgid "Scrolling over an app's icon"
 msgstr ""
 
 #: dockPrefs.js:684
-#, fuzzy
 msgid "Window Previews"
-msgstr "Zobraziť náhľady otvorených okien"
+msgstr ""
 
 #: dockPrefs.js:686
 msgid "Previews in App Menus"
@@ -738,9 +712,8 @@ msgid "Show each app's number while the shortcut below is held"
 msgstr ""
 
 #: dockPrefs.js:731
-#, fuzzy
 msgid "Show the Dock"
-msgstr "Zobraziť dok na"
+msgstr ""
 
 #: dockPrefs.js:732
 msgid "Briefly show a hidden dock when the shortcut below is pressed"
@@ -755,9 +728,8 @@ msgid "For example &lt;Super&gt;q"
 msgstr ""
 
 #: dockPrefs.js:751
-#, fuzzy
 msgid "Numbers Stay For"
-msgstr "Čísla aplikácii"
+msgstr ""
 
 #: dockPrefs.js:752
 msgid "Seconds the numbers and dock stay visible"
@@ -777,16 +749,15 @@ msgstr ""
 
 #: dockPrefs.js:773
 msgid "Appearance"
-msgstr "Vzhľad"
+msgstr ""
 
 #: dockPrefs.js:786 dockPrefs.js:856
 msgid "Style"
 msgstr ""
 
 #: dockPrefs.js:788
-#, fuzzy
 msgid "Use the Built-in Style"
-msgstr "Použiť zabudovanú tému"
+msgstr ""
 
 #: dockPrefs.js:789
 msgid ""
@@ -831,22 +802,20 @@ msgid "Use your own background colour instead of the theme's"
 msgstr ""
 
 #: dockPrefs.js:812
-#, fuzzy
 msgid "Dock Colour"
-msgstr "Farba"
+msgstr ""
 
 #: dockPrefs.js:822
 msgid "Opacity"
-msgstr "Krytie"
+msgstr ""
 
 #: dockPrefs.js:823
 msgid "Adaptive makes the dock more solid when a window is next to it"
 msgstr ""
 
 #: dockPrefs.js:828
-#, fuzzy
 msgid "Fixed Opacity"
-msgstr "Krytie"
+msgstr ""
 
 #: dockPrefs.js:834
 msgid "Custom Adaptive Range"
@@ -865,9 +834,8 @@ msgid "Window Nearby"
 msgstr ""
 
 #: dockPrefs.js:851
-#, fuzzy
 msgid "Running App Indicators"
-msgstr "Prispôsobenie indikátorov spustených aplikácií"
+msgstr ""
 
 #: dockPrefs.js:852
 msgid ""
@@ -891,19 +859,16 @@ msgid "Use the same colours for every app"
 msgstr ""
 
 #: dockPrefs.js:867
-#, fuzzy
 msgid "Colour"
-msgstr "Farba"
+msgstr ""
 
 #: dockPrefs.js:869
-#, fuzzy
 msgid "Border Colour"
-msgstr "Farba okraja"
+msgstr ""
 
 #: dockPrefs.js:871
-#, fuzzy
 msgid "Border Width"
-msgstr "Šírka okraja"
+msgstr ""
 
 #: dockPrefs.js:871
 msgid "In pixels"
@@ -971,7 +936,6 @@ msgid "%d more in Files"
 msgid_plural "%d more in Files"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
 
 #: stacks.js:1665
 msgid "No matches"
@@ -999,7 +963,6 @@ msgid "%d item"
 msgid_plural "%d items"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
 
 #: stacks.js:1874
 #, javascript-format
@@ -1131,9 +1094,8 @@ msgid "You have no app folders yet."
 msgstr ""
 
 #: stacksPrefs.js:260
-#, fuzzy
 msgid "Show Drives in the Dock"
-msgstr "Zobraziť dok na"
+msgstr ""
 
 #: stacksPrefs.js:261
 msgid "USB drives, memory cards, and other mounted volumes"
@@ -1164,9 +1126,9 @@ msgid "Also show mounted network shares"
 msgstr ""
 
 #: aboutPrefs.js:62
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Version %s"
-msgstr "verzia: "
+msgstr ""
 
 #: aboutPrefs.js:81
 msgid "Source code"
@@ -1203,230 +1165,3 @@ msgstr ""
 #: aboutPrefs.js:105
 msgid "This program comes with absolutely no warranty"
 msgstr ""
-
-#~ msgid "Secondary monitor "
-#~ msgstr "Vedľajšom monitore "
-
-#~ msgid "Intelligent autohide customization"
-#~ msgstr "Prispôsobenie inteligentného automatického skrývania"
-
-#~ msgid "Show dock and application numbers"
-#~ msgstr "Zobraziť dok a čísla aplikácii"
-
-#~ msgid "Customize middle-click behavior"
-#~ msgstr "Prispôsobenie správania prostredného tlačidla"
-
-#~ msgid "Customize indicator style"
-#~ msgstr "Prispôsobenie štýlu indikátorov"
-
-#~ msgid ""
-#~ "Temporarily show the application numbers over the icons, corresponding to "
-#~ "the shortcut."
-#~ msgstr "Krátko zobraziť čísla aplikácii zodpovedajúce klávesovej skratke."
-
-#~ msgid "Show the dock if it is hidden"
-#~ msgstr "Zobraziť dok, ak je skrytý"
-
-#~ msgid ""
-#~ "If using autohide, the dock will appear for a short time when triggering "
-#~ "the shortcut."
-#~ msgstr ""
-#~ "Ak je zapnuté automatické skrývanie, stlačením klávesovej skratky sa dok "
-#~ "na okamih zobrazí."
-
-#~ msgid "Shortcut for the options above"
-#~ msgstr "Klávesová skratka"
-
-#~ msgid "Syntax: <Shift>, <Ctrl>, <Alt>, <Super>"
-#~ msgstr "Syntax: <Shift>, <Ctrl>, <Alt>, <Super>"
-
-#~ msgid "Hide timeout (s)"
-#~ msgstr "Časový limit na skrytie (s)"
-
-#~ msgid ""
-#~ "When set to minimize, double clicking minimizes all the windows of the "
-#~ "application."
-#~ msgstr ""
-#~ "Keď je nastavené na minimalizovanie, dvojklik minimalizuje všetky okná "
-#~ "aplikácie."
-
-#~ msgid "Raise window"
-#~ msgstr "Preniesť okno do popredia"
-
-#~ msgid "Minimize window"
-#~ msgstr "Minimalizovať okno"
-
-#~ msgid "Launch new instance"
-#~ msgstr "Spustiť novú inštanciu"
-
-#~ msgid "Behavior for Middle-Click."
-#~ msgstr "Správanie stredného tlačidla myši."
-
-#~ msgid "Behavior for Shift+Middle-Click."
-#~ msgstr "Správanie stredného tlačidla pri stlačenom Shifte."
-
-#~ msgid "Position on screen"
-#~ msgstr "Pozícia na obrazovke"
-
-#~ msgid ""
-#~ "Hide the dock when it obstructs a window of the current application. More "
-#~ "refined settings are available."
-#~ msgstr ""
-#~ "Skryť dok, keď zasahuje do okna aktuálnej aplikácie. Sú dostupné "
-#~ "podrobnejšie nastavenia."
-
-#~ msgid "Intelligent autohide"
-#~ msgstr "Inteligentné automatické skrývanie"
-
-#~ msgid "Dock size limit"
-#~ msgstr "Limit veľkosti doku"
-
-#~ msgid "Panel mode: extend to the screen edge"
-#~ msgstr "Režim panelu: roztiahnutie ku hranám obrazovky"
-
-#~ msgid "Fixed icon size: scroll to reveal other icons"
-#~ msgstr "Pevná veľkosť ikon: rolovaním odhalíte ostatné ikony"
-
-#~ msgid "Show favorite applications"
-#~ msgstr "Zobraziť obľúbené aplikácie"
-
-#~ msgid "Show running applications"
-#~ msgstr "Zobraziť spustené aplikácie"
-
-#~ msgid "Isolate workspaces"
-#~ msgstr "Oddelené pracovné priestory"
-
-#~ msgid ""
-#~ "If disabled, these settings are accessible from gnome-tweak-tool or the "
-#~ "extension website."
-#~ msgstr ""
-#~ "Ak je voľba zakázaná, tieto nastavenia sú dostupné z nástroja Vyladenie "
-#~ "alebo webovej stránky rozšírenia."
-
-#~ msgid "Show <i>Applications</i> icon"
-#~ msgstr "Zobraziť ikonu <i>Aplikácie</i>"
-
-#~ msgid "Move the applications button at the beginning of the dock"
-#~ msgstr "Premiestni tlačidlo aplikácií na začiatok doku"
-
-#~ msgid "Animate <i>Show Applications</i>"
-#~ msgstr "Animovať položku <i>Zobraziť aplikácie</i>"
-
-#~ msgid "Launchers"
-#~ msgstr "Spúšťače"
-
-#~ msgid ""
-#~ "Enable Super+(0-9) as shortcuts to activate apps. It can also be used "
-#~ "together with Shift and Ctrl."
-#~ msgstr ""
-#~ "Povoliť aktiváciu aplikácií klávesovými skratkami Super+(0+9). Túto "
-#~ "skratku je možné tiež použiť so stlačeným Shiftom a Ctrl."
-
-#~ msgid "Use keyboard shortcuts to activate apps"
-#~ msgstr "Použiť klávesovú skratku na aktiváciu aplikácií"
-
-#~ msgid "Behaviour when clicking on the icon of a running application."
-#~ msgstr "Správanie pri kliknutí na ikonu spustenej aplikácie."
-
-#~ msgid "Click action"
-#~ msgstr "Akcia po kliknutí"
-
-#~ msgid "Minimize"
-#~ msgstr "Minimalizovať"
-
-#~ msgid "Behaviour when scrolling on the icon of an application."
-#~ msgstr "Správanie pri použití kolieska myši na ikone aplikácie."
-
-#~ msgid ""
-#~ "Few customizations meant to integrate the dock with the default GNOME "
-#~ "theme. Alternatively, specific options can be enabled below."
-#~ msgstr ""
-#~ "Niekoľko úprav na integrovanie doku s predvolenou témou prostredia GNOME. "
-#~ "Alternatívne môžu byť povolené špecifické voľby nižšie."
-
-#~ msgid "Save space reducing padding and border radius."
-#~ msgstr "Ušetrí miesto zmenšením rádiusu odsadenia a okrajov."
-
-#~ msgid "Shrink the dash"
-#~ msgstr "Zmenšiť panel"
-
-#~ msgid "Show a dot for each windows of the application."
-#~ msgstr "Zobrazí bodku za každé okno aplikácie."
-
-#~ msgid "Show windows counter indicators"
-#~ msgstr "Zobraziť indikátory počítadiel okien"
-
-#~ msgid "Set the background color for the dash."
-#~ msgstr "Nastaví farbu pozadia panelu."
-
-#~ msgid "Customize the dash color"
-#~ msgstr "Prispôsobenie farby panelu"
-
-#~ msgid "Tune the dash background opacity."
-#~ msgstr "Vyladí krytie pozadia panelu."
-
-#~ msgid "Customize opacity"
-#~ msgstr "Prispôsobenie krytia"
-
-#~ msgid "Force straight corner\n"
-#~ msgstr "Zakázať zaoblené rohy\n"
-
-#~ msgid "Moves the dash out of the overview transforming it in a dock"
-#~ msgstr "Presunie panel z prehľadu transformovaním do doku"
-
-#~ msgid "Created by"
-#~ msgstr "Vytvoril"
-
-#~ msgid "Webpage"
-#~ msgstr "Webová stránka"
-
-#~ msgid ""
-#~ "<span size=\"small\">This program comes with ABSOLUTELY NO WARRANTY.\n"
-#~ "See the <a href=\"https://www.gnu.org/licenses/old-licenses/"
-#~ "gpl-2.0.html\">GNU General Public License, version 2 or later</a> for "
-#~ "details.</span>"
-#~ msgstr ""
-#~ "<span size=\"small\">Tento program je ABSOLÚTNE BEZ ZÁRUKY.\n"
-#~ "Pre viac podrobností si pozrite <a href=\"https://www.gnu.org/licenses/"
-#~ "old-licenses/gpl-2.0.html\">Licenciu GNU General Public, verzie 2 alebo "
-#~ "novšiu</a>.</span>"
-
-#~ msgid "Autohide"
-#~ msgstr "Automatické skrytie"
-
-#~ msgid "Push to show: require pressure to show the dock"
-#~ msgstr "Zobraziť dok až po zatlačení na okraj obrazovky"
-
-#~ msgid "Enable in fullscreen mode"
-#~ msgstr "Povoliť v režime na celú obrazovku"
-
-#~ msgid "Show the dock when it doesn't obstruct application windows."
-#~ msgstr "Zobrazí dok, keď nebude zasahovať do okien aplikácií."
-
-#~ msgid "Dodge windows"
-#~ msgstr "Vyhýbať sa oknám"
-
-#~ msgid "All windows"
-#~ msgstr "Všetky okná"
-
-#~ msgid "Only focused application's windows"
-#~ msgstr "Iba zamerané okná aplikácií"
-
-#~ msgid "0.000"
-#~ msgstr "0.000"
-
-#~ msgid "Show timeout (s)"
-#~ msgstr "Zobraziť časový limit (s)"
-
-#~ msgid "Pressure threshold"
-#~ msgstr "Medza tlaku"
-
-#~ msgid ""
-#~ "With fixed icon size, only the edge of the dock and the <i>Show "
-#~ "Applications</i> icon are active."
-#~ msgstr ""
-#~ "S pevnou veľkosťou ikon je aktívna iba hrana doku a ikona <i>Zobraziť "
-#~ "aplikácie</i>."
-
-#~ msgid "Switch workspace by scrolling on the dock"
-#~ msgstr "Prepínať pracovné priestory rolovaním na doku"

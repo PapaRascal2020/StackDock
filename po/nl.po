@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dash to Dock\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-10 20:27+0200\n"
+"POT-Creation-Date: 2026-09-30 09:33+0100\n"
 "PO-Revision-Date: 2019-10-10 20:46+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <kde-i18n-doc@kde.org>\n"
@@ -21,513 +21,1462 @@ msgstr ""
 "X-Generator: Lokalize 19.11.70\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: prefs.js:264
-msgid "Primary monitor"
-msgstr "Primair beeldscherm"
+#: docking.js:1426
+#, fuzzy
+msgid "Dash"
+msgstr "Streepjes"
 
-#: prefs.js:273 prefs.js:280
-msgid "Secondary monitor "
-msgstr "Secundair beeldscherm"
+#: docking.js:2839 appIcons.js:1544
+msgid "Unpin"
+msgstr ""
 
-#: prefs.js:305 Settings.ui.h:28
-msgid "Right"
-msgstr "Rechts"
+#: docking.js:2839 appIcons.js:1550
+#, fuzzy
+msgid "Pin to Dock"
+msgstr "Dash to Dock %s"
 
-#: prefs.js:306 Settings.ui.h:25
-msgid "Left"
-msgstr "Links"
+#: appIcons.js:490
+#, javascript-format
+msgid "%s is updating, try again later"
+msgstr ""
 
-#: prefs.js:356
-msgid "Intelligent autohide customization"
-msgstr "Voorkeuren voor slim verbergen"
+#: appIcons.js:1454
+#, javascript-format
+msgid "%s is being updated…"
+msgstr ""
 
-#: prefs.js:363 prefs.js:556 prefs.js:612
-msgid "Reset to defaults"
-msgstr "Standaardwaarden"
-
-#: prefs.js:549
-msgid "Show dock and application numbers"
-msgstr "Dock en programmanummers tonen"
-
-#: prefs.js:605
-msgid "Customize middle-click behavior"
-msgstr "Middelste muisknop-gedrag aanpassen"
-
-#: prefs.js:688
-msgid "Customize running indicators"
-msgstr "Indicatoren van draaiende programma's aanpassen"
-
-#: prefs.js:800
-#: Settings.ui.h:74
-msgid "Customize opacity"
-msgstr "Doorzichtigheid aanpassen"
-
-#: appIcons.js:809
+#: appIcons.js:1465
 msgid "All Windows"
 msgstr "Alle vensters"
 
-#. Translators: %s is "Settings", which is automatically translated. You
-#. can also translate the full message if this fits better your language.
-#: appIcons.js:1126
-#, javascript-format
-msgid "Dash to Dock %s"
-msgstr "Dash to Dock %s"
+#. Translators: This is the heading of a list of open windows
+#: appIcons.js:1477
+#, fuzzy
+msgid "Open Windows"
+msgstr "Alle vensters"
 
-#: Settings.ui.h:1
-msgid ""
-"When set to minimize, double clicking minimizes all the windows of the "
-"application."
+#: appIcons.js:1497
+#, fuzzy
+msgid "New Window"
+msgstr "Alle vensters"
+
+#: appIcons.js:1516
+msgid "Launch using Integrated Graphics Card"
 msgstr ""
-"Als je gekozen hebt voor minimaliseren, dan zorgt dubbelklikken ervoor dat "
-"alle vensters van het huidige programma worden geminimaliseerd."
 
-#: Settings.ui.h:2
-msgid "Shift+Click action"
-msgstr "Shift+klikken-actie"
+#: appIcons.js:1517
+msgid "Launch using Discrete Graphics Card"
+msgstr ""
 
-#: Settings.ui.h:3
-msgid "Raise window"
-msgstr "Venster naar voren halen"
+#: appIcons.js:1562 appIcons.js:1588
+msgid "App Details"
+msgstr ""
 
-#: Settings.ui.h:4
-msgid "Minimize window"
-msgstr "Venster minimalisren"
-
-#: Settings.ui.h:5
-msgid "Launch new instance"
-msgstr "Nieuw proces openen"
-
-#: Settings.ui.h:6
-msgid "Cycle through windows"
-msgstr "Schakelen tussen vensters"
-
-#: Settings.ui.h:7
-msgid "Minimize or overview"
-msgstr "Minimaliseren of activiteitenoverzicht"
-
-#: Settings.ui.h:8
-msgid "Show window previews"
-msgstr "Venstervoorbeelden tonen"
-
-#: Settings.ui.h:9
-msgid "Minimize or show previews"
-msgstr "Minimaliseren of voorbeelden tonen"
-
-#: Settings.ui.h:10
-msgid "Focus or show previews"
-msgstr "Focussen of voorbeelden tonen"
-
-#: Settings.ui.h:11
+#: appIcons.js:1617 appIcons.js:1629
 msgid "Quit"
 msgstr "Afsluiten"
 
-#: Settings.ui.h:12
-msgid "Behavior for Middle-Click."
-msgstr "Wat er gebeurt bij middelklikken."
-
-#: Settings.ui.h:13
-msgid "Middle-Click action"
-msgstr "Middelklikactie"
-
-#: Settings.ui.h:14
-msgid "Behavior for Shift+Middle-Click."
-msgstr "Wat er gebeurt bij Shift+middelklikken."
-
-#: Settings.ui.h:15
-msgid "Shift+Middle-Click action"
-msgstr "Shift+middelklik-actie"
-
-#: Settings.ui.h:16
-msgid "Enable Unity7 like glossy backlit items"
-msgstr "Unity7-achtige itemachtergrond gebruiken"
-
-#: Settings.ui.h:17
-msgid "Use dominant color"
-msgstr "Dominante kleur gebruiken"
-
-#: Settings.ui.h:18
-msgid "Customize indicator style"
-msgstr "Indicatorstijl aanpassen"
-
-#: Settings.ui.h:19
-msgid "Color"
-msgstr "Kleur"
-
-#: Settings.ui.h:20
-msgid "Border color"
-msgstr "Randkleur"
-
-#: Settings.ui.h:21
-msgid "Border width"
-msgstr "Randbreedte"
-
-#: Settings.ui.h:22
-msgid "Show the dock on"
-msgstr "Dock tonen op"
-
-#: Settings.ui.h:23
-msgid "Show on all monitors"
-msgstr "Tonen op alle beeldschermen"
-
-#: Settings.ui.h:24
-msgid "Position on screen"
-msgstr "Positie op het scherm"
-
-#: Settings.ui.h:26
-msgid "Bottom"
-msgstr "Onderaan"
-
-#: Settings.ui.h:27
-msgid "Top"
-msgstr "Bovenaan"
-
-#: Settings.ui.h:29
-msgid ""
-"Hide the dock when it obstructs a window of the current application. More "
-"refined settings are available."
-msgstr ""
-"Verberg het dock als het een venster van het huidige programma in de weg "
-"zit. Er zijn uitgebreide instellingen hiervoor beschikbaar."
-
-#: Settings.ui.h:30
-msgid "Intelligent autohide"
-msgstr "Slim verbergen"
-
-#: Settings.ui.h:31
-msgid "Dock size limit"
-msgstr "Maximale dockgrootte"
-
-#: Settings.ui.h:32
-msgid "Panel mode: extend to the screen edge"
-msgstr "Paneelmodus: uitrekken tot aan de schermrand"
-
-#: Settings.ui.h:33
-msgid "Icon size limit"
-msgstr "Maximale pictogramgrootte"
-
-#: Settings.ui.h:34
-msgid "Fixed icon size: scroll to reveal other icons"
-msgstr ""
-"Vastgezette pictogramgrootte: scroll om meer pictogrammen weer te geven"
-
-#: Settings.ui.h:35
-msgid "Position and size"
-msgstr "Positie en grootte"
-
-#: Settings.ui.h:36
-msgid "Show favorite applications"
-msgstr "Favoriete programma's tonen"
-
-#: Settings.ui.h:37
-msgid "Show running applications"
-msgstr "Geopende programma's tonen"
-
-#: Settings.ui.h:38
-msgid "Isolate workspaces"
-msgstr "Werkbladen isoleren"
-
-#: Settings.ui.h:39
-msgid "Isolate monitors"
-msgstr "Beeldschermen isoleren"
-
-#: Settings.ui.h:40
-msgid "Show open windows previews"
-msgstr "Voorbeelden van geopende vensters tonen"
-
-#: Settings.ui.h:41
-msgid ""
-"If disabled, these settings are accessible from gnome-tweak-tool or the "
-"extension website."
-msgstr ""
-"Als je dit uitschakelt, dan zijn deze instellingen toegankelijk via gnome-"
-"tweaks of de extensiesite."
-
-#: Settings.ui.h:42
-msgid "Show <i>Applications</i> icon"
-msgstr "Pictogram voor <i>Alle programma's</i> tonen"
-
-#: Settings.ui.h:43
-msgid "Move the applications button at the beginning of the dock"
-msgstr "Verplaatst de 'Alle programma's'-knop naar het begin van het dock"
-
-#: Settings.ui.h:44
-msgid "Animate <i>Show Applications</i>"
-msgstr "Animatie na klikken op <i>Alle programma's tonen</i>"
-
-#: Settings.ui.h:45
-msgid "Show trash can"
-msgstr "Prullenbak tonen"
-
-#: Settings.ui.h:46
-msgid "Show mounted volumes and devices"
-msgstr "Aangekoppelde schijven en apparaten tonen"
-
-#: Settings.ui.h:47
-msgid "Launchers"
-msgstr "Starters"
-
-#: Settings.ui.h:48
-msgid ""
-"Enable Super+(0-9) as shortcuts to activate apps. It can also be used "
-"together with Shift and Ctrl."
-msgstr ""
-"Gebruik Super+(0-9) om programma's te openen en focussen. Kan ook worden "
-"gebruikt met Shift en Ctrl."
-
-#: Settings.ui.h:49
-msgid "Use keyboard shortcuts to activate apps"
-msgstr "Sneltoetsen gebruiken om programma's te openen/focussen"
-
-#: Settings.ui.h:50
-msgid "Behaviour when clicking on the icon of a running application."
-msgstr ""
-"Wat er gebeurt bij het klikken op het pictogram van een geopend programma."
-
-#: Settings.ui.h:51
-msgid "Click action"
-msgstr "Klikactie"
-
-#: Settings.ui.h:52
-msgid "Minimize"
-msgstr "Minimaliseren"
-
-#: Settings.ui.h:53
-msgid "Behaviour when scrolling on the icon of an application."
-msgstr ""
-"Wat er gebeurt bij het scrollen op het pictogram van een geopend programma."
-
-#: Settings.ui.h:54
-msgid "Scroll action"
-msgstr "Scrollactie"
-
-#: Settings.ui.h:55
-msgid "Do nothing"
-msgstr "Niets doen"
-
-#: Settings.ui.h:56
-msgid "Switch workspace"
-msgstr "Van werkblad wisselen"
-
-#: Settings.ui.h:57
-msgid "Behavior"
-msgstr "Gedrag"
-
-#: Settings.ui.h:58
-msgid ""
-"Few customizations meant to integrate the dock with the default GNOME theme. "
-"Alternatively, specific options can be enabled below."
-msgstr ""
-"Enkele aanpassingen, bedoeld om het dock te integreren met het standaard "
-"GNOME-thema. In plaats daarvan kun je hieronder specifieke opties inschakelen."
-
-#: Settings.ui.h:59
-msgid "Use built-in theme"
-msgstr "Ingebouwd thema gebruiken"
-
-#: Settings.ui.h:60
-msgid "Save space reducing padding and border radius."
-msgstr "Bespaar ruimte door de straal van de dikte en rand te verkleinen."
-
-#: Settings.ui.h:61
-msgid "Shrink the dash"
-msgstr "Snelstarter verkleinen"
-
-#: Settings.ui.h:62
-msgid "Customize windows counter indicators"
-msgstr "Vensterindicatoren aanpassen"
-
-#: Settings.ui.h:63
-msgid "Default"
-msgstr "Standaard"
-
-#: Settings.ui.h:64
-msgid "Dots"
-msgstr "Stipjes"
-
-#: Settings.ui.h:65
-msgid "Squares"
-msgstr "Vierkantjes"
-
-#: Settings.ui.h:66
-msgid "Dashes"
-msgstr "Streepjes"
-
-#: Settings.ui.h:67
-msgid "Segmented"
-msgstr "Gesegmenteerd"
-
-#: Settings.ui.h:68
-msgid "Solid"
-msgstr "Vast"
-
-#: Settings.ui.h:69
-msgid "Ciliora"
-msgstr "Ciliora"
-
-#: Settings.ui.h:70
-msgid "Metro"
-msgstr "Metro"
-
-#: Settings.ui.h:71
-msgid "Set the background color for the dash."
-msgstr "Stel de achtergrondkleur in van de snelstarter."
-
-#: Settings.ui.h:72
-msgid "Customize the dash color"
-msgstr "Snelstarterkleur aanpassen"
-
-#: Settings.ui.h:73
-msgid "Tune the dash background opacity."
-msgstr "Pas de doorzichtigheid van de snelstarterachtergrond aan."
-
-#: Settings.ui.h:75
-msgid "Fixed"
-msgstr "Vooringesteld"
-
-#: Settings.ui.h:76
-msgid "Dynamic"
-msgstr "Dynamisch"
-
-#: Settings.ui.h:77
-msgid "Opacity"
-msgstr "Doorzichtigheid"
-
-#: Settings.ui.h:78
-msgid "Force straight corner\n"
-msgstr "Rechte hoek afdwingen\n"
-
-#: Settings.ui.h:80
-msgid "Appearance"
-msgstr "Uiterlijk"
-
-#: Settings.ui.h:81
-msgid "version: "
-msgstr "versie: "
-
-#: Settings.ui.h:82
-msgid "Moves the dash out of the overview transforming it in a dock"
-msgstr ""
-"Toont de snelstarter buiten het activiteitenoverzicht zodat het een dock "
-"wordt"
-
-#: Settings.ui.h:83
-msgid "Created by"
-msgstr "Gemaakt door"
-
-#: Settings.ui.h:84
-msgid "Webpage"
-msgstr "Website"
-
-#: Settings.ui.h:85
-msgid ""
-"<span size=\"small\">This program comes with ABSOLUTELY NO WARRANTY.\n"
-"See the <a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
-"\">GNU General Public License, version 2 or later</a> for details.</span>"
-msgstr ""
-"<span size=\"small\">Dit programma wordt geleverd ZONDER ENIGE GARANTIE.\n"
-"Lees de <a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
-"\">GNU General Public License, versie 2 of nieuwer</a>, voor meer informatie."
-"</span>"
-
-#: Settings.ui.h:87
+#: appIcons.js:1632
+#, javascript-format
+msgid "Quit %d Window"
+msgid_plural "Quit %d Windows"
+msgstr[0] ""
+msgstr[1] ""
+
+#: appIcons.js:1923
+#, fuzzy
+msgid "Settings"
+msgstr "Grundeinstellungen"
+
+#: appIcons.js:1924 aboutPrefs.js:35
 msgid "About"
 msgstr "Over"
 
-#: Settings.ui.h:88
-msgid "Customize minimum and maximum opacity values"
-msgstr "Minimum- en maximumwaarden van doorzichtigheid aanpassen"
+#: appIconIndicators.js:918
+#, javascript-format
+msgid "%s, %d unread notification"
+msgid_plural "%s, %d unread notifications"
+msgstr[0] ""
+msgstr[1] ""
 
-#: Settings.ui.h:89
-msgid "Minimum opacity"
-msgstr "Minimale doorzichtigheid"
-
-#: Settings.ui.h:90
-msgid "Maximum opacity"
-msgstr "Maximale doorzichtigheid"
-
-#: Settings.ui.h:91
-msgid "Number overlay"
-msgstr "Nummers tonen"
-
-#: Settings.ui.h:92
-msgid ""
-"Temporarily show the application numbers over the icons, corresponding to "
-"the shortcut."
+#: locations.js:540
+msgid "Mount"
 msgstr ""
-"Toon tijdelijk de programmanummers, behorende bij de sneltoets, op de "
-"pictogrammen."
 
-#: Settings.ui.h:93
-msgid "Show the dock if it is hidden"
-msgstr "Dock tonen indien verborgen"
-
-#: Settings.ui.h:94
-msgid ""
-"If using autohide, the dock will appear for a short time when triggering the "
-"shortcut."
+#: locations.js:542
+msgid "Unmount"
 msgstr ""
-"Als je automatisch verbergen gebruikt, dan wordt het dock, middels de "
-"sneltoets, korte tijd getoond."
 
-#: Settings.ui.h:95
-msgid "Shortcut for the options above"
-msgstr "Sneltoets voor bovenstaande opties"
+#: locations.js:544
+msgid "Eject"
+msgstr ""
 
-#: Settings.ui.h:96
-msgid "Syntax: <Shift>, <Ctrl>, <Alt>, <Super>"
-msgstr "Syntax: <Shift>, <Ctrl>, <Alt>, <Super>"
+#: locations.js:604
+#, javascript-format
+msgid "Failed to mount “%s”"
+msgstr ""
 
-#: Settings.ui.h:97
-msgid "Hide timeout (s)"
-msgstr "Verberginterval (s)"
+#: locations.js:609
+#, javascript-format
+msgid "Failed to unmount “%s”"
+msgstr ""
 
-#: Settings.ui.h:98
-msgid "Show the dock by mouse hover on the screen edge."
-msgstr "Dock tonen door de muiscursor op de schermrand te plaatsen."
+#: locations.js:614
+#, javascript-format
+msgid "Failed to eject “%s”"
+msgstr ""
 
-#: Settings.ui.h:99
-msgid "Autohide"
-msgstr "Automatisch verbergen"
+#: locations.js:627
+msgid "Mount operation already in progress"
+msgstr ""
 
-#: Settings.ui.h:100
-msgid "Push to show: require pressure to show the dock"
-msgstr "Tonen middels druk: druk toepassen om het dock te tonen"
+#: locations.js:632
+msgid "Unmount operation already in progress"
+msgstr ""
 
-#: Settings.ui.h:101
-msgid "Enable in fullscreen mode"
-msgstr "Inschakelen in beeldvullende modus"
+#: locations.js:637
+msgid "Eject operation already in progress"
+msgstr ""
 
-#: Settings.ui.h:102
-msgid "Show the dock when it doesn't obstruct application windows."
-msgstr "Toon het dock als het geen programmavensters in de weg zit."
+#: locations.js:763 dockPrefs.js:584
+msgid "Trash"
+msgstr ""
 
-#: Settings.ui.h:103
-msgid "Dodge windows"
-msgstr "Vensters ontwijken"
+#: locations.js:804
+msgid "Empty Trash"
+msgstr ""
 
-#: Settings.ui.h:104
-msgid "All windows"
+#: locations.js:1074
+#, javascript-format
+msgid "Failed to launch “%s”"
+msgstr ""
+
+#: dockPrefs.js:27
+msgid "Focus the Window"
+msgstr ""
+
+#: dockPrefs.js:28
+msgid "Focus or Minimise"
+msgstr ""
+
+#: dockPrefs.js:29
+msgid "Open a New Window"
+msgstr ""
+
+#: dockPrefs.js:30 dockPrefs.js:43
+#, fuzzy
+msgid "Cycle Through Windows"
+msgstr "Schakelen tussen vensters"
+
+#: dockPrefs.js:31
+#, fuzzy
+msgid "Minimise or Show in Overview"
+msgstr "Minimaliseren of activiteitenoverzicht"
+
+#: dockPrefs.js:32
+#, fuzzy
+msgid "Show Window Previews"
+msgstr "Venstervoorbeelden tonen"
+
+#: dockPrefs.js:33
+#, fuzzy
+msgid "Minimise or Show Previews"
+msgstr "Minimaliseren of voorbeelden tonen"
+
+#: dockPrefs.js:34
+#, fuzzy
+msgid "Focus or Show Previews"
+msgstr "Focussen of voorbeelden tonen"
+
+#: dockPrefs.js:35
+#, fuzzy
+msgid "Focus or Spread Out Windows"
+msgstr "Focussen of voorbeelden tonen"
+
+#: dockPrefs.js:36
+#, fuzzy
+msgid "Focus, Minimise or Show Previews"
+msgstr "Minimaliseren of voorbeelden tonen"
+
+#: dockPrefs.js:37
+msgid "Focus, Minimise or Spread Out Windows"
+msgstr ""
+
+#: dockPrefs.js:38
+msgid "Quit the App"
+msgstr ""
+
+#: dockPrefs.js:42
+#, fuzzy
+msgid "Do Nothing"
+msgstr "Niets doen"
+
+#: dockPrefs.js:44
+#, fuzzy
+msgid "Switch Workspace"
+msgstr "Van werkblad wisselen"
+
+#: dockPrefs.js:48
+#, fuzzy
+msgid "Any Window"
 msgstr "Alle vensters"
 
-#: Settings.ui.h:105
-msgid "Only focused application's windows"
-msgstr "Alleen gefocuste programmavensters"
+#: dockPrefs.js:49
+#, fuzzy
+msgid "Windows of the Focused App"
+msgstr "Alleen vensters van de huidige gefocuste applicatie overwegen"
 
-#: Settings.ui.h:106
-msgid "Only maximized windows"
+#: dockPrefs.js:50
+#, fuzzy
+msgid "Maximised Windows Only"
 msgstr "Alleen gemaximaliseerde vensters"
 
-#: Settings.ui.h:107
-msgid "Animation duration (s)"
+#: dockPrefs.js:51
+msgid "Never, Stay on Top"
+msgstr ""
+
+#: dockPrefs.js:55 dockPrefs.js:61
+#, fuzzy
+msgid "Theme Default"
+msgstr "Standaard"
+
+#: dockPrefs.js:56
+msgid "Fixed"
+msgstr "Vooringesteld"
+
+#: dockPrefs.js:57
+msgid "Adaptive"
+msgstr ""
+
+#: dockPrefs.js:62
+msgid "Dots"
+msgstr "Stipjes"
+
+#: dockPrefs.js:63
+msgid "Squares"
+msgstr "Vierkantjes"
+
+#: dockPrefs.js:64
+msgid "Dashes"
+msgstr "Streepjes"
+
+#: dockPrefs.js:65
+#, fuzzy
+msgid "Segmented Line"
+msgstr "Gesegmenteerd"
+
+#: dockPrefs.js:66
+#, fuzzy
+msgid "Solid Line"
+msgstr "Vast"
+
+#: dockPrefs.js:67
+msgid "Line and Dots"
+msgstr ""
+
+#: dockPrefs.js:68
+msgid "Full-Width Bar"
+msgstr ""
+
+#: dockPrefs.js:69
+msgid "Binary Count"
+msgstr ""
+
+#: dockPrefs.js:70
+msgid "Single Dot"
+msgstr ""
+
+#: dockPrefs.js:360
+#, fuzzy
+msgid "Position"
+msgstr "Dock-Position"
+
+#: dockPrefs.js:373
+msgid "Placement"
+msgstr ""
+
+#: dockPrefs.js:380 dockPrefs.js:383
+msgid "Right"
+msgstr "Rechts"
+
+#: dockPrefs.js:380 dockPrefs.js:383
+msgid "Left"
+msgstr "Links"
+
+#: dockPrefs.js:381
+msgid "Bottom"
+msgstr "Onderaan"
+
+#: dockPrefs.js:382
+msgid "Top"
+msgstr "Bovenaan"
+
+#: dockPrefs.js:387
+msgid "Screen Edge"
+msgstr ""
+
+#: dockPrefs.js:391
+#, fuzzy
+msgid "Show on All Monitors"
+msgstr "Tonen op alle beeldschermen"
+
+#: dockPrefs.js:394
+msgid "Monitor"
+msgstr ""
+
+#: dockPrefs.js:395
+msgid "The monitor the dock appears on"
+msgstr ""
+
+#. Translators: followed by the monitor's name and connector
+#: dockPrefs.js:427
+#, fuzzy
+msgid "Primary"
+msgstr "Primair beeldscherm"
+
+#: dockPrefs.js:442
+msgid "Size"
+msgstr ""
+
+#: dockPrefs.js:444
+#, fuzzy
+msgid "Icon Size"
+msgstr "Maximale pictogramgrootte"
+
+#: dockPrefs.js:445
+msgid "The largest the icons can be. They shrink to fit when the dock is full."
+msgstr ""
+
+#: dockPrefs.js:450
+msgid "Keep Icons at Full Size"
+msgstr ""
+
+#: dockPrefs.js:451
+msgid ""
+"Scroll the dock to reach icons that do not fit, instead of shrinking them"
+msgstr ""
+
+#: dockPrefs.js:454
+#, fuzzy
+msgid "Maximum Length"
+msgstr "Maximale doorzichtigheid"
+
+#: dockPrefs.js:455
+msgid "How much of the screen edge the dock may use"
+msgstr ""
+
+#: dockPrefs.js:462
+msgid "Stretch to Fill the Edge"
+msgstr ""
+
+#: dockPrefs.js:463
+msgid "The dock runs the full length of the screen edge, like a panel"
+msgstr ""
+
+#: dockPrefs.js:464
+msgid "Centre the Icons"
+msgstr ""
+
+#: dockPrefs.js:465
+msgid "Keep the icons in the middle of the screen rather than at the start"
+msgstr ""
+
+#: dockPrefs.js:467
+msgid "Show Apps Button at the Edge"
+msgstr ""
+
+#: dockPrefs.js:468
+msgid ""
+"Keep the Show Apps button at the end of the dock when the icons are centred"
+msgstr ""
+
+#: dockPrefs.js:479
+msgid "Visibility"
+msgstr ""
+
+#: dockPrefs.js:481
+msgid ""
+"When the dock hides, it comes back when you move the pointer to its edge of "
+"the screen."
+msgstr ""
+
+#: dockPrefs.js:485
+msgid "Always Visible"
+msgstr ""
+
+#: dockPrefs.js:486
+msgid ""
+"Keep the dock on screen and fit windows around it. Turn off to let the dock "
+"hide."
+msgstr ""
+
+#: dockPrefs.js:489
+msgid "Hide When Windows Overlap"
+msgstr ""
+
+#: dockPrefs.js:490
+msgid "The dock steps aside when a window would cover it"
+msgstr ""
+
+#: dockPrefs.js:491
+msgid "Windows That Hide the Dock"
+msgstr ""
+
+#: dockPrefs.js:496
+msgid "Show When Pointer Reaches the Edge"
+msgstr ""
+
+#: dockPrefs.js:497
+#, fuzzy
+msgid "Reveal the hidden dock by moving the pointer to the screen edge"
+msgstr "Dock tonen door de muiscursor op de schermrand te plaatsen."
+
+#: dockPrefs.js:498
+msgid "Push to Reveal"
+msgstr ""
+
+#: dockPrefs.js:499
+msgid ""
+"Only show the dock when you push the pointer against the edge, to avoid "
+"showing it by accident"
+msgstr ""
+
+#: dockPrefs.js:502
+msgid "Push Strength"
+msgstr ""
+
+#: dockPrefs.js:503
+msgid "How hard you need to push, in pixels of pointer movement"
+msgstr ""
+
+#: dockPrefs.js:506
+#, fuzzy
+msgid "Show Delay"
+msgstr "Einblendeverzögerung [ms]"
+
+#: dockPrefs.js:507
+msgid "Seconds to wait at the edge before the dock appears"
+msgstr ""
+
+#: dockPrefs.js:510
+msgid "Also in Full-Screen Apps"
+msgstr ""
+
+#: dockPrefs.js:511
+msgid "Allow the dock to appear over full-screen windows"
+msgstr ""
+
+#: dockPrefs.js:513
+msgid "Show for Apps That Need Attention"
+msgstr ""
+
+#: dockPrefs.js:514
+msgid "Briefly show the dock when an app asks for your attention"
+msgstr ""
+
+#: dockPrefs.js:518
+#, fuzzy
+msgid "Hide Delay"
+msgstr "Ausblendeverzögerung [ms]"
+
+#: dockPrefs.js:519
+msgid "Seconds to wait after the pointer leaves before the dock hides"
+msgstr ""
+
+#: dockPrefs.js:523
+#, fuzzy
+msgid "Animation Duration"
 msgstr "Animatieduur (s)"
 
-#: Settings.ui.h:108
-msgid "Show timeout (s)"
-msgstr "Weergave-interval (s)"
+#: dockPrefs.js:524
+msgid "Seconds the dock takes to slide in and out"
+msgstr ""
 
-#: Settings.ui.h:109
-msgid "Pressure threshold"
-msgstr "Drukwaarde"
+#: dockPrefs.js:537
+#, fuzzy
+msgid "Behaviour"
+msgstr "Gedrag"
+
+#: dockPrefs.js:556
+msgid "StackDock Extras"
+msgstr ""
+
+#: dockPrefs.js:557
+#, fuzzy
+msgid "Optional features added by StackDock."
+msgstr "Optionale Funktionen"
+
+#: dockPrefs.js:560
+msgid "Previews on Hover"
+msgstr ""
+
+#: dockPrefs.js:561
+msgid "Show an app's windows when the pointer rests on its icon"
+msgstr ""
+
+#: dockPrefs.js:562
+msgid "Delay"
+msgstr ""
+
+#: dockPrefs.js:563
+msgid "Milliseconds to wait before the previews appear"
+msgstr ""
+
+#: dockPrefs.js:566
+msgid "Bounce While Launching"
+msgstr ""
+
+#: dockPrefs.js:567
+msgid "Bounce an app's icon while it starts, until its window appears"
+msgstr ""
+
+#: dockPrefs.js:569
+msgid "Match the Top Bar"
+msgstr ""
+
+#: dockPrefs.js:570
+msgid "Give the top bar the same colour and opacity as the dock"
+msgstr ""
+
+#: dockPrefs.js:579
+#, fuzzy
+msgid "Dock Contents"
+msgstr "Dock-Position"
+
+#: dockPrefs.js:581
+msgid "Pinned Apps"
+msgstr ""
+
+#: dockPrefs.js:582
+msgid "Running Apps"
+msgstr ""
+
+#: dockPrefs.js:583
+msgid "Apps that are open but not pinned"
+msgstr ""
+
+#: dockPrefs.js:586
+msgid "Show Apps Button"
+msgstr ""
+
+#: dockPrefs.js:587
+msgid "Opens the app grid"
+msgstr ""
+
+#: dockPrefs.js:588
+msgid "Place at the Start"
+msgstr ""
+
+#: dockPrefs.js:589
+msgid "Put the button before the apps instead of after them"
+msgstr ""
+
+#: dockPrefs.js:598
+msgid "Workspaces and Monitors"
+msgstr ""
+
+#: dockPrefs.js:604
+msgid "Only Apps on the Current Workspace"
+msgstr ""
+
+#: dockPrefs.js:615
+msgid "Show running apps only on the workspace they are on"
+msgstr ""
+
+#: dockPrefs.js:616
+msgid "Follows the Multitasking setting in GNOME Settings"
+msgstr ""
+
+#: dockPrefs.js:632
+msgid "Show Apps Needing Attention Everywhere"
+msgstr ""
+
+#: dockPrefs.js:633
+msgid "Apps asking for attention appear on every workspace"
+msgstr ""
+
+#: dockPrefs.js:635
+msgid "Only Apps on the Same Monitor"
+msgstr ""
+
+#: dockPrefs.js:636
+msgid "With a dock on each monitor, each shows only the apps on its monitor"
+msgstr ""
+
+#: dockPrefs.js:639
+msgid "Separate Trash and Drive Windows"
+msgstr ""
+
+#: dockPrefs.js:640
+msgid "Treat Files windows showing the trash or a drive as their own icons"
+msgstr ""
+
+#: dockPrefs.js:652
+msgid "Clicking and Scrolling"
+msgstr ""
+
+#: dockPrefs.js:653
+msgid "What happens when you click an app that is already open."
+msgstr ""
+
+#: dockPrefs.js:658
+msgid "Click"
+msgstr ""
+
+#: dockPrefs.js:662
+msgid "Other Clicks"
+msgstr ""
+
+#: dockPrefs.js:663
+msgid "Shift+click, middle-click and Shift+middle-click"
+msgstr ""
+
+#: dockPrefs.js:665
+#, fuzzy
+msgid "Shift+Click"
+msgstr "Shift+klikken-actie"
+
+#: dockPrefs.js:666
+#, fuzzy
+msgid "Middle-Click"
+msgstr "Middelklikactie"
+
+#: dockPrefs.js:667
+#, fuzzy
+msgid "Shift+Middle-Click"
+msgstr "Shift+middelklik-actie"
+
+#: dockPrefs.js:671
+#, fuzzy
+msgid "Scroll"
+msgstr "Scrollactie"
+
+#: dockPrefs.js:674
+msgid ""
+"Only works between icons, because Keep Icons at Full Size scrolls the dock"
+msgstr ""
+
+#: dockPrefs.js:675
+msgid "Scrolling over an app's icon"
+msgstr ""
+
+#: dockPrefs.js:684
+#, fuzzy
+msgid "Window Previews"
+msgstr "Venstervoorbeelden tonen"
+
+#: dockPrefs.js:686
+msgid "Previews in App Menus"
+msgstr ""
+
+#: dockPrefs.js:687
+msgid "Show pictures of the open windows instead of a list of their names"
+msgstr ""
+
+#: dockPrefs.js:689
+msgid "Preview Size"
+msgstr ""
+
+#: dockPrefs.js:690
+msgid "Leave at Automatic to fit the screen"
+msgstr ""
+
+#: dockPrefs.js:692 stacks.js:2239 stacksPrefs.js:105
+msgid "Automatic"
+msgstr ""
+
+#: dockPrefs.js:700
+msgid "Icons"
+msgstr ""
+
+#: dockPrefs.js:702
+msgid "Wiggle Apps Needing Attention"
+msgstr ""
+
+#: dockPrefs.js:703
+msgid "Hide Name Tooltips"
+msgstr ""
+
+#: dockPrefs.js:704
+msgid "Don't show the app's name when the pointer rests on its icon"
+msgstr ""
+
+#: dockPrefs.js:705
+msgid "Keep the Focused App in View"
+msgstr ""
+
+#: dockPrefs.js:706
+msgid "Scroll the dock so the icon of the focused app is always visible"
+msgstr ""
+
+#: dockPrefs.js:708
+msgid "Badges"
+msgstr ""
+
+#: dockPrefs.js:709
+msgid "Counters and progress bars on app icons"
+msgstr ""
+
+#: dockPrefs.js:711
+msgid "Unread Notification Count"
+msgstr ""
+
+#: dockPrefs.js:714
+msgid "Prefer the App's Own Count"
+msgstr ""
+
+#: dockPrefs.js:715
+msgid "Apps that set their own badge show it instead of the notification count"
+msgstr ""
+
+#: dockPrefs.js:725
+msgid "Keyboard"
+msgstr ""
+
+#: dockPrefs.js:727
+msgid "Open Apps with Super+Number"
+msgstr ""
+
+#: dockPrefs.js:728
+msgid ""
+"Super+1 to Super+0 open the first ten apps. Add Shift or Ctrl for more "
+"actions."
+msgstr ""
+
+#: dockPrefs.js:729
+msgid "Show Numbers on Icons"
+msgstr ""
+
+#: dockPrefs.js:730
+msgid "Show each app's number while the shortcut below is held"
+msgstr ""
+
+#: dockPrefs.js:731
+#, fuzzy
+msgid "Show the Dock"
+msgstr "Dock tonen op"
+
+#: dockPrefs.js:732
+msgid "Briefly show a hidden dock when the shortcut below is pressed"
+msgstr ""
+
+#: dockPrefs.js:735
+msgid "Shortcut to Show Numbers"
+msgstr ""
+
+#: dockPrefs.js:744
+msgid "For example &lt;Super&gt;q"
+msgstr ""
+
+#: dockPrefs.js:751
+#, fuzzy
+msgid "Numbers Stay For"
+msgstr "Nummers tonen"
+
+#: dockPrefs.js:752
+msgid "Seconds the numbers and dock stay visible"
+msgstr ""
+
+#: dockPrefs.js:759
+msgid "Startup"
+msgstr ""
+
+#: dockPrefs.js:761
+msgid "Show the Overview at Login"
+msgstr ""
+
+#: dockPrefs.js:762
+msgid "Open Activities when you log in, as GNOME does by default"
+msgstr ""
+
+#: dockPrefs.js:773
+msgid "Appearance"
+msgstr "Uiterlijk"
+
+#: dockPrefs.js:786 dockPrefs.js:856
+msgid "Style"
+msgstr ""
+
+#: dockPrefs.js:788
+#, fuzzy
+msgid "Use the Built-in Style"
+msgstr "Ingebouwd thema gebruiken"
+
+#: dockPrefs.js:789
+msgid ""
+"A ready-made look that suits the default GNOME theme. Turn off to choose the "
+"colours, opacity and indicators yourself."
+msgstr ""
+
+#: dockPrefs.js:791
+msgid "Compact"
+msgstr ""
+
+#: dockPrefs.js:792
+msgid "Less padding and smaller rounded corners"
+msgstr ""
+
+#: dockPrefs.js:793
+#, fuzzy
+msgid "Square Corners"
+msgstr "Vierkantjes"
+
+#: dockPrefs.js:795
+msgid "Coloured Icon Backgrounds"
+msgstr ""
+
+#: dockPrefs.js:796
+msgid "Light each running app with its icon's main colour, as Unity did"
+msgstr ""
+
+#: dockPrefs.js:797
+msgid "Glossy Finish"
+msgstr ""
+
+#: dockPrefs.js:805
+msgid "Background"
+msgstr ""
+
+#: dockPrefs.js:809
+msgid "Custom Colour"
+msgstr ""
+
+#: dockPrefs.js:810
+msgid "Use your own background colour instead of the theme's"
+msgstr ""
+
+#: dockPrefs.js:812
+#, fuzzy
+msgid "Dock Colour"
+msgstr "Kleur"
+
+#: dockPrefs.js:822
+msgid "Opacity"
+msgstr "Doorzichtigheid"
+
+#: dockPrefs.js:823
+msgid "Adaptive makes the dock more solid when a window is next to it"
+msgstr ""
+
+#: dockPrefs.js:828
+#, fuzzy
+msgid "Fixed Opacity"
+msgstr "Doorzichtigheid"
+
+#: dockPrefs.js:834
+msgid "Custom Adaptive Range"
+msgstr ""
+
+#: dockPrefs.js:835
+msgid "Choose how see-through the dock is with and without a window next to it"
+msgstr ""
+
+#: dockPrefs.js:836
+msgid "No Window Nearby"
+msgstr ""
+
+#: dockPrefs.js:839
+msgid "Window Nearby"
+msgstr ""
+
+#: dockPrefs.js:851
+#, fuzzy
+msgid "Running App Indicators"
+msgstr "Indicatoren van draaiende programma's aanpassen"
+
+#: dockPrefs.js:852
+msgid ""
+"The marks under the icons of open apps. Most styles show one mark per window."
+msgstr ""
+
+#: dockPrefs.js:861
+msgid "Match Each App's Icon"
+msgstr ""
+
+#: dockPrefs.js:861
+msgid "Colour the indicators with the icon's main colour"
+msgstr ""
+
+#: dockPrefs.js:866
+msgid "Custom Colours"
+msgstr ""
+
+#: dockPrefs.js:866
+msgid "Use the same colours for every app"
+msgstr ""
+
+#: dockPrefs.js:867
+#, fuzzy
+msgid "Colour"
+msgstr "Kleur"
+
+#: dockPrefs.js:869
+#, fuzzy
+msgid "Border Colour"
+msgstr "Randkleur"
+
+#: dockPrefs.js:871
+#, fuzzy
+msgid "Border Width"
+msgstr "Randbreedte"
+
+#: dockPrefs.js:871
+msgid "In pixels"
+msgstr ""
+
+#: stacks.js:247
+msgid "Unnamed Folder"
+msgstr ""
+
+#: stacks.js:495
+msgid "Home"
+msgstr ""
+
+#: stacks.js:733 stacksPrefs.js:257
+msgid "Drives"
+msgstr ""
+
+#: stacks.js:909 stacks.js:2183
+#, javascript-format
+msgid "Could not open “%s”"
+msgstr ""
+
+#: stacks.js:971
+#, javascript-format
+msgid "Could not move “%s” to the trash"
+msgstr ""
+
+#: stacks.js:998
+#, javascript-format
+msgid "Could not copy “%s”"
+msgstr ""
+
+#: stacks.js:999
+#, javascript-format
+msgid "Could not move “%s”"
+msgstr ""
+
+#: stacks.js:1385
+msgid "Open"
+msgstr ""
+
+#: stacks.js:1388
+msgid "Open With…"
+msgstr ""
+
+#: stacks.js:1389
+#, fuzzy
+msgid "Show in Files"
+msgstr "Venstervoorbeelden tonen"
+
+#: stacks.js:1391
+msgid "Move to Trash"
+msgstr ""
+
+#: stacks.js:1397
+msgid "Remove from Folder"
+msgstr ""
+
+#: stacks.js:1477 stacks.js:1483 stacks.js:1797 stacks.js:2232
+msgid "Open in Files"
+msgstr ""
+
+#: stacks.js:1482
+#, javascript-format
+msgid "%d more in Files"
+msgid_plural "%d more in Files"
+msgstr[0] ""
+msgstr[1] ""
+
+#: stacks.js:1665
+msgid "No matches"
+msgstr ""
+
+#: stacks.js:1666
+msgid "This folder is empty"
+msgstr ""
+
+#: stacks.js:1666
+msgid "Nothing here"
+msgstr ""
+
+#: stacks.js:1711
+msgid "Rename Folder"
+msgstr ""
+
+#: stacks.js:1732
+msgid "Search"
+msgstr ""
+
+#: stacks.js:1873
+#, javascript-format
+msgid "%d item"
+msgid_plural "%d items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: stacks.js:1874
+#, javascript-format
+msgid "%d of %d"
+msgstr ""
+
+#: stacks.js:2237
+msgid "View as"
+msgstr ""
+
+#: stacks.js:2240 stacksPrefs.js:105
+msgid "Fan"
+msgstr ""
+
+#: stacks.js:2241 stacksPrefs.js:105
+msgid "Grid"
+msgstr ""
+
+#: stacks.js:2250
+msgid "Display as"
+msgstr ""
+
+#: stacks.js:2252 stacksPrefs.js:164
+msgid "Folder"
+msgstr ""
+
+#: stacks.js:2253 stacksPrefs.js:164
+msgid "Stack"
+msgstr ""
+
+#: stacks.js:2265
+msgid "Sort by"
+msgstr ""
+
+#: stacks.js:2267 stacksPrefs.js:120
+msgid "Date Modified"
+msgstr ""
+
+#: stacks.js:2268 stacksPrefs.js:120
+msgid "Name"
+msgstr ""
+
+#: stacks.js:2269 stacksPrefs.js:120
+msgid "Kind"
+msgstr ""
+
+#: stacks.js:2280
+msgid "Rename Folder…"
+msgstr ""
+
+#: stacks.js:2284 stacksPrefs.js:188
+msgid "Remove from Dock"
+msgstr ""
+
+#: stacks.js:2287
+#, fuzzy
+msgid "Stack Settings…"
+msgstr "Grundeinstellungen"
+
+#: stacksPrefs.js:83
+msgid "Stacks"
+msgstr ""
+
+#: stacksPrefs.js:97
+msgid "Opening Stacks"
+msgstr ""
+
+#: stacksPrefs.js:99
+msgid ""
+"Small stacks fan out from the dock; bigger ones open as a grid you can "
+"search. Right-click a stack in the dock for the same options."
+msgstr ""
+
+#: stacksPrefs.js:104
+msgid "View As"
+msgstr ""
+
+#: stacksPrefs.js:112
+msgid "Largest Fan"
+msgstr ""
+
+#: stacksPrefs.js:113
+msgid "In automatic view, stacks with more items open as a grid"
+msgstr ""
+
+#: stacksPrefs.js:119
+msgid "Sort Files By"
+msgstr ""
+
+#: stacksPrefs.js:131
+msgid "Add Folder…"
+msgstr ""
+
+#: stacksPrefs.js:138
+msgid "Folder Stacks"
+msgstr ""
+
+#: stacksPrefs.js:139
+msgid "Folders shown near the end of the dock, such as Downloads or Documents."
+msgstr ""
+
+#: stacksPrefs.js:147
+msgid "No folders yet. Press + to add one."
+msgstr ""
+
+#: stacksPrefs.js:167
+msgid "Show the folder icon, or the newest file in the folder"
+msgstr ""
+
+#: stacksPrefs.js:202
+msgid "Add a Folder Stack"
+msgstr ""
+
+#: stacksPrefs.js:203
+msgid "Add"
+msgstr ""
+
+#: stacksPrefs.js:222
+msgid "App Folder Stacks"
+msgstr ""
+
+#: stacksPrefs.js:224
+msgid ""
+"App grid folders shown right after your pinned apps. To make a folder, open "
+"Activities and drag one app onto another."
+msgstr ""
+
+#: stacksPrefs.js:232
+msgid "You have no app folders yet."
+msgstr ""
+
+#: stacksPrefs.js:260
+#, fuzzy
+msgid "Show Drives in the Dock"
+msgstr "Dock tonen op"
+
+#: stacksPrefs.js:261
+msgid "USB drives, memory cards, and other mounted volumes"
+msgstr ""
+
+#: stacksPrefs.js:267
+msgid "Group Drives into a Stack"
+msgstr ""
+
+#: stacksPrefs.js:268
+msgid "Show all drives as one Drives stack instead of separate icons"
+msgstr ""
+
+#: stacksPrefs.js:275
+msgid "Only Mounted Drives"
+msgstr ""
+
+#: stacksPrefs.js:276
+msgid "Hide drives that are plugged in but not mounted"
+msgstr ""
+
+#: stacksPrefs.js:284
+msgid "Include Network Drives"
+msgstr ""
+
+#: stacksPrefs.js:285
+msgid "Also show mounted network shares"
+msgstr ""
+
+#: aboutPrefs.js:62
+#, fuzzy, javascript-format
+msgid "Version %s"
+msgstr "versie: "
+
+#: aboutPrefs.js:81
+msgid "Source code"
+msgstr ""
+
+#: aboutPrefs.js:82
+msgid "Report a problem"
+msgstr ""
+
+#: aboutPrefs.js:82
+msgid "Open an issue on GitHub"
+msgstr ""
+
+#: aboutPrefs.js:88
+msgid "Credits"
+msgstr ""
+
+#: aboutPrefs.js:91
+msgid "StackDock"
+msgstr ""
+
+#: aboutPrefs.js:94
+msgid "The dock StackDock is built on, by Michele Gaio and contributors"
+msgstr ""
+
+#: aboutPrefs.js:97
+msgid "The original stacks code, by dragosol"
+msgstr ""
+
+#: aboutPrefs.js:104
+msgid "GNU General Public Licence, version 2 or later"
+msgstr ""
+
+#: aboutPrefs.js:105
+msgid "This program comes with absolutely no warranty"
+msgstr ""
+
+#~ msgid "Secondary monitor "
+#~ msgstr "Secundair beeldscherm"
+
+#~ msgid "Intelligent autohide customization"
+#~ msgstr "Voorkeuren voor slim verbergen"
+
+#~ msgid "Reset to defaults"
+#~ msgstr "Standaardwaarden"
+
+#~ msgid "Show dock and application numbers"
+#~ msgstr "Dock en programmanummers tonen"
+
+#~ msgid "Customize middle-click behavior"
+#~ msgstr "Middelste muisknop-gedrag aanpassen"
+
+#~ msgid "Customize opacity"
+#~ msgstr "Doorzichtigheid aanpassen"
+
+#~ msgid ""
+#~ "When set to minimize, double clicking minimizes all the windows of the "
+#~ "application."
+#~ msgstr ""
+#~ "Als je gekozen hebt voor minimaliseren, dan zorgt dubbelklikken ervoor "
+#~ "dat alle vensters van het huidige programma worden geminimaliseerd."
+
+#~ msgid "Raise window"
+#~ msgstr "Venster naar voren halen"
+
+#~ msgid "Minimize window"
+#~ msgstr "Venster minimalisren"
+
+#~ msgid "Launch new instance"
+#~ msgstr "Nieuw proces openen"
+
+#~ msgid "Behavior for Middle-Click."
+#~ msgstr "Wat er gebeurt bij middelklikken."
+
+#~ msgid "Behavior for Shift+Middle-Click."
+#~ msgstr "Wat er gebeurt bij Shift+middelklikken."
+
+#~ msgid "Enable Unity7 like glossy backlit items"
+#~ msgstr "Unity7-achtige itemachtergrond gebruiken"
+
+#~ msgid "Use dominant color"
+#~ msgstr "Dominante kleur gebruiken"
+
+#~ msgid "Customize indicator style"
+#~ msgstr "Indicatorstijl aanpassen"
+
+#~ msgid "Position on screen"
+#~ msgstr "Positie op het scherm"
+
+#~ msgid ""
+#~ "Hide the dock when it obstructs a window of the current application. More "
+#~ "refined settings are available."
+#~ msgstr ""
+#~ "Verberg het dock als het een venster van het huidige programma in de weg "
+#~ "zit. Er zijn uitgebreide instellingen hiervoor beschikbaar."
+
+#~ msgid "Intelligent autohide"
+#~ msgstr "Slim verbergen"
+
+#~ msgid "Dock size limit"
+#~ msgstr "Maximale dockgrootte"
+
+#~ msgid "Panel mode: extend to the screen edge"
+#~ msgstr "Paneelmodus: uitrekken tot aan de schermrand"
+
+#~ msgid "Fixed icon size: scroll to reveal other icons"
+#~ msgstr ""
+#~ "Vastgezette pictogramgrootte: scroll om meer pictogrammen weer te geven"
+
+#~ msgid "Position and size"
+#~ msgstr "Positie en grootte"
+
+#~ msgid "Show favorite applications"
+#~ msgstr "Favoriete programma's tonen"
+
+#~ msgid "Show running applications"
+#~ msgstr "Geopende programma's tonen"
+
+#~ msgid "Isolate workspaces"
+#~ msgstr "Werkbladen isoleren"
+
+#~ msgid "Isolate monitors"
+#~ msgstr "Beeldschermen isoleren"
+
+#~ msgid "Show open windows previews"
+#~ msgstr "Voorbeelden van geopende vensters tonen"
+
+#~ msgid ""
+#~ "If disabled, these settings are accessible from gnome-tweak-tool or the "
+#~ "extension website."
+#~ msgstr ""
+#~ "Als je dit uitschakelt, dan zijn deze instellingen toegankelijk via gnome-"
+#~ "tweaks of de extensiesite."
+
+#~ msgid "Show <i>Applications</i> icon"
+#~ msgstr "Pictogram voor <i>Alle programma's</i> tonen"
+
+#~ msgid "Move the applications button at the beginning of the dock"
+#~ msgstr "Verplaatst de 'Alle programma's'-knop naar het begin van het dock"
+
+#~ msgid "Animate <i>Show Applications</i>"
+#~ msgstr "Animatie na klikken op <i>Alle programma's tonen</i>"
+
+#~ msgid "Show trash can"
+#~ msgstr "Prullenbak tonen"
+
+#~ msgid "Show mounted volumes and devices"
+#~ msgstr "Aangekoppelde schijven en apparaten tonen"
+
+#~ msgid "Launchers"
+#~ msgstr "Starters"
+
+#~ msgid ""
+#~ "Enable Super+(0-9) as shortcuts to activate apps. It can also be used "
+#~ "together with Shift and Ctrl."
+#~ msgstr ""
+#~ "Gebruik Super+(0-9) om programma's te openen en focussen. Kan ook worden "
+#~ "gebruikt met Shift en Ctrl."
+
+#~ msgid "Use keyboard shortcuts to activate apps"
+#~ msgstr "Sneltoetsen gebruiken om programma's te openen/focussen"
+
+#~ msgid "Behaviour when clicking on the icon of a running application."
+#~ msgstr ""
+#~ "Wat er gebeurt bij het klikken op het pictogram van een geopend programma."
+
+#~ msgid "Click action"
+#~ msgstr "Klikactie"
+
+#~ msgid "Minimize"
+#~ msgstr "Minimaliseren"
+
+#~ msgid "Behaviour when scrolling on the icon of an application."
+#~ msgstr ""
+#~ "Wat er gebeurt bij het scrollen op het pictogram van een geopend "
+#~ "programma."
+
+#~ msgid ""
+#~ "Few customizations meant to integrate the dock with the default GNOME "
+#~ "theme. Alternatively, specific options can be enabled below."
+#~ msgstr ""
+#~ "Enkele aanpassingen, bedoeld om het dock te integreren met het standaard "
+#~ "GNOME-thema. In plaats daarvan kun je hieronder specifieke opties "
+#~ "inschakelen."
+
+#~ msgid "Save space reducing padding and border radius."
+#~ msgstr "Bespaar ruimte door de straal van de dikte en rand te verkleinen."
+
+#~ msgid "Shrink the dash"
+#~ msgstr "Snelstarter verkleinen"
+
+#~ msgid "Customize windows counter indicators"
+#~ msgstr "Vensterindicatoren aanpassen"
+
+#~ msgid "Ciliora"
+#~ msgstr "Ciliora"
+
+#~ msgid "Metro"
+#~ msgstr "Metro"
+
+#~ msgid "Set the background color for the dash."
+#~ msgstr "Stel de achtergrondkleur in van de snelstarter."
+
+#~ msgid "Customize the dash color"
+#~ msgstr "Snelstarterkleur aanpassen"
+
+#~ msgid "Tune the dash background opacity."
+#~ msgstr "Pas de doorzichtigheid van de snelstarterachtergrond aan."
+
+#~ msgid "Dynamic"
+#~ msgstr "Dynamisch"
+
+#~ msgid "Force straight corner\n"
+#~ msgstr "Rechte hoek afdwingen\n"
+
+#~ msgid "Moves the dash out of the overview transforming it in a dock"
+#~ msgstr ""
+#~ "Toont de snelstarter buiten het activiteitenoverzicht zodat het een dock "
+#~ "wordt"
+
+#~ msgid "Created by"
+#~ msgstr "Gemaakt door"
+
+#~ msgid "Webpage"
+#~ msgstr "Website"
+
+#~ msgid ""
+#~ "<span size=\"small\">This program comes with ABSOLUTELY NO WARRANTY.\n"
+#~ "See the <a href=\"https://www.gnu.org/licenses/old-licenses/"
+#~ "gpl-2.0.html\">GNU General Public License, version 2 or later</a> for "
+#~ "details.</span>"
+#~ msgstr ""
+#~ "<span size=\"small\">Dit programma wordt geleverd ZONDER ENIGE GARANTIE.\n"
+#~ "Lees de <a href=\"https://www.gnu.org/licenses/old-licenses/"
+#~ "gpl-2.0.html\">GNU General Public License, versie 2 of nieuwer</a>, voor "
+#~ "meer informatie.</span>"
+
+#~ msgid "Customize minimum and maximum opacity values"
+#~ msgstr "Minimum- en maximumwaarden van doorzichtigheid aanpassen"
+
+#~ msgid "Minimum opacity"
+#~ msgstr "Minimale doorzichtigheid"
+
+#~ msgid ""
+#~ "Temporarily show the application numbers over the icons, corresponding to "
+#~ "the shortcut."
+#~ msgstr ""
+#~ "Toon tijdelijk de programmanummers, behorende bij de sneltoets, op de "
+#~ "pictogrammen."
+
+#~ msgid "Show the dock if it is hidden"
+#~ msgstr "Dock tonen indien verborgen"
+
+#~ msgid ""
+#~ "If using autohide, the dock will appear for a short time when triggering "
+#~ "the shortcut."
+#~ msgstr ""
+#~ "Als je automatisch verbergen gebruikt, dan wordt het dock, middels de "
+#~ "sneltoets, korte tijd getoond."
+
+#~ msgid "Shortcut for the options above"
+#~ msgstr "Sneltoets voor bovenstaande opties"
+
+#~ msgid "Syntax: <Shift>, <Ctrl>, <Alt>, <Super>"
+#~ msgstr "Syntax: <Shift>, <Ctrl>, <Alt>, <Super>"
+
+#~ msgid "Hide timeout (s)"
+#~ msgstr "Verberginterval (s)"
+
+#~ msgid "Autohide"
+#~ msgstr "Automatisch verbergen"
+
+#~ msgid "Push to show: require pressure to show the dock"
+#~ msgstr "Tonen middels druk: druk toepassen om het dock te tonen"
+
+#~ msgid "Enable in fullscreen mode"
+#~ msgstr "Inschakelen in beeldvullende modus"
+
+#~ msgid "Show the dock when it doesn't obstruct application windows."
+#~ msgstr "Toon het dock als het geen programmavensters in de weg zit."
+
+#~ msgid "Dodge windows"
+#~ msgstr "Vensters ontwijken"
+
+#~ msgid "All windows"
+#~ msgstr "Alle vensters"
+
+#~ msgid "Only focused application's windows"
+#~ msgstr "Alleen gefocuste programmavensters"
+
+#~ msgid "Show timeout (s)"
+#~ msgstr "Weergave-interval (s)"
+
+#~ msgid "Pressure threshold"
+#~ msgstr "Drukwaarde"
 
 #~ msgid "Show a dot for each windows of the application."
 #~ msgstr "Toon een stip voor elk geopend venster."
@@ -546,23 +1495,8 @@ msgstr "Drukwaarde"
 #~ msgid "Switch workspace by scrolling on the dock"
 #~ msgstr "Van werkblad wisselen door te scrollen op het dock"
 
-#~ msgid "Only consider windows of the focused application"
-#~ msgstr "Alleen vensters van de huidige gefocuste applicatie overwegen"
-
-#~ msgid "Main Settings"
-#~ msgstr "Grundeinstellungen"
-
-#~ msgid "Dock Position"
-#~ msgstr "Dock-Position"
-
 #~ msgid "Dock is fixed and always visible"
 #~ msgstr "Das Dock hat eine feste Position und ist immer sichtbar"
-
-#~ msgid "Show delay [ms]"
-#~ msgstr "Einblendeverzögerung [ms]"
-
-#~ msgid "Hide delay [ms]"
-#~ msgstr "Ausblendeverzögerung [ms]"
 
 #~ msgid "Application based intellihide"
 #~ msgstr "Anwendungsbasiertes intelligentes Verstecken"
@@ -608,9 +1542,6 @@ msgstr "Drukwaarde"
 
 #~ msgid "64"
 #~ msgstr "64"
-
-#~ msgid "Optional features"
-#~ msgstr "Optionale Funktionen"
 
 #~ msgid "Deadtime between each workspace switching [ms]"
 #~ msgstr "Stillstandszeit zwischen Arbeitsflächenwechsel [ms]"
