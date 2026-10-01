@@ -425,6 +425,12 @@ export const DockDash = GObject.registerClass({
                 });
             }
 
+            // The upstream code mirrors the position for right-to-left text,
+            // which only makes sense along a horizontal dock
+            propertyInjections.add(this, 'text_direction', {
+                get: () => Clutter.TextDirection.LTR,
+            });
+
             ret = Dash.Dash.prototype.handleDragOver.call(this, source, actor, y, x, time);
             propertyInjections.destroy();
 
@@ -434,17 +440,6 @@ export const DockDash = GObject.registerClass({
             if (this._dragPlaceholder) {
                 this._dragPlaceholder.child.set_width(this.iconSize / 2);
                 this._dragPlaceholder.child.set_height(this.iconSize);
-
-                let pos = this._dragPlaceholderPos;
-                if (this._isHorizontal &&
-                    Clutter.get_default_text_direction() === Clutter.TextDirection.RTL)
-                    pos = this._box.get_children() - 1 - pos;
-
-                if (pos !== this._dragPlaceholderPos) {
-                    this._dragPlaceholderPos = pos;
-                    this._box.set_child_at_index(this._dragPlaceholder,
-                        this._dragPlaceholderPos);
-                }
             }
         }
 
