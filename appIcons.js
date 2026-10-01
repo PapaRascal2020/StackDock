@@ -156,6 +156,9 @@ export const DockAbstractAppIcon = GObject.registerClass({
         this._signalsHandler.add(this.app, 'windows-changed', () => this._updateWindows());
         this._signalsHandler.add(this.app, 'notify::state', () => {
             this._updateRunningState();
+            // The focus state depends on the running state, so it may have
+            // been worked out while the app was still starting
+            this._updateFocusState();
             this._syncLaunchBounce();
         });
         this._signalsHandler.add(global.display, 'window-demands-attention', (_dpy, window) =>
@@ -604,6 +607,11 @@ export const DockAbstractAppIcon = GObject.registerClass({
                 buttonAction = clickAction.FOCUS_MINIMIZE_OR_PREVIEWS;
             break;
         }
+
+        // The cached running and focused state can be stale if the tracking
+        // events arrived in an unlucky order while the app was starting, so
+        // refresh it to make the action match the actual state.
+        this._updateState();
 
         // We check if the app is running, and that the # of windows is > 0 in
         // case we use workspace isolation.
@@ -1932,7 +1940,7 @@ export function itemShowLabel() {
     /* eslint-disable no-invalid-this */
     // Check if the label is still present at all. When switching workspace, the
     // item might have been destroyed in between.
-    if (!this._labelText || !this.label.get_stage())
+    if (!this._labelText || !this.label?.get_stage())
         return;
 
     this.label.set_text(this._labelText);

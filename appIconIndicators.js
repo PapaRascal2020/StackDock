@@ -629,8 +629,8 @@ class RunningIndicatorMetro extends RunningIndicatorDots {
                 const blackenedLength = (1 / 48) * this._width;
                 const darkenedLength = this._source.focused
                     ? (2 / 48) * this._width : (10 / 48) * this._width;
-                const blackenedColor = this._bodyColor.shade(.3);
-                const darkenedColor = this._bodyColor.shade(.7);
+                const blackenedColor = Utils.shadeColor(this._bodyColor, .3);
+                const darkenedColor = Utils.shadeColor(this._bodyColor, .7);
 
                 cr.translate(0, yOffset);
 

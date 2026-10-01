@@ -2463,13 +2463,19 @@ export class DockManager {
             return box;
         };
 
-        const maybeLimitWorkspaceBoxSize = box => {
+        const maybeLimitWorkspaceBoxSize = (box, monitorIndex) => {
+            if (!Meta.prefs_get_dynamic_workspaces() &&
+                Meta.prefs_get_num_workspaces() <= 1)
+                return box;
+
+            if (global.workspaceManager.layout_rows === -1)
+                return box;
+
             // Workspaces preserve the monitor work area aspect ratio, so when
             // the dock reduces the available width we must reduce the height
             // too, otherwise the current workspace fills the whole box and
             // pushes the adjacent ones outside of the visible area.
-            const workArea = Main.layoutManager.getWorkAreaForMonitor(
-                Main.layoutManager.primaryIndex);
+            const workArea = Main.layoutManager.getWorkAreaForMonitor(monitorIndex);
             if (workArea.width <= 0 || workArea.height <= 0)
                 return box;
 
@@ -2589,16 +2595,18 @@ export class DockManager {
                     return originalFunction.call(this, state, ...args);
 
                 const box = workspaceBoxOriginFixer.call(this, originalFunction, state, ...args);
-                // GNOME 46 changes "spacing" to "_spacing".
-                const spacing = this.spacing ?? this._spacing;
                 const dock = DockManager.getDefault().getDockByMonitor(Main.layoutManager.primaryIndex);
                 if (!dock)
                     return box;
 
+                // GNOME 46 changes "spacing" to "_spacing".
+                const spacing = this.spacing ?? this._spacing;
                 const adjustedBox = maybeAdjustBoxSize(state, box, spacing);
 
-                if (state === OverviewControls.ControlsState.WINDOW_PICKER)
-                    return maybeLimitWorkspaceBoxSize(adjustedBox);
+                if (state === OverviewControls.ControlsState.WINDOW_PICKER) {
+                    return maybeLimitWorkspaceBoxSize(
+                        adjustedBox, Main.layoutManager.primaryIndex);
+                }
 
                 return adjustedBox;
                 /* eslint-enable no-invalid-this */
@@ -2615,12 +2623,19 @@ export class DockManager {
                 const dock = DockManager.getDefault().getDockByMonitor(this._monitorIndex);
                 if (!dock)
                     return box;
-                if (state === OverviewControls.ControlsState.WINDOW_PICKER &&
-                    dock.position === St.Side.BOTTOM) {
+
+                if (state !== OverviewControls.ControlsState.WINDOW_PICKER)
+                    return box;
+
+                if (dock.position === St.Side.BOTTOM) {
                     const [, preferredHeight] = dock.get_preferred_height(box.get_width());
                     box.y2 -= preferredHeight;
                 }
-                return box;
+
+                if (this._workspacesView instanceof WorkspacesView.ExtraWorkspaceView)
+                    return box;
+
+                return maybeLimitWorkspaceBoxSize(box, this._monitorIndex);
                 /* eslint-enable no-invalid-this */
             },
         ], [

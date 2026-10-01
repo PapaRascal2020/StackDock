@@ -343,6 +343,10 @@ export const DockDash = GObject.registerClass({
     }
 
     _onDestroy() {
+        // Destroy the items while the scroll view is still whole: a hovered
+        // item restyles the scroll view as it goes, which otherwise happens
+        // after the scroll view has dropped its adjustments.
+        this._box.destroy_all_children();
         this.iconAnimator.destroy();
 
         if (this._requiresVisibilityTimeout) {
@@ -425,6 +429,12 @@ export const DockDash = GObject.registerClass({
                 });
             }
 
+            // The upstream code mirrors the position for right-to-left text,
+            // which only makes sense along a horizontal dock
+            propertyInjections.add(this, 'text_direction', {
+                get: () => Clutter.TextDirection.LTR,
+            });
+
             ret = Dash.Dash.prototype.handleDragOver.call(this, source, actor, y, x, time);
             propertyInjections.destroy();
 
@@ -434,17 +444,6 @@ export const DockDash = GObject.registerClass({
             if (this._dragPlaceholder) {
                 this._dragPlaceholder.child.set_width(this.iconSize / 2);
                 this._dragPlaceholder.child.set_height(this.iconSize);
-
-                let pos = this._dragPlaceholderPos;
-                if (this._isHorizontal &&
-                    Clutter.get_default_text_direction() === Clutter.TextDirection.RTL)
-                    pos = this._box.get_children() - 1 - pos;
-
-                if (pos !== this._dragPlaceholderPos) {
-                    this._dragPlaceholderPos = pos;
-                    this._box.set_child_at_index(this._dragPlaceholder,
-                        this._dragPlaceholderPos);
-                }
             }
         }
 
@@ -915,7 +914,10 @@ export const DockDash = GObject.registerClass({
 
         const favorites = AppFavorites.getAppFavorites().getFavoriteMap();
 
-        let running = this._appSystem.get_running();
+        // wl-copy and wl-paste flash a window, which should not get an icon
+        let running = this._appSystem.get_running().filter(app =>
+            !app.is_window_backed() ||
+            !app.get_windows().every(w => Utils.isClipboardHelperWindow(w)));
         const dockManager = Docking.DockManager.getDefault();
         const {settings} = dockManager;
 
@@ -1002,7 +1004,6 @@ export const DockDash = GObject.registerClass({
         const addedStacks = this._syncStackItems();
 
         // Temporary remove the separator so that we don't compute to position icons
-        const oldSeparatorPos = this._box.get_children().indexOf(this._separator);
         if (this._separator)
             this._box.remove_child(this._separator);
 
@@ -1116,13 +1117,22 @@ export const DockDash = GObject.registerClass({
                 });
                 this._separator.connect('notify::hover', a => this._ensureItemVisibility(a));
             }
-            let pos = nFavorites + this._animatingPlaceholdersCount;
-            if (this._dragPlaceholder)
-                pos++;
-            const removedFavorites = removedActors.filter(a =>
-                children.indexOf(a) < oldSeparatorPos);
-            pos += removedFavorites.length;
-            this._box.insert_child_at_index(this._separator, pos);
+            // Put the separator right after the last pinned app, or a drag
+            // placeholder among them. Counting positions goes wrong when
+            // icons are moved, as the old ones stay in place while they
+            // animate out. Pinned stacks are then placed before it.
+            const lastPinned = showFavorites && this._box.get_children().findLast(actor =>
+                actor.child?.has_style_class_name?.('placeholder') ||
+                (!actor.animatingOut && !removedActors.includes(actor) &&
+                 actor.child?._delegate?.app?.get_id() in favorites));
+            if (lastPinned) {
+                this._box.insert_child_above(this._separator, lastPinned);
+            } else {
+                let pos = nFavorites + this._animatingPlaceholdersCount;
+                if (this._dragPlaceholder)
+                    pos++;
+                this._box.insert_child_at_index(this._separator, pos);
+            }
         } else if (this._separator) {
             this._separator.destroy();
             this._separator = null;

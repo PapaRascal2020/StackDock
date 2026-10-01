@@ -1,5 +1,6 @@
 import {
     Clutter,
+    Cogl,
     GLib,
     Gio,
     GObject,
@@ -795,6 +796,38 @@ export function cairoSetSourceColor(cr, sourceColor) {
         Clutter.cairo_set_source_color(cr, sourceColor);
     else
         cr.setSourceColor(sourceColor);
+}
+
+/**
+ * Darken or lighten a colour by scaling its luminance and saturation, as
+ * Clutter.Color.shade() did. Clutter.Color was removed in Gnome Shell 47 and
+ * Cogl.Color has no shade() method, so this does the same on the HSL values.
+ *
+ * @param {*} color A Clutter.Color or Cogl.Color
+ * @param {number} factor How much to scale luminance and saturation by
+ * @returns The shaded colour, with the same alpha
+ */
+export function shadeColor(color, factor) {
+    if (color.shade)
+        return color.shade(factor);
+
+    const [hue, saturation, luminance] = color.to_hsl();
+    const shaded = Cogl.Color.init_from_hsl(hue,
+        clampDouble(saturation * factor), clampDouble(luminance * factor));
+    shaded.alpha = color.alpha;
+    return shaded;
+}
+
+/**
+ * Whether a window is the invisible one wl-copy and wl-paste open to reach
+ * the clipboard on GNOME. It only lives for a moment and has no app id or
+ * class, so it can only be told apart by its title.
+ *
+ * @param {Meta.Window} metaWindow The window to check
+ * @returns True for wl-clipboard's window
+ */
+export function isClipboardHelperWindow(metaWindow) {
+    return metaWindow?.get_title() === 'wl-clipboard';
 }
 
 /**

@@ -50,6 +50,16 @@
     <value value='8' nick='BINARY'/>
     <value value='9' nick='DOT'/>
   </enum>
+  <enum id='org.gnome.shell.extensions.stackdock.stack-view'>
+    <value value='0' nick='auto'/>
+    <value value='1' nick='fan'/>
+    <value value='2' nick='grid'/>
+  </enum>
+  <enum id='org.gnome.shell.extensions.stackdock.stack-sort'>
+    <value value='0' nick='modified'/>
+    <value value='1' nick='name'/>
+    <value value='2' nick='kind'/>
+  </enum>
   <schema path="/org/gnome/shell/extensions/stackdock/" id="org.gnome.shell.extensions.stackdock">
     <key name="dock-position" enum="org.gnome.shell.extensions.stackdock.position">
       <default>'BOTTOM'</default>
@@ -681,12 +691,7 @@
       <summary>Folder stacks shown as their newest file</summary>
       <description>Paths of folder stacks whose dock icon shows the most recently modified file inside, rather than a folder icon.</description>
     </key>
-    <key name="stack-view" type="s">
-      <choices>
-        <choice value="auto"/>
-        <choice value="fan"/>
-        <choice value="grid"/>
-      </choices>
+    <key name="stack-view" enum="org.gnome.shell.extensions.stackdock.stack-view">
       <default>'auto'</default>
       <summary>Stack view</summary>
       <description>How stacks open: auto (fan for small stacks, grid for large ones), fan, or grid.</description>
@@ -697,12 +702,7 @@
       <summary>Largest fan</summary>
       <description>Most items a fan shows. In auto view, bigger stacks open as a grid.</description>
     </key>
-    <key name="stack-sort" type="s">
-      <choices>
-        <choice value="modified"/>
-        <choice value="name"/>
-        <choice value="kind"/>
-      </choices>
+    <key name="stack-sort" enum="org.gnome.shell.extensions.stackdock.stack-sort">
       <default>'modified'</default>
       <summary>Sort folder stacks by</summary>
       <description>Order of the files in folder stacks: modified (newest first), name, or kind.</description>

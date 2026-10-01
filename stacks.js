@@ -85,6 +85,11 @@ const SCREEN_MARGIN = 8;
 const ARROW_LENGTH = 24;
 const ARROW_DEPTH = 11;
 
+// St.ButtonMask.ONE and THREE are deprecated in Gnome Shell 51, but their new
+// names may be missing in older versions
+const PRIMARY_BUTTON = St.ButtonMask.PRIMARY ?? St.ButtonMask.ONE;
+const SECONDARY_BUTTON = St.ButtonMask.SECONDARY ?? St.ButtonMask.THREE;
+
 const DRAG_THRESHOLD = 12;
 const OPEN_TIME = 180;
 const CLOSE_TIME = 120;
@@ -463,7 +468,12 @@ const StackSource = GObject.registerClass({
         throw new GObject.NotImplementedError();
     }
 
-    async getItems(_cancellable) {
+    /**
+     * The items to show when the stack opens: an array, or a promise of one.
+     *
+     * @param {Gio.Cancellable} _cancellable cancels a slow lookup
+     */
+    getItems(_cancellable) {
         throw new GObject.NotImplementedError();
     }
 
@@ -615,8 +625,7 @@ class FolderStackSource extends StackSource {
     async getItems(cancellable) {
         const items = await this._enumerate(cancellable);
 
-        // Read string keys directly: the settings wrapper maps keys with
-        // <choices> to numbers, as if they were enums
+        // Read the name: the settings wrapper maps enum keys to numbers
         const sortBy = Docking.DockManager.settings.get_string('stack-sort');
         return sortFileItems(items, sortBy).slice(0, MAX_SHOWN);
     }
@@ -708,7 +717,7 @@ class AppFolderStackSource extends StackSource {
         return box;
     }
 
-    async getItems() {
+    getItems() {
         return this.apps.map(app => ({
             name: app.get_name(),
             gicon: app.get_icon() ?? new Gio.ThemedIcon({name: 'application-x-executable'}),
@@ -752,7 +761,7 @@ class DrivesStackSource extends StackSource {
         });
     }
 
-    async getItems() {
+    getItems() {
         return this.apps.map(app => ({
             name: app.get_name(),
             gicon: app.get_icon() ?? new Gio.ThemedIcon({name: 'drive-harddisk'}),
@@ -920,9 +929,14 @@ function activateItem(item) {
         openUri(item.uri);
 }
 
-async function callDBus(busName, objectPath, iface, method, params, replyType = null) {
-    return Gio.DBus.session.call(busName, objectPath, iface, method, params,
-        replyType, Gio.DBusCallFlags.NONE, -1, null);
+function callDBus(busName, objectPath, iface, method, params, replyType = null) {
+    // Report errors through the promise, so callers can always use catch()
+    try {
+        return Gio.DBus.session.call(busName, objectPath, iface, method, params,
+            replyType, Gio.DBusCallFlags.NONE, -1, null);
+    } catch (e) {
+        return Promise.reject(e);
+    }
 }
 
 function showInFiles(uri) {
@@ -957,9 +971,11 @@ function openWith(item) {
 }
 
 function previewFile(uri) {
+    // Current versions of the previewer (Sushi) only offer the second
+    // interface: ShowFile(uri, parent window handle, close if shown, token)
     callDBus('org.gnome.NautilusPreviewer', '/org/gnome/NautilusPreviewer',
-        'org.gnome.NautilusPreviewer', 'ShowFile',
-        new GLib.Variant('(sib)', [uri, 0, false])).catch(e =>
+        'org.gnome.NautilusPreviewer2', 'ShowFile',
+        new GLib.Variant('(ssbs)', [uri, '', false, ''])).catch(e =>
         logError(e, 'StackDock: file preview failed'));
 }
 
@@ -979,7 +995,7 @@ async function filesWindowLocation(metaWindow) {
         '/org/freedesktop/FileManager1', 'org.freedesktop.DBus.Properties', 'Get',
         new GLib.Variant('(ss)', ['org.freedesktop.FileManager1', 'OpenWindowsWithLocations']),
         new GLib.VariantType('(v)'));
-    const windows = reply.recursiveUnpack()[0];
+    const [windows] = reply.recursiveUnpack();
     const objectPath = metaWindow.get_gtk_window_object_path?.();
     const locations = windows[objectPath] ?? Object.values(windows)[0];
     return locations?.length ? Gio.File.new_for_uri(locations[0]) : null;
@@ -1399,7 +1415,7 @@ const StackPopup = GObject.registerClass({
                 this._removeItem(button, item);
             });
         } else if (item.isDrive) {
-            const appInfo = item.app.appInfo;
+            const {appInfo} = item.app;
             const actions = appInfo?.list_actions?.() ?? [];
             if (actions.length)
                 menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
@@ -1463,7 +1479,7 @@ class StackFan extends StackPopup {
         const room = isVertical ? workArea.height : workArea.height / 2;
         const fits = Math.max(1, Math.floor((room - 2 * SCREEN_MARGIN) / FAN_PITCH));
         const {stackFanMax} = Docking.DockManager.settings;
-        const location = this._source.location;
+        const {location} = this._source;
 
         // Keep a row for "Open in Files" when the stack has a folder
         const maxItems = Math.min(stackFanMax, location ? fits - 1 : fits);
@@ -1637,7 +1653,12 @@ class StackGrid extends StackPopup {
 
     _build() {
         const n = this._items.length;
-        this._columns = n <= 9 ? 3 : n <= 16 ? 4 : 5;
+        if (n <= 9)
+            this._columns = 3;
+        else if (n <= 16)
+            this._columns = 4;
+        else
+            this._columns = 5;
 
         this._panel = new St.BoxLayout({
             style_class: 'stackdock-grid',
@@ -1660,10 +1681,14 @@ class StackGrid extends StackPopup {
         });
         this._panel.add_child(this._scrollView);
 
+        let emptyText = __('Nothing here');
+        if (n)
+            emptyText = __('No matches');
+        else if (this._source.location)
+            emptyText = __('This folder is empty');
         this._emptyLabel = new St.Label({
             style_class: 'stackdock-grid-empty',
-            text: n ? __('No matches') : this._source.location
-                ? __('This folder is empty') : __('Nothing here'),
+            text: emptyText,
             x_align: Clutter.ActorAlign.CENTER,
             visible: !n,
         });
@@ -1886,7 +1911,7 @@ class StackGrid extends StackPopup {
      */
     _layout({refit = false} = {}) {
         const {side, isVertical, iconX, iconY, edge, workArea} = this._anchor;
-        const width = this._grid.width;
+        const {width} = this._grid;
         this._panel.width = width;
         this._scrollView.width = width;
         this._scrollView.height = -1;
@@ -2090,7 +2115,7 @@ export const StackIcon = GObject.registerClass({
             track_hover: true,
             x_expand: false,
             y_expand: false,
-            button_mask: St.ButtonMask.ONE | St.ButtonMask.THREE,
+            button_mask: PRIMARY_BUTTON | SECONDARY_BUTTON,
         });
         this._delegate = this;
         this.source = source;
@@ -2233,7 +2258,7 @@ export const StackIcon = GObject.registerClass({
             menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
         }
 
-        const settings = Docking.DockManager.settings;
+        const {settings} = Docking.DockManager;
         const viewItem = new PopupMenu.PopupSubMenuMenuItem(__('View as'));
         for (const [value, label] of [
             ['auto', __('Automatic')],

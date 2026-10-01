@@ -79,9 +79,20 @@ export class WindowPreviewMenu extends PopupMenu.PopupMenu {
             this._redisplay();
             this.open(BoxPointer.PopupAnimation.FULL);
             if (focus)
-                this.actor.navigate_focus(null, St.DirectionType.TAB_FORWARD, false);
+                this._focusActiveWindow();
             this._source.emit('sync-tooltip');
         }
+    }
+
+    // Start keyboard navigation at the window in use, falling back to the first
+    _focusActiveWindow() {
+        const {focusWindow} = global.display;
+        const activeItem = this._previewBox._getMenuItems().find(item =>
+            item._window && item._window === focusWindow);
+        if (activeItem)
+            activeItem.grab_key_focus();
+        else
+            this.actor.navigate_focus(null, St.DirectionType.TAB_FORWARD, false);
     }
 
     _onDestroy() {

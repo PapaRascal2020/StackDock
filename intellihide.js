@@ -126,12 +126,14 @@ export class Intellihide {
     }
 
     _windowCreated(display, metaWindow) {
-        this._addWindowSignals(metaWindow.get_compositor_private());
+        const windowActor = metaWindow.get_compositor_private();
+        if (windowActor)
+            this._addWindowSignals(windowActor);
         this._doCheckOverlap();
     }
 
     _addWindowSignals(wa) {
-        if (!this._handledWindow(wa))
+        if (this._trackedWindows.has(wa) || !this._handledWindow(wa))
             return;
 
         this._trackedWindows.set(wa, [
@@ -176,7 +178,13 @@ export class Intellihide {
 
         this._checkOverlapTimeoutId = GLib.timeout_add(
             GLib.PRIORITY_DEFAULT, INTELLIHIDE_CHECK_INTERVAL, () => {
-                this._doCheckOverlap();
+                // An error here must not leave the timeout id set, or every
+                // later check would be skipped and the dock would stay stuck
+                try {
+                    this._doCheckOverlap();
+                } catch (e) {
+                    logError(e, 'StackDock: intellihide overlap check failed');
+                }
                 if (this._checkOverlapTimeoutContinue) {
                     this._checkOverlapTimeoutContinue = false;
                     return GLib.SOURCE_CONTINUE;
@@ -214,8 +222,12 @@ export class Intellihide {
             if (topWindow) {
                 const {windowTracker} = Docking.DockManager;
                 this._topApp = windowTracker.get_window_app(topWindow);
-                // If there isn't a focused app, use that of the window on top
-                this._focusApp = windowTracker.focus_app || this._topApp;
+                // If there isn't a focused app, use that of the window on top.
+                // wl-clipboard's window takes the focus for a moment, which
+                // should not reveal the dock.
+                const focusWindow = global.display.get_focus_window();
+                this._focusApp = Utils.isClipboardHelperWindow(focusWindow)
+                    ? this._topApp : windowTracker.focus_app || this._topApp;
 
                 windows = windows.filter(this._intellihideFilterInteresting, this);
 
@@ -226,9 +238,9 @@ export class Intellihide {
                         const rect = win.get_frame_rect();
 
                         const test = (rect.x < this._targetBox.x2) &&
-                                   (rect.x + rect.width >= this._targetBox.x1) &&
+                                   (rect.x + rect.width > this._targetBox.x1) &&
                                    (rect.y < this._targetBox.y2) &&
-                                   (rect.y + rect.height >= this._targetBox.y1);
+                                   (rect.y + rect.height > this._targetBox.y1);
 
                         if (test) {
                             overlaps = OverlapStatus.TRUE;
@@ -250,8 +262,11 @@ export class Intellihide {
     // Optionally skip windows of other applications
     _intellihideFilterInteresting(wa) {
         const metaWin = wa.get_meta_window();
+        // Windows that are being unmanaged can have no workspace
+        const workspace = metaWin?.get_workspace();
+        if (!workspace)
+            return false;
         const currentWorkspace = global.workspace_manager.get_active_workspace_index();
-        const workspace = metaWin.get_workspace();
         const workspaceIndex = workspace.index();
 
         // Depending on the intellihide mode, exclude non-relevent windows
@@ -318,6 +333,9 @@ export class Intellihide {
         // so we match its window by application id and window property.
         const wmApp = metaWindow.get_gtk_application_id();
         if (ignoreApps.includes(wmApp) && metaWindow.is_skip_taskbar())
+            return false;
+
+        if (Utils.isClipboardHelperWindow(metaWindow))
             return false;
 
         // The DropDownTerminal extension uses the POPUP_MENU window type hint
