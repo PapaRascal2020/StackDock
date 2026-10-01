@@ -615,8 +615,7 @@ class FolderStackSource extends StackSource {
     async getItems(cancellable) {
         const items = await this._enumerate(cancellable);
 
-        // Read string keys directly: the settings wrapper maps keys with
-        // <choices> to numbers, as if they were enums
+        // Read the name: the settings wrapper maps enum keys to numbers
         const sortBy = Docking.DockManager.settings.get_string('stack-sort');
         return sortFileItems(items, sortBy).slice(0, MAX_SHOWN);
     }
