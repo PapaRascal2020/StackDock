@@ -126,12 +126,14 @@ export class Intellihide {
     }
 
     _windowCreated(display, metaWindow) {
-        this._addWindowSignals(metaWindow.get_compositor_private());
+        const windowActor = metaWindow.get_compositor_private();
+        if (windowActor)
+            this._addWindowSignals(windowActor);
         this._doCheckOverlap();
     }
 
     _addWindowSignals(wa) {
-        if (!this._handledWindow(wa))
+        if (this._trackedWindows.has(wa) || !this._handledWindow(wa))
             return;
 
         this._trackedWindows.set(wa, [
@@ -176,7 +178,13 @@ export class Intellihide {
 
         this._checkOverlapTimeoutId = GLib.timeout_add(
             GLib.PRIORITY_DEFAULT, INTELLIHIDE_CHECK_INTERVAL, () => {
-                this._doCheckOverlap();
+                // An error here must not leave the timeout id set, or every
+                // later check would be skipped and the dock would stay stuck
+                try {
+                    this._doCheckOverlap();
+                } catch (e) {
+                    logError(e, 'StackDock: intellihide overlap check failed');
+                }
                 if (this._checkOverlapTimeoutContinue) {
                     this._checkOverlapTimeoutContinue = false;
                     return GLib.SOURCE_CONTINUE;
@@ -250,8 +258,11 @@ export class Intellihide {
     // Optionally skip windows of other applications
     _intellihideFilterInteresting(wa) {
         const metaWin = wa.get_meta_window();
+        // Windows that are being unmanaged can have no workspace
+        const workspace = metaWin?.get_workspace();
+        if (!workspace)
+            return false;
         const currentWorkspace = global.workspace_manager.get_active_workspace_index();
-        const workspace = metaWin.get_workspace();
         const workspaceIndex = workspace.index();
 
         // Depending on the intellihide mode, exclude non-relevent windows
