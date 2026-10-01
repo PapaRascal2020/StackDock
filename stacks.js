@@ -85,6 +85,11 @@ const SCREEN_MARGIN = 8;
 const ARROW_LENGTH = 24;
 const ARROW_DEPTH = 11;
 
+// St.ButtonMask.ONE and THREE are deprecated in Gnome Shell 51, but their new
+// names may be missing in older versions
+const PRIMARY_BUTTON = St.ButtonMask.PRIMARY ?? St.ButtonMask.ONE;
+const SECONDARY_BUTTON = St.ButtonMask.SECONDARY ?? St.ButtonMask.THREE;
+
 const DRAG_THRESHOLD = 12;
 const OPEN_TIME = 180;
 const CLOSE_TIME = 120;
@@ -2089,7 +2094,7 @@ export const StackIcon = GObject.registerClass({
             track_hover: true,
             x_expand: false,
             y_expand: false,
-            button_mask: St.ButtonMask.ONE | St.ButtonMask.THREE,
+            button_mask: PRIMARY_BUTTON | SECONDARY_BUTTON,
         });
         this._delegate = this;
         this.source = source;
