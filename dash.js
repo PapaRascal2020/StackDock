@@ -343,6 +343,10 @@ export const DockDash = GObject.registerClass({
     }
 
     _onDestroy() {
+        // Destroy the items while the scroll view is still whole: a hovered
+        // item restyles the scroll view as it goes, which otherwise happens
+        // after the scroll view has dropped its adjustments.
+        this._box.destroy_all_children();
         this.iconAnimator.destroy();
 
         if (this._requiresVisibilityTimeout) {
