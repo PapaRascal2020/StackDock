@@ -910,7 +910,10 @@ export const DockDash = GObject.registerClass({
 
         const favorites = AppFavorites.getAppFavorites().getFavoriteMap();
 
-        let running = this._appSystem.get_running();
+        // wl-copy and wl-paste flash a window, which should not get an icon
+        let running = this._appSystem.get_running().filter(app =>
+            !app.is_window_backed() ||
+            !app.get_windows().every(w => Utils.isClipboardHelperWindow(w)));
         const dockManager = Docking.DockManager.getDefault();
         const {settings} = dockManager;
 

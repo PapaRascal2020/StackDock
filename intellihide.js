@@ -222,8 +222,12 @@ export class Intellihide {
             if (topWindow) {
                 const {windowTracker} = Docking.DockManager;
                 this._topApp = windowTracker.get_window_app(topWindow);
-                // If there isn't a focused app, use that of the window on top
-                this._focusApp = windowTracker.focus_app || this._topApp;
+                // If there isn't a focused app, use that of the window on top.
+                // wl-clipboard's window takes the focus for a moment, which
+                // should not reveal the dock.
+                const focusWindow = global.display.get_focus_window();
+                this._focusApp = Utils.isClipboardHelperWindow(focusWindow)
+                    ? this._topApp : windowTracker.focus_app || this._topApp;
 
                 windows = windows.filter(this._intellihideFilterInteresting, this);
 
@@ -329,6 +333,9 @@ export class Intellihide {
         // so we match its window by application id and window property.
         const wmApp = metaWindow.get_gtk_application_id();
         if (ignoreApps.includes(wmApp) && metaWindow.is_skip_taskbar())
+            return false;
+
+        if (Utils.isClipboardHelperWindow(metaWindow))
             return false;
 
         // The DropDownTerminal extension uses the POPUP_MENU window type hint

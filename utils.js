@@ -819,6 +819,18 @@ export function shadeColor(color, factor) {
 }
 
 /**
+ * Whether a window is the invisible one wl-copy and wl-paste open to reach
+ * the clipboard on GNOME. It only lives for a moment and has no app id or
+ * class, so it can only be told apart by its title.
+ *
+ * @param {Meta.Window} metaWindow The window to check
+ * @returns True for wl-clipboard's window
+ */
+export function isClipboardHelperWindow(metaWindow) {
+    return metaWindow?.get_title() === 'wl-clipboard';
+}
+
+/**
  * Specifies if the system supports extended barriers. This function
  * is required for Gnome Shell 45 compatibility, which used
  * `global.display.supports_extended_barriers`. Gnome Shell 46 moved
