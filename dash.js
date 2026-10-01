@@ -1000,7 +1000,6 @@ export const DockDash = GObject.registerClass({
         const addedStacks = this._syncStackItems();
 
         // Temporary remove the separator so that we don't compute to position icons
-        const oldSeparatorPos = this._box.get_children().indexOf(this._separator);
         if (this._separator)
             this._box.remove_child(this._separator);
 
@@ -1114,13 +1113,22 @@ export const DockDash = GObject.registerClass({
                 });
                 this._separator.connect('notify::hover', a => this._ensureItemVisibility(a));
             }
-            let pos = nFavorites + this._animatingPlaceholdersCount;
-            if (this._dragPlaceholder)
-                pos++;
-            const removedFavorites = removedActors.filter(a =>
-                children.indexOf(a) < oldSeparatorPos);
-            pos += removedFavorites.length;
-            this._box.insert_child_at_index(this._separator, pos);
+            // Put the separator right after the last pinned app, or a drag
+            // placeholder among them. Counting positions goes wrong when
+            // icons are moved, as the old ones stay in place while they
+            // animate out. Pinned stacks are then placed before it.
+            const lastPinned = showFavorites && this._box.get_children().findLast(actor =>
+                actor.child?.has_style_class_name?.('placeholder') ||
+                (!actor.animatingOut && !removedActors.includes(actor) &&
+                 actor.child?._delegate?.app?.get_id() in favorites));
+            if (lastPinned) {
+                this._box.insert_child_above(this._separator, lastPinned);
+            } else {
+                let pos = nFavorites + this._animatingPlaceholdersCount;
+                if (this._dragPlaceholder)
+                    pos++;
+                this._box.insert_child_at_index(this._separator, pos);
+            }
         } else if (this._separator) {
             this._separator.destroy();
             this._separator = null;
