@@ -971,9 +971,11 @@ function openWith(item) {
 }
 
 function previewFile(uri) {
+    // Current versions of the previewer (Sushi) only offer the second
+    // interface: ShowFile(uri, parent window handle, close if shown, token)
     callDBus('org.gnome.NautilusPreviewer', '/org/gnome/NautilusPreviewer',
-        'org.gnome.NautilusPreviewer', 'ShowFile',
-        new GLib.Variant('(sib)', [uri, 0, false])).catch(e =>
+        'org.gnome.NautilusPreviewer2', 'ShowFile',
+        new GLib.Variant('(ssbs)', [uri, '', false, ''])).catch(e =>
         logError(e, 'StackDock: file preview failed'));
 }
 
