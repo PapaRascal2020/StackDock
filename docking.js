@@ -517,7 +517,7 @@ const DockedDash = GObject.registerClass({
         this._intellihide.destroy();
         this._themeManager.destroy();
         this._workspaceSwitcherPopup?.destroy();
-        delete this._staticBox;
+        this._staticBox = null;
 
         if (this._marginLater) {
             Utils.laterRemove(this._marginLater);

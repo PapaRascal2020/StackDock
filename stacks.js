@@ -489,6 +489,7 @@ class FolderStackSource extends StackSource {
         this._file = Gio.File.new_for_path(path);
         this._newest = null;
         this._monitor = null;
+        this._monitorChangedId = 0;
         this._refreshId = 0;
 
         Docking.DockManager.settings.connectObject('changed::stack-display-as-stack',
@@ -538,7 +539,8 @@ class FolderStackSource extends StackSource {
             try {
                 this._monitor = this._file.monitor_directory(
                     Gio.FileMonitorFlags.WATCH_MOVES, null);
-                this._monitor.connect('changed', () => this._queueNewestRefresh());
+                this._monitorChangedId = this._monitor.connect('changed',
+                    () => this._queueNewestRefresh());
             } catch (e) {
                 logError(e, `StackDock: could not watch ${this.path}`);
             }
@@ -547,8 +549,12 @@ class FolderStackSource extends StackSource {
     }
 
     _stopWatching() {
-        this._monitor?.cancel();
-        this._monitor = null;
+        if (this._monitor) {
+            this._monitor.disconnect(this._monitorChangedId);
+            this._monitor.cancel();
+            this._monitor = null;
+            this._monitorChangedId = 0;
+        }
         this._newestCancellable?.cancel();
         this._newestCancellable = null;
         if (this._refreshId) {
@@ -1223,6 +1229,7 @@ const StackPopup = GObject.registerClass({
         this._isOpen = false;
         this._endDrag();
         this._releaseGrab();
+        this._destroyClosedMenu();
         this._menuManager = null;
         this._stackIcon.disconnectObject(this);
         Main.overview.disconnectObject(this);
@@ -1430,15 +1437,32 @@ const StackPopup = GObject.registerClass({
         menu.connect('open-state-changed', (_menu, isOpen) => {
             if (isOpen)
                 return;
-            GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
-                menu.destroy();
-                return GLib.SOURCE_REMOVE;
-            });
+            this._destroyMenuLater(menu);
             if (this._menu === menu)
                 this._menu = null;
         });
         this._menu = menu;
         menu.open(BoxPointer.PopupAnimation.FULL);
+    }
+
+    // A menu can't be destroyed from its own open-state-changed handler
+    _destroyMenuLater(menu) {
+        this._destroyClosedMenu();
+        this._closedMenu = menu;
+        this._closedMenuId = GLib.idle_add(GLib.PRIORITY_DEFAULT, () => {
+            this._closedMenuId = 0;
+            this._destroyClosedMenu();
+            return GLib.SOURCE_REMOVE;
+        });
+    }
+
+    _destroyClosedMenu() {
+        if (this._closedMenuId) {
+            GLib.source_remove(this._closedMenuId);
+            this._closedMenuId = 0;
+        }
+        this._closedMenu?.destroy();
+        this._closedMenu = null;
     }
 
     _removeItem(_button, _item) {
