@@ -440,7 +440,7 @@ class RunningIndicatorDots extends RunningIndicatorBase {
 
     destroy() {
         this._area.destroy();
-        delete this._area;
+        this._area = null;
         super.destroy();
     }
 }
